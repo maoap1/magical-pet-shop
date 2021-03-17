@@ -694,7 +694,7 @@ MonoBehaviour:
   button1: {fileID: 8666512272148039371}
   location2: 
   scene2: 
-  button2: {fileID: 4741976715570023508}
+  button2: {fileID: 3639802527272883842}
 --- !u!1 &8597947350370710806
 GameObject:
   m_ObjectHideFlags: 0

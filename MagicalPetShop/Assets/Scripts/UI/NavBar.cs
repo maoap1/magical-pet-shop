@@ -17,7 +17,7 @@ public class NavBar : MonoBehaviour {
     [SerializeField]
     private string scene2;
     [SerializeField]
-    private GameObject button2;
+    private Button button2;
 
     // Start is called before the first frame update
     void Start() {
