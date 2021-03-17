@@ -237,8 +237,9 @@ GameObject:
   - component: {fileID: 252586534224706072}
   - component: {fileID: 1791335281255076799}
   - component: {fileID: 84870264294059337}
+  - component: {fileID: 4349950783412463953}
   m_Layer: 5
-  m_Name: inventoryButton
+  m_Name: InventoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +346,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1791335281255076799}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4349950783412463953}
+        m_TargetAssemblyTypeName: InvButton, Assembly-CSharp
+        m_MethodName: ShowInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4349950783412463953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146892808299320150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3cd009f9747f984b916c5eeb423e0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4275674530963053355
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +717,8 @@ MonoBehaviour:
   location1: 
   scene1: 
   button1: {fileID: 8666512272148039371}
+  inventory: {fileID: 0}
+  inventoryButton: {fileID: 84870264294059337}
   location2: 
   scene2: 
   button2: {fileID: 3639802527272883842}
