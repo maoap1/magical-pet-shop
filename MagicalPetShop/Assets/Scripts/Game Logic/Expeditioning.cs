@@ -15,7 +15,7 @@ public static class Expeditioning
 }
 
 [Serializable]
-public struct Expedition
+public class Expedition
 {
     public float fillRate;
     public List<InventoryAnimal> animals;

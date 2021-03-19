@@ -357,7 +357,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -443,7 +443,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1312.5, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403749741
 MonoBehaviour:
@@ -468,11 +468,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1215
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2160
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498624, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_Camera
@@ -571,7 +571,15 @@ PrefabInstance:
       value: Canvas-BlackBars
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
+      propertyPath: m_ScreenMatchMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}

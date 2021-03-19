@@ -4,21 +4,45 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public struct EssenceProducer
+public class EssenceProducer
 {
     public int level;
     [Tooltip("Units per minute")]
     public int productionRate;
-    public string name;
+    public int essenceAmount;
+    public string essenceName;
+    [NonSerialized]
+    public Sprite essenceIcon;
     [Tooltip("Percent fill rate")]
     public float fillRate;
-    //public static void UpdateResources() {}
-    //public static bool CanUpgrade(string producerName) {}
-    //public static bool Upgrade(string producerName) {}
-}
+    [NonSerialized]
+    public EssenceProducerModel model;
+    public EssenceProducer(EssenceProducerModel model)
+    {
+        this.level = 0;
+        this.productionRate = model.GetProductionRate(0);
+        this.essenceAmount = 0;
+        this.essenceName = model.essence.essenceName;
+        this.essenceIcon = model.essence.icon;
+        this.fillRate = 0;
+        this.model = model;
+    }
+    public EssenceProducer(EssenceProducerModel model, int level)
+    {
+        this.level = level;
+        this.productionRate = model.GetProductionRate(level);
+        this.essenceAmount = 0;
+        this.essenceName = model.essence.essenceName;
+        this.essenceIcon = model.essence.icon;
+        this.fillRate = 0;
+        this.model = model;
+    }
 
-[Serializable]
-public struct EssenceProducers
-{
-    public List<EssenceProducer> producers;
+    public void UpgradeProducer()
+    {
+        Cost upgradeCost = model.GetCost(level + 1);
+        PlayerState.THIS.money -= upgradeCost.money;
+        this.level += 1;
+        this.productionRate = model.GetProductionRate(level);
+    }
 }

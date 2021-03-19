@@ -13,13 +13,13 @@ public static class Inventory
 }
 
 [Serializable]
-public struct InventoryAnimal {
+public class InventoryAnimal {
     public Animal animal;
     public int count;
 }
 
 [Serializable]
-public struct InventoryArtifact
+public class InventoryArtifact
 {
     public Artifact artifact;
     public int count;
@@ -30,7 +30,7 @@ public struct Cost
 {
     public List<InventoryAnimal> animals;
     public List<InventoryArtifact> artifacts;
-    public Essences resources;
+    public List<EssenceCount> resources;
     public int money;
 }
 public enum Rarity
