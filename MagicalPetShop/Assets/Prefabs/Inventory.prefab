@@ -2350,6 +2350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalsGrid: {fileID: 249782528805971752}
+  animalSlot: {fileID: 6636645156529528860, guid: 53a3c4b2b469b8e45b9b90c8525659ed, type: 3}
 --- !u!1 &6261697904409417042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,6 +5847,10 @@ PrefabInstance:
     - target: {fileID: 6636645156529528860, guid: 53a3c4b2b469b8e45b9b90c8525659ed, type: 3}
       propertyPath: m_Name
       value: AnimalSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636645156529528860, guid: 53a3c4b2b469b8e45b9b90c8525659ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7182371442046771912, guid: 53a3c4b2b469b8e45b9b90c8525659ed, type: 3}
       propertyPath: m_AnchorMax.y

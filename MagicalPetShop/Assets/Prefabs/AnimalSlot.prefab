@@ -761,6 +761,7 @@ GameObject:
   - component: {fileID: 7023574766033452459}
   - component: {fileID: 5879592683205491551}
   - component: {fileID: 7370927402529909159}
+  - component: {fileID: 7726809310023987780}
   m_Layer: 5
   m_Name: AnimalSlot
   m_TagString: Untagged
@@ -855,6 +856,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &7726809310023987780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636645156529528860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b811db461d95840a0d41a137367a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: {fileID: 3605706548617776406}
+  value: {fileID: 3202393052592600630}
+  image: {fileID: 173682575761861617}
+  count: {fileID: 7387075977727738396}
 --- !u!1 &7413282018292955402
 GameObject:
   m_ObjectHideFlags: 0
