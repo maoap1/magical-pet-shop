@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "PetShop/Recipe")]
@@ -38,6 +39,11 @@ public enum RecipeUpgradeType
     rarityUpgrade,
     durationUpgrade,
     unlockRecipeUpgrade
+}
+
+[CustomPropertyDrawer(typeof(RecipeLevel))]
+public class RecipeLevelEditor : PropertyDrawer
+{
 }
 
 [System.Serializable]

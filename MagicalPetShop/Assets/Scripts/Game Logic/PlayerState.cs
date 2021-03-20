@@ -101,7 +101,7 @@ public class PlayerState : MonoBehaviour
         }
         foreach (CraftedAnimal craftedAnimal in crafting)
         {
-            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.recipe.duration;
+            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.recipe.GetRecipeLevel(0).duration;
         }
     }
 

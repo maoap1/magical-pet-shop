@@ -13,10 +13,4 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   animal: {fileID: 11400000, guid: 575c70a1a95406249ba126f3ccced2c8, type: 2}
-  cost:
-    animals: []
-    artifacts: []
-    resources: []
-    money: 0
-  duration: 100
-  progression: 0
+  recipeLevels: []
