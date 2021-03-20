@@ -75,16 +75,16 @@ public static class Inventory
         else PlayerState.THIS.artifacts.Add(artifact);
     }
 
-    private static void AddToInventory(Essences essences) {
-        foreach (Essence essence in essences.essences) {
-            AddToInventory(essence);
+    private static void AddToInventory(List<EssenceAmount> essenceAmounts) {
+        foreach (EssenceAmount essenceAmount in essenceAmounts) {
+            AddToInventory(essenceAmount);
         }
     }
 
-    private static void AddToInventory(Essence essence) {
-        var result = PlayerState.THIS.resources.essences.Find(otherEssence => essence == otherEssence);
-        if (result != null) result.essenceCount.Item2 += essence.essenceCount.Item2;
-        else PlayerState.THIS.resources.essences.Add(essence);
+    private static void AddToInventory(EssenceAmount essenceAmount) {
+        var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
+        if (result != null) result.amount += essenceAmount.amount;
+        else PlayerState.THIS.resources.Add(essenceAmount);
     }
 
     private static void AddToInventory(int money) {
@@ -111,19 +111,18 @@ public static class Inventory
         }
     }
 
-    private static void TakeFromInventory(Essences essences) {
+    private static void TakeFromInventory(List<EssenceAmount> essenceAmounts) {
         // without checking that there are enough items in the inventory
-        foreach (Essence essence in essences.essences) {
-            TakeFromInventory(essence);
+        foreach (EssenceAmount essenceAmount in essenceAmounts) {
+            TakeFromInventory(essenceAmount);
         }
     }
 
-    private static void TakeFromInventory(Essence essence) {
+    private static void TakeFromInventory(EssenceAmount essenceAmount) {
         // without checking that there are enough items in the inventory
-        var result = PlayerState.THIS.resources.essences.Find(otherEssence => essence == otherEssence);
+        var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
         if (result != null) {
-            result.essenceCount.Item2 -= essence.essenceCount.Item2;
-            if (result.essenceCount.Item2 <= 0) PlayerState.THIS.resources.essences.Remove(result);
+            result.amount -= essenceAmount.amount;
         }
     }
 
@@ -144,16 +143,16 @@ public static class Inventory
         return result != null && result.count >= artifact.count;
     }
 
-    private static bool HasInInventory(Essences essences) {
-        foreach (Essence essence in essences.essences) {
-            if (!HasInInventory(essence)) return false;
+    private static bool HasInInventory(List<EssenceAmount> essenceAmounts) {
+        foreach (EssenceAmount essenceAmount in essenceAmounts) {
+            if (!HasInInventory(essenceAmount)) return false;
         }
         return true;
     }
 
-    private static bool HasInInventory(Essence essence) {
-        var result = PlayerState.THIS.resources.essences.Find(otherEssence => essence == otherEssence);
-        return result != null && result.essenceCount.Item2 >= essence.essenceCount.Item2;
+    private static bool HasInInventory(EssenceAmount essenceAmount) {
+        var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
+        return result != null && result.amount >= essenceAmount.amount;
     }
 
     private static bool HasInInventory(int money) {
