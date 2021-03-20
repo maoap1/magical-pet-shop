@@ -6,11 +6,12 @@ using System;
 [CreateAssetMenu(fileName = "Essence", menuName = "PetShop/Essence")]
 public class Essence : ScriptableObject, IEquatable<Essence>
 {
-    public (string, int) essenceCount;
+    public Sprite icon;
+    public string essenceName;
 
     public bool Equals(Essence other) {
         if (other == null) return false;
-        return this.essenceCount.Item1 == other.essenceCount.Item1;
+        return this.essenceName == other.essenceName;
     }
 
     public override bool Equals(object obj) {
@@ -22,7 +23,7 @@ public class Essence : ScriptableObject, IEquatable<Essence>
     }
 
     public override int GetHashCode() {
-        return this.essenceCount.Item1.GetHashCode();
+        return this.essenceName.GetHashCode();
     }
 
     public static bool operator ==(Essence essence1, Essence essence2) {
@@ -33,5 +34,30 @@ public class Essence : ScriptableObject, IEquatable<Essence>
 
     public static bool operator !=(Essence essence1, Essence essence2) {
         return !(essence1 == essence2);
+    }
+}
+
+
+[Serializable]
+public class EssenceAmount
+{
+    [SerializeReference]
+    public Essence essence;
+    public int amount;
+    [HideInInspector]
+    public bool full = false;
+
+    public void IncreaseAmount(int increase)
+    {
+        amount += increase;
+        if (amount>999)
+        {
+            amount = 999;
+            full = true;
+        }
+        else
+        {
+            full = false;
+        }
     }
 }

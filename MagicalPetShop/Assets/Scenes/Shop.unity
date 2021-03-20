@@ -571,7 +571,15 @@ PrefabInstance:
       value: Canvas-BlackBars
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
+      propertyPath: m_ScreenMatchMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498687, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}

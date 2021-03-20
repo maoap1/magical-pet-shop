@@ -210,6 +210,7 @@ public static class Inventory
 [Serializable]
 public class InventoryAnimal : IEquatable<InventoryAnimal> {
     public Animal animal;
+    public Rarity rarity;
     public int count;
 
     public bool Equals(InventoryAnimal other) {
@@ -278,7 +279,7 @@ public struct Cost
 {
     public List<InventoryAnimal> animals;
     public List<InventoryArtifact> artifacts;
-    public Essences resources;
+    public List<EssenceAmount> resources;
     public int money;
 }
 public enum Rarity

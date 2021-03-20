@@ -11,12 +11,11 @@ public static class Crafting
     // try to start crafting
     //public static bool StartCrafting(Recipe recipe) { }
     // Try to finish crafting currently going on
-    //public static void TryFinishingCrafting() { }
 }
 
 [Serializable]
-public struct CraftedAnimal
+public class CraftedAnimal
 {
-    float fillRate;
-    Recipe recipe;
+    public float fillRate;
+    public RecipeProgress recipe;
 }

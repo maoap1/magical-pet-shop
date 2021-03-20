@@ -15,7 +15,7 @@ public class GameLogic : ScriptableObject
             _THIS = GameObject.FindObjectOfType<GameLogic>();
             if (_THIS == null)
             {
-                _THIS = Resources.FindObjectsOfTypeAll<GameLogic>()[0];
+                _THIS = Resources.Load<GameLogic>("Game Logic");
             }
             GameObject.DontDestroyOnLoad(_THIS);
             return _THIS;
@@ -24,19 +24,16 @@ public class GameLogic : ScriptableObject
 
     public List<Recipe> recipes;
     public List<ExpeditionType> expeditions;
-    public List<ProductionLevel> productionLevels;
     public int startingMoney;
-    public Essences startingResources;
-    public EssenceProducers startingProducers;
+    public List<EssenceAmount> startingResources;
+    public List<ModelAndLevel> startingProducerLevels;
     public List<InventoryAnimal> startingAnimals;
     public List<InventoryArtifact> startingArtifacts;
 }
 
 [Serializable]
-public class ProductionLevel
+public struct ModelAndLevel
 {
+    public EssenceProducerModel model;
     public int level;
-    public int productionRate;
-    public string name;
-    public Cost cost;
 }
