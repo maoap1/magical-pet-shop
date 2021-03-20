@@ -17,5 +17,5 @@ public static class Crafting
 public class CraftedAnimal
 {
     public float fillRate;
-    public Recipe recipe;
+    public RecipeProgress recipe;
 }

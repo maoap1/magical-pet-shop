@@ -7,42 +7,40 @@ using System;
 public class EssenceProducer
 {
     public int level;
-    [Tooltip("Units per minute")]
-    public int productionRate;
-    public int essenceAmount;
-    public string essenceName;
-    [NonSerialized]
-    public Sprite essenceIcon;
+    public float productionRate
+    {
+        get { return model.GetProductionRate(level); }
+    }
+    [SerializeReference]
+    public EssenceAmount essenceAmount;
     [Tooltip("Percent fill rate")]
     public float fillRate;
-    [NonSerialized]
+    [SerializeReference]
     public EssenceProducerModel model;
     public EssenceProducer(EssenceProducerModel model)
     {
         this.level = 0;
-        this.productionRate = model.GetProductionRate(0);
-        this.essenceAmount = 0;
-        this.essenceName = model.essence.essenceName;
-        this.essenceIcon = model.essence.icon;
+        this.essenceAmount = new EssenceAmount();
+        this.essenceAmount.amount = 0;
+        this.essenceAmount.essence = model.essence;
         this.fillRate = 0;
         this.model = model;
     }
     public EssenceProducer(EssenceProducerModel model, int level)
     {
         this.level = level;
-        this.productionRate = model.GetProductionRate(level);
-        this.essenceAmount = 0;
-        this.essenceName = model.essence.essenceName;
-        this.essenceIcon = model.essence.icon;
+        this.essenceAmount = new EssenceAmount();
+        this.essenceAmount.amount = 0;
+        this.essenceAmount.essence = model.essence;
         this.fillRate = 0;
         this.model = model;
     }
 
     public void UpgradeProducer()
     {
-        Cost upgradeCost = model.GetCost(level + 1);
-        PlayerState.THIS.money -= upgradeCost.money;
+        int upgradeCost = model.GetCost(level + 1);
+        PlayerState.THIS.money -= upgradeCost;
         this.level += 1;
-        this.productionRate = model.GetProductionRate(level);
+        PlayerState.THIS.Save();
     }
 }

@@ -10,8 +10,8 @@ public class UpgradeProducer : MonoBehaviour
     public TextMeshProUGUI name;
     public TextMeshProUGUI productionRate;
     public TextMeshProUGUI essenceInStock;
-    public GameObject costPanel;
-    public GameObject costPrefab;
+    public TextMeshProUGUI cost;
+    public GameObject upgradePanel;
     public Button upgrade;
     [HideInInspector]
     public EssenceProducer producer;
@@ -19,15 +19,25 @@ public class UpgradeProducer : MonoBehaviour
     public List<GameObject> objectsToAppear;
     public List<GameObject> objectsToHide;
 
-    private Cost upgradeCost;
+    private int upgradeCost;
 
     public void Update()
     {
-        essenceInStock.text = producer.essenceAmount.ToString();
+        essenceInStock.text = producer.essenceAmount.amount.ToString();
+        if (PlayerState.THIS.money > upgradeCost)
+        {
+            cost.color = Color.black;
+            upgrade.interactable = true;
+        }
+        else
+        {
+            cost.color = Color.red;
+            upgrade.interactable = false;
+        }
     }
     public void Open(Essence e)
     {
-        producer = PlayerState.THIS.producers.Find(x => x.essenceName == e.essenceName);
+        producer = PlayerState.THIS.producers.Find(x => x.essenceAmount.essence.essenceName == e.essenceName);
         this.gameObject.SetActive(true);
         foreach (GameObject g in objectsToAppear)
         {
@@ -43,21 +53,19 @@ public class UpgradeProducer : MonoBehaviour
     private void UpdateInfo()
     {
         productionRate.text = producer.productionRate.ToString();
-        name.text = producer.essenceName;
-        image.sprite = producer.essenceIcon;
+        name.text = producer.essenceAmount.essence.essenceName;
+        image.sprite = producer.essenceAmount.essence.icon;
         upgradeCost = producer.model.GetCost(producer.level + 1);
-        foreach (Transform child in costPanel.transform)
+        if (upgradeCost == -1)
         {
-            GameObject.Destroy(child.gameObject);
+            upgradePanel.SetActive(false);
         }
-        ResourceCost cm = Instantiate(costPrefab, costPanel.transform).GetComponent<ResourceCost>();
-        cm.SetCost(image.sprite, upgradeCost.money);
-        foreach (EssenceCount es in upgradeCost.resources)
+        else
         {
-            ResourceCost ce = Instantiate(costPrefab, costPanel.transform).GetComponent<ResourceCost>();
-            ce.SetCost(es.essence.icon, es.count);
+            upgradePanel.SetActive(true);
+            cost.text = upgradeCost.ToString();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(upgradePanel.GetComponent<RectTransform>());
         }
-        LayoutRebuilder.ForceRebuildLayoutImmediate(costPanel.GetComponent<RectTransform>());
     }
 
     public void Close()
@@ -75,7 +83,7 @@ public class UpgradeProducer : MonoBehaviour
 
     public void Upgrade()
     {
-        if (PlayerState.THIS.money > upgradeCost.money)
+        if (PlayerState.THIS.money > upgradeCost)
         {
             producer.UpgradeProducer();
         }

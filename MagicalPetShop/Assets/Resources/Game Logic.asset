@@ -14,20 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipes: []
   expeditions: []
-  startingMoney: 100
+  startingMoney: 1000
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
-    count: 10
+    amount: 0
+    full: 0
   - essence: {fileID: 11400000, guid: 15726f3ae81acdc49aa641e34c3eb18d, type: 2}
-    count: 10
+    amount: 0
+    full: 0
   - essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
-    count: 10
+    amount: 0
+    full: 0
   - essence: {fileID: 11400000, guid: 91eee898d52a2734aa9817eae5043bd5, type: 2}
-    count: 10
+    amount: 0
+    full: 0
   - essence: {fileID: 11400000, guid: 2bc5d06e3596974448f89d3d719369f4, type: 2}
-    count: 10
+    amount: 0
+    full: 0
   - essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
-    count: 10
+    amount: 0
+    full: 0
   startingProducerLevels:
   - model: {fileID: 11400000, guid: f073e56364a1d4a4886bb609b9acd027, type: 2}
     level: 0

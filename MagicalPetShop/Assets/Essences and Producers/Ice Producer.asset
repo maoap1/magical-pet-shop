@@ -14,39 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
   producerLevels:
-  - cost:
-      animals: []
-      artifacts: []
-      resources: []
-      money: 0
+  - cost: 0
     productionRate: 0
-  - cost:
-      animals: []
-      artifacts: []
-      resources: []
-      money: 10
+  - cost: 10
     productionRate: 1
-  - cost:
-      animals: []
-      artifacts: []
-      resources: []
-      money: 50
+  - cost: 20
     productionRate: 2
-  - cost:
-      animals: []
-      artifacts: []
-      resources: []
-      money: 100
+  - cost: 50
     productionRate: 3
-  - cost:
-      animals: []
-      artifacts: []
-      resources: []
-      money: 200
+  - cost: 100
     productionRate: 5
-  - cost:
-      animals: []
-      artifacts: []
-      resources: []
-      money: 500
+  - cost: 200
     productionRate: 8

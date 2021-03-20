@@ -9,6 +9,9 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Don't set in editor")]
     public int money;
     [Tooltip("Don't set in editor")]
+    [SerializeReference]
+    public List<EssenceAmount> resources;
+    [Tooltip("Don't set in editor")]
     public List<EssenceProducer> producers;
     [Tooltip("Don't set in editor")]
     public List<InventoryAnimal> animals;
@@ -61,21 +64,23 @@ public class PlayerState : MonoBehaviour
         {
             this.money = GameLogic.THIS.startingMoney;
             this.producers = new List<EssenceProducer>();
+            this.resources = new List<EssenceAmount>();
             foreach (var p in GameLogic.THIS.startingProducerLevels)
             {
                 this.producers.Add(new EssenceProducer(p.model, p.level));
             }
             foreach (var rc in GameLogic.THIS.startingResources)
             {
-                EssenceProducer p = producers.Find(x => x.essenceName == rc.essence.name);
-                p.essenceAmount = rc.count;
+                EssenceProducer p = producers.Find(x => x.essenceAmount.essence.essenceName == rc.essence.name);
+                p.essenceAmount.amount = rc.amount;
+                resources.Add(p.essenceAmount);
             }
             this.animals = GameLogic.THIS.startingAnimals;
             this.artifacts = GameLogic.THIS.startingArtifacts;
             this.expeditions = new List<Expedition>();
             this.crafting = new List<CraftedAnimal>();
             this.playerTime = Utils.EpochTime();
-            //Save();
+            Save();
         }
     }
 
@@ -90,13 +95,13 @@ public class PlayerState : MonoBehaviour
             if (producers[i].fillRate>=1)
             {
                 int increaseAmount = (int)Mathf.Floor(producers[i].fillRate);
-                producers[i].essenceAmount += increaseAmount;
+                producers[i].essenceAmount.IncreaseAmount(increaseAmount);
                 producers[i].fillRate -= increaseAmount;
             }
         }
         foreach (CraftedAnimal craftedAnimal in crafting)
         {
-            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.duration;
+            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.recipe.duration;
         }
     }
 

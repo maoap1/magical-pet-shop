@@ -16,7 +16,7 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerClickHandler
         readyMessage.SetActive(false);
         progressRing.gameObject.SetActive(true);
         finished = false;
-        animalImage.sprite = craftedAnimal.recipe.animal.artwork;
+        animalImage.sprite = craftedAnimal.recipe.recipe.animal.artwork;
         if (!PlayerState.THIS.crafting.Contains(craftedAnimal))
         {
             PlayerState.THIS.crafting.Add(craftedAnimal);

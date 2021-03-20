@@ -25,17 +25,10 @@ public class GameLogic : ScriptableObject
     public List<Recipe> recipes;
     public List<ExpeditionType> expeditions;
     public int startingMoney;
-    public List<EssenceCount> startingResources;
+    public List<EssenceAmount> startingResources;
     public List<ModelAndLevel> startingProducerLevels;
     public List<InventoryAnimal> startingAnimals;
     public List<InventoryArtifact> startingArtifacts;
-}
-
-[Serializable]
-public struct EssenceCount
-{
-    public Essence essence;
-    public int count;
 }
 
 [Serializable]

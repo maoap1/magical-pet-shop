@@ -7,15 +7,15 @@ public class EssenceProducerModel : ScriptableObject
 {
     public Essence essence;
     public List<EssenceProducerLevel> producerLevels;
-    public int GetProductionRate(int level) { return producerLevels[level].productionRate; }
-    public Cost GetCost(int level) { return producerLevels[level].cost; }
+    public float GetProductionRate(int level) { if (level < producerLevels.Count) { return producerLevels[level].productionRate; } else { return -1; } }
+    public int GetCost(int level) { if (level < producerLevels.Count) { return producerLevels[level].cost; } else { return -1; } }
 }
 
 [System.Serializable]
 public class EssenceProducerLevel
 {
-    [Tooltip("Cost to buy this level")]
-    public Cost cost;
+    [Tooltip("Cost to buy this level - money")]
+    public int cost;
     [Tooltip("Units per minute")]
-    public int productionRate;
+    public float productionRate;
 }

@@ -30,7 +30,7 @@ public struct Cost
 {
     public List<InventoryAnimal> animals;
     public List<InventoryArtifact> artifacts;
-    public List<EssenceCount> resources;
+    public List<EssenceAmount> resources;
     public int money;
 }
 public enum Rarity

@@ -6,8 +6,44 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     public Animal animal;
+    public List<RecipeLevel> recipeLevels;
+    public RecipeLevel GetRecipeLevel(int animalsProduced)
+    {
+        RecipeLevel result = null;
+        foreach (RecipeLevel level in recipeLevels)
+        {
+            if (animalsProduced > level.treshold)
+            {
+                result = level;
+            }
+        }
+        return result;
+    }
+}
+
+[System.Serializable]
+public class RecipeLevel
+{
+    public RecipeUpgradeType upgradeType;
+    public int treshold;
     public Cost cost;
-    [Tooltip("Duration in seconds")]
+    public Rarity rarity;
+    public Recipe unlockedRecipe;
     public int duration;
-    public int progression;
+}
+
+public enum RecipeUpgradeType
+{
+    costUpgrade,
+    rarityUpgrade,
+    durationUpgrade,
+    unlockRecipeUpgrade
+}
+
+[System.Serializable]
+public class RecipeProgress
+{
+    public int AnimalsProduced;
+    [SerializeReference]
+    public Recipe recipe;
 }
