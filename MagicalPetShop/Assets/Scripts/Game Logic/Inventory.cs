@@ -5,7 +5,6 @@ using System;
 
 public static class Inventory
 {
-    // TODO Implement Methods
 
     public static List<InventoryAnimal> GetOrderedAnimals() {
         // TODO: Remove the following line when PLayerState is initialized correctly
@@ -19,7 +18,26 @@ public static class Inventory
         // TODO: Remove the following line when PLayerState is initialized correctly
         if (PlayerState.THIS.artifacts == null)
             return new List<InventoryArtifact>();
-        // TODO: Artifacts don't have value - what is the correct order?
+        // descending order according to level of an expedition, where the artifact is a reward
+        PlayerState.THIS.artifacts.Sort((a1, a2) => {
+            int lvl1 = 0, lvl2 = 0;
+            bool lvl1Found = false, lvl2Found = false;
+            foreach (ExpeditionType expedition in GameLogic.THIS.expeditions) {
+                foreach (InventoryArtifact artifact in expedition.rewards) {
+                    if (!lvl1Found && artifact == a1) {
+                        lvl1 = expedition.level;
+                        lvl1Found = true;
+                    }
+                    if (!lvl2Found && artifact == a2) {
+                        lvl2 = expedition.level;
+                        lvl2Found = true;
+                    }
+                    if (lvl1Found && lvl2Found) break;
+                }
+                if (lvl1Found && lvl2Found) break;
+            }
+            return lvl2.CompareTo(lvl1);
+        });
         return PlayerState.THIS.artifacts;
     }
 
