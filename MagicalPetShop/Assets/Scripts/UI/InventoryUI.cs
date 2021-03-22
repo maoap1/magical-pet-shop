@@ -12,6 +12,12 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     private GameObject animalSlot;
 
+    [SerializeField]
+    private GridLayoutGroup artifactsGrid;
+
+    [SerializeField]
+    private GameObject artifactSlot;
+
     public void Refresh() {
         // clear everything
         Clear();
@@ -20,6 +26,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     private void DisplayItems() {
+        // display animals
         var animals = Inventory.GetOrderedAnimals();
         foreach (InventoryAnimal animal in animals) {
             GameObject newSlot = Instantiate(animalSlot) as GameObject;
@@ -27,12 +34,25 @@ public class InventoryUI : MonoBehaviour
             newSlot.SetActive(true);
             newSlot.transform.SetParent(animalsGrid.transform, false);
         }
+        // display artifacts
+        var artifacts = Inventory.GetOrderedArtifacts();
+        foreach (InventoryArtifact artifact in artifacts) {
+            GameObject newSlot = Instantiate(artifactSlot) as GameObject;
+            newSlot.GetComponent<ArtifactSlot>().SetArtifact(artifact);
+            newSlot.SetActive(true);
+            newSlot.transform.SetParent(artifactsGrid.transform, false);
+        }
     }
 
     private void Clear() {
+        // clear animals
         int c = animalsGrid.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(animalsGrid.transform.GetChild(i).gameObject);
+        // clear artifacts
+        c = artifactsGrid.transform.childCount;
+        for (int i = c - 1; i >= 0; i--)
+            GameObject.Destroy(artifactsGrid.transform.GetChild(i).gameObject);
     }
 
     // Start is called before the first frame update
