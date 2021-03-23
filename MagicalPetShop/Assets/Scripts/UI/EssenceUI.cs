@@ -16,7 +16,6 @@ public class EssenceUI : MonoBehaviour
 
     public void Refresh() {
         if (PlayerState.THIS.producers != null) {
-            Debug.Log("Count of producers:  " + PlayerState.THIS.producers.Count);
             foreach (EssenceProducer producer in PlayerState.THIS.producers) {
                 if (producer.essenceAmount.essence == this.essence) {
                     // set count
