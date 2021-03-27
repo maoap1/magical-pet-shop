@@ -22,7 +22,6 @@ public class GameLogic : ScriptableObject
         }
     }
 
-    public List<Recipe> recipes;
     public List<ExpeditionType> expeditions;
     public int startingMoney;
     public int startingDiamonds;
@@ -30,6 +29,7 @@ public class GameLogic : ScriptableObject
     public List<ModelAndLevel> startingProducerLevels;
     public List<InventoryAnimal> startingAnimals;
     public List<InventoryArtifact> startingArtifacts;
+    public List<RecipeProgress> startingRecipes;
 }
 
 [Serializable]

@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 [CreateAssetMenu(fileName = "Animal", menuName = "PetShop/Animal")]
-public class Animal : ScriptableObject, IEquatable<Animal>
+public class Animal : ScriptableObject
 {
     public string name;
     public int level;
@@ -13,10 +12,12 @@ public class Animal : ScriptableObject, IEquatable<Animal>
     public LocationType category;
     public List<LocationType> secondaryCategories;
     public Sprite artwork;
+<<<<<<< Updated upstream
+=======
 
     public bool Equals(Animal other) {
         if (other == null) return false;
-        return this.name == other.name && this.rarity == other.rarity && this.value == other.value;
+        return this.name == other.name && this.value == other.value;
     }
 
     public override bool Equals(object obj) {
@@ -31,7 +32,6 @@ public class Animal : ScriptableObject, IEquatable<Animal>
         unchecked { // overflow does not matter
             int hash = 17;
             hash = hash * 23 + this.name.GetHashCode();
-            hash = hash * 23 + this.rarity.GetHashCode();
             hash = hash * 23 + this.value.GetHashCode();
             return hash;
         }
@@ -46,4 +46,5 @@ public class Animal : ScriptableObject, IEquatable<Animal>
     public static bool operator !=(Animal animal1, Animal animal2) {
         return !(animal1 == animal2);
     }
+>>>>>>> Stashed changes
 }
