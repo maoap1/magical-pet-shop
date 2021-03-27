@@ -39,7 +39,7 @@ public class UpperPanelUI : MonoBehaviour {
             if (this.playerState.animals == null)
                 maxLevel = 0;
             else {
-                foreach (InventoryAnimal animal in PlayerState.THIS.animals) {
+                foreach (InventoryAnimal animal in this.playerState.animals) {
                     if (animal.animal.level > maxLevel) maxLevel = animal.animal.level;
                 }
             }
