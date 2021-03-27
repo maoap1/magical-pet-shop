@@ -21,6 +21,8 @@ public class PlayerState : MonoBehaviour
     public List<Expedition> expeditions;
     [Tooltip("Don't set in editor")]
     public List<CraftedAnimal> crafting;
+    [Tooltip("Don't set in editor")]
+    public List<RecipeProgress> recipes;
     public long playerTime;
 
     private static PlayerState _THIS;
@@ -101,7 +103,7 @@ public class PlayerState : MonoBehaviour
         }
         foreach (CraftedAnimal craftedAnimal in crafting)
         {
-            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.recipe.GetRecipeLevel(0).duration;
+            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.duration;
         }
     }
 

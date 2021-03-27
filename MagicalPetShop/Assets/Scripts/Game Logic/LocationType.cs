@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Location Type", menuName = "PetShop/Location Type")]
 public class LocationType : ScriptableObject
 {
-    string name;
-    Sprite artwork;
+    public string name;
+    public Sprite artwork;
 }

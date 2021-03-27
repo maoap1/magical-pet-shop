@@ -13,4 +13,17 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   animal: {fileID: 11400000, guid: 575c70a1a95406249ba126f3ccced2c8, type: 2}
-  recipeLevels: []
+  baseCostEssences: []
+  baseCostArtifacts: []
+  baseCostAnimals: []
+  baseRarity: 1
+  baseDuration: 20
+  recipeLevels:
+  - treshold: 5
+    upgradeType: 5
+    costEssencesDecrease: []
+    costArtifactsDecrease: []
+    costAnimalsDecrease: []
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
