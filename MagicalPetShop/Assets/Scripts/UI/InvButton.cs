@@ -14,8 +14,7 @@ public class InvButton : MonoBehaviour
     }
 
     public void ShowInventory() {
-        this._inventoryUI.Refresh();
-        this._inventory.SetActive(true);
+        this._inventoryUI.Open();
     }
 
     // Start is called before the first frame update

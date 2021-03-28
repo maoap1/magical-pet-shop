@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryUI : MonoBehaviour
-{
+public class InventoryUI : MonoBehaviour {
+
+    public List<GameObject> objectsToHide;
 
     [SerializeField]
     private GridLayoutGroup animalsGrid;
@@ -20,6 +21,21 @@ public class InventoryUI : MonoBehaviour
 
     [SerializeField]
     private EssencesUI essencesUI;
+
+    public void Open() {
+        Refresh();
+        this.gameObject.SetActive(true);
+        foreach (GameObject g in objectsToHide) {
+            g.SetActive(false);
+        }
+    }
+
+    public void Close() {
+        foreach (GameObject g in objectsToHide) {
+            g.SetActive(true);
+        }
+        this.gameObject.SetActive(false);
+    }
 
     public void Refresh() {
         // clear everything
