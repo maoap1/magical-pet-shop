@@ -14,7 +14,7 @@ public class ConditionalEnumHidePropertyDrawer : PropertyDrawer
 
         bool wasEnabled = GUI.enabled;
         GUI.enabled = ((condHAtt.EnumValue1 == enumValue) || (condHAtt.EnumValue2 == enumValue));
-        if (!condHAtt.HideInInspector || (condHAtt.EnumValue1 == enumValue) || (condHAtt.EnumValue2 == enumValue))
+        if ((condHAtt.EnumValue1 == enumValue) || (condHAtt.EnumValue2 == enumValue))
         {
             EditorGUI.PropertyField(position, property, label, true);
         }
@@ -27,7 +27,7 @@ public class ConditionalEnumHidePropertyDrawer : PropertyDrawer
         ConditionalEnumHideAttribute condHAtt = (ConditionalEnumHideAttribute)attribute;
         int enumValue = GetConditionalHideAttributeResult(condHAtt, property);
 
-        if (!condHAtt.HideInInspector || (condHAtt.EnumValue1 == enumValue) || (condHAtt.EnumValue2 == enumValue))
+        if ((condHAtt.EnumValue1 == enumValue) || (condHAtt.EnumValue2 == enumValue))
         {
             return EditorGUI.GetPropertyHeight(property, label);
         }

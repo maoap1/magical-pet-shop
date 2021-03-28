@@ -12,8 +12,6 @@ public class Animal : ScriptableObject
     public LocationType category;
     public List<LocationType> secondaryCategories;
     public Sprite artwork;
-<<<<<<< Updated upstream
-=======
 
     public bool Equals(Animal other) {
         if (other == null) return false;
@@ -46,5 +44,4 @@ public class Animal : ScriptableObject
     public static bool operator !=(Animal animal1, Animal animal2) {
         return !(animal1 == animal2);
     }
->>>>>>> Stashed changes
 }
