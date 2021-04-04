@@ -239,7 +239,6 @@ public static class Inventory
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact.artifact); // equality based on name
         return result != null && result.count >= count;
     }
-
     #endregion
 }
 
@@ -295,6 +294,7 @@ public class InventoryAnimal {
     public static bool operator !=(InventoryAnimal animal1, InventoryAnimal animal2) {
         return !(animal1 == animal2);
     }
+
 }
 
 [Serializable]
@@ -312,7 +312,6 @@ public struct Cost
     public List<EssenceAmount> resources;
     public int money;
 }
-
 public enum Rarity
 {
     Common = 0,

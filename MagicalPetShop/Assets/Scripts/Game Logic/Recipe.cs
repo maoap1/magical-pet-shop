@@ -169,11 +169,13 @@ public class RecipeLevel
 {
     public int treshold;
     public RecipeUpgradeType upgradeType;
-    [ConditionalEnumHide("upgradeType", 0)]
+    //Hide everythong except 0
+    //Property drawer doesn't work on lists
+    //[ConditionalEnumHide("upgradeType", 0)]
     public List<EssenceAmount> costEssencesDecrease;
-    [ConditionalEnumHide("upgradeType", 1)]
+    //[ConditionalEnumHide("upgradeType", 1)]
     public List<InventoryArtifact> costArtifactsDecrease;
-    [ConditionalEnumHide("upgradeType", 2)]
+    //[ConditionalEnumHide("upgradeType", 2)]
     public List<InventoryAnimal> costAnimalsDecrease;
     //[ConditionalEnumHide("upgradeType", 3)]
     public Rarity newRarity;

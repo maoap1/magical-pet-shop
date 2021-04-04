@@ -9,6 +9,8 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Don't set in editor")]
     public int money;
     [Tooltip("Don't set in editor")]
+    public int diamonds;
+    [Tooltip("Don't set in editor")]
     [SerializeReference]
     public List<EssenceAmount> resources;
     [Tooltip("Don't set in editor")]
