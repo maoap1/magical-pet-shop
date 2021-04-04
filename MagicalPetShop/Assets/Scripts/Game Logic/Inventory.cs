@@ -5,13 +5,6 @@ using System;
 
 public static class Inventory
 {
-<<<<<<< Updated upstream
-    // TODO Implement Methods
-    //public static bool TakeFromInventory(Cost cost){}
-    //public static bool HasInInventory(Cost cost){}
-    //public static List<InventoryAnimal> GetOrderedAnimals(){}
-    //public static List<InventoryArtifact> GetOrderedArtifacts() {}
-=======
 
     public static List<InventoryAnimal> GetOrderedAnimals() {
         // TODO: Remove the following line when PLayerState is initialized correctly
@@ -246,17 +239,14 @@ public static class Inventory
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact.artifact); // equality based on name
         return result != null && result.count >= count;
     }
-
     #endregion
->>>>>>> Stashed changes
 }
 
 [Serializable]
 public class InventoryAnimal {
     public Animal animal;
     public int count;
-<<<<<<< Updated upstream
-=======
+    public Rarity rarity;
 
     public bool Equals(InventoryAnimal other) {
         if (other == null) return false;
@@ -304,7 +294,7 @@ public class InventoryAnimal {
     public static bool operator !=(InventoryAnimal animal1, InventoryAnimal animal2) {
         return !(animal1 == animal2);
     }
->>>>>>> Stashed changes
+
 }
 
 [Serializable]
