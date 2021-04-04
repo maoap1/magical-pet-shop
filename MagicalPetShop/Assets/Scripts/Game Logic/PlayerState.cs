@@ -11,6 +11,8 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Don't set in editor")]
     public int diamonds;
     [Tooltip("Don't set in editor")]
+    public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
+    [Tooltip("Don't set in editor")]
     [SerializeReference]
     public List<EssenceAmount> resources;
     [Tooltip("Don't set in editor")]
@@ -67,6 +69,8 @@ public class PlayerState : MonoBehaviour
         else
         {
             this.money = GameLogic.THIS.startingMoney;
+            this.diamonds = GameLogic.THIS.startingDiamonds;
+            this.level = 1;
             this.producers = new List<EssenceProducer>();
             this.resources = new List<EssenceAmount>();
             foreach (var p in GameLogic.THIS.startingProducerLevels)

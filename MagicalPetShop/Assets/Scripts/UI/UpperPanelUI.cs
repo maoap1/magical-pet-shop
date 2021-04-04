@@ -34,18 +34,9 @@ public class UpperPanelUI : MonoBehaviour {
             this.money.text = "0";
             this.diamonds.text = "0";
         } else {
-            // TODO: Displayed level should correspond to the player's level (for now, the highest level of player's animals is displayed)
-            int maxLevel = 0;
-            if (this.playerState.animals == null)
-                maxLevel = 0;
-            else {
-                foreach (InventoryAnimal animal in this.playerState.animals) {
-                    if (animal.animal.level > maxLevel) maxLevel = animal.animal.level;
-                }
-            }
-            this.level.text = maxLevel.ToString();
-            this.money.text = PlayerState.THIS.money.ToString();
-            this.diamonds.text = PlayerState.THIS.diamonds.ToString();
+            this.level.text = this.playerState.level.ToString();
+            this.money.text = this.playerState.money.ToString();
+            this.diamonds.text = this.playerState.diamonds.ToString();
         }
     }
 }
