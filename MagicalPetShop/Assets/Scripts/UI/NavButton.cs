@@ -7,14 +7,8 @@ using UnityEngine.SceneManagement;
 public class NavButton : MonoBehaviour
 {
 
-    private string scene = "shop";
-
-    public void SetScene(string sceneName) {
-        this.scene = sceneName;
-    }
-
-    public void LoadScene() {
-        SceneManager.LoadScene(this.scene);
+    public void LoadScene(string sceneName) {
+        SceneManager.LoadScene(sceneName);
     }
 
     // Start is called before the first frame update

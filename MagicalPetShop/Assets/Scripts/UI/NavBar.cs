@@ -6,33 +6,30 @@ using UnityEngine.UI;
 public class NavBar : MonoBehaviour {
 
     [SerializeField]
-    private string location1;
-    [SerializeField]
-    private string scene1;
-    [SerializeField]
-    private Button button1;
+    private List<GameObject> buttons;
 
     [SerializeField]
-    private GameObject inventory;
+    private InventoryUI inventory;
     [SerializeField]
-    private Button inventoryButton;
+    private PackLeadersUI packLeaders;
 
     [SerializeField]
-    private string location2;
+    private HorizontalLayoutGroup layout;
     [SerializeField]
-    private string scene2;
+    private InvButton inventoryButton;
     [SerializeField]
-    private Button button2;
+    private LeadersButton leadersButton;
 
     // Start is called before the first frame update
     void Start() {
-        button1.GetComponent<NavButton>().SetScene(scene1);
-        button1.GetComponentInChildren<Text>().text = location1;
-
-        inventoryButton.GetComponent<InvButton>().SetInventory(inventory);
-
-        button2.GetComponent<NavButton>().SetScene(scene2);
-        button2.GetComponentInChildren<Text>().text = location2;
+        if (inventory != null)
+            inventoryButton.SetInventory(inventory);
+        if (packLeaders != null)
+            leadersButton.SetPackLeaders(packLeaders);
+        foreach (GameObject button in this.buttons) {
+            button.transform.SetParent(this.layout.transform, false);
+            button.SetActive(true);
+        }
     }
 
     // Update is called once per frame
