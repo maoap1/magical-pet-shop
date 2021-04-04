@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
-  recipes: []
   expeditions: []
   startingMoney: 1000
+  startingDiamonds: 0
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
     amount: 0
@@ -48,4 +48,9 @@ MonoBehaviour:
   - model: {fileID: 11400000, guid: 991983f5431ea1e4ba5298c899baac37, type: 2}
     level: 0
   startingAnimals: []
-  startingArtifacts: []
+  startingArtifacts:
+  - artifact: {fileID: 11400000, guid: 1226160c1514b6d40821acfb8d03fbf2, type: 2}
+    count: 50
+  startingRecipes:
+  - animalsProduced: 0
+    recipe: {fileID: 11400000, guid: 2c9cfccf8e547834cb3a5db4bde4295b, type: 2}

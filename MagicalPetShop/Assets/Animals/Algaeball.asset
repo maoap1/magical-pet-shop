@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d3c13d24b778314f9321e6bc1c1fdcf, type: 3}
-  m_Name: AnimalTest
+  m_Name: Algaeball
   m_EditorClassIdentifier: 
-  name: OctoMonkey
+  name: Algaeball
   level: 2
-  rarity: 0
-  value: 56
-  category: {fileID: 11400000, guid: 03969312de10df84ea1d66bb16f925bf, type: 2}
-  secondaryCategories: []
-  artwork: {fileID: 21300000, guid: 47b436ad7b7115a4c9a3800a0cf747d4, type: 3}
+  value: 8
+  category: {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}
+  secondaryCategories:
+  - {fileID: 11400000, guid: 8def009ffd11eea4fbdf5bfd7871d28d, type: 2}
+  artwork: {fileID: 21300000, guid: 00f45a0da33788b46be21440dc26841b, type: 3}

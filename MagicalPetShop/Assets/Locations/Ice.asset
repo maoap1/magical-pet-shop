@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75deee4ed4231cf47ac9acd0278b1c82, type: 3}
-  m_Name: Tree Climbing
+  m_Name: Ice
   m_EditorClassIdentifier: 
-  name: Climbing
-  artwork: {fileID: 21300000, guid: 47b436ad7b7115a4c9a3800a0cf747d4, type: 3}
+  name: Ice
+  artwork: {fileID: 21300000, guid: fe55a371ebb4b7945873ec4660df5d58, type: 3}

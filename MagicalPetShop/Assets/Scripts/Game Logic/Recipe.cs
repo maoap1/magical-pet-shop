@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -29,7 +30,15 @@ public class Recipe : ScriptableObject
 
     public List<EssenceAmount> getEssences(int animalsProduced)
     {
-        List<EssenceAmount> essences = baseCostEssences;
+        List<EssenceAmount> essences = new List<EssenceAmount>();
+        foreach (EssenceAmount ea in baseCostEssences)
+        {
+            EssenceAmount eaCreated = new EssenceAmount();
+            eaCreated.essence = ea.essence;
+            eaCreated.amount = ea.amount;
+
+            essences.Add(eaCreated);
+        }
         for (int i = 0; i < recipeLevels.Count; i++)
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.decreaseEssences)
@@ -54,7 +63,15 @@ public class Recipe : ScriptableObject
 
     public List<InventoryArtifact> getArtifacts(int animalsProduced)
     {
-        List<InventoryArtifact> artifacts = baseCostArtifacts;
+        List<InventoryArtifact> artifacts = new List<InventoryArtifact>();
+        foreach (InventoryArtifact ia in baseCostArtifacts)
+        {
+            InventoryArtifact iaCreated = new InventoryArtifact();
+            iaCreated.artifact = ia.artifact;
+            iaCreated.count = ia.count;
+
+            artifacts.Add(iaCreated);
+        }
         for (int i = 0; i < recipeLevels.Count; i++)
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.decreaseArtifacts)
@@ -79,7 +96,15 @@ public class Recipe : ScriptableObject
 
     public List<InventoryAnimal> getAnimals(int animalsProduced)
     {
-        List<InventoryAnimal> animals = baseCostAnimals;
+        List<InventoryAnimal> animals = new List<InventoryAnimal>();
+        foreach (InventoryAnimal ia in baseCostAnimals)
+        {
+            InventoryAnimal iaCreated = new InventoryAnimal();
+            iaCreated.animal = ia.animal;
+            iaCreated.count = ia.count;
+
+            animals.Add(iaCreated);
+        }
         for (int i = 0; i < recipeLevels.Count; i++)
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.decreaseAnimals)
@@ -131,7 +156,7 @@ public class Recipe : ScriptableObject
     public Recipe getUnlockedRecipe(int animalsProduced)
     {
         int level = getCurrentLevel(animalsProduced);
-        if (recipeLevels[level].treshold == animalsProduced)
+        if (level >= 0 && recipeLevels[level].treshold == animalsProduced)
         {
             return recipeLevels[level].unlockedRecipe;
         }
@@ -150,22 +175,12 @@ public class RecipeLevel
     public List<InventoryArtifact> costArtifactsDecrease;
     [ConditionalEnumHide("upgradeType", 2)]
     public List<InventoryAnimal> costAnimalsDecrease;
-    [ConditionalEnumHide("upgradeType", 3)]
+    //[ConditionalEnumHide("upgradeType", 3)]
     public Rarity newRarity;
-    [ConditionalEnumHide("upgradeType", 4)]
+    //[ConditionalEnumHide("upgradeType", 4)]
     public int durationDecrease;
-    [ConditionalEnumHide("upgradeType", 5)]
+    //[ConditionalEnumHide("upgradeType", 5)]
     public Recipe unlockedRecipe;
-}
-
-public enum RecipeUpgradeType
-{
-    decreaseEssences = 0,
-    decreaseArtifacts = 1,
-    decreaseAnimals = 2,
-    changeRarity = 3,
-    decreaseDuration = 4,
-    unlockRecipe = 5
 }
 
 [System.Serializable]
@@ -174,9 +189,14 @@ public class RecipeProgress
     public int animalsProduced;
     [SerializeReference]
     public Recipe recipe;
-    public float duration
+
+    public Animal animal
     {
-        get { return (float)recipe.getDuration(animalsProduced); }
+        get { return recipe.animal; }
+    }
+    public int duration
+    {
+        get { return recipe.getDuration(animalsProduced); }
     }
     public Rarity rarity
     {
@@ -196,18 +216,55 @@ public class RecipeProgress
         get { return recipe.getAnimals(animalsProduced); }
     }
 
+    public int level
+    {
+        get { return recipe.getCurrentLevel(animalsProduced);  }
+    }
+
+    public RecipeUpgradeType? nextUpgradeType
+    {
+        get {
+            if (level + 1 < recipe.recipeLevels.Count) {
+                return recipe.recipeLevels[level + 1].upgradeType;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+
     public float progress
     {
         get {
-            if (recipe.getCurrentLevel(animalsProduced) + 1 < recipe.recipeLevels.Count)
+            if (level + 1 < recipe.recipeLevels.Count)
             {
-                return ((float)recipe.recipeLevels[recipe.getCurrentLevel(animalsProduced)].treshold - (float)animalsProduced) /
-                    ((float)recipe.recipeLevels[recipe.getCurrentLevel(animalsProduced)+1].treshold - (float)recipe.recipeLevels[recipe.getCurrentLevel(animalsProduced)].treshold);
+                if (level == -1)
+                {
+                    return (float)animalsProduced / (float)recipe.recipeLevels[level + 1].treshold;
+                }
+                else
+                {
+                    return ((float)animalsProduced - (float)recipe.recipeLevels[level].treshold) /
+                        ((float)recipe.recipeLevels[level + 1].treshold - (float)recipe.recipeLevels[level].treshold);
+                }
             }
             else
             {
                 return -1;
             }
+        }
+    }
+
+    public void animalProduced()
+    {
+        animalsProduced++;
+        if (recipe.getUnlockedRecipe(animalsProduced)!=null)
+        {
+            RecipeProgress rp = new RecipeProgress();
+            rp.animalsProduced = 0;
+            rp.recipe = recipe.getUnlockedRecipe(animalsProduced);
+            PlayerState.THIS.recipes.Add(rp);
         }
     }
 }

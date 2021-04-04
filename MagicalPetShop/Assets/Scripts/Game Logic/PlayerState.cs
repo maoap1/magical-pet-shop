@@ -77,8 +77,31 @@ public class PlayerState : MonoBehaviour
                 p.essenceAmount.amount = rc.amount;
                 resources.Add(p.essenceAmount);
             }
-            this.animals = GameLogic.THIS.startingAnimals;
-            this.artifacts = GameLogic.THIS.startingArtifacts;
+            this.animals = new List<InventoryAnimal>();
+            foreach (var a in GameLogic.THIS.startingAnimals)
+            {
+                InventoryAnimal ia = new InventoryAnimal();
+                ia.animal = a.animal;
+                ia.count = a.count;
+                ia.rarity = a.rarity;
+                animals.Add(ia);
+            }
+            this.artifacts = new List<InventoryArtifact>();
+            foreach (var a in GameLogic.THIS.startingArtifacts)
+            {
+                InventoryArtifact ia = new InventoryArtifact();
+                ia.artifact = a.artifact;
+                ia.count = a.count;
+                artifacts.Add(ia);
+            }
+            this.recipes = new List<RecipeProgress>();
+            foreach (var rp in GameLogic.THIS.startingRecipes)
+            {
+                RecipeProgress r = new RecipeProgress();
+                r.recipe = rp.recipe;
+                r.animalsProduced = rp.animalsProduced;
+                recipes.Add(r);
+            }
             this.expeditions = new List<Expedition>();
             this.crafting = new List<CraftedAnimal>();
             this.playerTime = Utils.EpochTime();
@@ -103,7 +126,7 @@ public class PlayerState : MonoBehaviour
         }
         foreach (CraftedAnimal craftedAnimal in crafting)
         {
-            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.recipe.duration;
+            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
         }
     }
 

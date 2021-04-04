@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class RecipeSelection : MonoBehaviour
 {
+    public RecipeInfo recipeInfo;
     public GameObject recipesPanel;
 
     public List<GameObject> objectsToAppear;
     public List<GameObject> objectsToHide;
 
+    public RecipeLocationFilter defaultRecipeCategory;
+
     private int upgradeCost;
 
     public void Open()
     {
-        Debug.Log("clicked");
         this.gameObject.SetActive(true);
         foreach (GameObject g in objectsToAppear)
         {
@@ -23,6 +25,7 @@ public class RecipeSelection : MonoBehaviour
         {
             g.SetActive(false);
         }
+        defaultRecipeCategory.Display();
     }
 
     public void Close()
