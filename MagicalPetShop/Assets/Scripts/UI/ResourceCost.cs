@@ -8,9 +8,125 @@ public class ResourceCost : MonoBehaviour
 {
     public Image icon;
     public TextMeshProUGUI costText;
+
+    private InventoryAnimal animalCost;
+    private InventoryArtifact artifactCost;
+    private EssenceAmount essenceCost;
+    private int moneyCost;
+    private ResourceType resourceType = ResourceType.Money;
+    private float updateTime = 0;
     public void SetCost(Sprite icon, int cost)
     {
         this.icon.sprite = icon;
         costText.text = cost.ToString();
     }
+
+    public void SetCost(InventoryAnimal inventoryAnimal)
+    {
+        this.icon.sprite = inventoryAnimal.animal.artwork;
+        costText.text = inventoryAnimal.count.ToString();
+        animalCost = inventoryAnimal;
+        resourceType = ResourceType.Animal;
+    }
+
+    public void SetCost(InventoryArtifact inventoryArtifact)
+    {
+        this.icon.sprite = inventoryArtifact.artifact.artwork;
+        costText.text = inventoryArtifact.count.ToString();
+        artifactCost = inventoryArtifact;
+        resourceType = ResourceType.Artifact;
+    }
+
+    public void SetCost(EssenceAmount essenceAmount)
+    {
+        this.icon.sprite = essenceAmount.essence.icon;
+        costText.text = essenceAmount.amount.ToString();
+        essenceCost = essenceAmount; 
+        resourceType = ResourceType.Essence;
+    }
+
+    public void SetCost(int money)
+    {
+        this.icon.sprite = GameGraphics.THIS.money;
+        costText.text = money.ToString();
+        moneyCost = money;
+        resourceType = ResourceType.Money;
+    }
+
+    public void SetCostTime(int value)
+    {
+        this.icon.sprite = GameGraphics.THIS.time;
+        string text = (value % 60).ToString() + "s";
+        value /= 60;
+        if (value != 0)
+        {
+            text = (value % 60).ToString() + "min " + text;
+        }
+        value /= 60;
+        if (value != 0)
+        {
+            text = (value).ToString() + "h " + text;
+        }
+        resourceType = ResourceType.Other;
+    }
+
+    public void Update()
+    {
+        if (Time.time - updateTime > 1)
+        {
+            updateTime = Time.time;
+            switch (resourceType)
+            {
+                case ResourceType.Animal:
+                    if (Inventory.HasInInventory(animalCost))
+                    {
+                        costText.color = Color.black;
+                    }
+                    else
+                    {
+                        costText.color = Color.red;
+                    }
+                    break;
+                case ResourceType.Artifact:
+                    if (Inventory.HasInInventory(artifactCost))
+                    {
+                        costText.color = Color.black;
+                    }
+                    else
+                    {
+                        costText.color = Color.red;
+                    }
+                    break;
+                case ResourceType.Essence:
+                    if (Inventory.HasInInventory(essenceCost))
+                    {
+                        costText.color = Color.black;
+                    }
+                    else
+                    {
+                        costText.color = Color.red;
+                    }
+                    break;
+                case ResourceType.Money:
+                    if (Inventory.HasInInventory(moneyCost))
+                    {
+                        costText.color = Color.black;
+                    }
+                    else
+                    {
+                        costText.color = Color.red;
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+public enum ResourceType
+{
+    Animal,
+    Artifact,
+    Essence,
+    Money,
+    Other
 }

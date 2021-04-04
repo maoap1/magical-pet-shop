@@ -18,4 +18,6 @@ public class CraftedAnimal
 {
     public float fillRate;
     public RecipeProgress recipe;
+    public Rarity rarity;
+    public float duration;
 }

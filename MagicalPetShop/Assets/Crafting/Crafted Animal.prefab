@@ -84,7 +84,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftedAnimal:
     fillRate: 0.6
-    recipe: {fileID: 11400000, guid: 2eb378cbd9d57f54f8f53e8ccb9f0147, type: 2}
+    recipe:
+      animalsProduced: 0
+      recipe: {fileID: 0}
   progressRing: {fileID: 5340954029213058949}
   readyMessage: {fileID: 1267618550802598304}
   animalImage: {fileID: 216833560740549272}

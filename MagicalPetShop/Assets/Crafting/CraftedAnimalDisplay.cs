@@ -37,16 +37,22 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerClickHandler
                 progressRing.fillRate = craftedAnimal.fillRate;
             }
         }
+        if (PlayerState.THIS.crafting.Find(x => x == craftedAnimal) == null)
+        {
+            Destroy(this.gameObject);
+        }
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (finished)
         {
-            Debug.Log("Collecting");
-        }
-        else
-        {
-            Debug.Log("Not finished");
+            InventoryAnimal ia = new InventoryAnimal();
+            ia.animal = craftedAnimal.recipe.animal;
+            ia.count = 1;
+            ia.rarity = craftedAnimal.rarity;
+            Inventory.AddToInventory(ia);
+            PlayerState.THIS.crafting.Remove(craftedAnimal);
+            Destroy(this.gameObject);
         }
     }
 }

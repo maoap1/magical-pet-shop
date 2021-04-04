@@ -5,6 +5,13 @@ using System;
 
 public static class Inventory
 {
+<<<<<<< Updated upstream
+    // TODO Implement Methods
+    //public static bool TakeFromInventory(Cost cost){}
+    //public static bool HasInInventory(Cost cost){}
+    //public static List<InventoryAnimal> GetOrderedAnimals(){}
+    //public static List<InventoryArtifact> GetOrderedArtifacts() {}
+=======
 
     public static List<InventoryAnimal> GetOrderedAnimals() {
         // TODO: Remove the following line when PLayerState is initialized correctly
@@ -81,99 +88,118 @@ public static class Inventory
 
 
 
-    private static void AddToInventory(InventoryAnimal animal) {
+    public static void AddToInventory(InventoryAnimal animal) {
         var result = PlayerState.THIS.animals.Find(otherAnimal => animal == otherAnimal); // equality based on name, value and rarity
         if (result != null) result.count += animal.count;
         else PlayerState.THIS.animals.Add(animal);
     }
 
-    private static void AddToInventory(InventoryArtifact artifact) {
+    public static void AddToInventory(InventoryArtifact artifact) {
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact); // equality based on name
         if (result != null) result.count += artifact.count;
         else PlayerState.THIS.artifacts.Add(artifact);
     }
 
-    private static void AddToInventory(List<EssenceAmount> essenceAmounts) {
+    public static void AddToInventory(List<EssenceAmount> essenceAmounts) {
         foreach (EssenceAmount essenceAmount in essenceAmounts) {
             AddToInventory(essenceAmount);
         }
     }
 
-    private static void AddToInventory(EssenceAmount essenceAmount) {
+    public static void AddToInventory(EssenceAmount essenceAmount) {
         var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
         if (result != null) result.amount += essenceAmount.amount;
         else PlayerState.THIS.resources.Add(essenceAmount);
     }
 
-    private static void AddToInventory(int money) {
+    public static void AddToInventory(int money) {
         PlayerState.THIS.money += money;
     }
 
 
 
-    private static void TakeFromInventory(InventoryAnimal animal) {
-        // without checking that there are enough items in the inventory
-        var result = PlayerState.THIS.animals.Find(otherAnimal => animal == otherAnimal); // equality based on name, value and rarity
-        if (result != null) {
-            result.count -= animal.count;
-            if (result.count <= 0) PlayerState.THIS.animals.Remove(result);
+    public static void TakeFromInventory(InventoryAnimal animal) {
+        List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal <= otherAnimal); // the same name and greater or equal rarity
+        if (result != null && HasInInventory(animal)) {
+            result.Sort((r1, r2) => r1.rarity.CompareTo(r2.rarity));
+            int cost = animal.count;
+            for (int i = 0; i < result.Count; i++)
+            {
+                result[i].count -= cost;
+                if (result[i].count <= 0) {
+                    cost = -result[i].count;
+                    PlayerState.THIS.animals.Remove(result[i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
     }
 
-    private static void TakeFromInventory(InventoryArtifact artifact) {
-        // without checking that there are enough items in the inventory
+    public static void TakeFromInventory(InventoryArtifact artifact) {
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact); // equality based on name
-        if (result != null) {
+        if (result != null && HasInInventory(artifact)) {
             result.count -= artifact.count;
             if (result.count <= 0) PlayerState.THIS.artifacts.Remove(result);
         }
     }
 
-    private static void TakeFromInventory(List<EssenceAmount> essenceAmounts) {
-        // without checking that there are enough items in the inventory
-        foreach (EssenceAmount essenceAmount in essenceAmounts) {
-            TakeFromInventory(essenceAmount);
+    public static void TakeFromInventory(List<EssenceAmount> essenceAmounts) {
+        if (HasInInventory(essenceAmounts))
+        {
+            foreach (EssenceAmount essenceAmount in essenceAmounts)
+            {
+                TakeFromInventory(essenceAmount);
+            }
         }
     }
 
-    private static void TakeFromInventory(EssenceAmount essenceAmount) {
-        // without checking that there are enough items in the inventory
+    public static void TakeFromInventory(EssenceAmount essenceAmount) {
         var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
-        if (result != null) {
+        if (result != null && HasInInventory(essenceAmount)) {
             result.amount -= essenceAmount.amount;
         }
     }
 
-    private static void TakeFromInventory(int money) {
-        // without checking that there are enough items in the inventory
-        PlayerState.THIS.money -= money;
+    public static void TakeFromInventory(int money) {
+        if (HasInInventory(money))
+        {
+            PlayerState.THIS.money -= money;
+        }
     }
 
 
 
-    private static bool HasInInventory(InventoryAnimal animal) {
-        var result = PlayerState.THIS.animals.Find(otherAnimal => animal == otherAnimal); // equality based on name, value and rarity
-        return result != null && result.count >= animal.count;
+    public static bool HasInInventory(InventoryAnimal animal) {
+        List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal <= otherAnimal); // the same animal at least rarity specified in the input
+        int count = 0;
+        foreach (InventoryAnimal ia in result)
+        {
+            count += ia.count;
+        }
+        return result != null && count >= animal.count;
     }
 
-    private static bool HasInInventory(InventoryArtifact artifact) {
+    public static bool HasInInventory(InventoryArtifact artifact) {
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact); // equality based on name
         return result != null && result.count >= artifact.count;
     }
 
-    private static bool HasInInventory(List<EssenceAmount> essenceAmounts) {
+    public static bool HasInInventory(List<EssenceAmount> essenceAmounts) {
         foreach (EssenceAmount essenceAmount in essenceAmounts) {
             if (!HasInInventory(essenceAmount)) return false;
         }
         return true;
     }
 
-    private static bool HasInInventory(EssenceAmount essenceAmount) {
+    public static bool HasInInventory(EssenceAmount essenceAmount) {
         var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
         return result != null && result.amount >= essenceAmount.amount;
     }
 
-    private static bool HasInInventory(int money) {
+    public static bool HasInInventory(int money) {
         return PlayerState.THIS.money >= money;
     }
 
@@ -222,17 +248,25 @@ public static class Inventory
     }
 
     #endregion
+>>>>>>> Stashed changes
 }
 
 [Serializable]
-public class InventoryAnimal : IEquatable<InventoryAnimal> {
+public class InventoryAnimal {
     public Animal animal;
-    public Rarity rarity;
     public int count;
+<<<<<<< Updated upstream
+=======
 
     public bool Equals(InventoryAnimal other) {
         if (other == null) return false;
-        return this.animal == other.animal;
+        return this.animal == other.animal && rarity == other.rarity;
+    }
+
+    public bool GreaterOrEqual(InventoryAnimal other)
+    {
+        if (other == null) return false;
+        return this.animal == other.animal && rarity>=other.rarity;
     }
 
     public override bool Equals(object obj) {
@@ -247,6 +281,20 @@ public class InventoryAnimal : IEquatable<InventoryAnimal> {
         return this.animal.GetHashCode();
     }
 
+    public static bool operator >=(InventoryAnimal animal1, InventoryAnimal animal2)
+    {
+        if (((object)animal1) == null || ((object)animal2) == null)
+            return object.Equals(animal1, animal2);
+        return animal1.GreaterOrEqual(animal2);
+    }
+
+    public static bool operator <=(InventoryAnimal animal1, InventoryAnimal animal2)
+    {
+        if (((object)animal1) == null || ((object)animal2) == null)
+            return object.Equals(animal1, animal2);
+        return animal2.GreaterOrEqual(animal1);
+    }
+
     public static bool operator ==(InventoryAnimal animal1, InventoryAnimal animal2) {
         if (((object)animal1) == null || ((object)animal2) == null)
             return object.Equals(animal1, animal2);
@@ -256,39 +304,14 @@ public class InventoryAnimal : IEquatable<InventoryAnimal> {
     public static bool operator !=(InventoryAnimal animal1, InventoryAnimal animal2) {
         return !(animal1 == animal2);
     }
+>>>>>>> Stashed changes
 }
 
 [Serializable]
-public class InventoryArtifact : IEquatable<InventoryArtifact> {
+public class InventoryArtifact
+{
     public Artifact artifact;
     public int count;
-
-    public bool Equals(InventoryArtifact other) {
-        if (other == null) return false;
-        return this.artifact == other.artifact;
-    }
-
-    public override bool Equals(object obj) {
-        if (obj == null) return false;
-
-        InventoryArtifact other = obj as InventoryArtifact;
-        if (other == null) return false;
-        else return Equals(other);
-    }
-
-    public override int GetHashCode() {
-        return this.artifact.GetHashCode();
-    }
-
-    public static bool operator ==(InventoryArtifact artifact1, InventoryArtifact artifact2) {
-        if (((object)artifact1) == null || ((object)artifact2) == null)
-            return object.Equals(artifact1, artifact2);
-        return artifact1.Equals(artifact2);
-    }
-
-    public static bool operator !=(InventoryArtifact artifact1, InventoryArtifact artifact2) {
-        return !(artifact1 == artifact2);
-    }
 }
 
 [Serializable]
@@ -301,9 +324,9 @@ public struct Cost
 }
 public enum Rarity
 {
-    Common,
-    Great,
-    Flawless,
-    Epic,
-    Legendary
+    Common = 0,
+    Great = 1,
+    Flawless = 2,
+    Epic = 3,
+    Legendary = 4
 }

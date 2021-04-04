@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a7219b0344612a0468c4e96ce6f40b75
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - money: {fileID: 21300000, guid: 9610fe6aa08b2564eadde3b423b93e15, type: 3}
+  - decreaseEssences: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - decreaseArtifacts: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - decreaseAnimals: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - changeRarity: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - decreaseDuration: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - unlockRecipe: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
