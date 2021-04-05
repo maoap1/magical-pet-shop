@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Game Graphics
   m_EditorClassIdentifier: 
   money: {fileID: 21300000, guid: 9610fe6aa08b2564eadde3b423b93e15, type: 3}
+  time: {fileID: 21300000, guid: c659c8e0b99160d459673ceb368f262e, type: 3}
   decreaseEssences: {fileID: 21300000, guid: 9610fe6aa08b2564eadde3b423b93e15, type: 3}
   decreaseArtifacts: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   decreaseAnimals: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}

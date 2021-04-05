@@ -43,16 +43,14 @@ public class Recipe : ScriptableObject
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.decreaseEssences)
             {
-                foreach (EssenceAmount amount in recipeLevels[i].costEssencesDecrease)
+                EssenceAmount amount = recipeLevels[i].costEssenceDecrease;
+                EssenceAmount changedAmount = essences.Find(x => x.essence == amount.essence);
+                if (changedAmount != null)
                 {
-                    EssenceAmount changedAmount = essences.Find(x => x.essence == amount.essence);
-                    if (changedAmount != null)
+                    changedAmount.amount -= amount.amount;
+                    if (changedAmount.amount <= 0)
                     {
-                        changedAmount.amount -= amount.amount;
-                        if (changedAmount.amount <= 0)
-                        {
-                            essences.Remove(changedAmount);
-                        }
+                        essences.Remove(changedAmount);
                     }
                 }
             }
@@ -76,16 +74,14 @@ public class Recipe : ScriptableObject
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.decreaseArtifacts)
             {
-                foreach (InventoryArtifact amount in recipeLevels[i].costArtifactsDecrease)
+                InventoryArtifact amount = recipeLevels[i].costArtifactDecrease;
+                InventoryArtifact changedAmount = artifacts.Find(x => x.artifact == amount.artifact);
+                if (changedAmount != null)
                 {
-                    InventoryArtifact changedAmount = artifacts.Find(x => x.artifact == amount.artifact);
-                    if (changedAmount != null)
+                    changedAmount.count -= amount.count;
+                    if (changedAmount.count <= 0)
                     {
-                        changedAmount.count -= amount.count;
-                        if (changedAmount.count <= 0)
-                        {
-                            artifacts.Remove(changedAmount);
-                        }
+                        artifacts.Remove(changedAmount);
                     }
                 }
             }
@@ -109,16 +105,14 @@ public class Recipe : ScriptableObject
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.decreaseAnimals)
             {
-                foreach (InventoryAnimal amount in recipeLevels[i].costAnimalsDecrease)
+                InventoryAnimal amount = recipeLevels[i].costAnimalDecrease;             
+                InventoryAnimal changedAmount = animals.Find(x => x.animal == amount.animal);
+                if (changedAmount != null)
                 {
-                    InventoryAnimal changedAmount = animals.Find(x => x.animal == amount.animal);
-                    if (changedAmount != null)
+                    changedAmount.count -= amount.count;
+                    if (changedAmount.count <= 0)
                     {
-                        changedAmount.count -= amount.count;
-                        if (changedAmount.count <= 0)
-                        {
-                            animals.Remove(changedAmount);
-                        }
+                         animals.Remove(changedAmount);
                     }
                 }
             }
@@ -130,13 +124,15 @@ public class Recipe : ScriptableObject
     public int getDuration(int animalsProduced)
     {
         int duration = baseDuration;
+        int durationDecrease = 0;
         for (int i = 0; i < recipeLevels.Count; i++)
         {
             if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType==RecipeUpgradeType.decreaseDuration)
             {
-                duration -= recipeLevels[i].durationDecrease;
+                durationDecrease += recipeLevels[i].durationDecrease;
             }
         }
+        duration -= (int)(baseDuration * (float)durationDecrease / (float)100);
         return duration;
     }
 
@@ -169,19 +165,17 @@ public class RecipeLevel
 {
     public int treshold;
     public RecipeUpgradeType upgradeType;
-    //Hide everythong except 0
-    //Property drawer doesn't work on lists
-    //[ConditionalEnumHide("upgradeType", 0)]
-    public List<EssenceAmount> costEssencesDecrease;
-    //[ConditionalEnumHide("upgradeType", 1)]
-    public List<InventoryArtifact> costArtifactsDecrease;
-    //[ConditionalEnumHide("upgradeType", 2)]
-    public List<InventoryAnimal> costAnimalsDecrease;
-    //[ConditionalEnumHide("upgradeType", 3)]
+    [ConditionalEnumHide("upgradeType", 0)]
+    public EssenceAmount costEssenceDecrease;
+    [ConditionalEnumHide("upgradeType", 1)]
+    public InventoryArtifact costArtifactDecrease;
+    [ConditionalEnumHide("upgradeType", 2)]
+    public InventoryAnimal costAnimalDecrease;
+    [ConditionalEnumHide("upgradeType", 3)]
     public Rarity newRarity;
-    //[ConditionalEnumHide("upgradeType", 4)]
+    [ConditionalEnumHide("upgradeType", 4)]
     public int durationDecrease;
-    //[ConditionalEnumHide("upgradeType", 5)]
+    [ConditionalEnumHide("upgradeType", 5)]
     public Recipe unlockedRecipe;
 }
 
