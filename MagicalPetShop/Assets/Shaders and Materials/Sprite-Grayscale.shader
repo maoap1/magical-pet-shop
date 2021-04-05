@@ -65,7 +65,7 @@ Shader "Sprites-GrayScale"
             }
  
             sampler2D _MainTex;
-            uniform float _GrayscaleAmount;
+            float _GrayscaleAmount;
  
             fixed4 frag(v2f IN) : COLOR
             {

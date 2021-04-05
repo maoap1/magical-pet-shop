@@ -10,6 +10,8 @@ public class RecipeInfo : MonoBehaviour
     public TextMeshProUGUI animalName;
     public GameObject resourcesPanel;
     public GameObject resourcePrefab;
+    public GameObject progressPanel;
+    public GameObject progressPrefab;
     public TextMeshProUGUI animalsProduced;
     public Image categoryImage;
     public TextMeshProUGUI level;
@@ -60,6 +62,17 @@ public class RecipeInfo : MonoBehaviour
             GameObject costPart = Instantiate(resourcePrefab, resourcesPanel.transform);
             costPart.GetComponent<ResourceCost>().SetCost(a);
         }
+
+
+        foreach (Transform child in progressPanel.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        for (int i=0; i<rp.recipe.recipeLevels.Count; i++)
+        {
+            GameObject recipeLevel = Instantiate(progressPrefab, progressPanel.transform);
+            recipeLevel.GetComponent<RecipeProgressionPanel>().Display(rp, i);
+        }
         animalsProduced.text = recipe.animalsProduced.ToString();
         categoryImage.sprite = recipe.animal.category.artwork;
         level.text = "T" + recipe.animal.level;
@@ -80,7 +93,7 @@ public class RecipeInfo : MonoBehaviour
         }
         foreach (GameObject g in tmpHidden)
         {
-            g.SetActive(false);
+            g.SetActive(true);
         }
         tmpHidden.Clear();
     }

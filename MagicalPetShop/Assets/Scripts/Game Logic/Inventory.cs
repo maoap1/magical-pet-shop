@@ -176,7 +176,7 @@ public static class Inventory
     }
 
     public static bool HasInInventory(InventoryArtifact artifact) {
-        var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact); // equality based on name
+        var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact.artifact == otherArtifact.artifact); // equality based on name
         return result != null && result.count >= artifact.count;
     }
 
