@@ -315,8 +315,8 @@ public struct Cost
 public enum Rarity
 {
     Common = 0,
-    Great = 1,
-    Flawless = 2,
+    Good = 1,
+    Rare = 2,
     Epic = 3,
     Legendary = 4
 }
