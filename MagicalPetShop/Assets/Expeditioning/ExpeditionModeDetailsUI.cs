@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class ExpeditionModeDetailsUI : MonoBehaviour
 {
-    [SerializeField]
-    int expeditionLevel;
 
-    public void ShowExpeditions() { 
-    
+    public void DisplayData(ExpeditionMode expeditionMode) {
+        Debug.Log("Displaying new difficulty data.");
     }
 
     // Start is called before the first frame update

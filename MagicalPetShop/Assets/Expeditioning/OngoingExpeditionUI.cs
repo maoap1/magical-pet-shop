@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OngoingExpedition : MonoBehaviour {
+public class OngoingExpeditionUI : MonoBehaviour {
 
+    public ExpeditionSummaryUI expeditionSummary;
     //public Expedition expedition;
+    public bool clickable;
+
     public ProgressBar progressRing;
     public GameObject readyMessage;
     public Image expeditionImage;
@@ -15,7 +18,7 @@ public class OngoingExpedition : MonoBehaviour {
     void Start() {
         readyMessage.SetActive(false);
         progressRing.gameObject.SetActive(true);
-        finished = false;
+        finished = true; // TODO: Just for testing, change to false afterwards
         //expeditionImage.sprite = expedition.expeditionType.artwork;
         //if (!PlayerState.THIS.expeditions.Contains(expedition)) {
         //    PlayerState.THIS.expeditions.Add(expedition);
@@ -42,12 +45,13 @@ public class OngoingExpedition : MonoBehaviour {
     }
 
     public void Clicked() {
-        if (finished) {
+        if (finished && clickable) {
             // calculate result - number of artifacts, casualties
             // update inventory accordingly
             // show expedition summary (pass expedition result to it)
+            this.expeditionSummary.Open(new ExpeditionResult());
             //PlayerState.THIS.expeditions.Remove(expedition);
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

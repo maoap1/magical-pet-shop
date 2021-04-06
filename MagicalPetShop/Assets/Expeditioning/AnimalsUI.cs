@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PackLeadersUI : MonoBehaviour {
+public class AnimalsUI : MonoBehaviour {
 
     [SerializeField]
     List<GameObject> objectsToHide;
     [SerializeField]
     List<GameObject> objectsToAppear;
     [SerializeField]
-    PackOverviewUI packOverviewUI;
-    [SerializeField]
-    GridLayoutGroup leadersGrid;
-    [SerializeField]
-    LeaderSlotUI leaderSlot;
-    [SerializeField]
-    LockedLeaderSlotUI lockedLeaderSlot;
+    PackOverviewUI packOverview;
 
-    public void Open() {
+    [SerializeField]
+    GridLayoutGroup animalsGrid;
+    [SerializeField]
+    LocationAnimalSlotUI locationAnimalSlot;
+
+    Pack pack;
+    int slotIndex;
+    LocationType location;
+
+    public void Open(Pack pack, int slotIndex, LocationType location) {
+        this.pack = pack;
+        this.slotIndex = slotIndex;
+        this.location = location;
         Refresh();
         this.gameObject.SetActive(true);
         foreach (GameObject g in objectsToAppear) {
@@ -47,21 +53,17 @@ public class PackLeadersUI : MonoBehaviour {
     }
 
     private void DisplayItems() {
-        LeaderSlotUI leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
-        leader.Initialize(new PackLeader(), this.packOverviewUI);
-        PackLeader tmp = new PackLeader(); tmp.owned = true;
-        leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
-        leader.Initialize(tmp, this.packOverviewUI);
-        for (int i = 0; i < 2; ++i) {
-            LockedLeaderSlotUI lockedLeader = Instantiate(lockedLeaderSlot, this.leadersGrid.transform).GetComponent<LockedLeaderSlotUI>();
-            lockedLeader.Initialize(new PackLeader());
+        // TODO: Filter animals according to their locations and display them
+        for (int i = 0; i < 3; ++i) {
+            LocationAnimalSlotUI slot = Instantiate(locationAnimalSlot, this.animalsGrid.transform).GetComponent<LocationAnimalSlotUI>();
+            slot.Initialize(this, this.packOverview, new Animal(), this.pack, this.slotIndex);
         }
     }
 
     private void Clear() {
-        int c = leadersGrid.transform.childCount;
+        int c = animalsGrid.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
-            GameObject.Destroy(leadersGrid.transform.GetChild(i).gameObject);
+            GameObject.Destroy(animalsGrid.transform.GetChild(i).gameObject);
     }
 
     // Start is called before the first frame update

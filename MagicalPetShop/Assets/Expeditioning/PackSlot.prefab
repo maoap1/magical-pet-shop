@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2253010117233339999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -534,6 +534,8 @@ GameObject:
   - component: {fileID: 9193180998473536521}
   - component: {fileID: 8367049139780210608}
   - component: {fileID: 362680140385943185}
+  - component: {fileID: 3654906104136756357}
+  - component: {fileID: 3178524603191621756}
   m_Layer: 5
   m_Name: PackSlot
   m_TagString: Untagged
@@ -626,6 +628,65 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3654906104136756357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890777789546059492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a3c90230cdd614fa6ed6d65d818a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 399416626192452861}
+  pack:
+    leader: {fileID: 0}
+    members: []
+--- !u!114 &3178524603191621756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890777789546059492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9147224dadf8a49abc721953cc9aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredDuration: 1.5
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3654906104136756357}
+        m_TargetAssemblyTypeName: PackSlotUI, Assembly-CSharp
+        m_MethodName: SelectPack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLongClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3654906104136756357}
+        m_TargetAssemblyTypeName: PackSlotUI, Assembly-CSharp
+        m_MethodName: ShowPackOverview
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8417999300514217207
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,17 @@ using System;
 public class ExpeditionType : ScriptableObject
 {
     public int level;
-    public int duration;
-    public List<LocationType> Locations;
-    public List<InventoryArtifact> rewards;
+    public int duration; // maybe more reasonable type for representing time and suitable ToString implementation?
+    public Artifact reward;
+    public Sprite artwork;
+    public List<ExpeditionMode> expeditionModes; // different difficulties
 }
+
+[CreateAssetMenu(fileName = "Expedition Mode", menuName = "PetShop/Expedition Mode")]
+public class ExpeditionMode : ScriptableObject {
+    public ExpeditionDifficulty difficulty;
+    public int minRewardCount;
+    public int maxRewardCount;
+}
+
+
