@@ -30,7 +30,7 @@ public class RecipeProgressionPanel : MonoBehaviour
         {
             case RecipeUpgradeType.changeRarity:
                 image.sprite = GameGraphics.THIS.changeRarity;
-                text.text = "-" + rp.recipe.recipeLevels[level].newRarity.ToString("G");
+                text.text = rp.recipe.recipeLevels[level].newRarity.ToString("G");
                 break;
             case RecipeUpgradeType.decreaseAnimals:
                 image.sprite = rp.recipe.recipeLevels[level].costAnimalDecrease.animal.artwork;
@@ -52,7 +52,10 @@ public class RecipeProgressionPanel : MonoBehaviour
                 text.gameObject.SetActive(false);
                 image.rectTransform.sizeDelta = new Vector2(180, 180);
                 image.sprite = rp.recipe.recipeLevels[level].unlockedRecipe.animal.artwork;
-                image.color = Color.black;
+                if (rp.level < level)
+                {
+                    image.color = Color.black;
+                }
                 break;
         }
     }

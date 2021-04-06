@@ -30,6 +30,27 @@ public class GameLogic : ScriptableObject
     public List<InventoryAnimal> startingAnimals;
     public List<InventoryArtifact> startingArtifacts;
     public List<RecipeProgress> startingRecipes;
+
+    private void Update()
+    {
+        long updateTime = Utils.EpochTime();
+        float deltaTime = updateTime - PlayerState.THIS.playerTime;
+        PlayerState.THIS.playerTime = updateTime;
+        for (int i = 0; i < PlayerState.THIS.producers.Count; i++)
+        {
+            PlayerState.THIS.producers[i].fillRate += PlayerState.THIS.producers[i].productionRate * (deltaTime / 60000);
+            if (PlayerState.THIS.producers[i].fillRate >= 1)
+            {
+                int increaseAmount = (int)Mathf.Floor(PlayerState.THIS.producers[i].fillRate);
+                PlayerState.THIS.producers[i].essenceAmount.IncreaseAmount(increaseAmount);
+                PlayerState.THIS.producers[i].fillRate -= increaseAmount;
+            }
+        }
+        foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting)
+        {
+            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
+        }
+    }
 }
 
 [Serializable]
