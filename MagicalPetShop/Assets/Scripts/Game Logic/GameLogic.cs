@@ -31,7 +31,26 @@ public class GameLogic : ScriptableObject
     public List<InventoryArtifact> startingArtifacts;
     public List<RecipeProgress> startingRecipes;
 
-    private void Update()
+    public float orderFromRecipesProbability = 0.1f;
+    public int customerArrivalFrequency = 60;
+
+    public float[] rarityMultipliers = new float[5];
+
+    void OnValidate()
+    {
+        if (rarityMultipliers.Length != 5)
+        {
+            Debug.LogWarning("Don't change the 'rarityMultipliers' field's array size!");
+            Array.Resize(ref rarityMultipliers, 5);
+        }
+    }
+
+    public float getRarityMultiplier(Rarity rarity)
+    {
+        return rarityMultipliers[(int)rarity];
+    }
+
+    public void Update()
     {
         long updateTime = Utils.EpochTime();
         float deltaTime = updateTime - PlayerState.THIS.playerTime;
@@ -50,6 +69,7 @@ public class GameLogic : ScriptableObject
         {
             craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
         }
+        Shop.UpdateCustomers();
     }
 }
 

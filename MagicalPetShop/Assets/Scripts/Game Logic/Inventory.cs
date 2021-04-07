@@ -67,6 +67,24 @@ public static class Inventory
         return true;
     }
 
+    public static bool TakeFromInventoryPrecise(Cost cost)
+    {
+        // first check - so that we don't pay part of cost before failure
+        if (!HasInInventory(cost))
+            return false;
+        foreach (InventoryAnimal animal in cost.animals)
+        {
+            TakeFromInventoryPrecise(animal);
+        }
+        foreach (InventoryArtifact artifact in cost.artifacts)
+        {
+            TakeFromInventory(artifact);
+        }
+        TakeFromInventory(cost.resources);
+        TakeFromInventory(cost.money);
+        return true;
+    }
+
     public static bool HasInInventory(Cost cost) {
         foreach (InventoryAnimal animal in cost.animals) {
             if (!HasInInventory(animal)) return false;
@@ -79,6 +97,21 @@ public static class Inventory
         return true;
     }
 
+
+    public static bool HasInInventoryPrecise(Cost cost)
+    {
+        foreach (InventoryAnimal animal in cost.animals)
+        {
+            if (!HasInInventoryPrecise(animal)) return false;
+        }
+        foreach (InventoryArtifact artifact in cost.artifacts)
+        {
+            if (!HasInInventory(artifact)) return false;
+        }
+        if (!HasInInventory(cost.resources)) return false;
+        if (!HasInInventory(cost.money)) return false;
+        return true;
+    }
 
 
     public static void AddToInventory(InventoryAnimal animal) {
@@ -131,6 +164,29 @@ public static class Inventory
         }
     }
 
+    public static void TakeFromInventoryPrecise(InventoryAnimal animal)
+    {
+        List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal == otherAnimal); // the same name and equal rarity
+        if (result != null && HasInInventory(animal))
+        {
+            result.Sort((r1, r2) => r1.rarity.CompareTo(r2.rarity));
+            int cost = animal.count;
+            for (int i = 0; i < result.Count; i++)
+            {
+                result[i].count -= cost;
+                if (result[i].count <= 0)
+                {
+                    cost = -result[i].count;
+                    PlayerState.THIS.animals.Remove(result[i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+
     public static void TakeFromInventory(InventoryArtifact artifact) {
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact); // equality based on name
         if (result != null && HasInInventory(artifact)) {
@@ -167,6 +223,17 @@ public static class Inventory
 
     public static bool HasInInventory(InventoryAnimal animal) {
         List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal <= otherAnimal); // the same animal at least rarity specified in the input
+        int count = 0;
+        foreach (InventoryAnimal ia in result)
+        {
+            count += ia.count;
+        }
+        return result != null && count >= animal.count;
+    }
+
+    public static bool HasInInventoryPrecise(InventoryAnimal animal)
+    {
+        List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal == otherAnimal); // the same animal at least rarity specified in the input
         int count = 0;
         foreach (InventoryAnimal ia in result)
         {

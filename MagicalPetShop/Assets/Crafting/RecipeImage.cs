@@ -27,6 +27,7 @@ public class RecipeImage : MonoBehaviour
             cost.animals = recipe.costAnimals;
             Inventory.TakeFromInventory(cost);
             PlayerState.THIS.crafting.Add(ca);
+            PlayerState.THIS.Save();
             int recipesBefore = PlayerState.THIS.recipes.Count;
             recipe.animalProduced();
             if (PlayerState.THIS.recipes.Count > recipesBefore)
