@@ -188,7 +188,7 @@ public static class Inventory
     }
 
     public static void TakeFromInventory(InventoryArtifact artifact) {
-        var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact == otherArtifact); // equality based on name
+        var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact.artifact == otherArtifact.artifact); // equality based on name
         if (result != null && HasInInventory(artifact)) {
             result.count -= artifact.count;
             if (result.count <= 0) PlayerState.THIS.artifacts.Remove(result);
