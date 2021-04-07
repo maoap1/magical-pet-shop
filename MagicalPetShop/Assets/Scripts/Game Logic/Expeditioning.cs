@@ -29,7 +29,7 @@ public static class PacksManager {
     // TODO
 
     // Try to unlock a new leader (if there is enough money...)
-    public static bool UnlockLeader(PackLeader leader) {
+    public static bool UnlockPack(Pack pack) {
         return false;
     }
 
@@ -45,12 +45,8 @@ public static class PacksManager {
         return false;
     }
 
-    public static List<PackLeader> GetPackLeaders() {
-        return new List<PackLeader>();
-    }
-
-    public static Pack GetPack(PackLeader leader) {
-        return null;
+    public static List<Pack> GetPacks() {
+        return new List<Pack>();
     }
 }
 
@@ -69,25 +65,20 @@ public enum ExpeditionDifficulty {
     Hard = 2
 }
 
-[Serializable]
-public class Pack {
-    public PackLeader leader;
+[CreateAssetMenu(fileName = "Pack", menuName = "PetShop/Pack")]
+public class Pack : ScriptableObject {
+    public string name;
+    public int level;
+    public int cost;
+    public Sprite artwork;
+    public bool owned;
+    public List<LocationType> requiredLocations;
     public List<Animal> members;
 
     public int GetTotalPower() {
         // TODO: Implement
         return 0;
     }
-}
-
-[CreateAssetMenu(fileName = "Pack Leader", menuName = "PetShop/Pack Leader")]
-public class PackLeader : ScriptableObject {
-    public int level;
-    public int cost;
-    public string name;
-    public Sprite artwork;
-    public bool owned;
-    public List<LocationType> requiredLocations;
 }
 
 public class ExpeditionResult {

@@ -48,13 +48,13 @@ public class PackLeadersUI : MonoBehaviour {
 
     private void DisplayItems() {
         LeaderSlotUI leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
-        leader.Initialize(new PackLeader(), this.packOverviewUI);
-        PackLeader tmp = new PackLeader(); tmp.owned = true;
+        leader.Initialize(new Pack(), this.packOverviewUI);
+        Pack tmp = new Pack(); tmp.owned = true;
         leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
         leader.Initialize(tmp, this.packOverviewUI);
         for (int i = 0; i < 2; ++i) {
             LockedLeaderSlotUI lockedLeader = Instantiate(lockedLeaderSlot, this.leadersGrid.transform).GetComponent<LockedLeaderSlotUI>();
-            lockedLeader.Initialize(new PackLeader());
+            lockedLeader.Initialize(new Pack());
         }
     }
 

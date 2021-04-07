@@ -24,7 +24,7 @@ public class ExpeditionsInfoUI : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         /*
-        if (Time.time - updateTime > 1) {
+        if (Time.time - updateTime > 0.1) {
             updateTime = Time.time;
             List<OngoingExpeditionUI> displays = new List<OngoingExpeditionUI>(gameObject.GetComponentsInChildren<OngoingExpeditionUI>());
             foreach (Expedition expedition in PlayerState.THIS.expeditions) {

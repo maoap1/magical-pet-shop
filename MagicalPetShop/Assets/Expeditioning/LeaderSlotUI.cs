@@ -12,14 +12,14 @@ public class LeaderSlotUI : MonoBehaviour {
     [SerializeField]
     GameObject cost;
 
-    PackLeader leader;
+    Pack pack;
     PackOverviewUI packOverviewUI;
 
 
-    public void Initialize(PackLeader leader, PackOverviewUI packOverviewUI) {
-        this.leader = leader;
+    public void Initialize(Pack pack, PackOverviewUI packOverviewUI) {
+        this.pack = pack;
         this.packOverviewUI = packOverviewUI;
-        if (leader.owned) {
+        if (pack.owned) {
             this.power.SetActive(true);
             this.status.SetActive(true);
             this.cost.SetActive(false);

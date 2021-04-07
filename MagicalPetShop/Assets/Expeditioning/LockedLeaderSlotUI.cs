@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LockedLeaderSlotUI : MonoBehaviour {
 
-    PackLeader leader;
+    Pack pack;
     PackOverviewUI packOverviewUI;
 
-    public void Initialize(PackLeader leader) {
-        this.leader = leader;
+    public void Initialize(Pack pack) {
+        this.pack = pack;
     }
 
 
