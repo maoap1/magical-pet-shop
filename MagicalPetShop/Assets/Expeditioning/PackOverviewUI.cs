@@ -15,15 +15,23 @@ public class PackOverviewUI : MonoBehaviour {
     AnimalsUI animalsUI;
 
     [SerializeField]
+    Text nameText;
+    [SerializeField]
+    Image iconImage;
+    [SerializeField]
+    Text powerText;
+    [SerializeField]
+    Text statusText;
+    [SerializeField]
     GridLayoutGroup slotsGrid;
     [SerializeField]
     LocationSlotUI locationSlot;
 
     Pack pack;
     bool openedFromExpedition = false;
+    int expeditionLevel = 0;
 
     public void Open(Pack pack) {
-        Debug.Log("Pack overview opened");
         this.pack = pack;
         Refresh();
         this.gameObject.SetActive(true);
@@ -41,8 +49,9 @@ public class PackOverviewUI : MonoBehaviour {
         }
     }
 
-    public void Open(Pack pack, bool fromExpedition) {
+    public void Open(Pack pack, bool fromExpedition, int expeditionLevel) {
         this.openedFromExpedition = fromExpedition;
+        this.expeditionLevel = expeditionLevel;
         Open(pack);
     }
 
@@ -63,22 +72,20 @@ public class PackOverviewUI : MonoBehaviour {
     }
 
     public void Refresh() {
-        // clear everything
         Clear();
-        // display current info
-        DisplayItems();
+        DisplayData();
     }
 
-    private void DisplayItems() {
-        // TODO: display location slots - if the pack is exploring, pass false to the Initialize method, true otherwise
-        //      pass also this.animalsUI
-        for (int i = 0; i < 3; ++i) {
+    private void DisplayData() {
+        this.nameText.text = this.pack.name;
+        this.iconImage.sprite = this.pack.artwork;
+        this.powerText.text = this.pack.GetTotalPower().ToString();
+        this.statusText.text = this.pack.busy ? "EXPLORING" : "FREE";
+
+        // display location slots
+        foreach (PackSlot slot in this.pack.slots) {
             LocationSlotUI location = Instantiate(locationSlot, this.slotsGrid.transform).GetComponent<LocationSlotUI>();
-            location.Initialize(this.pack, i, new LocationType(), true, this.animalsUI);
-        }
-        for (int i = 0; i < 2; ++i) {
-            LocationSlotUI location = Instantiate(locationSlot, this.slotsGrid.transform).GetComponent<LocationSlotUI>();
-            location.Initialize(this.pack, i, new LocationType(), false, this.animalsUI);
+            location.Initialize(this.pack, slot, this.animalsUI, this.expeditionLevel);
         }
     }
 

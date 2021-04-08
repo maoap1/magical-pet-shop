@@ -13,7 +13,12 @@ public class SingleExpeditionUI : MonoBehaviour {
     [SerializeField]
     PackOverviewUI packOverview;
 
-    public Button goButton;
+    [SerializeField]
+    Image iconImage;
+    [SerializeField]
+    Text nameText;
+    [SerializeField]
+    Button goButton;
     [SerializeField]
     ExpeditionModeDetailsUI expeditionModeUI;
     [SerializeField]
@@ -62,7 +67,7 @@ public class SingleExpeditionUI : MonoBehaviour {
         }
         Debug.Log("Current difficulty: " + this.currentDifficulty);
         // display correct data
-        this.expeditionModeUI.DisplayData(new ExpeditionMode());
+        Refresh();
     }
 
     public void SelectPack(PackSlotUI pack) {
@@ -83,13 +88,20 @@ public class SingleExpeditionUI : MonoBehaviour {
 
     private void Refresh() {
         // display correct data
-        // refresh pack leaders
+        this.iconImage.sprite = this.expedition.artwork;
+        this.nameText.text = this.expedition.name;
+        // refresh difficulty details
+        ExpeditionMode mode = this.expedition.expeditionModes[(int)this.currentDifficulty];
+        this.expeditionModeUI.DisplayData(this.expedition, mode);
+        // refresh pack leaders (first clear)
         int c = packsLayout.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(packsLayout.transform.GetChild(i).gameObject);
-        for (int i = 0; i < 4; ++i) {
-            PackSlotUI newSlot = Instantiate(packSlot, this.packsLayout.transform).GetComponent<PackSlotUI>();
-            newSlot.Initialize(new Pack(), this, this.packOverview);
+        foreach (Pack pack in PlayerState.THIS.packs) {
+            if (pack.owned) {
+                PackSlotUI newSlot = Instantiate(packSlot, this.packsLayout.transform).GetComponent<PackSlotUI>();
+                newSlot.Initialize(pack, mode, this.expedition.level, this, this.packOverview);
+            }
         }
     }
 

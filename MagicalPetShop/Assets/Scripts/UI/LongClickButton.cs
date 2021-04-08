@@ -18,7 +18,6 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerDown(PointerEventData eventData) {
         this.pressed = true;
-        Debug.Log("Button pressed");
     }
 
     public void OnPointerUp(PointerEventData eventData) {
@@ -27,7 +26,6 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         }
         this.pressed = false;
         this.pressedDuration = 0;
-        Debug.Log("Button released");
     }
 
     // Update is called once per frame

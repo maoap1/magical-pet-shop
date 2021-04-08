@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7c081abcff3fa49a46b90d99575940, type: 3}
+  m_Name: PackLeader4
+  m_EditorClassIdentifier: 
+  name: Fourth Leader
+  level: 6
+  cost: 7600
+  artwork: {fileID: 21300000, guid: 24c447b2505fe52419b080516e54864f, type: 3}
+  artworkSilhouette: {fileID: 21300000, guid: 261b89d82636a5e45ac60ed6d6f267e1, type: 3}
+  owned: 0
+  unlocked: 0
+  requiredLocations:
+  - {fileID: 11400000, guid: 807631239c83ebf4e9bc63c7acff3b6c, type: 2}
+  - {fileID: 11400000, guid: 4f52eb563c685a641bd01605cbb31c7b, type: 2}
+  - {fileID: 11400000, guid: f8e753e80eb02c6479ef1f28e93fdec6, type: 2}
+  - {fileID: 11400000, guid: f3aced39a06458349b2618241e119483, type: 2}
+  - {fileID: 11400000, guid: a1d9193ad9a0c6745bb4cba60bbb368b, type: 2}
+  - {fileID: 11400000, guid: f887465a83735644180a9f3ff16be843, type: 2}

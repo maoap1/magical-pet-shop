@@ -40,21 +40,30 @@ public class PackLeadersUI : MonoBehaviour {
     }
 
     public void Refresh() {
-        // clear everything
         Clear();
-        // display current info
         DisplayItems();
     }
 
     private void DisplayItems() {
-        LeaderSlotUI leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
-        leader.Initialize(new Pack(), this.packOverviewUI);
-        Pack tmp = new Pack(); tmp.owned = true;
-        leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
-        leader.Initialize(tmp, this.packOverviewUI);
-        for (int i = 0; i < 2; ++i) {
+        // display all unlocked leaders
+        foreach (Pack pack in PlayerState.THIS.packs) {
+            if (pack.unlocked) {
+                LeaderSlotUI leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
+                leader.Initialize(pack, this.packOverviewUI);
+            }
+        }
+        // then display the first one locked (if available)
+        Pack lockedPack = null;
+        int level = int.MaxValue;
+        foreach (Pack pack in PlayerState.THIS.packs) {
+            if (!pack.unlocked && pack.level < level) {
+                lockedPack = pack;
+                level = pack.level;
+            }
+        }
+        if (lockedPack != null) {
             LockedLeaderSlotUI lockedLeader = Instantiate(lockedLeaderSlot, this.leadersGrid.transform).GetComponent<LockedLeaderSlotUI>();
-            lockedLeader.Initialize(new Pack());
+            lockedLeader.Initialize(lockedPack);
         }
     }
 

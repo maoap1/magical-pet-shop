@@ -8,6 +8,7 @@ public class Animal : ScriptableObject
     public string name;
     public int level;
     public int value;
+    public int basePower;
     public LocationType category;
     public List<LocationType> secondaryCategories;
     public Sprite artwork;

@@ -1174,6 +1174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a45a5f326de0a43ade4acdc1869560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iconImage: {fileID: 9084346725673226563}
+  nameText: {fileID: 9084346724327582239}
+  powerText: {fileID: 9084346724720682175}
+  statusText: {fileID: 9084346724359183146}
+  costText: {fileID: 165567020807245580}
   power: {fileID: 9084346726050468319}
   status: {fileID: 4858795861780487802}
   cost: {fileID: 2940538939136167070}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7c081abcff3fa49a46b90d99575940, type: 3}
+  m_Name: PackLeader
+  m_EditorClassIdentifier: 
+  name: The Best Leader
+  level: 0
+  cost: 0
+  artwork: {fileID: 21300000, guid: 00f45a0da33788b46be21440dc26841b, type: 3}
+  artworkSilhouette: {fileID: 21300000, guid: 5bb4a8a3d6cd9d945a17bf89cfebe36e, type: 3}
+  owned: 1
+  unlocked: 1
+  requiredLocations:
+  - {fileID: 11400000, guid: 2e5e6a6f7ed02004aa6bfa106cace54e, type: 2}
+  - {fileID: 11400000, guid: 9636d31687ced0d479129c6f5bbf93c2, type: 2}
+  - {fileID: 11400000, guid: f36d7f46441f7eb49bb02d1998509b9b, type: 2}
+  - {fileID: 11400000, guid: c979dc93f95b71147a8ca8a469703b21, type: 2}
+  - {fileID: 11400000, guid: 807631239c83ebf4e9bc63c7acff3b6c, type: 2}
+  - {fileID: 11400000, guid: f887465a83735644180a9f3ff16be843, type: 2}

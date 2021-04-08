@@ -15,29 +15,24 @@ public class LocationSlotUI : MonoBehaviour
 
     AnimalsUI animalsUI;
     Pack pack;
-    int slotIndex;
-    Animal animal;
-    LocationType location;
+    PackSlot slot;
+    int expeditionLevel;
 
-    public void Initialize(Pack pack, int slotIndex, LocationType location, bool active, AnimalsUI animalsUI) {
+    public void Initialize(Pack pack, PackSlot slot, AnimalsUI animalsUI, int expeditionLevel) {
         this.pack = pack;
-        this.slotIndex = slotIndex;
-        this.location = location;
-        this.locationIcon.sprite = location.artwork;
-        this.gameObject.GetComponent<Button>().interactable = active;
+        this.slot = slot;
+        if (slot.animal != null) this.animalIcon.sprite = slot.animal.artwork;
+        this.locationIcon.sprite = slot.location.artwork;
+        this.gameObject.GetComponent<Button>().interactable = !pack.busy; // if the pack is exploring, it cannot be changed
         this.animalsUI = animalsUI;
-    }
-
-    public void SetAnimal(Animal animal) {
-        this.animal = animal;
-        this.animalIcon.sprite = animal.artwork;
+        this.expeditionLevel = expeditionLevel;
     }
 
     public void Clicked() {
-        if (this.animal != null) {
-            PacksManager.UnassignAnimal(this.pack, this.slotIndex);
+        if (this.slot.animal != null) {
+            PacksManager.UnassignAnimal(this.pack, this.slot);
         }
-        this.animalsUI.Open(this.pack, this.slotIndex, this.location);
+        this.animalsUI.Open(this.pack, this.slot, this.expeditionLevel);
     }
 
     // Start is called before the first frame update

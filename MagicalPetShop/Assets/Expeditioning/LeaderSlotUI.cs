@@ -6,6 +6,17 @@ using UnityEngine.UI;
 public class LeaderSlotUI : MonoBehaviour {
 
     [SerializeField]
+    Image iconImage;
+    [SerializeField]
+    Text nameText;
+    [SerializeField]
+    Text powerText;
+    [SerializeField]
+    Text statusText;
+    [SerializeField]
+    Text costText;
+
+    [SerializeField]
     GameObject power;
     [SerializeField]
     GameObject status;
@@ -19,21 +30,27 @@ public class LeaderSlotUI : MonoBehaviour {
     public void Initialize(Pack pack, PackOverviewUI packOverviewUI) {
         this.pack = pack;
         this.packOverviewUI = packOverviewUI;
+
+        this.iconImage.sprite = pack.artwork;
+        this.nameText.text = pack.name;
         if (pack.owned) {
+            this.powerText.text = pack.GetTotalPower().ToString();
             this.power.SetActive(true);
+            this.statusText.text = pack.busy ? "EXPLORING" : "FREE";
             this.status.SetActive(true);
             this.cost.SetActive(false);
         } else {
             this.power.SetActive(false);
             this.status.SetActive(false);
+            this.costText.text = pack.cost.ToString();
             this.cost.SetActive(true);
         }
     }
 
     public void Clicked() {
-        // TODO: If the leader is not owned, buy him, create a new pack for him, otherwise just find his pack
-        // if (!this.leader.owned) ...
-        this.packOverviewUI.Open(new Pack(), false);
+        // TODO: If the pack is not owned, buy it
+        // if (!this.pack.owned) ...
+        this.packOverviewUI.Open(this.pack);
     }
 
     // Start is called before the first frame update

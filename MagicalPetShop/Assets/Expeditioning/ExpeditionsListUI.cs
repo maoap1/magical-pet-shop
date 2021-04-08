@@ -39,15 +39,17 @@ public class ExpeditionsListUI : MonoBehaviour {
 
     private void DisplayItems(int level) {
         Clear();
-        // display current info
-        for (int i = 0; i < 5; ++i) {
-            ExpeditionSlotUI newSlot = Instantiate(expeditionSlot, this.layout.transform).GetComponent<ExpeditionSlotUI>();
-            newSlot.Initialize(new ExpeditionType(), this.singleExpeditionUI);
+        // Display expeditions of the given level
+        // TODO: Maybe sort them somehow?
+        foreach (ExpeditionType expedition in GameLogic.THIS.expeditions) {
+            if (expedition.level == level) {
+                ExpeditionSlotUI newSlot = Instantiate(expeditionSlot, this.layout.transform).GetComponent<ExpeditionSlotUI>();
+                newSlot.Initialize(expedition, this.singleExpeditionUI);
+            }
         }
     }
 
     private void Clear() {
-        // clear everything
         int c = this.layout.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(layout.transform.GetChild(i).gameObject);

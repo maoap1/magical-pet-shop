@@ -542,6 +542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472e521007fccce438ded685f0f72743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyText: {fileID: 7972483869740169135}
+  rewardImage: {fileID: 7010873482384990627}
+  rewardCountText: {fileID: 4644967384902332850}
+  durationText: {fileID: 5866382228842810717}
 --- !u!1 &5778918374457423661
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4575472, g: 1, b: 0.98094076, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

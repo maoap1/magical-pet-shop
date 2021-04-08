@@ -246,6 +246,16 @@ public class InventoryAnimal {
     public int count;
     public Rarity rarity;
 
+    public int GetProbabilityOfDeath() {
+        // TODO: Compute the probability according to the rarity
+        return 80;
+    }
+
+    public int GetPower() {
+        // TODO: Compute the base power of the animal and rarity
+        return this.animal.basePower;
+    }
+
     public bool Equals(InventoryAnimal other) {
         if (other == null) return false;
         return this.animal == other.animal && rarity == other.rarity;

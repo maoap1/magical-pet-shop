@@ -24,6 +24,8 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Don't set in editor")]
     public List<Expedition> expeditions;
     [Tooltip("Don't set in editor")]
+    public List<Pack> packs;
+    [Tooltip("Don't set in editor")]
     public List<CraftedAnimal> crafting;
     [Tooltip("Don't set in editor")]
     public List<RecipeProgress> recipes;
@@ -99,6 +101,11 @@ public class PlayerState : MonoBehaviour
                 ia.artifact = a.artifact;
                 ia.count = a.count;
                 artifacts.Add(ia);
+            }
+            this.packs = new List<Pack>();
+            foreach (var leader in GameLogic.THIS.packLeaders) {
+                Pack pack = new Pack(leader);
+                this.packs.Add(pack);
             }
             this.recipes = new List<RecipeProgress>();
             foreach (var rp in GameLogic.THIS.startingRecipes)

@@ -34,14 +34,16 @@ public static class PacksManager {
     }
 
     // Try to assign the given animal to the given slot in the given pack
-    //      returns false in case of error (e.g. slotIndex does not correspond to the animal's abilities)
-    public static bool AssignAnimal(Animal animal, Pack pack, int slotIndex) {
+    //      returns false in case of error
+    public static bool AssignAnimal(Animal animal, Pack pack, PackSlot slot) {
         Debug.Log("New animal assigned...");
+        // TODO: Remove the animal from ivnentory, assign it to the slot
         return false;
     }
 
-    public static bool UnassignAnimal(Pack pack, int slotIndex) {
+    public static bool UnassignAnimal(Pack pack, PackSlot slot) {
         Debug.Log("Old animal unassigned...");
+        // TODO: Add the animal back to inventory, assign null to the slot
         return false;
     }
 
@@ -50,7 +52,7 @@ public static class PacksManager {
     }
 }
 
-[Serializable]
+[System.Serializable]
 public class Expedition
 {
     public float fillRate;
@@ -66,7 +68,8 @@ public enum ExpeditionDifficulty {
 }
 
 public class ExpeditionResult {
-    Artifact reward;
-    int rewardCount;
-    List<Animal> casualties;
+    public bool isSuccessful;
+    public Artifact reward;
+    public int rewardCount;
+    public List<Animal> casualties;
 }
