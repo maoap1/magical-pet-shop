@@ -23,16 +23,14 @@ public static class Inventory
             int lvl1 = 0, lvl2 = 0;
             bool lvl1Found = false, lvl2Found = false;
             foreach (ExpeditionType expedition in GameLogic.THIS.expeditions) {
-                foreach (InventoryArtifact artifact in expedition.rewards) {
-                    if (!lvl1Found && artifact == a1) {
-                        lvl1 = expedition.level;
-                        lvl1Found = true;
-                    }
-                    if (!lvl2Found && artifact == a2) {
-                        lvl2 = expedition.level;
-                        lvl2Found = true;
-                    }
-                    if (lvl1Found && lvl2Found) break;
+                Artifact artifact = expedition.reward;
+                if (!lvl1Found && artifact == a1.artifact) {
+                    lvl1 = expedition.level;
+                    lvl1Found = true;
+                }
+                if (!lvl2Found && artifact == a2.artifact) {
+                    lvl2 = expedition.level;
+                    lvl2Found = true;
                 }
                 if (lvl1Found && lvl2Found) break;
             }
@@ -314,6 +312,16 @@ public class InventoryAnimal {
     public Animal animal;
     public int count;
     public Rarity rarity;
+
+    public int GetProbabilityOfDeath() {
+        // TODO: Compute the probability according to the rarity
+        return 80;
+    }
+
+    public int GetPower() {
+        // TODO: Compute the base power of the animal and rarity
+        return this.animal.basePower;
+    }
 
     public bool Equals(InventoryAnimal other) {
         if (other == null) return false;

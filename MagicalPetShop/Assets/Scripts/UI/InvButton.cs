@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class InvButton : MonoBehaviour
 {
-    private GameObject _inventory;
     private InventoryUI _inventoryUI;
 
-    public void SetInventory(GameObject inventory) {
-        this._inventory = inventory;
-        this._inventoryUI = inventory.GetComponent<InventoryUI>();
+    public void SetInventory(InventoryUI inventory) {
+        this._inventoryUI = inventory;
     }
 
     public void ShowInventory() {

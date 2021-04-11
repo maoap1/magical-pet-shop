@@ -10,7 +10,9 @@ public class PlayerState : MonoBehaviour
     public int money;
     [HideInInspector]
     public int diamonds;
-    [HideInInspector]
+    [Tooltip("Don't set in editor")]
+    public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
+    [Tooltip("Don't set in editor")]
     [SerializeReference]
     public List<EssenceAmount> resources;
     [HideInInspector]
@@ -21,7 +23,9 @@ public class PlayerState : MonoBehaviour
     public List<InventoryArtifact> artifacts;
     [HideInInspector]
     public List<Expedition> expeditions;
-    [HideInInspector]
+    [Tooltip("Don't set in editor")]
+    public List<Pack> packs;
+    [Tooltip("Don't set in editor")]
     public List<CraftedAnimal> crafting;
     [HideInInspector]
     public List<RecipeProgress> recipes;
@@ -77,6 +81,8 @@ public class PlayerState : MonoBehaviour
         else
         {
             this.money = GameLogic.THIS.startingMoney;
+            this.diamonds = GameLogic.THIS.startingDiamonds;
+            this.level = 1;
             this.producers = new List<EssenceProducer>();
             this.resources = new List<EssenceAmount>();
             foreach (var p in GameLogic.THIS.startingProducerLevels)
@@ -105,6 +111,11 @@ public class PlayerState : MonoBehaviour
                 ia.artifact = a.artifact;
                 ia.count = a.count;
                 artifacts.Add(ia);
+            }
+            this.packs = new List<Pack>();
+            foreach (var leader in GameLogic.THIS.packLeaders) {
+                Pack pack = new Pack(leader);
+                this.packs.Add(pack);
             }
             this.recipes = new List<RecipeProgress>();
             foreach (var rp in GameLogic.THIS.startingRecipes)

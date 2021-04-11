@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
-    public List<GameObject> objectsToHide;
+    [SerializeField]
+    List<GameObject> objectsToHide;
+    [SerializeField]
+    List<GameObject> objectsToAppear;
 
     [SerializeField]
     private GridLayoutGroup animalsGrid;
@@ -25,16 +28,22 @@ public class InventoryUI : MonoBehaviour {
     public void Open() {
         Refresh();
         this.gameObject.SetActive(true);
+        foreach (GameObject g in objectsToAppear) {
+            g.SetActive(true);
+        }
         foreach (GameObject g in objectsToHide) {
             g.SetActive(false);
         }
     }
 
     public void Close() {
+        this.gameObject.SetActive(false);
+        foreach (GameObject g in objectsToAppear) {
+            g.SetActive(false);
+        }
         foreach (GameObject g in objectsToHide) {
             g.SetActive(true);
         }
-        this.gameObject.SetActive(false);
     }
 
     public void Refresh() {
