@@ -43,6 +43,7 @@ public class EssenceAmount
 {
     [SerializeReference]
     public Essence essence;
+    public int limit;
     public int amount;
     [HideInInspector]
     public bool full = false;
@@ -50,14 +51,19 @@ public class EssenceAmount
     public void IncreaseAmount(int increase)
     {
         amount += increase;
-        if (amount>999)
+        if (amount>limit)
         {
-            amount = 999;
+            amount = limit;
             full = true;
         }
         else
         {
             full = false;
         }
+    }
+
+    public void SetLimit(int limit)
+    {
+        this.limit = limit;
     }
 }

@@ -11,6 +11,10 @@ public class EssenceProducer
     {
         get { return model.GetProductionRate(level); }
     }
+    public int storageLimit
+    {
+        get { return model.GetStorageLimit(level); }
+    }
     [SerializeReference]
     public EssenceAmount essenceAmount;
     [Tooltip("Percent fill rate")]

@@ -61,6 +61,7 @@ public class GameLogic : ScriptableObject
             if (PlayerState.THIS.producers[i].fillRate >= 1)
             {
                 int increaseAmount = (int)Mathf.Floor(PlayerState.THIS.producers[i].fillRate);
+                PlayerState.THIS.producers[i].essenceAmount.SetLimit(PlayerState.THIS.producers[i].storageLimit);
                 PlayerState.THIS.producers[i].essenceAmount.IncreaseAmount(increaseAmount);
                 PlayerState.THIS.producers[i].fillRate -= increaseAmount;
             }

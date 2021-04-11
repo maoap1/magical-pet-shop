@@ -23,7 +23,7 @@ public class UpgradeProducer : MonoBehaviour
 
     public void Update()
     {
-        essenceInStock.text = producer.essenceAmount.amount.ToString();
+        essenceInStock.text = producer.essenceAmount.amount.ToString() + "/" + producer.storageLimit.ToString();
         if (PlayerState.THIS.money >= upgradeCost)
         {
             cost.color = Color.black;
