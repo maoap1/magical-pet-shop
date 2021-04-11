@@ -70,11 +70,11 @@ public class AnimalsUI : MonoBehaviour {
                 filteredAnimals.Add(animal);
             }
         }
-        // Sort animals - according to the tier in terms of expedition level, then rarity, then tier, then essence
+        // Sort animals - according to their power, then rarity, then tier, finally essence
         filteredAnimals.Sort((a1, a2) => {
-            // according to level (e.g. for expedition of level 4, animals of levels 4-8 are equal)
-            if (a1.animal.level >= this.expeditionLevel && a2.animal.level < this.expeditionLevel) return -1;
-            if (a2.animal.level >= this.expeditionLevel && a1.animal.level < this.expeditionLevel) return 1;
+            // according to power
+            if (a1.GetPower() > a2.GetPower()) return -1;
+            if (a2.GetPower() > a1.GetPower()) return 1;
             // according to rarity (higher rarity in top)
             if (a1.rarity > a2.rarity) return -1;
             if (a2.rarity > a1.rarity) return 1;
