@@ -19,7 +19,7 @@ public class ResourceDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (essenceAmount == null && PlayerState.THIS.resources.Count > 0)
+        if (essenceAmount == null && PlayerState.THIS.resources != null && PlayerState.THIS.resources.Count > 0)
         {
             foreach (EssenceAmount r in PlayerState.THIS.resources)
             {

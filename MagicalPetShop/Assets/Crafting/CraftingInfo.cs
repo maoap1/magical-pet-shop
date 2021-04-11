@@ -9,7 +9,7 @@ public class CraftingInfo : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - updateTime > 1)
+        if (Time.time - updateTime > 0.1)
         {
             updateTime = Time.time;
             List<CraftedAnimalDisplay> displays = new List<CraftedAnimalDisplay>(gameObject.GetComponentsInChildren<CraftedAnimalDisplay>());

@@ -9,7 +9,7 @@ public class RecipeImage : MonoBehaviour
     public RecipePanel recipePanel;
     [HideInInspector]
     public RecipeProgress recipe;
-    private bool canCraft;
+    public bool canCraft;
     private float updateTime = 0;
     public void Clicked()
     {
@@ -27,6 +27,7 @@ public class RecipeImage : MonoBehaviour
             cost.animals = recipe.costAnimals;
             Inventory.TakeFromInventory(cost);
             PlayerState.THIS.crafting.Add(ca);
+            PlayerState.THIS.Save();
             int recipesBefore = PlayerState.THIS.recipes.Count;
             recipe.animalProduced();
             if (PlayerState.THIS.recipes.Count > recipesBefore)
@@ -38,10 +39,15 @@ public class RecipeImage : MonoBehaviour
     }
     private void Update()
     {
-        if (recipe != null && Time.time - updateTime > 1)
+        if (recipe != null && Time.time - updateTime > 0.5)
         {
             updateGrayscale();
         }
+    }
+
+    private void Start()
+    {
+        gameObject.GetComponent<Image>().material = new Material(gameObject.GetComponent<Image>().material);
     }
 
     public void updateGrayscale()

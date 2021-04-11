@@ -24,7 +24,7 @@ public class UpgradeProducer : MonoBehaviour
     public void Update()
     {
         essenceInStock.text = producer.essenceAmount.amount.ToString();
-        if (PlayerState.THIS.money > upgradeCost)
+        if (PlayerState.THIS.money >= upgradeCost)
         {
             cost.color = Color.black;
             upgrade.interactable = true;
@@ -83,7 +83,7 @@ public class UpgradeProducer : MonoBehaviour
 
     public void Upgrade()
     {
-        if (PlayerState.THIS.money > upgradeCost)
+        if (PlayerState.THIS.money >= upgradeCost)
         {
             producer.UpgradeProducer();
         }

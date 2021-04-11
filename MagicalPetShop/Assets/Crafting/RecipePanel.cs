@@ -14,7 +14,7 @@ public class RecipePanel : MonoBehaviour
     public Button infoButton;
     public ProgressBar recipeProgress;
     public Image upgrade;
-    [HideInInspector]
+
     public RecipeProgress recipe;
 
     private float updateTime;

@@ -52,6 +52,7 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerClickHandler
             ia.rarity = craftedAnimal.rarity;
             Inventory.AddToInventory(ia);
             PlayerState.THIS.crafting.Remove(craftedAnimal);
+            PlayerState.THIS.Save();
             Destroy(this.gameObject);
         }
     }

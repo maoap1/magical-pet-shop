@@ -6,30 +6,38 @@ using System.IO;
 [Serializable]
 public class PlayerState : MonoBehaviour
 {
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public int money;
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public int diamonds;
     [Tooltip("Don't set in editor")]
     public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
     [Tooltip("Don't set in editor")]
+    [HideInInspector]
     [SerializeReference]
     public List<EssenceAmount> resources;
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public List<EssenceProducer> producers;
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public List<InventoryAnimal> animals;
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public List<InventoryArtifact> artifacts;
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public List<Expedition> expeditions;
     [Tooltip("Don't set in editor")]
     public List<Pack> packs;
     [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public List<CraftedAnimal> crafting;
-    [Tooltip("Don't set in editor")]
+    [HideInInspector]
     public List<RecipeProgress> recipes;
+    [HideInInspector]
     public long playerTime;
+
+    [HideInInspector]
+    public long lastArrivalTime;
+    [HideInInspector]
+    public Customer[] customers;
 
     private static PlayerState _THIS;
     public static PlayerState THIS
@@ -51,6 +59,8 @@ public class PlayerState : MonoBehaviour
     
     public void Save()
     {
+        lastArrivalTime = Shop.lastArrivalTime;
+        customers = Shop.customers;
         string json = JsonUtility.ToJson(this);
         string path = Application.persistentDataPath + "/PlayerState.json";
         Debug.Log("trying to save to: " + path);
@@ -67,6 +77,8 @@ public class PlayerState : MonoBehaviour
             Debug.Log("loading from: " + path);
             var json = File.ReadAllText(path);
             JsonUtility.FromJsonOverwrite(json, this);
+            Shop.lastArrivalTime = lastArrivalTime;
+            Shop.customers = customers;
         }
         else
         {
@@ -118,29 +130,14 @@ public class PlayerState : MonoBehaviour
             this.expeditions = new List<Expedition>();
             this.crafting = new List<CraftedAnimal>();
             this.playerTime = Utils.EpochTime();
+            Shop.lastArrivalTime = playerTime;
             Save();
         }
     }
 
     public void Update()
     {
-        long updateTime = Utils.EpochTime();
-        float deltaTime = updateTime - playerTime;
-        playerTime = updateTime;
-        for (int i = 0; i<producers.Count; i++)
-        {
-            producers[i].fillRate += producers[i].productionRate * (deltaTime / 60000);
-            if (producers[i].fillRate>=1)
-            {
-                int increaseAmount = (int)Mathf.Floor(producers[i].fillRate);
-                producers[i].essenceAmount.IncreaseAmount(increaseAmount);
-                producers[i].fillRate -= increaseAmount;
-            }
-        }
-        foreach (CraftedAnimal craftedAnimal in crafting)
-        {
-            craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
-        }
+        GameLogic.THIS.Update();
     }
 
 }

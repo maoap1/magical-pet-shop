@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Game Logic
   m_EditorClassIdentifier: 
   expeditions: []
-  startingMoney: 1000
+  startingMoney: 100
   startingDiamonds: 0
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
@@ -54,3 +54,11 @@ MonoBehaviour:
   startingRecipes:
   - animalsProduced: 0
     recipe: {fileID: 11400000, guid: 2c9cfccf8e547834cb3a5db4bde4295b, type: 2}
+  orderFromRecipesProbability: 0.1
+  customerArrivalFrequency: 30
+  rarityMultipliers:
+  - 1
+  - 1.25
+  - 1.5
+  - 2
+  - 3

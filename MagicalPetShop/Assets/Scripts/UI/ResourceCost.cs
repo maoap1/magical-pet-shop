@@ -67,6 +67,7 @@ public class ResourceCost : MonoBehaviour
         {
             text = (value).ToString() + "h " + text;
         }
+        costText.text = text;
         resourceType = ResourceType.Other;
     }
 
@@ -94,6 +95,7 @@ public class ResourceCost : MonoBehaviour
                     }
                     else
                     {
+                        Debug.Log(artifactCost);
                         costText.color = Color.red;
                     }
                     break;
