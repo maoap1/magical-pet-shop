@@ -13,7 +13,6 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Don't set in editor")]
     public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
     [Tooltip("Don't set in editor")]
-    [HideInInspector]
     [SerializeReference]
     public List<EssenceAmount> resources;
     [HideInInspector]
@@ -27,7 +26,6 @@ public class PlayerState : MonoBehaviour
     [Tooltip("Don't set in editor")]
     public List<Pack> packs;
     [Tooltip("Don't set in editor")]
-    [HideInInspector]
     public List<CraftedAnimal> crafting;
     [HideInInspector]
     public List<RecipeProgress> recipes;
