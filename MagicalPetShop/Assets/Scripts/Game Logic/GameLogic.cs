@@ -23,6 +23,7 @@ public class GameLogic : ScriptableObject
     }
 
     public List<ExpeditionType> expeditions;
+    public List<PackLeader> packLeaders;
     public int startingMoney;
     public int startingDiamonds;
     public List<EssenceAmount> startingResources;

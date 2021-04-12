@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Portal : MonoBehaviour
+public class CasualtyIconUI : MonoBehaviour
 {
     [SerializeField]
-    int expeditionLevel;
+    Image iconImage;
 
-    public void ShowExpeditions() { 
-    
+    public void Initialize(Animal animal) {
+        this.iconImage.sprite = animal.artwork;
     }
 
     // Start is called before the first frame update
