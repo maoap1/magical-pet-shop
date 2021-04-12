@@ -91,7 +91,7 @@ public class SingleExpeditionUI : MonoBehaviour {
         this.iconImage.sprite = this.expedition.artwork;
         this.nameText.text = this.expedition.name;
         // refresh difficulty details
-        ExpeditionMode mode = this.expedition.expeditionModes[(int)this.currentDifficulty];
+        ExpeditionMode mode = this.expedition.difficultyModes[(int)this.currentDifficulty];
         this.expeditionModeUI.DisplayData(this.expedition, mode);
         // refresh pack leaders (first clear)
         int c = packsLayout.transform.childCount;

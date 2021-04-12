@@ -314,13 +314,11 @@ public class InventoryAnimal {
     public Rarity rarity;
 
     public int GetProbabilityOfDeath() {
-        // TODO: Compute the probability according to the rarity
-        return 80;
+        return (int)(GameLogic.THIS.GetRarityDeathProbability(this.rarity) * 100);
     }
 
     public int GetPower() {
-        // TODO: Compute the base power of the animal and rarity
-        return this.animal.basePower;
+        return (int)(this.animal.basePower * GameLogic.THIS.GetRarityPowerMultiplier(this.rarity));
     }
 
     public bool Equals(InventoryAnimal other) {

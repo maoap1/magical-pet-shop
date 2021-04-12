@@ -36,6 +36,8 @@ public class GameLogic : ScriptableObject
     public int customerArrivalFrequency = 60;
 
     public float[] rarityMultipliers = new float[5];
+    public float[] rarityPowerMultipliers = new float[5];
+    public float[] rarityDeathProbs = new float[5];
 
     void OnValidate()
     {
@@ -44,11 +46,27 @@ public class GameLogic : ScriptableObject
             Debug.LogWarning("Don't change the 'rarityMultipliers' field's array size!");
             Array.Resize(ref rarityMultipliers, 5);
         }
+        if (rarityPowerMultipliers.Length != 5) {
+            Debug.LogWarning("Don't change the 'rarityPowerMultipliers' field's array size!");
+            Array.Resize(ref rarityPowerMultipliers, 5);
+        }
+        if (rarityDeathProbs.Length != 5) {
+            Debug.LogWarning("Don't change the 'rarityDeathProbs' field's array size!");
+            Array.Resize(ref rarityDeathProbs, 5);
+        }
     }
 
     public float getRarityMultiplier(Rarity rarity)
     {
         return rarityMultipliers[(int)rarity];
+    }
+
+    public float GetRarityPowerMultiplier(Rarity rarity) {
+        return rarityPowerMultipliers[(int)rarity];
+    }
+
+    public float GetRarityDeathProbability(Rarity rarity) {
+        return rarityDeathProbs[(int)rarity];
     }
 
     public void Update()

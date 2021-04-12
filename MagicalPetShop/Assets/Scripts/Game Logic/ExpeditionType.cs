@@ -11,7 +11,7 @@ public class ExpeditionType : ScriptableObject
     public int level;
     public int duration; // maybe more reasonable type for representing time and suitable ToString implementation?
     public Artifact reward;
-    public List<ExpeditionMode> expeditionModes; // different difficulties
+    public List<ExpeditionMode> difficultyModes; // different difficulties
 
     public string GetFormattedDuration() { 
         if (this.duration > 60) {

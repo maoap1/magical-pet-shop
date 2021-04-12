@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Fish
   level: 1
   value: 5
+  basePower: 50
   category: {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}
   secondaryCategories: []
   artwork: {fileID: 21300000, guid: b8c4766efebe1f04a93aaa6f770d031f, type: 3}

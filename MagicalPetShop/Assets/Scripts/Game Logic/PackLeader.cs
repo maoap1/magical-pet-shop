@@ -9,7 +9,6 @@ public class PackLeader : ScriptableObject {
     public int level;
     public int cost;
     public Sprite artwork;
-    public Sprite artworkSilhouette;
     public bool owned;
     public bool unlocked;
     public List<LocationType> requiredLocations;

@@ -21,7 +21,6 @@ public class Pack {
         this.level = leader.level;
         this.cost = leader.cost;
         this.artwork = leader.artwork;
-        this.artworkSilhouette = leader.artworkSilhouette;
         this.owned = leader.owned;
         this.unlocked = leader.unlocked;
         this.busy = false;

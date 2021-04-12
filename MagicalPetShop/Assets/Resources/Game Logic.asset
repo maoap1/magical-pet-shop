@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
-  expeditions: []
+  expeditions:
+  - {fileID: 11400000, guid: c004eddc57ef83745a262a740b296b22, type: 2}
+  - {fileID: 11400000, guid: 01f2376aa67ac394a87bbf59ff8ebea9, type: 2}
+  packLeaders:
+  - {fileID: 11400000, guid: 55366475fce5cbd4fadd9fa1cc5a67b2, type: 2}
+  - {fileID: 11400000, guid: 2b49ec1bfb1f26547894267b319992f3, type: 2}
+  - {fileID: 11400000, guid: 2a46dacd81c6bea4c9283882fad0c017, type: 2}
+  - {fileID: 11400000, guid: 5af7391c708080b4080d888486c2953f, type: 2}
   startingMoney: 100
   startingDiamonds: 0
   startingResources:
@@ -62,3 +69,15 @@ MonoBehaviour:
   - 1.5
   - 2
   - 3
+  rarityPowerMultipliers:
+  - 1
+  - 1.1
+  - 1.2
+  - 1.5
+  - 2
+  rarityDeathProbs:
+  - 0.14
+  - 0.1
+  - 0.06
+  - 0.03
+  - 0
