@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: PackLeader2
   m_EditorClassIdentifier: 
   name: Second Leader
-  level: 0
-  cost: 3500
+  level: 2
+  cost: 10
   artwork: {fileID: 21300000, guid: b8c4766efebe1f04a93aaa6f770d031f, type: 3}
-  artworkSilhouette: {fileID: 21300000, guid: 8420fa760dc65944b92cc83af2d23ef7, type: 3}
   owned: 0
   unlocked: 1
   requiredLocations:

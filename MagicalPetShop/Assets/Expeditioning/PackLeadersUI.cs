@@ -46,6 +46,7 @@ public class PackLeadersUI : MonoBehaviour {
 
     private void DisplayItems() {
         // display all unlocked leaders
+        PlayerState.THIS.packs.Sort((p1, p2) => p1.level.CompareTo(p2.level));
         foreach (Pack pack in PlayerState.THIS.packs) {
             if (pack.unlocked) {
                 LeaderSlotUI leader = Instantiate(leaderSlot, this.leadersGrid.transform).GetComponent<LeaderSlotUI>();
@@ -53,17 +54,12 @@ public class PackLeadersUI : MonoBehaviour {
             }
         }
         // then display the first one locked (if available)
-        Pack lockedPack = null;
-        int level = int.MaxValue;
         foreach (Pack pack in PlayerState.THIS.packs) {
-            if (!pack.unlocked && pack.level < level) {
-                lockedPack = pack;
-                level = pack.level;
+            if (!pack.unlocked) {
+                LockedLeaderSlotUI lockedLeader = Instantiate(lockedLeaderSlot, this.leadersGrid.transform).GetComponent<LockedLeaderSlotUI>();
+                lockedLeader.Initialize(pack);
+                break;
             }
-        }
-        if (lockedPack != null) {
-            LockedLeaderSlotUI lockedLeader = Instantiate(lockedLeaderSlot, this.leadersGrid.transform).GetComponent<LockedLeaderSlotUI>();
-            lockedLeader.Initialize(lockedPack);
         }
     }
 
