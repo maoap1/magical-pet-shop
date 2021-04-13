@@ -313,8 +313,16 @@ public class InventoryAnimal {
     public int count;
     public Rarity rarity;
 
-    public int GetProbabilityOfDeath() {
-        return (int)(GameLogic.THIS.GetRarityDeathProbability(this.rarity) * 100);
+    public InventoryAnimal() { }
+
+    public InventoryAnimal(Animal animal, int count, Rarity rarity) {
+        this.animal = animal;
+        this.count = count;
+        this.rarity = rarity;
+    }
+
+    public float GetProbabilityOfDeath() {
+        return GameLogic.THIS.GetRarityDeathProbability(this.rarity);
     }
 
     public int GetPower() {
@@ -375,6 +383,40 @@ public class InventoryArtifact
 {
     public Artifact artifact;
     public int count;
+
+    public InventoryArtifact() { }
+
+    public InventoryArtifact(Artifact artifact, int count) {
+        this.artifact = artifact;
+        this.count = count;
+    }
+
+    public bool Equals(InventoryArtifact other) {
+        if (other == null) return false;
+        return this.artifact == other.artifact;
+    }
+
+    public override bool Equals(object obj) {
+        if (obj == null) return false;
+
+        InventoryArtifact other = obj as InventoryArtifact;
+        if (other == null) return false;
+        else return Equals(other);
+    }
+
+    public override int GetHashCode() {
+        return this.artifact.GetHashCode();
+    }
+
+    public static bool operator ==(InventoryArtifact artifact1, InventoryArtifact artifact2) {
+        if (((object)artifact1) == null || ((object)artifact2) == null)
+            return object.Equals(artifact1, artifact2);
+        return artifact1.Equals(artifact2);
+    }
+
+    public static bool operator !=(InventoryArtifact artifact1, InventoryArtifact artifact2) {
+        return !(artifact1 == artifact2);
+    }
 }
 
 [Serializable]
