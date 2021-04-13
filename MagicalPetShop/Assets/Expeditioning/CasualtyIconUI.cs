@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Used in a summary of expedition results
 public class CasualtyIconUI : MonoBehaviour
 {
     [SerializeField]

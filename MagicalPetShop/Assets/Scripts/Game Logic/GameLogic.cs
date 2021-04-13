@@ -26,6 +26,7 @@ public class GameLogic : ScriptableObject
     public List<PackLeader> packLeaders;
     public int startingMoney;
     public int startingDiamonds;
+    public int startingExpeditionSlots;
     public List<EssenceAmount> startingResources;
     public List<ModelAndLevel> startingProducerLevels;
     public List<InventoryAnimal> startingAnimals;
@@ -38,6 +39,7 @@ public class GameLogic : ScriptableObject
     public float[] rarityMultipliers = new float[5];
     public float[] rarityPowerMultipliers = new float[5];
     public float[] rarityDeathProbs = new float[5];
+    public float[] casualtiesThreshold = new float[4];
 
     void OnValidate()
     {
@@ -53,6 +55,10 @@ public class GameLogic : ScriptableObject
         if (rarityDeathProbs.Length != 5) {
             Debug.LogWarning("Don't change the 'rarityDeathProbs' field's array size!");
             Array.Resize(ref rarityDeathProbs, 5);
+        }
+        if (casualtiesThreshold.Length != 4) {
+            Debug.LogWarning("Don't change the 'casualtiesThreshold' field's array size!");
+            Array.Resize(ref casualtiesThreshold, 4);
         }
     }
 
@@ -89,6 +95,10 @@ public class GameLogic : ScriptableObject
             craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
         }
         Shop.UpdateCustomers();
+        foreach (Expedition expedition in PlayerState.THIS.expeditions) {
+            if (expedition.fillRate < 1)
+                expedition.fillRate += (deltaTime / 1000) / expedition.expeditionType.duration;
+        }
     }
 }
 

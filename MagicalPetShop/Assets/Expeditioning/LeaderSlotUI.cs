@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Used in pack leaders overview - to buy a leader or to show pack overview
 public class LeaderSlotUI : MonoBehaviour {
 
     [SerializeField]
@@ -33,12 +34,15 @@ public class LeaderSlotUI : MonoBehaviour {
         Refresh();
     }
 
+    public void OnEnable() {
+        if (this.pack != null) Refresh();
+    }
+
     public void Clicked() {
         // If the pack is not owned, buy it
-        if (this.pack.unlocked && !this.pack.owned && Inventory.HasInInventory(this.pack.cost)) {
-            Inventory.TakeFromInventory(this.pack.cost);
-            this.pack.owned = true;
-            Refresh();
+        if (!this.pack.owned) { 
+            if (PacksManager.BuyPack(this.pack))
+                Refresh();
         }
         if (this.pack.owned) {
             this.packOverviewUI.Open(this.pack);
@@ -48,6 +52,7 @@ public class LeaderSlotUI : MonoBehaviour {
     public void Refresh() {
         this.iconImage.sprite = this.pack.artwork;
         this.nameText.text = this.pack.name;
+        this.iconImage.material = new Material(this.iconImage.material);
         if (pack.owned) {
             this.powerText.text = this.pack.GetTotalPower().ToString();
             this.power.SetActive(true);
@@ -58,8 +63,13 @@ public class LeaderSlotUI : MonoBehaviour {
             this.power.SetActive(false);
             this.status.SetActive(false);
             this.costText.text = this.pack.cost.ToString();
-            if (Inventory.HasInInventory(this.pack.cost)) this.costText.color = Color.black;
-            else this.costText.color = Color.red;
+            if (Inventory.HasInInventory(this.pack.cost)) {
+                this.costText.color = Color.black;
+                this.iconImage.material.SetFloat("_GrayscaleAmount", 0);
+            } else {
+                this.costText.color = Color.red;
+                this.iconImage.material.SetFloat("_GrayscaleAmount", 1);
+            }
             this.cost.SetActive(true);
         }
     }

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: MediumExpedition1
   m_EditorClassIdentifier: 
   difficulty: 1
+  requiredPower:
+    basePower: 150
+    zeroPercent: 40
+    fortyPercent: 70
   minRewardCount: 8
   maxRewardCount: 12

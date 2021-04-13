@@ -10,6 +10,7 @@ public class ExpeditionMode : ScriptableObject {
     public int maxRewardCount;
 }
 
+[System.Serializable]
 public struct RequiredPower {
     public int basePower;
     public int zeroPercent; // everything below that is certain fail

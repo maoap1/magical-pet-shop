@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f7c081abcff3fa49a46b90d99575940, type: 3}
-  m_Name: PackLeader2
+  m_Name: Leader2
   m_EditorClassIdentifier: 
   name: Second Leader
-  level: 2
-  cost: 10
+  level: 3
+  cost: 100
   artwork: {fileID: 21300000, guid: b8c4766efebe1f04a93aaa6f770d031f, type: 3}
   owned: 0
   unlocked: 1
   requiredLocations:
-  - {fileID: 11400000, guid: f887465a83735644180a9f3ff16be843, type: 2}
+  - {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}
   - {fileID: 11400000, guid: c979dc93f95b71147a8ca8a469703b21, type: 2}
   - {fileID: 11400000, guid: 5d054801a62c079469d8e2eaf657d14f, type: 2}
-  - {fileID: 11400000, guid: 807631239c83ebf4e9bc63c7acff3b6c, type: 2}
+  - {fileID: 11400000, guid: ce73d4a8c0280954c984f5bb3062d14f, type: 2}
   - {fileID: 11400000, guid: cef13155f466d644a9f49dfbb74902b4, type: 2}
   - {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Used in pack leaders overview - to next leader to unlock
 public class LockedLeaderSlotUI : MonoBehaviour {
 
     [SerializeField]

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// Shows list of animals with a specific trait (to assign animals to a pack)
 public class AnimalsUI : MonoBehaviour {
 
     [SerializeField]
