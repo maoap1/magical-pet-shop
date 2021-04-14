@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Shows information of one expedition type, allows to select difficulty, pack and to begin the expedition
 public class SingleExpeditionUI : MonoBehaviour {
 
     [SerializeField]
@@ -33,6 +34,7 @@ public class SingleExpeditionUI : MonoBehaviour {
     public void Open(ExpeditionType expedition) {
         this.expedition = expedition;
         this.currentDifficulty = ExpeditionDifficulty.Medium;
+        this.activePack = null;
         Refresh();
         this.goButton.interactable = false;
         this.gameObject.SetActive(true);
@@ -53,6 +55,9 @@ public class SingleExpeditionUI : MonoBehaviour {
             g.SetActive(true);
         }
     }
+    public void OnEnable() {
+        if (this.expedition != null) Refresh();
+    }
 
     public void ChangeDifficulty(bool right) {
         // determine new difficulty
@@ -65,7 +70,6 @@ public class SingleExpeditionUI : MonoBehaviour {
             if (tmp < 0) this.currentDifficulty = ExpeditionDifficulty.Hard;
             else this.currentDifficulty = (ExpeditionDifficulty)tmp;
         }
-        Debug.Log("Current difficulty: " + this.currentDifficulty);
         // display correct data
         Refresh();
     }
@@ -77,12 +81,12 @@ public class SingleExpeditionUI : MonoBehaviour {
         }
         pack.Activate();
         this.activePack = pack.pack;
-        this.goButton.interactable = true;
+        if (Expeditioning.CanStartExpedition()) this.goButton.interactable = true;
     }
 
     public void StartExpedition() {
-        // TODO: start expedition according to the active pack and current difficulty
-        Debug.Log("Starting expedition...");
+        Expeditioning.StartExpedition(this.activePack, this.expedition, this.currentDifficulty);
+        this.activePack = null;
         Close();
     }
 
@@ -91,16 +95,21 @@ public class SingleExpeditionUI : MonoBehaviour {
         this.iconImage.sprite = this.expedition.artwork;
         this.nameText.text = this.expedition.name;
         // refresh difficulty details
-        ExpeditionMode mode = this.expedition.expeditionModes[(int)this.currentDifficulty];
+        ExpeditionMode mode = this.expedition.difficultyModes[(int)this.currentDifficulty];
         this.expeditionModeUI.DisplayData(this.expedition, mode);
         // refresh pack leaders (first clear)
         int c = packsLayout.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(packsLayout.transform.GetChild(i).gameObject);
+        PlayerState.THIS.packs.Sort((p1, p2) => p1.level.CompareTo(p2.level)); // TODO: Maybe sort by power and busyness, but it may be a little problematic
         foreach (Pack pack in PlayerState.THIS.packs) {
             if (pack.owned) {
                 PackSlotUI newSlot = Instantiate(packSlot, this.packsLayout.transform).GetComponent<PackSlotUI>();
                 newSlot.Initialize(pack, mode, this.expedition.level, this, this.packOverview);
+                if (this.activePack == pack) {
+                    newSlot.Activate();
+                    if (Expeditioning.CanStartExpedition()) this.goButton.interactable = true;
+                }
             }
         }
     }

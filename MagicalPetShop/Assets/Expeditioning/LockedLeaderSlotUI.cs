@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Used in pack leaders overview - to next leader to unlock
 public class LockedLeaderSlotUI : MonoBehaviour {
 
     [SerializeField]
@@ -15,7 +16,7 @@ public class LockedLeaderSlotUI : MonoBehaviour {
 
     public void Initialize(Pack pack) {
         this.pack = pack;
-        this.iconImage.sprite = pack.artworkSilhouette;
+        this.iconImage.sprite = pack.artwork;
         this.statusText.text = "Unlock T" + pack.level.ToString() + " animal to acquire.";
     }
 

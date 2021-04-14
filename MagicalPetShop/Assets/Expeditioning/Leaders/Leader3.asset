@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f7c081abcff3fa49a46b90d99575940, type: 3}
-  m_Name: PackLeader3
+  m_Name: Leader3
   m_EditorClassIdentifier: 
   name: Third Leader
-  level: 4
-  cost: 4000
+  level: 5
+  cost: 1000
   artwork: {fileID: 21300000, guid: 9ae26218007768d4c835ca7c4098b5ff, type: 3}
-  artworkSilhouette: {fileID: 21300000, guid: 634210dfc897454459f0d7c1b8d58900, type: 3}
   owned: 0
   unlocked: 0
   requiredLocations:
-  - {fileID: 11400000, guid: f36d7f46441f7eb49bb02d1998509b9b, type: 2}
+  - {fileID: 11400000, guid: 5d054801a62c079469d8e2eaf657d14f, type: 2}
   - {fileID: 11400000, guid: 9636d31687ced0d479129c6f5bbf93c2, type: 2}
-  - {fileID: 11400000, guid: 4f52eb563c685a641bd01605cbb31c7b, type: 2}
+  - {fileID: 11400000, guid: 8def009ffd11eea4fbdf5bfd7871d28d, type: 2}
   - {fileID: 11400000, guid: 8a78ea281aaf04e48a0f20c6e0cc509c, type: 2}
   - {fileID: 11400000, guid: ce73d4a8c0280954c984f5bb3062d14f, type: 2}
-  - {fileID: 11400000, guid: 140a7cb50317ccb408997f61b936a280, type: 2}
+  - {fileID: 11400000, guid: f8e753e80eb02c6479ef1f28e93fdec6, type: 2}
