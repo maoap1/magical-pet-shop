@@ -30,6 +30,8 @@ public class GameGraphics : ScriptableObject
     public Sprite decreaseDuration;
     public Sprite unlockRecipe;
 
+    public Sprite unknown;
+
     public Sprite getUpgradeSprite(RecipeUpgradeType upgrade)
     {
         switch (upgrade) {

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 21187661e497a844495c2b4a029683c1, type: 3}
   essenceName: Magic
-  essenceAmount: 0
+  associatedLocation: {fileID: 11400000, guid: f36d7f46441f7eb49bb02d1998509b9b, type: 2}

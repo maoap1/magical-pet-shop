@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 21187661e497a844495c2b4a029683c1, type: 3}
   essenceName: Fire
-  essenceAmount: 0
+  associatedLocation: {fileID: 11400000, guid: 4f52eb563c685a641bd01605cbb31c7b, type: 2}

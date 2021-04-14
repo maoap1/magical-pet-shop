@@ -10,10 +10,12 @@ public class ResourceDisplay : MonoBehaviour
     public TextMeshProUGUI text;
     public Essence essence;
     private EssenceAmount essenceAmount = null;
+    private bool unlockedImage = false;
     // Start is called before the first frame update
     void Start()
     {
-        icon.sprite = essence.icon;
+        icon.sprite = GameGraphics.THIS.unknown;
+        Debug.Log("set unknown");
     }
 
     // Update is called once per frame
@@ -31,6 +33,11 @@ public class ResourceDisplay : MonoBehaviour
         }
         else if (essenceAmount != null)
         {
+            if (essenceAmount.unlocked & !unlockedImage)
+            {
+                icon.sprite = essenceAmount.essence.icon;
+                unlockedImage = true;
+            }
             text.text = essenceAmount.amount.ToString();
             if (essenceAmount.full)
             {

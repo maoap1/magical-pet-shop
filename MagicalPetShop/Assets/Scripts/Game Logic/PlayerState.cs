@@ -124,6 +124,13 @@ public class PlayerState : MonoBehaviour
                 r.recipe = rp.recipe;
                 r.animalsProduced = rp.animalsProduced;
                 recipes.Add(r);
+                foreach (var e in resources)
+                {
+                    if (e.essence.associatedLocation == rp.animal.category)
+                    {
+                        e.unlocked = true;
+                    }
+                }
             }
             this.expeditions = new List<Expedition>();
             this.crafting = new List<CraftedAnimal>();

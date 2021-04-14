@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 21187661e497a844495c2b4a029683c1, type: 3}
   essenceName: Earth
-  essenceAmount: 0
+  associatedLocation: {fileID: 11400000, guid: 140a7cb50317ccb408997f61b936a280, type: 2}

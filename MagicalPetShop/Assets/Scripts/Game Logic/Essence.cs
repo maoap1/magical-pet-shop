@@ -8,6 +8,7 @@ public class Essence : ScriptableObject, IEquatable<Essence>
 {
     public Sprite icon;
     public string essenceName;
+    public LocationType associatedLocation;
 
     public bool Equals(Essence other) {
         if (other == null) return false;
@@ -47,6 +48,8 @@ public class EssenceAmount
     public int amount;
     [HideInInspector]
     public bool full = false;
+    [HideInInspector]
+    public bool unlocked;
 
     public void IncreaseAmount(int increase)
     {
