@@ -134,11 +134,16 @@ public class PlayerState : MonoBehaviour
                         e.unlocked = true;
                     }
                 }
+                if (PlayerState.THIS.level < r.animal.level)
+                {
+                    PlayerState.THIS.level = r.animal.level;
+                }
             }
             this.expeditions = new List<Expedition>();
             this.crafting = new List<CraftedAnimal>();
             this.playerTime = Utils.EpochTime();
             Shop.lastArrivalTime = playerTime;
+            PacksManager.UnlockPacks();
             Save();
         }
     }

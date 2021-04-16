@@ -13,11 +13,14 @@ public class AnimalSlot : MonoBehaviour
     public Image image;
     [SerializeField]
     private Text count;
+    [SerializeField]
+    private Text quality;
 
     public void SetAnimal(InventoryAnimal animal) {
         this.name.text = animal.animal.name;
-        this.value.text = animal.animal.value.ToString();
+        this.value.text = ((int)(animal.animal.value * GameLogic.THIS.getRarityMultiplier(animal.rarity))).ToString();
         this.image.sprite = animal.animal.artwork;
         this.count.text = animal.count.ToString();
+        this.quality.text = animal.rarity.ToString("G");
     }
 }

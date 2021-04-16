@@ -9,32 +9,29 @@ public class RecipeImage : MonoBehaviour
     public RecipePanel recipePanel;
     [HideInInspector]
     public RecipeProgress recipe;
-    public bool canCraft;
     private float updateTime = 0;
     public void Clicked()
     {
-        if (canCraft && PlayerState.THIS.crafting.Count < 5)
+        if (Crafting.CanStartCrafting(recipe))
         {
-            CraftedAnimal ca = new CraftedAnimal();
-            ca.fillRate = 0;
-            ca.recipe = recipe;
-            ca.rarity = recipe.rarity;
-            ca.duration = recipe.duration;
-            Cost cost;
-            cost.money = 0;
-            cost.resources = recipe.costEssences;
-            cost.artifacts = recipe.costArtifacts;
-            cost.animals = recipe.costAnimals;
-            Inventory.TakeFromInventory(cost);
-            PlayerState.THIS.crafting.Add(ca);
-            PlayerState.THIS.Save();
             int recipesBefore = PlayerState.THIS.recipes.Count;
-            recipe.animalProduced();
-            if (PlayerState.THIS.recipes.Count > recipesBefore)
+            if (Crafting.StartCraftingSafe(recipe))
             {
-                recipePanel.recipesPanel.defaultRecipeCategory.Display();
+                if (PlayerState.THIS.recipes.Count > recipesBefore)
+                {
+                    recipePanel.recipesPanel.defaultRecipeCategory.Display();
+                }
+                recipePanel.UpdateInfo();
             }
-            recipePanel.UpdateInfo();
+            else
+            {
+                recipePanel.recipesPanel.confirmationPanel.Open(recipe);
+                if (PlayerState.THIS.recipes.Count > recipesBefore)
+                {
+                    recipePanel.recipesPanel.defaultRecipeCategory.Display();
+                }
+                recipePanel.UpdateInfo();
+            }
         }
     }
     private void Update()
@@ -52,21 +49,14 @@ public class RecipeImage : MonoBehaviour
 
     public void updateGrayscale()
     {
-        Cost cost;
-        cost.money = 0;
-        cost.resources = recipe.costEssences;
-        cost.artifacts = recipe.costArtifacts;
-        cost.animals = recipe.costAnimals;
         updateTime = Time.time;
-        if (Inventory.HasInInventory(cost) && PlayerState.THIS.crafting.Count < 5)
+        if (Crafting.CanStartCrafting(recipe))
         {
             gameObject.GetComponent<Image>().material.SetFloat("_GrayscaleAmount", 0);
-            canCraft = true;
         }
         else
         {
             gameObject.GetComponent<Image>().material.SetFloat("_GrayscaleAmount", 1);
-            canCraft = false;
         }
     }
 }

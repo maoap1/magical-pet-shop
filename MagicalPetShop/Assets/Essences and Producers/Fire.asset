@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc6c321520c7a849bf7c0aa9163993d, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 21187661e497a844495c2b4a029683c1, type: 3}
+  icon: {fileID: 21300000, guid: 118d978fd84b66d4298fcece13258e86, type: 3}
   essenceName: Fire
-  associatedLocation: {fileID: 11400000, guid: 4f52eb563c685a641bd01605cbb31c7b, type: 2}
+  associatedLocation: {fileID: 0}

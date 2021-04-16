@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecipeSelection : MonoBehaviour
+public class MergingSelection : MonoBehaviour
 {
-    public RecipeInfo recipeInfo;
-    public ConfirmationPanel confirmationPanel;
-
     public List<GameObject> objectsToAppear;
     public List<GameObject> objectsToHide;
+    public RecipeSelection recipes;
 
-    public RecipeLocationFilter defaultRecipeCategory;
+    public MergingLocationFilter defaultMergingCategory;
 
     private int upgradeCost;
 
@@ -25,7 +23,7 @@ public class RecipeSelection : MonoBehaviour
         {
             g.SetActive(false);
         }
-        defaultRecipeCategory.Display();
+        defaultMergingCategory.Display();
     }
 
     public void Close()
@@ -39,5 +37,19 @@ public class RecipeSelection : MonoBehaviour
         {
             g.SetActive(true);
         }
+    }
+
+    public void ShutDown()
+    {
+        this.gameObject.SetActive(false);
+        foreach (GameObject g in objectsToAppear)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in objectsToHide)
+        {
+            g.SetActive(true);
+        }
+        recipes.Close();
     }
 }

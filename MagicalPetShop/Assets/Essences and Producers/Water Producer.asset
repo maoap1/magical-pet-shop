@@ -16,13 +16,19 @@ MonoBehaviour:
   producerLevels:
   - cost: 0
     productionRate: 0
+    storageLimit: 10
   - cost: 10
     productionRate: 1
+    storageLimit: 20
   - cost: 20
     productionRate: 2
+    storageLimit: 50
   - cost: 50
     productionRate: 3
+    storageLimit: 100
   - cost: 100
     productionRate: 5
+    storageLimit: 200
   - cost: 200
     productionRate: 8
+    storageLimit: 400

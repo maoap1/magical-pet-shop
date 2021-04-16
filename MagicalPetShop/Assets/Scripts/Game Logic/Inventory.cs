@@ -68,7 +68,7 @@ public static class Inventory
     public static bool TakeFromInventoryPrecise(Cost cost)
     {
         // first check - so that we don't pay part of cost before failure
-        if (!HasInInventory(cost))
+        if (!HasInInventoryPrecise(cost))
             return false;
         foreach (InventoryAnimal animal in cost.animals)
         {
@@ -238,6 +238,49 @@ public static class Inventory
             count += ia.count;
         }
         return result != null && count >= animal.count;
+    }
+
+    public static Rarity HighestRarityToPay(List<InventoryAnimal> animals)
+    {
+        Rarity highestRarity = Rarity.Common;
+        foreach (InventoryAnimal animal in animals)
+        {
+            Rarity rarity = HighestRarityToPay(animal);
+            if (rarity>highestRarity)
+            {
+                highestRarity = rarity;
+            }
+        }
+        return highestRarity;
+    }
+
+    public static Rarity HighestRarityToPay(InventoryAnimal animal)
+    {
+        Rarity highestRarity = Rarity.Common;
+        List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal <= otherAnimal); // the same name and equal rarity
+        if (result != null && HasInInventory(animal))
+        {
+            result.Sort((r1, r2) => r1.rarity.CompareTo(r2.rarity));
+            int cost = animal.count;
+            for (int i = 0; i < result.Count; i++)
+            {
+                if (result[i].count-cost < 0)
+                {
+                    cost = -result[i].count;
+                    highestRarity = result[i].rarity;
+                }
+                else if (cost > 0)
+                {
+                    highestRarity = result[i].rarity;
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        return highestRarity;
     }
 
     public static bool HasInInventory(InventoryArtifact artifact) {

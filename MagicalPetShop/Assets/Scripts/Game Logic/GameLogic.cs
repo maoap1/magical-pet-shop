@@ -22,6 +22,7 @@ public class GameLogic : ScriptableObject
         }
     }
 
+    public MergingSettings mergingSettings;
     public List<ExpeditionType> expeditions;
     public List<PackLeader> packLeaders;
     public int startingMoney;
@@ -73,6 +74,29 @@ public class GameLogic : ScriptableObject
 
     public float GetRarityDeathProbability(Rarity rarity) {
         return rarityDeathProbs[(int)rarity];
+    }
+
+    public static void UnlockEssence(LocationType category)
+    {
+        foreach (var e in PlayerState.THIS.resources)
+        {
+            if (e.essence.associatedLocation == category && !e.unlocked)
+            {
+                e.unlocked = true;
+                e.amount = PlayerState.THIS.producers.Find(producer => producer.essenceAmount.essence == e.essence).storageLimit;
+            }
+        }
+    }
+
+    public static void UnlockRecipe(RecipeProgress rp)
+    {
+        PlayerState.THIS.recipes.Add(rp);
+        if (PlayerState.THIS.level<rp.animal.level)
+        {
+            PlayerState.THIS.level = rp.animal.level;
+            PacksManager.UnlockPacks();
+        }
+        GameLogic.UnlockEssence(rp.animal.category);
     }
 
     public void Update()
