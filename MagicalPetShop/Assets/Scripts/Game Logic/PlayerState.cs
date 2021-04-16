@@ -62,7 +62,7 @@ public class PlayerState : MonoBehaviour
         lastArrivalTime = Shop.lastArrivalTime;
         customers = Shop.customers;
         string json = JsonUtility.ToJson(this);
-        string path = Application.persistentDataPath + "/PlayerState.json";
+        string path = Application.persistentDataPath + "/PlayerStateBuild.json";
         Debug.Log("trying to save to: " + path);
         System.IO.File.WriteAllText(path, json);
     }
@@ -71,7 +71,7 @@ public class PlayerState : MonoBehaviour
 
     public void Start()
     {
-        string path = Application.persistentDataPath + "/PlayerState.json";
+        string path = Application.persistentDataPath + "/PlayerStateBuild.json";
         if (File.Exists(path))
         {
             Debug.Log("loading from: " + path);
