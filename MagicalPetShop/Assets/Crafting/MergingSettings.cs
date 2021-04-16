@@ -14,6 +14,12 @@ public class MergingSettings : ScriptableObject
             System.Array.Resize(ref mergingLevels, 8);
         }
     }
+
+    [ContextMenu("Load from CSV")]
+    void LoadFromCSV()
+    {
+        Debug.Log("Load from CSV");
+    }
 }
 [System.Serializable]
 public class MergingLevel
