@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using System.IO;
+#endif
+
 [CreateAssetMenu(fileName = "Merging Settings", menuName = "PetShop/Merging Settings")]
 public class MergingSettings : ScriptableObject
 {
@@ -13,6 +17,20 @@ public class MergingSettings : ScriptableObject
             Debug.LogWarning("Don't change the 'mergingLevels' field's array size!");
             System.Array.Resize(ref mergingLevels, 8);
         }
+    }
+
+    [ContextMenu("Load from CSV")]
+    void LoadFromCSV()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Load from CSV");
+
+
+
+
+
+
+#endif
     }
 }
 [System.Serializable]

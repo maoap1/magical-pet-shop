@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: f999e88f5adfd404083d3670ad39e8ac, type: 3}
   essenceName: Ice
-  associatedLocation: {fileID: 0}
+  associatedLocation: {fileID: 11400000, guid: 924ce6bd5a0584146a8736b9f1ededf6, type: 2}
