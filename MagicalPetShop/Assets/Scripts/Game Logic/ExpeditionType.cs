@@ -12,6 +12,8 @@ public class ExpeditionType : ScriptableObject
     public int duration;
     public Artifact reward;
     public List<ExpeditionMode> difficultyModes;
+    [HideInInspector]
+    public ExpeditionDifficulty lastSelectedDifficulty = ExpeditionDifficulty.Easy;
 
     public string GetFormattedDuration() { 
         if (this.duration > 60) {

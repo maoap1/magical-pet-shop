@@ -11,7 +11,7 @@ public class PlayerState : MonoBehaviour
     [HideInInspector]
     public int diamonds;
     [HideInInspector]
-    public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
+    public int level;
     [HideInInspector]
     public int numberOfExpeditionSlots;
     [HideInInspector]
