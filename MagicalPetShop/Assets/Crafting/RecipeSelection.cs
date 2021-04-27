@@ -5,7 +5,7 @@ using UnityEngine;
 public class RecipeSelection : MonoBehaviour
 {
     public RecipeInfo recipeInfo;
-    public ConfirmationPanel confirmationPanel;
+    public GameObject recipesPanel;
 
     public List<GameObject> objectsToAppear;
     public List<GameObject> objectsToHide;

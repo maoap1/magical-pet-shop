@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Shows icon and relative power of a specific pack, may be selected for an expedition
 public class PackSlotUI : MonoBehaviour
 {
 
@@ -37,22 +36,12 @@ public class PackSlotUI : MonoBehaviour
         this.singleExpeditionUI = singleExpeditionUI;
         this.packOverviewUI = packOverviewUI;
         this.iconImage.sprite = pack.artwork;
-        this.iconImage.material = new Material(this.iconImage.material);
         if (pack.busy) {
-            this.iconImage.material.SetFloat("_GrayscaleAmount", 1);
             this.strengthInfo.SetActive(false);
             this.busyInfo.SetActive(true);
         } else {
-            this.iconImage.material.SetFloat("_GrayscaleAmount", 0);
-            // Compare pack's power to the required power of the mode, choose sprite accordingly
-            int power = pack.GetTotalPower();
-            if (power < mode.requiredPower.fortyPercent) {
-                this.strengthInfo.GetComponent<Image>().sprite = this.badStrength;
-            } else if (power < mode.requiredPower.basePower) {
-                this.strengthInfo.GetComponent<Image>().sprite = this.neutralStrength;
-            } else {
-                this.strengthInfo.GetComponent<Image>().sprite = this.goodStrength;
-            }
+            // TODO: Compare pack's strength to the required strength of the mode, choose sprite accordingly
+            this.strengthInfo.GetComponent<Image>().sprite = this.neutralStrength;
             this.strengthInfo.SetActive(true);
             this.busyInfo.SetActive(false);
         }
@@ -78,6 +67,7 @@ public class PackSlotUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame

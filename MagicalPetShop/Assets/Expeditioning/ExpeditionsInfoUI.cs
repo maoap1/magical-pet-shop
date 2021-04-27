@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Shows ongoing expeditions and their progress
 public class ExpeditionsInfoUI : MonoBehaviour {
 
     [SerializeField]
-    bool isUpperPanel;
+    bool clickable;
     [SerializeField]
     ExpeditionSummaryUI expeditionSummary;
     [SerializeField]
@@ -28,7 +27,7 @@ public class ExpeditionsInfoUI : MonoBehaviour {
             foreach (Expedition expedition in PlayerState.THIS.expeditions) {
                 if (displays.Find(x => x.expedition == expedition) == null) {
                     OngoingExpeditionUI display = Instantiate(expeditionPrefab, this.transform).GetComponent<OngoingExpeditionUI>();
-                    display.Initialize(expedition, this.isUpperPanel, this.expeditionSummary);
+                    display.Initialize(expedition, this.clickable, this.expeditionSummary);
                 }
             }
         }

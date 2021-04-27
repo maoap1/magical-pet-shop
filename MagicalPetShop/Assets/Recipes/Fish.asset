@@ -15,10 +15,8 @@ MonoBehaviour:
   animal: {fileID: 11400000, guid: 89a388016a50d7441903060220fd8ebc, type: 2}
   baseCostEssences:
   - essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
-    limit: 0
     amount: 3
     full: 0
-    unlocked: 0
   baseCostArtifacts: []
   baseCostAnimals: []
   baseRarity: 0
@@ -28,10 +26,8 @@ MonoBehaviour:
     upgradeType: 4
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
       amount: 0
       full: 0
-      unlocked: 0
     costArtifactDecrease:
       artifact: {fileID: 0}
       count: 0
@@ -47,10 +43,8 @@ MonoBehaviour:
     upgradeType: 5
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
       amount: 0
       full: 0
-      unlocked: 0
     costArtifactDecrease:
       artifact: {fileID: 0}
       count: 0
@@ -66,10 +60,8 @@ MonoBehaviour:
     upgradeType: 6
     costEssenceDecrease:
       essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
-      limit: 0
       amount: 1
       full: 0
-      unlocked: 0
     costArtifactDecrease:
       artifact: {fileID: 0}
       count: 0
@@ -85,10 +77,8 @@ MonoBehaviour:
     upgradeType: 5
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
       amount: 0
       full: 0
-      unlocked: 0
     costArtifactDecrease:
       artifact: {fileID: 0}
       count: 0
@@ -105,7 +95,6 @@ MonoBehaviour:
     costEssenceDecrease:
 <<<<<<< Updated upstream
       essence: {fileID: 0}
-      limit: 0
       amount: 0
 =======
       essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
@@ -113,7 +102,6 @@ MonoBehaviour:
       amount: 1
 >>>>>>> Stashed changes
       full: 0
-      unlocked: 0
     costArtifactDecrease:
       artifact: {fileID: 0}
       count: 0

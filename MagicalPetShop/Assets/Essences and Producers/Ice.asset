@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc6c321520c7a849bf7c0aa9163993d, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f999e88f5adfd404083d3670ad39e8ac, type: 3}
+  icon: {fileID: 21300000, guid: 21187661e497a844495c2b4a029683c1, type: 3}
   essenceName: Ice
-  associatedLocation: {fileID: 11400000, guid: 924ce6bd5a0584146a8736b9f1ededf6, type: 2}
+  associatedLocation: {fileID: 11400000, guid: 807631239c83ebf4e9bc63c7acff3b6c, type: 2}

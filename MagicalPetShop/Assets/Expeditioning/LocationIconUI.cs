@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-// Used in LocationAnimaSlotUI to show animal's traits
 public class LocationIconUI : MonoBehaviour
 {
     [SerializeField]

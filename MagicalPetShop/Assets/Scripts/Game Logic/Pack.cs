@@ -9,6 +9,7 @@ public class Pack {
     public int level;
     public int cost;
     public Sprite artwork;
+    public Sprite artworkSilhouette;
     public bool owned;
     public bool unlocked;
     [SerializeReference]
@@ -20,6 +21,7 @@ public class Pack {
         this.level = leader.level;
         this.cost = leader.cost;
         this.artwork = leader.artwork;
+        this.artworkSilhouette = leader.artworkSilhouette;
         this.owned = leader.owned;
         this.unlocked = leader.unlocked;
         this.busy = false;
@@ -30,11 +32,8 @@ public class Pack {
     }
 
     public int GetTotalPower() {
-        int power = 0;
-        foreach (PackSlot slot in this.slots) {
-            if (slot.animal != null) power += slot.animal.GetPower();
-        }
-        return power;
+        // TODO: Implement
+        return 0;
     }
 }
 
@@ -43,9 +42,9 @@ public class PackSlot {
     [SerializeReference]
     public LocationType location;
     [SerializeReference]
-    public InventoryAnimal animal;
+    public Animal animal;
 
-    public PackSlot(LocationType location, InventoryAnimal animal) {
+    public PackSlot(LocationType location, Animal animal) {
         this.location = location;
         this.animal = animal;
     }

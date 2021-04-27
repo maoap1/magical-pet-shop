@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Shows information of a specific pack - slots with traits and assigned animals, total power, ...
 public class PackOverviewUI : MonoBehaviour {
 
     [SerializeField]
@@ -33,17 +32,6 @@ public class PackOverviewUI : MonoBehaviour {
     int expeditionLevel = 0;
 
     public void Open(Pack pack) {
-        this.openedFromExpedition = false;
-        Open_Internal(pack);
-    }
-
-    public void Open(Pack pack, bool fromExpedition, int expeditionLevel) {
-        this.openedFromExpedition = fromExpedition;
-        this.expeditionLevel = expeditionLevel;
-        Open_Internal(pack);
-    }
-
-    private void Open_Internal(Pack pack) {
         this.pack = pack;
         Refresh();
         this.gameObject.SetActive(true);
@@ -61,8 +49,10 @@ public class PackOverviewUI : MonoBehaviour {
         }
     }
 
-    public void OnEnable() {
-        if (this.pack != null) Refresh();
+    public void Open(Pack pack, bool fromExpedition, int expeditionLevel) {
+        this.openedFromExpedition = fromExpedition;
+        this.expeditionLevel = expeditionLevel;
+        Open(pack);
     }
 
     public void Close() {

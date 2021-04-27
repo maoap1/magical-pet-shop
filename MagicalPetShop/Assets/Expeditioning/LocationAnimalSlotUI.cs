@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Used in AnimalsUI to select an animal and assign it to a pecific slot in a pack
 public class LocationAnimalSlotUI : MonoBehaviour
 {
     [SerializeField]
@@ -23,22 +22,22 @@ public class LocationAnimalSlotUI : MonoBehaviour
 
     AnimalsUI animalsUI;
     PackOverviewUI packOverviewUI;
-    InventoryAnimal animal;
+    Animal animal;
     Pack pack;
     PackSlot slot;
 
     public void Initialize(AnimalsUI animalsUI, PackOverviewUI packOverviewUI, InventoryAnimal animal, Pack pack, PackSlot slot) {
         this.animalsUI = animalsUI;
         this.packOverviewUI = packOverviewUI;
-        this.animal = animal;
+        this.animal = animal.animal;
         this.pack = pack;
         this.slot = slot;
 
-        this.iconImage.sprite = animal.animal.artwork;
+        this.iconImage.sprite = this.animal.artwork;
         this.countText.text = animal.count.ToString();
-        this.nameText.text = animal.animal.name;
+        this.nameText.text = this.animal.name;
         this.powerText.text = animal.GetPower().ToString();
-        this.deathProbText.text = ((int)(animal.GetProbabilityOfDeath() * 100)).ToString();
+        this.deathProbText.text = animal.GetProbabilityOfDeath().ToString();
 
         // Fill locations layout (first clear)
         int c = this.locationsLayout.transform.childCount;
@@ -55,6 +54,7 @@ public class LocationAnimalSlotUI : MonoBehaviour
     public void Clicked() {
         PacksManager.AssignAnimal(this.animal, this.pack, this.slot);
         this.animalsUI.Close();
+        this.packOverviewUI.Open(this.pack);
     }
 
     // Start is called before the first frame update

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Shows a list of expeditions of a specific level
 public class ExpeditionsListUI : MonoBehaviour {
 
     [SerializeField]
@@ -40,8 +39,8 @@ public class ExpeditionsListUI : MonoBehaviour {
 
     private void DisplayItems(int level) {
         Clear();
-        // Display expeditions of the given level, sorted by duration
-        GameLogic.THIS.expeditions.Sort((e1, e2) => e1.duration.CompareTo(e2.duration));
+        // Display expeditions of the given level
+        // TODO: Maybe sort them somehow?
         foreach (ExpeditionType expedition in GameLogic.THIS.expeditions) {
             if (expedition.level == level) {
                 ExpeditionSlotUI newSlot = Instantiate(expeditionSlot, this.layout.transform).GetComponent<ExpeditionSlotUI>();

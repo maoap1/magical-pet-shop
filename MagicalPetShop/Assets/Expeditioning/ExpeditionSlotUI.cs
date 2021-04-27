@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Shows basic information about an expedition type
 public class ExpeditionSlotUI : MonoBehaviour {
 
     [SerializeField]

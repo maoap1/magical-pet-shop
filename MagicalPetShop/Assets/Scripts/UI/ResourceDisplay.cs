@@ -15,6 +15,7 @@ public class ResourceDisplay : MonoBehaviour
     void Start()
     {
         icon.sprite = GameGraphics.THIS.unknown;
+        Debug.Log("set unknown");
     }
 
     // Update is called once per frame

@@ -14,6 +14,8 @@ public class AnimalSlot : MonoBehaviour
     public Image image;
     [SerializeField]
     private Text count;
+<<<<<<< Updated upstream
+=======
     [SerializeField]
     private Text quality;
     [SerializeField]
@@ -21,10 +23,16 @@ public class AnimalSlot : MonoBehaviour
 
     private InventoryUI inventory;
     private RecipeProgress recipeProgress;
+>>>>>>> Stashed changes
 
     public void SetAnimal(InventoryAnimal animal, InventoryUI inventory) {
         this.inventory = inventory;
         this.name.text = animal.animal.name;
+<<<<<<< Updated upstream
+        this.value.text = animal.animal.value.ToString();
+        this.image.sprite = animal.animal.artwork;
+        this.count.text = animal.count.ToString();
+=======
         this.value.text = ((int)(animal.animal.value * GameLogic.THIS.getRarityMultiplier(animal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == animal.animal).costMultiplier)).ToString();
         this.image.sprite = animal.animal.artwork;
         this.count.text = animal.count.ToString();
@@ -38,5 +46,6 @@ public class AnimalSlot : MonoBehaviour
         {
             inventory.recipeInfo.Open(recipeProgress);
         }
+>>>>>>> Stashed changes
     }
 }

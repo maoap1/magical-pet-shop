@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Shows pack slot (possibly with assigned animal) in a pack overview
 public class LocationSlotUI : MonoBehaviour
 {
 
@@ -22,11 +21,7 @@ public class LocationSlotUI : MonoBehaviour
     public void Initialize(Pack pack, PackSlot slot, AnimalsUI animalsUI, int expeditionLevel) {
         this.pack = pack;
         this.slot = slot;
-        if (slot.animal != null) this.animalIcon.sprite = slot.animal.animal.artwork;
-        else this.animalIcon.sprite = this.emptySlot;
-        this.animalIcon.material = new Material(this.animalIcon.material);
-        if (pack.busy) this.animalIcon.material.SetFloat("_GrayscaleAmount", 1);
-        else this.animalIcon.material.SetFloat("_GrayscaleAmount", 0);
+        if (slot.animal != null) this.animalIcon.sprite = slot.animal.artwork;
         this.locationIcon.sprite = slot.location.artwork;
         this.gameObject.GetComponent<Button>().interactable = !pack.busy; // if the pack is exploring, it cannot be changed
         this.animalsUI = animalsUI;
@@ -43,6 +38,7 @@ public class LocationSlotUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.animalIcon.sprite = this.emptySlot;
     }
 
     // Update is called once per frame
