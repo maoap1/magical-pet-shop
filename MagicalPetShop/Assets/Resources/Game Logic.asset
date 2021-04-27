@@ -12,26 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   expeditions: []
-=======
-  version: 1
-  mergingSettings: {fileID: 11400000, guid: f4fb44b0e3282bc438cc3a892df8a423, type: 2}
-  expeditions:
-  - {fileID: 11400000, guid: 0ee414a766efdc34180e3fb3fea715f5, type: 2}
-  - {fileID: 11400000, guid: c004eddc57ef83745a262a740b296b22, type: 2}
-  - {fileID: 11400000, guid: 01f2376aa67ac394a87bbf59ff8ebea9, type: 2}
-  packLeaders:
-  - {fileID: 11400000, guid: 55366475fce5cbd4fadd9fa1cc5a67b2, type: 2}
-  - {fileID: 11400000, guid: 2b49ec1bfb1f26547894267b319992f3, type: 2}
-  - {fileID: 11400000, guid: 2a46dacd81c6bea4c9283882fad0c017, type: 2}
-  - {fileID: 11400000, guid: 5af7391c708080b4080d888486c2953f, type: 2}
-  casualtiesThreshold:
-  - 0.03
-  - 0.06
-  - 0.1
-  - 0.14
->>>>>>> Stashed changes
   startingMoney: 100
   startingDiamonds: 0
   startingResources:
@@ -65,17 +46,14 @@ MonoBehaviour:
   - model: {fileID: 11400000, guid: 98c066df982856645a7aed0edfafffd0, type: 2}
     level: 0
   - model: {fileID: 11400000, guid: 991983f5431ea1e4ba5298c899baac37, type: 2}
-    level: 1
+    level: 0
   startingAnimals: []
   startingArtifacts:
   - artifact: {fileID: 11400000, guid: 1226160c1514b6d40821acfb8d03fbf2, type: 2}
     count: 50
-  - artifact: {fileID: 11400000, guid: e8230980939692240b21f76f9d1cf385, type: 2}
-    count: 20
   startingRecipes:
   - animalsProduced: 0
     recipe: {fileID: 11400000, guid: 2c9cfccf8e547834cb3a5db4bde4295b, type: 2}
-    newRecipe: 0
   orderFromRecipesProbability: 0.1
   customerArrivalFrequency: 30
   rarityMultipliers:
@@ -83,28 +61,4 @@ MonoBehaviour:
   - 1.25
   - 1.5
   - 2
-<<<<<<< Updated upstream
   - 3
-=======
-  rarityDeathProbs:
-  - 0.14
-  - 0.1
-  - 0.06
-  - 0.03
-  - 0
-  upgradeProbabilities:
-  - 0.066
-  - 0.033
-  - 0.02
-  - 0.01
-  automaticUpgradeTresholds: 1e0000003c00000064000000c8000000
-  craftingSlotUpgrades:
-  - level: 1
-    cost: 10
-  - level: 2
-    cost: 20
-  - level: 3
-    cost: 50
-  - level: 5
-    cost: 200
->>>>>>> Stashed changes

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CraftedAnimalDisplay : MonoBehaviour
+public class CraftedAnimalDisplay : MonoBehaviour, IPointerClickHandler
 {
     public CraftedAnimal craftedAnimal;
     public ProgressBar progressRing;
@@ -13,7 +13,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
     private bool finished;
     public void Start()
     {
-        readyMessage.SetActive(true);
+        readyMessage.SetActive(false);
         progressRing.gameObject.SetActive(true);
         finished = false;
         animalImage.sprite = craftedAnimal.recipe.recipe.animal.artwork;
@@ -21,7 +21,6 @@ public class CraftedAnimalDisplay : MonoBehaviour
         {
             PlayerState.THIS.crafting.Add(craftedAnimal);
         }
-        Update();
     }
     public void Update()
     {
@@ -35,7 +34,6 @@ public class CraftedAnimalDisplay : MonoBehaviour
             }
             else
             {
-                readyMessage.SetActive(false);
                 progressRing.fillRate = craftedAnimal.fillRate;
             }
         }
@@ -44,7 +42,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void OnPointerClicked()
+    public void OnPointerClick(PointerEventData eventData)
     {
         if (finished)
         {
@@ -55,10 +53,6 @@ public class CraftedAnimalDisplay : MonoBehaviour
             Inventory.AddToInventory(ia);
             PlayerState.THIS.crafting.Remove(craftedAnimal);
             PlayerState.THIS.Save();
-            if (craftedAnimal.recipe)
-            {
-                PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
-            }
             Destroy(this.gameObject);
         }
     }

@@ -47,8 +47,6 @@ public class GameGraphics : ScriptableObject
                 return decreaseDuration;
             case RecipeUpgradeType.unlockRecipe:
                 return unlockRecipe;
-            case RecipeUpgradeType.increaseValue:
-                return unlockRecipe;
             default:
                 return null;
         }
@@ -62,7 +60,5 @@ public enum RecipeUpgradeType
     decreaseAnimals = 2,
     changeRarity = 3,
     decreaseDuration = 4,
-    unlockRecipe = 5,
-    increaseValue = 6,
-    decreaseRequiredRarity = 7
+    unlockRecipe = 5
 }

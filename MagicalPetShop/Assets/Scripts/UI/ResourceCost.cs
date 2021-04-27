@@ -39,14 +39,14 @@ public class ResourceCost : MonoBehaviour
 
     public void SetCost(EssenceAmount essenceAmount)
     {
-        //if (PlayerState.THIS.resources.Find(e => e.essence == essenceAmount.essence && e.unlocked) != null)
-        //{
-        this.icon.sprite = essenceAmount.essence.icon;
-        //}
-        //else
-        //{
-        //    this.icon.sprite = GameGraphics.THIS.unknown;
-        //}
+        if (PlayerState.THIS.resources.Find(e => e.essence == essenceAmount.essence && e.unlocked) != null)
+        {
+            this.icon.sprite = essenceAmount.essence.icon;
+        }
+        else
+        {
+            this.icon.sprite = GameGraphics.THIS.unknown;
+        }
         costText.text = essenceAmount.amount.ToString();
         essenceCost = essenceAmount; 
         resourceType = ResourceType.Essence;

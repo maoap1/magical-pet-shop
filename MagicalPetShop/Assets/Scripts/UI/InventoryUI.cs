@@ -10,8 +10,6 @@ public class InventoryUI : MonoBehaviour {
     [SerializeField]
     List<GameObject> objectsToAppear;
 
-    public RecipeInfo recipeInfo;
-
     [SerializeField]
     private GridLayoutGroup animalsGrid;
 
@@ -60,7 +58,7 @@ public class InventoryUI : MonoBehaviour {
         var animals = Inventory.GetOrderedAnimals();
         foreach (InventoryAnimal animal in animals) {
             GameObject newSlot = Instantiate(animalSlot) as GameObject;
-            newSlot.GetComponent<AnimalSlot>().SetAnimal(animal, this);
+            newSlot.GetComponent<AnimalSlot>().SetAnimal(animal);
             newSlot.SetActive(true);
             newSlot.transform.SetParent(animalsGrid.transform, false);
         }
