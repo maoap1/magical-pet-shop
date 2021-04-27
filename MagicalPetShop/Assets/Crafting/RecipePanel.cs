@@ -14,6 +14,7 @@ public class RecipePanel : MonoBehaviour
     public Button infoButton;
     public ProgressBar recipeProgress;
     public Image upgrade;
+    public GameObject isNew;
 
     public RecipeProgress recipe;
 
@@ -21,6 +22,15 @@ public class RecipePanel : MonoBehaviour
 
     public void UpdateInfo()
     {
+        if (recipe.newRecipe)
+        {
+            isNew.SetActive(true);
+        }
+        else
+        {
+            isNew.SetActive(false);
+        }
+        recipe.newRecipe = false;
         image.recipe = recipe;
         image.GetComponent<Image>().sprite = recipe.recipe.animal.artwork;
         label.text = recipe.recipe.animal.name;
@@ -48,11 +58,37 @@ public class RecipePanel : MonoBehaviour
         {
             recipeProgress.gameObject.SetActive(false);
             upgrade.gameObject.SetActive(false);
+            this.gameObject.GetComponent<Image>().color = new Color(130, 100, 0);
         }
         else {
             recipeProgress.gameObject.SetActive(true);
             upgrade.gameObject.SetActive(true);
-            upgrade.sprite = GameGraphics.THIS.getUpgradeSprite((RecipeUpgradeType)recipe.nextUpgradeType);
+            upgrade.color = Color.white;
+            switch (recipe.nextUpgradeType)
+            {
+                case RecipeUpgradeType.changeRarity:
+                    upgrade.sprite = GameGraphics.THIS.changeRarity;
+                    break;
+                case RecipeUpgradeType.increaseValue:
+                    upgrade.sprite = GameGraphics.THIS.money;
+                    break;
+                case RecipeUpgradeType.decreaseAnimals:
+                    upgrade.sprite = recipe.recipe.recipeLevels[recipe.level+1].costAnimalDecrease.animal.artwork;
+                    break;
+                case RecipeUpgradeType.decreaseArtifacts:
+                    upgrade.sprite = recipe.recipe.recipeLevels[recipe.level+1].costArtifactDecrease.artifact.artwork;
+                    break;
+                case RecipeUpgradeType.decreaseEssences:
+                    upgrade.sprite = recipe.recipe.recipeLevels[recipe.level+1].costEssenceDecrease.essence.icon;
+                    break;
+                case RecipeUpgradeType.decreaseDuration:
+                    upgrade.sprite = GameGraphics.THIS.decreaseDuration;
+                    break;
+                case RecipeUpgradeType.unlockRecipe:
+                    upgrade.sprite = recipe.recipe.recipeLevels[recipe.level+1].unlockedRecipe.animal.artwork;
+                    upgrade.color = Color.black;
+                    break;
+            }
             recipeProgress.fillRate = recipe.progress;
         }
     }
