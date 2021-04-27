@@ -22,18 +22,17 @@ public class GameLogic : ScriptableObject
         }
     }
 
-<<<<<<< Updated upstream
-=======
+
     public int version;
     public MergingSettings mergingSettings;
     [Header("Expeditions")]
->>>>>>> Stashed changes
     public List<ExpeditionType> expeditions;
     public List<PackLeader> packLeaders;
     public float[] casualtiesThreshold = new float[4];
     [Header("Starting Settings")]
     public int startingMoney;
     public int startingDiamonds;
+    public int startingExpeditionSlots;
     public List<EssenceAmount> startingResources;
     public List<ModelAndLevel> startingProducerLevels;
     public List<InventoryAnimal> startingAnimals;
@@ -46,8 +45,6 @@ public class GameLogic : ScriptableObject
 
     [Header("Rarity Multipliers")]
     public float[] rarityMultipliers = new float[5];
-<<<<<<< Updated upstream
-=======
     public float[] rarityPowerMultipliers = new float[5];
     public float[] rarityDeathProbs = new float[5];
 
@@ -58,7 +55,6 @@ public class GameLogic : ScriptableObject
 
     [Header("Crafting slots")]
     public CraftingSlotUpgrade[] craftingSlotUpgrades = new CraftingSlotUpgrade[4];
->>>>>>> Stashed changes
 
     void OnValidate()
     {
@@ -67,8 +63,6 @@ public class GameLogic : ScriptableObject
             Debug.LogWarning("Don't change the 'rarityMultipliers' field's array size!");
             Array.Resize(ref rarityMultipliers, 5);
         }
-<<<<<<< Updated upstream
-=======
         if (rarityPowerMultipliers.Length != 5) {
             Debug.LogWarning("Don't change the 'rarityPowerMultipliers' field's array size!");
             Array.Resize(ref rarityPowerMultipliers, 5);
@@ -94,7 +88,6 @@ public class GameLogic : ScriptableObject
             Debug.LogWarning("Don't change the 'craftingSlotUpgrades' field's array size!");
             Array.Resize(ref craftingSlotUpgrades, 4);
         }
->>>>>>> Stashed changes
     }
 
     public float getRarityMultiplier(Rarity rarity)
@@ -102,8 +95,6 @@ public class GameLogic : ScriptableObject
         return rarityMultipliers[(int)rarity];
     }
 
-<<<<<<< Updated upstream
-=======
     public float GetRarityPowerMultiplier(Rarity rarity) {
         return rarityPowerMultipliers[(int)rarity];
     }
@@ -141,7 +132,7 @@ public class GameLogic : ScriptableObject
         GameLogic.UnlockEssence(rp.animal.category);
     }
 
->>>>>>> Stashed changes
+
     public void Update()
     {
         long updateTime = Utils.EpochTime();
@@ -163,6 +154,10 @@ public class GameLogic : ScriptableObject
             craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
         }
         Shop.UpdateCustomers();
+        foreach (Expedition expedition in PlayerState.THIS.expeditions) {
+            if (expedition.fillRate < 1)
+                expedition.fillRate += (deltaTime / 1000) / expedition.expeditionType.duration;
+        }
     }
 }
 

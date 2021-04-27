@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Initializes portals with necessaty data
 public class PortalManagerUI : MonoBehaviour
 {
     [SerializeField]

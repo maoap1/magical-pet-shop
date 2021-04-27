@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   name: Fire
-  artwork: {fileID: 21300000, guid: fe55a371ebb4b7945873ec4660df5d58, type: 3}
+  artwork: {fileID: 21300000, guid: 118d978fd84b66d4298fcece13258e86, type: 3}

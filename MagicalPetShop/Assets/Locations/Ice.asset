@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   name: Ice
-  artwork: {fileID: 21300000, guid: fe55a371ebb4b7945873ec4660df5d58, type: 3}
+  artwork: {fileID: 21300000, guid: f999e88f5adfd404083d3670ad39e8ac, type: 3}
