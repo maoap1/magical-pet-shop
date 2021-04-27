@@ -10,6 +10,7 @@ public class RecipeLocationFilter : MonoBehaviour
     public Image artwork;
     public RecipeDisplayPanel recipesDisplayPanel;
     public GameObject locationFilterPanel;
+    public GameObject newRecipe;
     [HideInInspector]
     public bool selected = false;
     // Start is called before the first frame update
@@ -36,14 +37,30 @@ public class RecipeLocationFilter : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        List<RecipeProgress> recipesDisplay = PlayerState.THIS.recipes.FindAll(r => (r.recipe.animal.category == locationType));
-        recipesDisplay.Sort((r1, r2) => r2.recipe.animal.level.CompareTo(r1.recipe.animal.level));
-        recipesDisplayPanel.Display(recipesDisplay);
         foreach (RecipeLocationFilter rlf in locationFilterPanel.GetComponentsInChildren<RecipeLocationFilter>())
         {
             rlf.selected = false;
+            rlf.UpdateNew();
         }
         selected = true;
         recipesPanel.defaultRecipeCategory = this;
+
+
+        List<RecipeProgress> recipesDisplay = PlayerState.THIS.recipes.FindAll(r => (r.recipe.animal.category == locationType));
+        recipesDisplay.Sort((r1, r2) => r2.recipe.animal.level.CompareTo(r1.recipe.animal.level));
+        recipesDisplayPanel.Display(recipesDisplay);
+
+    }
+
+    public void UpdateNew()
+    {
+        if (PlayerState.THIS.recipes.Find(rp => rp.newRecipe && rp.animal.category == locationType) != null)
+        {
+            newRecipe.SetActive(true);
+        }
+        else
+        {
+            newRecipe.SetActive(false);
+        }
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ArtifactPlaceholder
   m_EditorClassIdentifier: 
   name: Placeholder
-  artwork: {fileID: 21300000, guid: fe55a371ebb4b7945873ec4660df5d58, type: 3}
+  artwork: {fileID: 21300000, guid: ebbd7de5de5d828449384a794e90b115, type: 3}

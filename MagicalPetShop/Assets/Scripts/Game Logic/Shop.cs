@@ -90,7 +90,7 @@ public static class Shop
         {
             if (customers[i] == customer && Inventory.HasInInventoryPrecise(customer.desiredAnimal))
             {
-                int cost = (int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity));
+                int cost = (int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier);
                 Inventory.TakeFromInventoryPrecise(customer.desiredAnimal);
                 PlayerState.THIS.money += cost;
                 nullCount++;

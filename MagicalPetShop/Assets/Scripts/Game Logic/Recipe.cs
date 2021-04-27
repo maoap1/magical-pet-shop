@@ -136,6 +136,19 @@ public class Recipe : ScriptableObject
         return duration;
     }
 
+    public float getCostMultiplier(int animalsProduced)
+    {
+        float multiplier = 1;
+        for (int i = 0; i < recipeLevels.Count; i++)
+        {
+            if (animalsProduced >= recipeLevels[i].treshold && recipeLevels[i].upgradeType == RecipeUpgradeType.increaseValue)
+            {
+                multiplier += (float)recipeLevels[i].valueIncrease / (float)100;
+            }
+        }
+        return multiplier;
+    }
+
     public Rarity getRarity(int animalsProduced)
     {
         Rarity rarity = baseRarity;
@@ -173,10 +186,14 @@ public class RecipeLevel
     public InventoryAnimal costAnimalDecrease;
     [ConditionalEnumHide("upgradeType", 3)]
     public Rarity newRarity;
+    [Tooltip("Percentage of original value")]
     [ConditionalEnumHide("upgradeType", 4)]
     public int durationDecrease;
     [ConditionalEnumHide("upgradeType", 5)]
     public Recipe unlockedRecipe;
+    [Tooltip("Percentage of original value")]
+    [ConditionalEnumHide("upgradeType", 6)]
+    public int valueIncrease;
 }
 
 [System.Serializable]
@@ -186,6 +203,13 @@ public class RecipeProgress
     [SerializeReference]
     public Recipe recipe;
 
+    [HideInInspector]
+    public bool newRecipe = false;
+
+    public float costMultiplier
+    {
+        get { return recipe.getCostMultiplier(animalsProduced); }
+    }
     public Animal animal
     {
         get { return recipe.animal; }

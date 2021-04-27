@@ -34,12 +34,15 @@ public class MergingPanel : MonoBehaviour
         animalCostDisplay.GetComponent<ResourceCost>().SetCost(animalCost);
         LayoutRebuilder.ForceRebuildLayoutImmediate(animalCostDisplay.GetComponent<RectTransform>());
 
-        GameObject artifactCostDisplay = Instantiate(costPartPrefab, costPanel.transform);
-        InventoryArtifact artifactCost = new InventoryArtifact();
-        artifactCost.artifact = animal.animal.associatedArtifact;
-        artifactCost.count = mergingCost.artifactCost;
-        artifactCostDisplay.GetComponent<ResourceCost>().SetCost(artifactCost);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(artifactCostDisplay.GetComponent<RectTransform>());
+        if (mergingCost.artifactCost != 0)
+        {
+            GameObject artifactCostDisplay = Instantiate(costPartPrefab, costPanel.transform);
+            InventoryArtifact artifactCost = new InventoryArtifact();
+            artifactCost.artifact = animal.animal.associatedArtifact;
+            artifactCost.count = mergingCost.artifactCost;
+            artifactCostDisplay.GetComponent<ResourceCost>().SetCost(artifactCost);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(artifactCostDisplay.GetComponent<RectTransform>());
+        }
 
         time.SetCostTime(mergingCost.duration);
         LayoutRebuilder.ForceRebuildLayoutImmediate(time.GetComponent<RectTransform>());

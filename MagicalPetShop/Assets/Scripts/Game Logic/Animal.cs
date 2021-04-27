@@ -9,7 +9,8 @@ public class Animal : ScriptableObject
     public int level;
     public int value;
     public int basePower;
-    public LocationType category;
+    public Essence animalEssence;
+    public LocationType category { get { return animalEssence.associatedLocation; } }
     public List<LocationType> secondaryCategories;
     public Sprite artwork;
     public Artifact associatedArtifact;

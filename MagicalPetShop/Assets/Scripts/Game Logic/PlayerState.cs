@@ -6,15 +6,14 @@ using System.IO;
 [Serializable]
 public class PlayerState : MonoBehaviour
 {
+    private int version;
     [HideInInspector]
     public int money;
     [HideInInspector]
     public int diamonds;
-    [HideInInspector]
+    [Tooltip("Don't set in editor")]
     public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
-    [HideInInspector]
-    public int numberOfExpeditionSlots;
-    [HideInInspector]
+    [Tooltip("Don't set in editor")]
     [SerializeReference]
     public List<EssenceAmount> resources;
     [HideInInspector]
@@ -25,14 +24,19 @@ public class PlayerState : MonoBehaviour
     public List<InventoryArtifact> artifacts;
     [HideInInspector]
     public List<Expedition> expeditions;
-    [HideInInspector]
+    [Tooltip("Don't set in editor")]
     public List<Pack> packs;
-    [HideInInspector]
+    [Tooltip("Don't set in editor")]
     public List<CraftedAnimal> crafting;
+    [HideInInspector]
+    public int craftingSlots;
     [HideInInspector]
     public List<RecipeProgress> recipes;
     [HideInInspector]
     public long playerTime;
+
+    //[HideInInspector]
+    public List<int> unluckySeries;
 
     [HideInInspector]
     public long lastArrivalTime;
@@ -62,7 +66,12 @@ public class PlayerState : MonoBehaviour
         lastArrivalTime = Shop.lastArrivalTime;
         customers = Shop.customers;
         string json = JsonUtility.ToJson(this);
-        string path = Application.persistentDataPath + "/PlayerStateBuild.json";
+<<<<<<< Updated upstream
+        string path = Application.persistentDataPath + "/PlayerState.json";
+=======
+        json = version.ToString() + "," + json;
+        string path = getPath();
+>>>>>>> Stashed changes
         Debug.Log("trying to save to: " + path);
         System.IO.File.WriteAllText(path, json);
     }
@@ -71,11 +80,17 @@ public class PlayerState : MonoBehaviour
 
     public void Start()
     {
-        string path = Application.persistentDataPath + "/PlayerStateBuild.json";
+<<<<<<< Updated upstream
+        string path = Application.persistentDataPath + "/PlayerState.json";
+=======
+        this.version = GameLogic.THIS.version;
+        string path = getPath();
+>>>>>>> Stashed changes
         if (File.Exists(path))
         {
             Debug.Log("loading from: " + path);
             var json = File.ReadAllText(path);
+<<<<<<< Updated upstream
             JsonUtility.FromJsonOverwrite(json, this);
             Shop.lastArrivalTime = lastArrivalTime;
             Shop.customers = customers;
@@ -85,44 +100,82 @@ public class PlayerState : MonoBehaviour
             this.money = GameLogic.THIS.startingMoney;
             this.diamonds = GameLogic.THIS.startingDiamonds;
             this.level = 1;
-            this.numberOfExpeditionSlots = GameLogic.THIS.startingExpeditionSlots;
             this.producers = new List<EssenceProducer>();
             this.resources = new List<EssenceAmount>();
             foreach (var p in GameLogic.THIS.startingProducerLevels)
+=======
+            int index = json.IndexOf(',');
+            int saveVersion = int.Parse(json.Substring(0, index));
+            if (saveVersion == version)
+>>>>>>> Stashed changes
             {
-                this.producers.Add(new EssenceProducer(p.model, p.level));
+                string stateJson = json.Substring(index + 1);
+                JsonUtility.FromJsonOverwrite(stateJson, this);
+                Shop.lastArrivalTime = lastArrivalTime;
+                Shop.customers = customers;
             }
-            foreach (var rc in GameLogic.THIS.startingResources)
+            else
             {
-                EssenceProducer p = producers.Find(x => x.essenceAmount.essence.essenceName == rc.essence.name);
-                p.essenceAmount.amount = rc.amount;
-                resources.Add(p.essenceAmount);
+                loadFromGameLogic();
             }
-            this.animals = new List<InventoryAnimal>();
-            foreach (var a in GameLogic.THIS.startingAnimals)
+        }
+        else
+        {
+            loadFromGameLogic();
+        }
+    }
+
+    private void loadFromGameLogic()
+    {
+        this.money = GameLogic.THIS.startingMoney;
+        this.diamonds = GameLogic.THIS.startingDiamonds;
+        this.level = 1;
+        this.numberOfExpeditionSlots = GameLogic.THIS.startingExpeditionSlots;
+        this.producers = new List<EssenceProducer>();
+        this.resources = new List<EssenceAmount>();
+        foreach (var p in GameLogic.THIS.startingProducerLevels)
+        {
+            this.producers.Add(new EssenceProducer(p.model, p.level));
+        }
+        foreach (var rc in GameLogic.THIS.startingResources)
+        {
+            EssenceProducer p = producers.Find(x => x.essenceAmount.essence.essenceName == rc.essence.name);
+            p.essenceAmount.amount = rc.amount;
+            resources.Add(p.essenceAmount);
+        }
+        this.animals = new List<InventoryAnimal>();
+        foreach (var a in GameLogic.THIS.startingAnimals)
+        {
+            InventoryAnimal ia = new InventoryAnimal();
+            ia.animal = a.animal;
+            ia.count = a.count;
+            ia.rarity = a.rarity;
+            animals.Add(ia);
+        }
+        this.artifacts = new List<InventoryArtifact>();
+        foreach (var a in GameLogic.THIS.startingArtifacts)
+        {
+            InventoryArtifact ia = new InventoryArtifact();
+            ia.artifact = a.artifact;
+            ia.count = a.count;
+            artifacts.Add(ia);
+        }
+        this.packs = new List<Pack>();
+        foreach (var leader in GameLogic.THIS.packLeaders)
+        {
+            Pack pack = new Pack(leader);
+            this.packs.Add(pack);
+        }
+        this.recipes = new List<RecipeProgress>();
+        foreach (var rp in GameLogic.THIS.startingRecipes)
+        {
+            RecipeProgress r = new RecipeProgress();
+            r.recipe = rp.recipe;
+            r.animalsProduced = rp.animalsProduced;
+            recipes.Add(r);
+            foreach (var e in resources)
             {
-                InventoryAnimal ia = new InventoryAnimal();
-                ia.animal = a.animal;
-                ia.count = a.count;
-                ia.rarity = a.rarity;
-                animals.Add(ia);
-            }
-            this.artifacts = new List<InventoryArtifact>();
-            foreach (var a in GameLogic.THIS.startingArtifacts)
-            {
-                InventoryArtifact ia = new InventoryArtifact();
-                ia.artifact = a.artifact;
-                ia.count = a.count;
-                artifacts.Add(ia);
-            }
-            this.packs = new List<Pack>();
-            foreach (var leader in GameLogic.THIS.packLeaders) {
-                Pack pack = new Pack(leader);
-                this.packs.Add(pack);
-            }
-            this.recipes = new List<RecipeProgress>();
-            foreach (var rp in GameLogic.THIS.startingRecipes)
-            {
+<<<<<<< Updated upstream
                 RecipeProgress r = new RecipeProgress();
                 r.recipe = rp.recipe;
                 r.animalsProduced = rp.animalsProduced;
@@ -134,18 +187,42 @@ public class PlayerState : MonoBehaviour
                         e.unlocked = true;
                     }
                 }
-                if (PlayerState.THIS.level < r.animal.level)
-                {
-                    PlayerState.THIS.level = r.animal.level;
-                }
             }
             this.expeditions = new List<Expedition>();
             this.crafting = new List<CraftedAnimal>();
             this.playerTime = Utils.EpochTime();
             Shop.lastArrivalTime = playerTime;
-            PacksManager.UnlockPacks();
             Save();
+=======
+                if (e.essence.associatedLocation == rp.animal.category)
+                {
+                    e.unlocked = true;
+                }
+            }
+            if (PlayerState.THIS.level < r.animal.level)
+            {
+                PlayerState.THIS.level = r.animal.level;
+            }
+>>>>>>> Stashed changes
         }
+        this.expeditions = new List<Expedition>();
+        this.crafting = new List<CraftedAnimal>();
+        this.unluckySeries = new List<int>();
+        this.craftingSlots = 1;
+        unluckySeries.AddRange(new int[] {0, 0, 0, 0});
+        this.playerTime = Utils.EpochTime();
+        Shop.lastArrivalTime = playerTime;
+        PacksManager.UnlockPacks();
+        Save();
+    }
+
+    private string getPath()
+    {
+        string path = Application.persistentDataPath + "/PlayerStateBuild.json";
+#if UNITY_EDITOR
+        path = Application.persistentDataPath + "/PlayerState.json";
+#endif
+        return path;
     }
 
     public void Update()
