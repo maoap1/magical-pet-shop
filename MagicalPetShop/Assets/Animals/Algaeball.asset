@@ -15,12 +15,9 @@ MonoBehaviour:
   name: Algaeball
   level: 2
   value: 8
-<<<<<<< Updated upstream
-  category: {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}
-=======
   basePower: 15
   animalEssence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
->>>>>>> Stashed changes
   secondaryCategories:
   - {fileID: 11400000, guid: 8def009ffd11eea4fbdf5bfd7871d28d, type: 2}
   artwork: {fileID: 21300000, guid: 00f45a0da33788b46be21440dc26841b, type: 3}
+  associatedArtifact: {fileID: 11400000, guid: e8230980939692240b21f76f9d1cf385, type: 2}

@@ -17,17 +17,6 @@ MonoBehaviour:
   - cost: 0
     productionRate: 0
   - cost: 10
-<<<<<<< Updated upstream
-    productionRate: 1
-  - cost: 20
-    productionRate: 2
-  - cost: 50
-    productionRate: 3
-  - cost: 100
-    productionRate: 5
-  - cost: 200
-    productionRate: 8
-=======
     productionRate: 10
     storageLimit: 20
   - cost: 20
@@ -42,4 +31,3 @@ MonoBehaviour:
   - cost: 200
     productionRate: 50
     storageLimit: 400
->>>>>>> Stashed changes

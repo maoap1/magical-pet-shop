@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  expeditions: []
-=======
   version: 1
   mergingSettings: {fileID: 11400000, guid: f4fb44b0e3282bc438cc3a892df8a423, type: 2}
   expeditions:
@@ -31,28 +28,40 @@ MonoBehaviour:
   - 0.06
   - 0.1
   - 0.14
->>>>>>> Stashed changes
   startingMoney: 100
+  startingExpeditionSlots: 0
   startingDiamonds: 0
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
+    limit: 0
     amount: 0
     full: 0
+    unlocked: 0
   - essence: {fileID: 11400000, guid: 15726f3ae81acdc49aa641e34c3eb18d, type: 2}
+    limit: 0
     amount: 0
     full: 0
+    unlocked: 0
   - essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
+    limit: 0
     amount: 0
     full: 0
+    unlocked: 0
   - essence: {fileID: 11400000, guid: 91eee898d52a2734aa9817eae5043bd5, type: 2}
+    limit: 0
     amount: 0
     full: 0
+    unlocked: 0
   - essence: {fileID: 11400000, guid: 2bc5d06e3596974448f89d3d719369f4, type: 2}
+    limit: 0
     amount: 0
     full: 0
+    unlocked: 0
   - essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
+    limit: 0
     amount: 0
     full: 0
+    unlocked: 0
   startingProducerLevels:
   - model: {fileID: 11400000, guid: f073e56364a1d4a4886bb609b9acd027, type: 2}
     level: 0
@@ -83,9 +92,13 @@ MonoBehaviour:
   - 1.25
   - 1.5
   - 2
-<<<<<<< Updated upstream
-  - 3
-=======
+  - 0
+  rarityPowerMultipliers:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   rarityDeathProbs:
   - 0.14
   - 0.1
@@ -107,4 +120,3 @@ MonoBehaviour:
     cost: 50
   - level: 5
     cost: 200
->>>>>>> Stashed changes

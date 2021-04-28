@@ -5,14 +5,6 @@ using UnityEngine;
 
 public static class Crafting
 {
-<<<<<<< Updated upstream
-    /// TODO
-    /// tests if crafting can be started
-    //public static bool CanStartCrafting(Recipe recipe) { }
-    // try to start crafting
-    //public static bool StartCrafting(Recipe recipe) { }
-    // Try to finish crafting currently going on
-=======
     public static bool CanStartCrafting(RecipeProgress recipe) {
         Cost cost;
         cost.money = 0;
@@ -163,19 +155,14 @@ public static class Crafting
         Rarity result = (Rarity)Mathf.Clamp(((int)input) + increment, 0, 4);
         return result;
     }
->>>>>>> Stashed changes
 }
 
 [Serializable]
 public class CraftedAnimal
 {
     public float fillRate;
-    public RecipeProgress recipe;
     public Rarity rarity;
     public float duration;
-<<<<<<< Updated upstream
-=======
     public Animal animal;
     public bool recipe;
->>>>>>> Stashed changes
 }
