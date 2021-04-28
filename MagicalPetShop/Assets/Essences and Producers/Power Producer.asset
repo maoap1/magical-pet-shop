@@ -17,12 +17,17 @@ MonoBehaviour:
   - cost: 0
     productionRate: 0
   - cost: 10
-    productionRate: 1
+    productionRate: 10
+    storageLimit: 20
   - cost: 20
-    productionRate: 2
+    productionRate: 20
+    storageLimit: 50
   - cost: 50
-    productionRate: 3
+    productionRate: 30
+    storageLimit: 100
   - cost: 100
-    productionRate: 5
+    productionRate: 40
+    storageLimit: 200
   - cost: 200
-    productionRate: 8
+    productionRate: 50
+    storageLimit: 400

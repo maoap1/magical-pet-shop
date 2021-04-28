@@ -44,6 +44,7 @@ public class EssenceAmount
 {
     [SerializeReference]
     public Essence essence;
+    [HideInInspector]
     public int limit;
     public int amount;
     [HideInInspector]
@@ -54,7 +55,7 @@ public class EssenceAmount
     public void IncreaseAmount(int increase)
     {
         amount += increase;
-        if (amount>limit)
+        if (amount>=limit)
         {
             amount = limit;
             full = true;

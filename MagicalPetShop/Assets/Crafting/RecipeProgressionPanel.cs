@@ -32,6 +32,10 @@ public class RecipeProgressionPanel : MonoBehaviour
                 image.sprite = GameGraphics.THIS.changeRarity;
                 text.text = rp.recipe.recipeLevels[level].newRarity.ToString("G");
                 break;
+            case RecipeUpgradeType.increaseValue:
+                image.sprite = GameGraphics.THIS.money;
+                text.text = "+" + rp.recipe.recipeLevels[level].valueIncrease.ToString() + "%";
+                break;
             case RecipeUpgradeType.decreaseAnimals:
                 image.sprite = rp.recipe.recipeLevels[level].costAnimalDecrease.animal.artwork;
                 text.text = "-" + rp.recipe.recipeLevels[level].costAnimalDecrease.count;
