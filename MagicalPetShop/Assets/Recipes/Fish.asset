@@ -103,20 +103,9 @@ MonoBehaviour:
   - treshold: 30
     upgradeType: 0
     costEssenceDecrease:
-<<<<<<< HEAD
       essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
       limit: 0
       amount: 1
-=======
-<<<<<<< Updated upstream
-      essence: {fileID: 0}
-      amount: 0
-=======
-      essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
-      limit: 0
-      amount: 1
->>>>>>> Stashed changes
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
       full: 0
       unlocked: 0
     costArtifactDecrease:

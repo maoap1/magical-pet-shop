@@ -16,7 +16,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
         readyMessage.SetActive(true);
         progressRing.gameObject.SetActive(true);
         finished = false;
-        animalImage.sprite = craftedAnimal.recipe.recipe.animal.artwork;
+        animalImage.sprite = craftedAnimal.animal.artwork;
         if (!PlayerState.THIS.crafting.Contains(craftedAnimal))
         {
             PlayerState.THIS.crafting.Add(craftedAnimal);
@@ -49,7 +49,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
         if (finished)
         {
             InventoryAnimal ia = new InventoryAnimal();
-            ia.animal = craftedAnimal.recipe.animal;
+            ia.animal = craftedAnimal.animal;
             ia.count = 1;
             ia.rarity = craftedAnimal.rarity;
             Inventory.AddToInventory(ia);

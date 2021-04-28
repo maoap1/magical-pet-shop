@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Shows information specific to difficulty mode of expedition
 public class ExpeditionModeDetailsUI : MonoBehaviour
 {
     [SerializeField]

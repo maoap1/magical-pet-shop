@@ -68,7 +68,7 @@ public static class Inventory
     public static bool TakeFromInventoryPrecise(Cost cost)
     {
         // first check - so that we don't pay part of cost before failure
-        if (!HasInInventory(cost))
+        if (!HasInInventoryPrecise(cost))
             return false;
         foreach (InventoryAnimal animal in cost.animals)
         {
@@ -240,6 +240,49 @@ public static class Inventory
         return result != null && count >= animal.count;
     }
 
+    public static Rarity HighestRarityToPay(List<InventoryAnimal> animals)
+    {
+        Rarity highestRarity = Rarity.Common;
+        foreach (InventoryAnimal animal in animals)
+        {
+            Rarity rarity = HighestRarityToPay(animal);
+            if (rarity>highestRarity)
+            {
+                highestRarity = rarity;
+            }
+        }
+        return highestRarity;
+    }
+
+    public static Rarity HighestRarityToPay(InventoryAnimal animal)
+    {
+        Rarity highestRarity = Rarity.Common;
+        List<InventoryAnimal> result = PlayerState.THIS.animals.FindAll(otherAnimal => animal <= otherAnimal); // the same name and equal rarity
+        if (result != null && HasInInventory(animal))
+        {
+            result.Sort((r1, r2) => r1.rarity.CompareTo(r2.rarity));
+            int cost = animal.count;
+            for (int i = 0; i < result.Count; i++)
+            {
+                if (result[i].count-cost < 0)
+                {
+                    cost = -result[i].count;
+                    highestRarity = result[i].rarity;
+                }
+                else if (cost > 0)
+                {
+                    highestRarity = result[i].rarity;
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        return highestRarity;
+    }
+
     public static bool HasInInventory(InventoryArtifact artifact) {
         var result = PlayerState.THIS.artifacts.Find(otherArtifact => artifact.artifact == otherArtifact.artifact); // equality based on name
         return result != null && result.count >= artifact.count;
@@ -313,14 +356,20 @@ public class InventoryAnimal {
     public int count;
     public Rarity rarity;
 
-    public int GetProbabilityOfDeath() {
-        // TODO: Compute the probability according to the rarity
-        return 80;
+    public InventoryAnimal() { }
+
+    public InventoryAnimal(Animal animal, int count, Rarity rarity) {
+        this.animal = animal;
+        this.count = count;
+        this.rarity = rarity;
+    }
+
+    public float GetProbabilityOfDeath() {
+        return GameLogic.THIS.GetRarityDeathProbability(this.rarity);
     }
 
     public int GetPower() {
-        // TODO: Compute the base power of the animal and rarity
-        return this.animal.basePower;
+        return (int)(this.animal.basePower * GameLogic.THIS.GetRarityPowerMultiplier(this.rarity));
     }
 
     public bool Equals(InventoryAnimal other) {
@@ -377,6 +426,40 @@ public class InventoryArtifact
 {
     public Artifact artifact;
     public int count;
+
+    public InventoryArtifact() { }
+
+    public InventoryArtifact(Artifact artifact, int count) {
+        this.artifact = artifact;
+        this.count = count;
+    }
+
+    public bool Equals(InventoryArtifact other) {
+        if (other == null) return false;
+        return this.artifact == other.artifact;
+    }
+
+    public override bool Equals(object obj) {
+        if (obj == null) return false;
+
+        InventoryArtifact other = obj as InventoryArtifact;
+        if (other == null) return false;
+        else return Equals(other);
+    }
+
+    public override int GetHashCode() {
+        return this.artifact.GetHashCode();
+    }
+
+    public static bool operator ==(InventoryArtifact artifact1, InventoryArtifact artifact2) {
+        if (((object)artifact1) == null || ((object)artifact2) == null)
+            return object.Equals(artifact1, artifact2);
+        return artifact1.Equals(artifact2);
+    }
+
+    public static bool operator !=(InventoryArtifact artifact1, InventoryArtifact artifact2) {
+        return !(artifact1 == artifact2);
+    }
 }
 
 [Serializable]

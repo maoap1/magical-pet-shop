@@ -68,17 +68,8 @@ public class PlayerState : MonoBehaviour
         lastArrivalTime = Shop.lastArrivalTime;
         customers = Shop.customers;
         string json = JsonUtility.ToJson(this);
-<<<<<<< HEAD
         json = version.ToString() + "," + json;
         string path = getPath();
-=======
-<<<<<<< Updated upstream
-        string path = Application.persistentDataPath + "/PlayerState.json";
-=======
-        json = version.ToString() + "," + json;
-        string path = getPath();
->>>>>>> Stashed changes
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
         Debug.Log("trying to save to: " + path);
         System.IO.File.WriteAllText(path, json);
     }
@@ -87,22 +78,12 @@ public class PlayerState : MonoBehaviour
 
     public void Start()
     {
-<<<<<<< HEAD
         this.version = GameLogic.THIS.version;
         string path = getPath();
-=======
-<<<<<<< Updated upstream
-        string path = Application.persistentDataPath + "/PlayerState.json";
-=======
-        this.version = GameLogic.THIS.version;
-        string path = getPath();
->>>>>>> Stashed changes
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
         if (File.Exists(path))
         {
             Debug.Log("loading from: " + path);
             var json = File.ReadAllText(path);
-<<<<<<< HEAD
             int index = json.IndexOf(',');
             int saveVersion = int.Parse(json.Substring(0, index));
             if (saveVersion == version)
@@ -116,36 +97,6 @@ public class PlayerState : MonoBehaviour
             {
                 loadFromGameLogic();
             }
-=======
-<<<<<<< Updated upstream
-            JsonUtility.FromJsonOverwrite(json, this);
-            Shop.lastArrivalTime = lastArrivalTime;
-            Shop.customers = customers;
-        }
-        else
-        {
-            this.money = GameLogic.THIS.startingMoney;
-            this.diamonds = GameLogic.THIS.startingDiamonds;
-            this.level = 1;
-            this.producers = new List<EssenceProducer>();
-            this.resources = new List<EssenceAmount>();
-            foreach (var p in GameLogic.THIS.startingProducerLevels)
-=======
-            int index = json.IndexOf(',');
-            int saveVersion = int.Parse(json.Substring(0, index));
-            if (saveVersion == version)
->>>>>>> Stashed changes
-            {
-                string stateJson = json.Substring(index + 1);
-                JsonUtility.FromJsonOverwrite(stateJson, this);
-                Shop.lastArrivalTime = lastArrivalTime;
-                Shop.customers = customers;
-            }
-            else
-            {
-                loadFromGameLogic();
-            }
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
         }
         else
         {
@@ -203,42 +154,15 @@ public class PlayerState : MonoBehaviour
             recipes.Add(r);
             foreach (var e in resources)
             {
-<<<<<<< HEAD
-                if (e.essence.associatedLocation == rp.animal.category)
-=======
-<<<<<<< Updated upstream
-                RecipeProgress r = new RecipeProgress();
-                r.recipe = rp.recipe;
-                r.animalsProduced = rp.animalsProduced;
-                recipes.Add(r);
-                foreach (var e in resources)
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
-                {
-                    e.unlocked = true;
-                }
-            }
-<<<<<<< HEAD
-=======
-            this.expeditions = new List<Expedition>();
-            this.crafting = new List<CraftedAnimal>();
-            this.playerTime = Utils.EpochTime();
-            Shop.lastArrivalTime = playerTime;
-            Save();
-=======
                 if (e.essence.associatedLocation == rp.animal.category)
                 {
                     e.unlocked = true;
                 }
             }
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
             if (PlayerState.THIS.level < r.animal.level)
             {
                 PlayerState.THIS.level = r.animal.level;
             }
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 24a2026 (Revert "fixed some issues")
         }
         this.expeditions = new List<Expedition>();
         this.crafting = new List<CraftedAnimal>();

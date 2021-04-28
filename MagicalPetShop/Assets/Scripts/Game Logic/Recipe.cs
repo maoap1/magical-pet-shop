@@ -284,14 +284,7 @@ public class RecipeProgress
             RecipeProgress rp = new RecipeProgress();
             rp.animalsProduced = 0;
             rp.recipe = recipe.getUnlockedRecipe(animalsProduced);
-            PlayerState.THIS.recipes.Add(rp);
-            foreach (var e in PlayerState.THIS.resources)
-            {
-                if (e.essence.associatedLocation == rp.animal.category)
-                {
-                    e.unlocked = true;
-                }
-            }
+            GameLogic.UnlockRecipe(rp);
         }
     }
 }
