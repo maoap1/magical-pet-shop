@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+  expeditions: []
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
   version: 1
   mergingSettings: {fileID: 11400000, guid: f4fb44b0e3282bc438cc3a892df8a423, type: 2}
   expeditions:
@@ -28,6 +34,10 @@ MonoBehaviour:
   - 0.06
   - 0.1
   - 0.14
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
   startingMoney: 100
   startingExpeditionSlots: 0
   startingDiamonds: 0
@@ -92,6 +102,7 @@ MonoBehaviour:
   - 1.25
   - 1.5
   - 2
+<<<<<<< HEAD
   - 0
   rarityPowerMultipliers:
   - 0
@@ -99,6 +110,11 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+=======
+<<<<<<< Updated upstream
+  - 3
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
   rarityDeathProbs:
   - 0.14
   - 0.1
@@ -120,3 +136,7 @@ MonoBehaviour:
     cost: 50
   - level: 5
     cost: 200
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")

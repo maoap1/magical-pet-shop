@@ -534,6 +534,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
 --- !u!114 &542850350 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 969279579, guid: 5a52502beac87224ba19aeefc3119584, type: 3}
@@ -545,6 +550,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1915c046542afeb4080958e0fb41ae1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+--- !u!114 &543600360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 394633908455801200, guid: e2b088b3f9cfeea4c920f7117bd853e5, type: 3}
+  m_PrefabInstance: {fileID: 1193000048953515799}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b561ce521a8d6448aa94d14e7b6379c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
 --- !u!212 &701174490 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3057945435482198684, guid: d4a14840d2c1a6d4cb3bc9458510835d, type: 3}
@@ -903,7 +923,10 @@ RectTransform:
   - {fileID: 385165505}
   - {fileID: 2115604268}
   - {fileID: 1135651474}
+<<<<<<< HEAD
   - {fileID: 81815620}
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
   m_Father: {fileID: 702290190}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1358,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   widthUnits: 9
   heightUnits: 16
+<<<<<<< HEAD
 --- !u!114 &1958526479 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 394633908455801200, guid: e2b088b3f9cfeea4c920f7117bd853e5, type: 3}
@@ -1369,6 +1393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b561ce521a8d6448aa94d14e7b6379c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
 --- !u!1 &2036082533
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,10 +22,19 @@ public class GameLogic : ScriptableObject
         }
     }
 
+<<<<<<< HEAD
 
     public int version;
     public MergingSettings mergingSettings;
     [Header("Expeditions")]
+=======
+<<<<<<< Updated upstream
+=======
+    public int version;
+    public MergingSettings mergingSettings;
+    [Header("Expeditions")]
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
     public List<ExpeditionType> expeditions;
     public List<PackLeader> packLeaders;
     public float[] casualtiesThreshold = new float[4];
@@ -45,6 +54,11 @@ public class GameLogic : ScriptableObject
 
     [Header("Rarity Multipliers")]
     public float[] rarityMultipliers = new float[5];
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
     public float[] rarityPowerMultipliers = new float[5];
     public float[] rarityDeathProbs = new float[5];
 
@@ -55,6 +69,10 @@ public class GameLogic : ScriptableObject
 
     [Header("Crafting slots")]
     public CraftingSlotUpgrade[] craftingSlotUpgrades = new CraftingSlotUpgrade[4];
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
 
     void OnValidate()
     {
@@ -63,6 +81,11 @@ public class GameLogic : ScriptableObject
             Debug.LogWarning("Don't change the 'rarityMultipliers' field's array size!");
             Array.Resize(ref rarityMultipliers, 5);
         }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
         if (rarityPowerMultipliers.Length != 5) {
             Debug.LogWarning("Don't change the 'rarityPowerMultipliers' field's array size!");
             Array.Resize(ref rarityPowerMultipliers, 5);
@@ -88,6 +111,10 @@ public class GameLogic : ScriptableObject
             Debug.LogWarning("Don't change the 'craftingSlotUpgrades' field's array size!");
             Array.Resize(ref craftingSlotUpgrades, 4);
         }
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
     }
 
     public float getRarityMultiplier(Rarity rarity)
@@ -95,6 +122,11 @@ public class GameLogic : ScriptableObject
         return rarityMultipliers[(int)rarity];
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
     public float GetRarityPowerMultiplier(Rarity rarity) {
         return rarityPowerMultipliers[(int)rarity];
     }
@@ -132,6 +164,10 @@ public class GameLogic : ScriptableObject
         GameLogic.UnlockEssence(rp.animal.category);
     }
 
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 24a2026 (Revert "fixed some issues")
     public void Update()
     {
         long updateTime = Utils.EpochTime();
