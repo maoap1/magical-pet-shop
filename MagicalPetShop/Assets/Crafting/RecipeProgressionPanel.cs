@@ -49,7 +49,7 @@ public class RecipeProgressionPanel : MonoBehaviour
                 text.text = "-" + rp.recipe.recipeLevels[level].costEssenceDecrease.amount;
                 break;
             case RecipeUpgradeType.decreaseDuration:
-                image.sprite = GameGraphics.THIS.decreaseDuration;
+                image.sprite = GameGraphics.THIS.getUpgradeSprite(RecipeUpgradeType.decreaseDuration);
                 text.text = "-" + rp.recipe.recipeLevels[level].durationDecrease.ToString() + "%";
                 break;
             case RecipeUpgradeType.unlockRecipe:
