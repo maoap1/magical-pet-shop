@@ -23,32 +23,49 @@ public class GameGraphics : ScriptableObject
 
     public Sprite money;
     public Sprite time;
-    public Sprite decreaseEssences;
-    public Sprite decreaseArtifacts;
-    public Sprite decreaseAnimals;
     public Sprite changeRarity;
-    public Sprite decreaseDuration;
-    public Sprite unlockRecipe;
 
     public Sprite unknown;
+
+    [ColorUsageAttribute(true, true)]
+    public Color commonColor;
+    [ColorUsageAttribute(true, true)]
+    public Color goodColor;
+    [ColorUsageAttribute(true, true)]
+    public Color rareColor;
+    [ColorUsageAttribute(true, true)]
+    public Color epicColor;
+    [ColorUsageAttribute(true, true)]
+    public Color legendaryColor;
+
+    public Color getRarityColor(Rarity r)
+    {
+        switch (r)
+        {
+            case Rarity.Common:
+                return commonColor;
+            case Rarity.Good:
+                return goodColor;
+            case Rarity.Rare:
+                return rareColor;
+            case Rarity.Epic:
+                return epicColor;
+            case Rarity.Legendary:
+                return legendaryColor;
+            default:
+                return new Color(0,0,0);
+        }
+    }
 
     public Sprite getUpgradeSprite(RecipeUpgradeType upgrade)
     {
         switch (upgrade) {
-            case RecipeUpgradeType.decreaseEssences:
-                return decreaseEssences;
-            case RecipeUpgradeType.decreaseArtifacts:
-                return decreaseArtifacts;
-            case RecipeUpgradeType.decreaseAnimals:
-                return decreaseAnimals;
             case RecipeUpgradeType.changeRarity:
                 return changeRarity;
             case RecipeUpgradeType.decreaseDuration:
-                return decreaseDuration;
-            case RecipeUpgradeType.unlockRecipe:
-                return unlockRecipe;
+                return time;
             case RecipeUpgradeType.increaseValue:
-                return unlockRecipe;
+                return money;
             default:
                 return null;
         }

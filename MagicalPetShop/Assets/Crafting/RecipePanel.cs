@@ -82,7 +82,7 @@ public class RecipePanel : MonoBehaviour
                     upgrade.sprite = recipe.recipe.recipeLevels[recipe.level+1].costEssenceDecrease.essence.icon;
                     break;
                 case RecipeUpgradeType.decreaseDuration:
-                    upgrade.sprite = GameGraphics.THIS.decreaseDuration;
+                    upgrade.sprite = GameGraphics.THIS.getUpgradeSprite(RecipeUpgradeType.decreaseDuration);
                     break;
                 case RecipeUpgradeType.unlockRecipe:
                     upgrade.sprite = recipe.recipe.recipeLevels[recipe.level+1].unlockedRecipe.animal.artwork;
