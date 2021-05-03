@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6998975675575399751}
   - component: {fileID: 5362397229364181932}
   - component: {fileID: 4470774121464558309}
+  - component: {fileID: 2545447690938832371}
   m_Layer: 5
   m_Name: YardButton
   m_TagString: Untagged
@@ -160,6 +161,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 6998975675575399751}
+--- !u!114 &2545447690938832371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99765786625298205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830751837979476857
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +186,7 @@ GameObject:
   - component: {fileID: 820262586469794046}
   - component: {fileID: 2184170577792705345}
   - component: {fileID: 7828068161015698569}
+  - component: {fileID: 4556463284143347010}
   m_Layer: 5
   m_Name: ShopButton
   m_TagString: Untagged
@@ -304,6 +318,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8af50e99d256c4d45af0b1bfb57f3b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4556463284143347010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830751837979476857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1112457078270114083
@@ -477,6 +503,7 @@ GameObject:
   - component: {fileID: 2172799955111273869}
   - component: {fileID: 4000723536149983436}
   - component: {fileID: 2625618296976658656}
+  - component: {fileID: 1349359553410543706}
   m_Layer: 5
   m_Name: LabButton
   m_TagString: Untagged
@@ -610,6 +637,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af50e99d256c4d45af0b1bfb57f3b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1349359553410543706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188211388683449635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4146892808299320150
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +662,7 @@ GameObject:
   - component: {fileID: 1791335281255076799}
   - component: {fileID: 84870264294059337}
   - component: {fileID: 4349950783412463953}
+  - component: {fileID: 4206050030274433512}
   m_Layer: 5
   m_Name: InventoryButton
   m_TagString: Untagged
@@ -754,6 +794,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3cd009f9747f984b916c5eeb423e0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4206050030274433512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146892808299320150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4275674530963053355
@@ -1108,6 +1160,7 @@ GameObject:
   - component: {fileID: 206079191534427419}
   - component: {fileID: 363784569624797805}
   - component: {fileID: 2081152554289779002}
+  - component: {fileID: 2571189315206080101}
   m_Layer: 5
   m_Name: PackLeadersButton
   m_TagString: Untagged
@@ -1239,6 +1292,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73e2acb2f45339c48a9d75d6d717b638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2571189315206080101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7026877466874981173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7756319116863129015

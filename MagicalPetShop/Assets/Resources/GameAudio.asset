@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a042b8969be9ca04b8a3e2e4a962b3d2, type: 3}
+  m_Name: GameAudio
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 4f072472daf0ef642ace1d434662c414, type: 3}
+    volume: 1
+    type: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: fc4af54e3cc60434b9cecc456d86fc67, type: 3}
+    volume: 1
+    type: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 200609406d2dc5d43a6cc0fd4f2d5038, type: 3}
+    volume: 1
+    type: 2
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d9e660128282ff248870464e8eb10cb5, type: 3}
+    volume: 1
+    type: 3
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c7e47ee9e3eacca429a4dd7a13d09524, type: 3}
+    volume: 1
+    type: 3
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: afed31527785307419be02189ca42445, type: 3}
+    volume: 1
+    type: 3
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 8f6eb988727ed234ebbcf0382e794467, type: 3}
+    volume: 0.4
+    type: 4
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 24bbe9395ff2e1c4ebcf1a798861298a, type: 3}
+    volume: 0.4
+    type: 5
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 001980e55c8e1f34b92c616d80e6b86e, type: 3}
+    volume: 0.8
+    type: 6
+    source: {fileID: 0}
+  backgroundMusic:
+  - clip: {fileID: 8300000, guid: f3ddcb2f16ef99648a055d7be70b651e, type: 3}
+    volume: 0.05
+  - clip: {fileID: 8300000, guid: 9dad9b60a0fc0a644b675c3053692a99, type: 3}
+    volume: 0.05
+  scenesAudio:
+  - sceneName: Lab
+    backgroundSounds:
+    - clip: {fileID: 8300000, guid: 96a077f6060b17b4da9df5c4272bf43e, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 0
+      maxInterval: 15
+      shouldPlay: 1
+      source: {fileID: 0}
+    - clip: {fileID: 0}
+      volume: 0.5
+      variations:
+      - {fileID: 8300000, guid: 0fb84df1baeb99a46baf7a840c90bcd5, type: 3}
+      - {fileID: 8300000, guid: c5ab3b2334a3f4d489a1eb78744b12c5, type: 3}
+      - {fileID: 8300000, guid: f2a62518bcd54044ca022a5fc01b5d0e, type: 3}
+      - {fileID: 8300000, guid: b2d73cf0d74f74e4999c37386109d31b, type: 3}
+      - {fileID: 8300000, guid: 4f2463c4d9761e34ebdc5944376d7911, type: 3}
+      - {fileID: 8300000, guid: a227a7af414887649a1369ff51704465, type: 3}
+      - {fileID: 8300000, guid: 846a409b31db9cc41b05bc6431a91160, type: 3}
+      - {fileID: 8300000, guid: e78cd2175067f7840bc58ea5b25cd455, type: 3}
+      - {fileID: 8300000, guid: b47f779dad464094b8e55732b1d78c92, type: 3}
+      minInterval: 0
+      maxInterval: 3
+      shouldPlay: 1
+      source: {fileID: 0}
+  - sceneName: Shop
+    backgroundSounds:
+    - clip: {fileID: 8300000, guid: 42b56430aa64c84428187c55743f38aa, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 5
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 038a3427ce21dc446b731d752b06818d, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 5
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 6afa0408d8907c44f9b656d1aae1844e, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 5
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 046c8d8a6f3bba444a585210a7ff90bf, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 5
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 46adb49f0fdc52f468dc3b7baf7e1b8a, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 5
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 2b699f6ab9704184a87d4e6ccc0b8971, type: 3}
+      volume: 0.5
+      variations: []
+      minInterval: 5
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 8300000, guid: 8f9d3b16715180f4087ec6fe0beb2900, type: 3}
+      volume: 0.3
+      variations: []
+      minInterval: 0
+      maxInterval: 0
+      shouldPlay: 0
+      source: {fileID: 0}
+  - sceneName: Yard
+    backgroundSounds:
+    - clip: {fileID: 0}
+      volume: 0.5
+      variations:
+      - {fileID: 8300000, guid: 060d9e6dfb111e941959a77394771230, type: 3}
+      - {fileID: 8300000, guid: 84d2de399bbca9b419a7a5a44aa6d54f, type: 3}
+      minInterval: 0
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 0}
+      volume: 0.5
+      variations:
+      - {fileID: 8300000, guid: fa71971be32e3f547af47e050b62ffb9, type: 3}
+      - {fileID: 8300000, guid: 33b0fb58e7ecf924db57f8a63c8d8827, type: 3}
+      - {fileID: 8300000, guid: 569c5230c62904243bc45a616cd3c3bc, type: 3}
+      - {fileID: 8300000, guid: 43e061eba8cbb084ebeb433cd88b6ca5, type: 3}
+      - {fileID: 8300000, guid: d227fbce0ff16bf429fa98df19f1d719, type: 3}
+      - {fileID: 8300000, guid: 7471e83f9a5c9534087680b5325e7c15, type: 3}
+      minInterval: 0
+      maxInterval: 20
+      shouldPlay: 0
+      source: {fileID: 0}
+    - clip: {fileID: 0}
+      volume: 0.5
+      variations:
+      - {fileID: 8300000, guid: 3bf6ba3d791a465428120f286b0571a8, type: 3}
+      - {fileID: 8300000, guid: 5268690a8fe4b514083f59829b8ed664, type: 3}
+      - {fileID: 8300000, guid: c21235c16e15fb74ead8a4036c6645b2, type: 3}
+      - {fileID: 8300000, guid: 38decd987a9749e42b9b45c0750b875b, type: 3}
+      - {fileID: 8300000, guid: 808695866cdab3144a4f120f278bd823, type: 3}
+      minInterval: 2
+      maxInterval: 5
+      shouldPlay: 0
+      source: {fileID: 0}

@@ -17,6 +17,7 @@ public class RecipeImage : MonoBehaviour
             int recipesBefore = PlayerState.THIS.recipes.Count;
             if (Crafting.StartCraftingSafe(recipe))
             {
+                FindObjectOfType<AudioManager>().Play(AudioType.Splash);
                 if (PlayerState.THIS.recipes.Count > recipesBefore)
                 {
                     recipePanel.recipesPanel.defaultRecipeCategory.Display();

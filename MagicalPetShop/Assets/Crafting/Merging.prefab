@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2037258140950789209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870219537695555784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4181571526856305764
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +344,7 @@ MonoBehaviour:
   objectsToAppear: []
   objectsToHide:
   - {fileID: 0}
+  recipes: {fileID: 0}
   defaultMergingCategory: {fileID: 6415507326615301088}
 --- !u!1 &4181571527319128750
 GameObject:
@@ -618,6 +631,7 @@ GameObject:
   - component: {fileID: 4181571528518646404}
   - component: {fileID: 4181571528518646405}
   - component: {fileID: 4181571528518646410}
+  - component: {fileID: 6828011269926734300}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -819,6 +833,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6828011269926734300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4181571528518646408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7524573789784502945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947512820359488837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &669283036092882695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1532,6 +1570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4477239987840273671, guid: 962db857ea091df49a05497469f56053, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7494226613217484913, guid: 962db857ea091df49a05497469f56053, type: 3}
       propertyPath: m_Name
       value: Confirmation Panel
@@ -1545,6 +1587,16 @@ PrefabInstance:
 --- !u!224 &484622320836779039 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3785354024008913360, guid: 962db857ea091df49a05497469f56053, type: 3}
+  m_PrefabInstance: {fileID: 3616951265626820047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6947512820359488837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934468991290042506, guid: 962db857ea091df49a05497469f56053, type: 3}
+  m_PrefabInstance: {fileID: 3616951265626820047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &870219537695555784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4477239987840273671, guid: 962db857ea091df49a05497469f56053, type: 3}
   m_PrefabInstance: {fileID: 3616951265626820047}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8956319633594724089

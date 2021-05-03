@@ -27,6 +27,7 @@ public class CustomerDisplay : MonoBehaviour
         else if (Shop.customers[CustomerID].hasValue)
         {
             order.sprite = Shop.customers[CustomerID].desiredAnimal.animal.artwork;
+            if (!character.activeInHierarchy) FindObjectOfType<AudioManager>().Play(AudioType.CustomerAppear);
             character.SetActive(true);
         }
     }

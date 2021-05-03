@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6369301785605453344}
   - component: {fileID: 8148294928549591507}
   - component: {fileID: 2685069711642133785}
+  - component: {fileID: 4275168981592924458}
   m_Layer: 5
   m_Name: MergingCategory
   m_TagString: Untagged
@@ -152,6 +153,18 @@ MonoBehaviour:
   mergingDisplayPanel: {fileID: 0}
   locationFilterPanel: {fileID: 0}
   selected: 0
+--- !u!114 &4275168981592924458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240774401551210803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae82f4da123ef7140b427500280d1667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8261163936953412198
 GameObject:
   m_ObjectHideFlags: 0
