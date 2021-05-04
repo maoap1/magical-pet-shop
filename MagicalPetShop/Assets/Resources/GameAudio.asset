@@ -49,6 +49,18 @@ MonoBehaviour:
     volume: 0.8
     type: 6
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 06ce871eaacb0774cbd395f9e88ee101, type: 3}
+    volume: 0.8
+    type: 7
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a50c5ba7c8d7c704dbbfc53c23cf1d58, type: 3}
+    volume: 0.8
+    type: 7
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ab08e97e0cdec044283d4c947d9b5f22, type: 3}
+    volume: 0.8
+    type: 7
+    source: {fileID: 0}
   backgroundMusic:
   - clip: {fileID: 8300000, guid: f3ddcb2f16ef99648a055d7be70b651e, type: 3}
     volume: 0.05

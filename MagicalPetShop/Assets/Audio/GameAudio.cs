@@ -78,6 +78,7 @@ public enum AudioType {
     CustomerAppear,
     Door,
     Steps,
+    Cauldron,
     ExpeditionSuccessful,
     ExpeditionFailed,
     CraftingSuccessful,
