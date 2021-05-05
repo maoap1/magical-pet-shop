@@ -93,7 +93,7 @@ public class RecipeLoader : MonoBehaviour
             //Load animals
             if (NontrivialName(name) && !AnimalExists(name, existingAnimals))
             {
-                if (sheet[name, "Animal"].value != "---")
+                if (sheet[name, "Name"].value != "---")
                 {
                     Animal so = ScriptableObject.CreateInstance<Animal>();
                     so.name = name;
