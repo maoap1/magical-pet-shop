@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Uhlik
   level: 3
   value: 860
-  basePower: 10
+  basePower: 220
   animalEssence: {fileID: 11400000, guid: 15726f3ae81acdc49aa641e34c3eb18d, type: 2}
   secondaryCategories: []
   artwork: {fileID: 0}
   bloomSprite: {fileID: 21300000, guid: c1875e5ef346c2745a8978d99625bcaa, type: 3}
-  associatedArtifact: {fileID: 0}
+  associatedArtifact: {fileID: 11400000, guid: 1226160c1514b6d40821acfb8d03fbf2, type: 2}

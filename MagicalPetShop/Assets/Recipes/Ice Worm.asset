@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce490c64d509134eb352ec283d08619, type: 3}
+  m_Name: Ice Worm
+  m_EditorClassIdentifier: 
+  animal: {fileID: 11400000, guid: 262b908eae28bef40af040192daea56e, type: 2}
+  baseCostEssences:
+  - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
+    limit: 0
+    amount: 18
+    full: 0
+    unlocked: 0
+  - essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
+    limit: 0
+    amount: 41
+    full: 0
+    unlocked: 0
+  baseCostArtifacts:
+  - artifact: {fileID: 11400000, guid: a4de380af0f259f46b5530397e2db47b, type: 2}
+    count: 3
+  baseCostAnimals: []
+  baseRarity: 0
+  baseDuration: 1020
+  recipeLevels:
+  - treshold: 8
+    upgradeType: 4
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 25
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
+  - treshold: 20
+    upgradeType: 0
+    costEssenceDecrease:
+      essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
+      limit: 0
+      amount: 10
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
+  - treshold: 36
+    upgradeType: 5
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 11400000, guid: ed3817489adf30343831be02e897d145, type: 2}
+    valueIncrease: 0
+  - treshold: 55
+    upgradeType: 6
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 25
+  - treshold: 85
+    upgradeType: 1
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 11400000, guid: a4de380af0f259f46b5530397e2db47b, type: 2}
+      count: 1
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
