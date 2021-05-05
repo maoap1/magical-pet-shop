@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd3d0b1bff04724290f67f5a49a9fef, type: 3}
   m_Name: Bubbles
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 96a077f6060b17b4da9df5c4272bf43e, type: 3}
+  clip: {fileID: 8300000, guid: e42f18c6938278948acfdfc0a5613ca0, type: 3}
   volume: 0.5
   minInterval: 0
   maxInterval: 15
   variations: []
   volumes: []
-  shouldPlay: 0
+  shouldPlay: 1
   source: {fileID: 0}

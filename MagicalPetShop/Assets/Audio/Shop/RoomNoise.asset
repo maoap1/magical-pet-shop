@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 8f9d3b16715180f4087ec6fe0beb2900, type: 3}
   volume: 0.3
-  fadeInLength: 3
+  fadeInLength: 5
   source: {fileID: 0}

@@ -18,7 +18,6 @@ MonoBehaviour:
   maxInterval: 20
   variations:
   - {fileID: 8300000, guid: 060d9e6dfb111e941959a77394771230, type: 3}
-  - {fileID: 8300000, guid: 84d2de399bbca9b419a7a5a44aa6d54f, type: 3}
   volumes: []
   shouldPlay: 0
   source: {fileID: 0}

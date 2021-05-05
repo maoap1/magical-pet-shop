@@ -46,4 +46,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ecc25fab1e97aab479a8dcb6f636b8d0, type: 2}
     - {fileID: 11400000, guid: d7fbe4c77efb5964b9c4af8570632820, type: 2}
     - {fileID: 11400000, guid: 1f6bee87197d81e48a9e89d387889f65, type: 2}
-    ambientSounds: []
+    ambientSounds:
+    - {fileID: 11400000, guid: ac310ed48344d7141852670233175457, type: 2}

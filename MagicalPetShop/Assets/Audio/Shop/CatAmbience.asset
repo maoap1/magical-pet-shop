@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CatAmbience
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 038a3427ce21dc446b731d752b06818d, type: 3}
-  volume: 0.5
+  volume: 0.7
   fadeInLength: 2
   source: {fileID: 0}
