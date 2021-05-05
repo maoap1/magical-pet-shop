@@ -15,59 +15,61 @@ public class RecipeLoader : MonoBehaviour
         SpreadsheetManager.Read(new GSTU_Search("1JsFLaENkpnlaC3EvOYpIvN1iKYTAf6UtLDoidxWZVYI", "Sheet1"), ReadAndProcessRecipes);
     }
 
+    private static List<T> GetExisting<T>() where T : class
+    {
+        string[] existingPaths = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(T)));
+        List<T> existingList = new List<T>();
+        foreach (string path in existingPaths)
+        {
+            existingList.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(T)) as T);
+        }
+        return existingList;
+    }
+
+    private static bool NontrivialName(string name)
+        => name != "" && name != "Name";
+
+    private static bool ArtifactExists(string name, List<Artifact> existingArtifacts, GstuSpreadSheet sheet)
+    {
+        return existingArtifacts.Find(a => a.name == sheet[name, "Artifact"].value) != null;
+    }
+
+    private static bool AnimalExists(string name, List<Animal> existingAnimals)
+    {
+        return existingAnimals.Find(a => a.name == name) != null;
+    }
+
+    private static bool RecipeExists(string name, List<Recipe> existingRecipes)
+    {
+        return existingRecipes.Find(r => r.animal.name == name) != null;
+    }
+
+
     private static void ReadAndProcessRecipes(GstuSpreadSheet sheet)
     {
-        string[] existingAnimalsPaths = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(Animal)));
-        List<Animal> existingAnimals = new List<Animal>();
-        foreach (string path in existingAnimalsPaths)
-        {
-            existingAnimals.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Animal)) as Animal);
-        }
 
-        string[] existingArtifactsPaths = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(Artifact)));
-        List<Artifact> existingArtifacts = new List<Artifact>();
-        foreach (string path in existingArtifactsPaths)
-        {
-            existingArtifacts.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Artifact)) as Artifact);
-        }
-
-        string[] existingEssencesPaths = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(Essence)));
-        List<Essence> existingEssences = new List<Essence>();
-        foreach (string path in existingEssencesPaths)
-        {
-            existingEssences.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Essence)) as Essence);
-        }
-
-        string[] existingRecipesPaths = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(Recipe)));
-        List<Recipe> existingRecipes = new List<Recipe>();
-        foreach (string path in existingRecipesPaths)
-        {
-            existingRecipes.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Recipe)) as Recipe);
-        }
-
-        string[] existingLocationPaths = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(LocationType)));
-        List<LocationType> existingLocations = new List<LocationType>();
-        foreach (string path in existingLocationPaths)
-        {
-            existingLocations.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(LocationType)) as LocationType);
-        }
-
+        List<Animal> existingAnimals = GetExisting<Animal>();
+        List<Artifact> existingArtifacts = GetExisting<Artifact>();
+        List<Essence> existingEssences = GetExisting<Essence>();
+        List<Recipe> existingRecipes = GetExisting<Recipe>();
+        List<LocationType> existingLocations = GetExisting<LocationType>();
 
         foreach (var nameValue in sheet.columns["Name"])
         {
+            string name = nameValue.value;
             //Load artifacts
-            if (nameValue.value != "" && nameValue.value != "Name" && existingArtifacts.Find(a => a.name != sheet[nameValue.value, "Artifact"].value) != null)
+            if (NontrivialName(name) && !ArtifactExists(name, existingArtifacts, sheet))
             {
-                if (sheet[nameValue.value, "Artifact"].value != "---")
+                if (sheet[name, "Artifact"].value != "---")
                 {
                     Artifact so = ScriptableObject.CreateInstance<Artifact>();
-                    so.name = sheet[nameValue.value, "Artifact"].value;
+                    so.name = sheet[name, "Artifact"].value;
                     AssetDatabase.CreateAsset(so, "Assets/Artifacts/" + so.name.Replace("/", "").Replace("\\", "") + ".asset");
                     existingArtifacts.Add(so);
                 }
             }
             /*
-            if (nameValue.value != "" && nameValue.value != "Name" && existingArtifacts.Find(a => a.name != sheet[nameValue.value, "Merging artifact"].value) != null)
+            if (nameValue.value != "" && nameValue.value != "Name" && existingArtifacts.Find(a => a.name != sheet[nameValue.value, "Merging artifact"].value) == null)
             {
                 Artifact so = ScriptableObject.CreateInstance<Artifact>();
                 so.name = sheet[nameValue.value, "Artifact"].value;
@@ -86,131 +88,135 @@ public class RecipeLoader : MonoBehaviour
         */
         foreach (var nameValue in sheet.columns["Name"])
         {
+            string name = nameValue.value;
             //Load animals
-            if (nameValue.value != "" && nameValue.value != "Name" && existingAnimals.Find(a => a.name != nameValue.value) != null)
+            if (NontrivialName(name) && !AnimalExists(name, existingAnimals))
             {
-                if (sheet[nameValue.value, "Animal"].value != "---")
+                if (sheet[name, "Animal"].value != "---")
                 {
                     Animal so = ScriptableObject.CreateInstance<Animal>();
-                    so.name = nameValue.value;
-                    so.level = int.Parse(sheet[nameValue.value, "Tier"].value);
-                    so.value = int.Parse(sheet[nameValue.value, "Value"].value.Replace(",", ""));
-                    so.animalEssence = existingEssences.Find(e => e.name == sheet[nameValue.value, "Category"].value);
-                    so.basePower = int.Parse(sheet[nameValue.value, "Power"].value.Replace(",", ""));
-                    so.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[nameValue.value, "Merging artifact"].value);
+                    so.name = name;
+                    so.level = int.Parse(sheet[name, "Tier"].value);
+                    so.value = int.Parse(sheet[name, "Value"].value.Replace(",", ""));
+                    so.animalEssence = existingEssences.Find(e => e.name == sheet[name, "Category"].value);
+                    so.basePower = int.Parse(sheet[name, "Power"].value.Replace(",", ""));
+                    so.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[name, "Merging artifact"].value);
                     so.secondaryCategories = new List<LocationType>();
-                    if (sheet[nameValue.value, "Secondary category"].value != "---")
+                    if (sheet[name, "Secondary category"].value != "---")
                     {
-                        so.secondaryCategories.Add(existingLocations.Find(l => l.name == sheet[nameValue.value, "Secondary category"].value));
+                        so.secondaryCategories.Add(existingLocations.Find(l => l.name == sheet[name, "Secondary category"].value));
                     }
                     AssetDatabase.CreateAsset(so, "Assets/Animals/" + so.name.Replace("/", "").Replace("\\", "") + ".asset");
                     existingAnimals.Add(so);
                 }
             }
-            else if (existingAnimals.Find(a => a.name == nameValue.value) != null)
+            else if (AnimalExists(name, existingAnimals))
             {
-                Animal animal = existingAnimals.Find(a => a.name == nameValue.value);
-                animal.level = int.Parse(sheet[nameValue.value, "Tier"].value);
-                animal.value = int.Parse(sheet[nameValue.value, "Value"].value.Replace(",", ""));
-                animal.animalEssence = existingEssences.Find(e => e.name == sheet[nameValue.value, "Category"].value);
-                animal.basePower = int.Parse(sheet[nameValue.value, "Power"].value.Replace(",", ""));
-                animal.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[nameValue.value, "Merging artifact"].value);
+                Animal animal = existingAnimals.Find(a => a.name == name);
+                animal.level = int.Parse(sheet[name, "Tier"].value);
+                animal.value = int.Parse(sheet[name, "Value"].value.Replace(",", ""));
+                animal.animalEssence = existingEssences.Find(e => e.name == sheet[name, "Category"].value);
+                animal.basePower = int.Parse(sheet[name, "Power"].value.Replace(",", ""));
+                animal.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[name, "Merging artifact"].value);
                 EditorUtility.SetDirty(animal);
             }
         }
         foreach (var nameValue in sheet.columns["Name"])
         {
+            string name = nameValue.value;
+            
             //Load recipes
-            if (nameValue.value != "" && nameValue.value != "Name" && existingRecipes.Find(r => r.animal.name != nameValue.value) != null)
+            if (NontrivialName(name) && !RecipeExists(name, existingRecipes))
             {
                 Recipe so = ScriptableObject.CreateInstance<Recipe>();
-                so.animal = existingAnimals.Find(a => a.name == nameValue.value);
+                so.animal = existingAnimals.Find(a => a.name == name);
                 AssetDatabase.CreateAsset(so, "Assets/Recipes/" + so.animal.name.Replace("/", "").Replace("\\", "") + ".asset");
                 existingRecipes.Add(so);
             }
         }
         foreach (var nameValue in sheet.columns["Name"])
         {
-            if (existingRecipes.Find(r => r.animal.name == nameValue.value) != null)
+            string name = nameValue.value;
+            if (RecipeExists(name, existingRecipes))
             {
-                Recipe recipe = existingRecipes.Find(r => r.animal.name == nameValue.value);
-                recipe.animal = existingAnimals.Find(a => a.name == nameValue.value);
+                Recipe recipe = existingRecipes.Find(r => r.animal.name == name);
+                recipe.animal = existingAnimals.Find(a => a.name == name);
 
                 recipe.baseCostArtifacts = new List<InventoryArtifact>();
 
 
-                if (sheet[nameValue.value, "Artifact"].value != "---")
+                if (sheet[name, "Artifact"].value != "---")
                 {
                     InventoryArtifact iar = new InventoryArtifact();
-                    iar.count = int.Parse(sheet[nameValue.value, "Artifact Amount"].value);
-                    iar.artifact = existingArtifacts.Find(a => a.name == sheet[nameValue.value, "Artifact"].value);
+                    iar.count = int.Parse(sheet[name, "Artifact Amount"].value);
+                    iar.artifact = existingArtifacts.Find(a => a.name == sheet[name, "Artifact"].value);
                     recipe.baseCostArtifacts.Add(iar);
                 }
 
                 recipe.baseCostAnimals = new List<InventoryAnimal>();
-                if (sheet[nameValue.value, "Animal"].value != "---")
+                if (sheet[name, "Animal"].value != "---")
                 {
                     InventoryAnimal ian = new InventoryAnimal();
-                    ian.count = int.Parse(sheet[nameValue.value, "Animal Amount"].value);
-                    ian.animal = existingAnimals.Find(a => a.name == sheet[nameValue.value, "Animal"].value);
+                    ian.count = int.Parse(sheet[name, "Animal Amount"].value);
+                    ian.animal = existingAnimals.Find(a => a.name == sheet[name, "Animal"].value);
                     recipe.baseCostAnimals.Add(ian);
                 }
 
 
                 //Essences
                 recipe.baseCostEssences = new List<EssenceAmount>();
-                if (sheet[nameValue.value, "Water Essence"].value != "---")
+                if (sheet[name, "Water Essence"].value != "---")
                 {
                     EssenceAmount ea = new EssenceAmount();
-                    ea.amount = int.Parse(sheet[nameValue.value, "Water Essence"].value);
+                    ea.amount = int.Parse(sheet[name, "Water Essence"].value);
                     ea.essence = existingEssences.Find(e => e.essenceName == "Water");
                     recipe.baseCostEssences.Add(ea);
                 }
-                if (sheet[nameValue.value, "Earth Essence"].value != "---")
+                if (sheet[name, "Earth Essence"].value != "---")
                 {
                     EssenceAmount ea = new EssenceAmount();
-                    ea.amount = int.Parse(sheet[nameValue.value, "Earth Essence"].value);
+                    ea.amount = int.Parse(sheet[name, "Earth Essence"].value);
                     ea.essence = existingEssences.Find(e => e.essenceName == "Earth");
                     recipe.baseCostEssences.Add(ea);
                 }
-                if (sheet[nameValue.value, "Fire Essence"].value != "---")
+                if (sheet[name, "Fire Essence"].value != "---")
                 {
                     EssenceAmount ea = new EssenceAmount();
-                    ea.amount = int.Parse(sheet[nameValue.value, "Fire Essence"].value);
+                    ea.amount = int.Parse(sheet[name, "Fire Essence"].value);
                     ea.essence = existingEssences.Find(e => e.essenceName == "Fire");
                     recipe.baseCostEssences.Add(ea);
                 }
-                if (sheet[nameValue.value, "Power Essence"].value != "---")
+                if (sheet[name, "Power Essence"].value != "---")
                 {
                     EssenceAmount ea = new EssenceAmount();
-                    ea.amount = int.Parse(sheet[nameValue.value, "Power Essence"].value);
+                    ea.amount = int.Parse(sheet[name, "Power Essence"].value);
                     ea.essence = existingEssences.Find(e => e.essenceName == "Power");
                     recipe.baseCostEssences.Add(ea);
                 }
-                if (sheet[nameValue.value, "Magic Essence"].value != "---")
+                if (sheet[name, "Magic Essence"].value != "---")
                 {
                     EssenceAmount ea = new EssenceAmount();
-                    ea.amount = int.Parse(sheet[nameValue.value, "Magic Essence"].value);
+                    ea.amount = int.Parse(sheet[name, "Magic Essence"].value);
                     ea.essence = existingEssences.Find(e => e.essenceName == "Magic");
                     recipe.baseCostEssences.Add(ea);
                 }
-                if (sheet[nameValue.value, "Ice Essence"].value != "---")
+                if (sheet[name, "Ice Essence"].value != "---")
                 {
                     EssenceAmount ea = new EssenceAmount();
-                    ea.amount = int.Parse(sheet[nameValue.value, "Ice Essence"].value);
+                    ea.amount = int.Parse(sheet[name, "Ice Essence"].value);
                     ea.essence = existingEssences.Find(e => e.essenceName == "Ice");
                     recipe.baseCostEssences.Add(ea);
                 }
 
-                recipe.baseDuration = int.Parse(sheet[nameValue.value, "Crafting Time (seconds)"].value.Replace(",", ""));
+                recipe.baseDuration = int.Parse(sheet[name, "Crafting Time (seconds)"].value.Replace(",", ""));
                 recipe.baseRarity = Rarity.Common;
                 //Recipe levels
                 recipe.recipeLevels = new List<RecipeLevel>();
-                recipe.recipeLevels.Add(parseRecipeLevel(sheet[nameValue.value, "Crafting Upgrade 1"].value, int.Parse(sheet[nameValue.value, "Crafts Needed 1"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
-                recipe.recipeLevels.Add(parseRecipeLevel(sheet[nameValue.value, "Crafting Upgrade 2"].value, int.Parse(sheet[nameValue.value, "Crafts Needed 2"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
-                recipe.recipeLevels.Add(parseRecipeLevel(sheet[nameValue.value, "Crafting Upgrade 3"].value, int.Parse(sheet[nameValue.value, "Crafts Needed 3"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
-                recipe.recipeLevels.Add(parseRecipeLevel(sheet[nameValue.value, "Crafting Upgrade 4"].value, int.Parse(sheet[nameValue.value, "Crafts Needed 4"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
-                recipe.recipeLevels.Add(parseRecipeLevel(sheet[nameValue.value, "Crafting Upgrade 5"].value, int.Parse(sheet[nameValue.value, "Crafts Needed 5"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
+                recipe.recipeLevels.Add(parseRecipeLevel(sheet[name, "Crafting Upgrade 1"].value, int.Parse(sheet[name, "Crafts Needed 1"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
+                recipe.recipeLevels.Add(parseRecipeLevel(sheet[name, "Crafting Upgrade 2"].value, int.Parse(sheet[name, "Crafts Needed 2"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
+                recipe.recipeLevels.Add(parseRecipeLevel(sheet[name, "Crafting Upgrade 3"].value, int.Parse(sheet[name, "Crafts Needed 3"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
+                recipe.recipeLevels.Add(parseRecipeLevel(sheet[name, "Crafting Upgrade 4"].value, int.Parse(sheet[name, "Crafts Needed 4"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
+                recipe.recipeLevels.Add(parseRecipeLevel(sheet[name, "Crafting Upgrade 5"].value, int.Parse(sheet[name, "Crafts Needed 5"].value), existingEssences, existingArtifacts, existingAnimals, existingRecipes));
                 EditorUtility.SetDirty(recipe);
             }
         }
