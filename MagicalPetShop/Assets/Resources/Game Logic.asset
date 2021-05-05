@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
-  version: 4
+  version: 5
   mergingSettings: {fileID: 11400000, guid: f4fb44b0e3282bc438cc3a892df8a423, type: 2}
   expeditions:
   - {fileID: 11400000, guid: 0ee414a766efdc34180e3fb3fea715f5, type: 2}
@@ -77,13 +77,13 @@ MonoBehaviour:
     level: 1
   startingAnimals: []
   startingArtifacts:
-  - artifact: {fileID: 11400000, guid: 1226160c1514b6d40821acfb8d03fbf2, type: 2}
+  - artifact: {fileID: 0}
     count: 50
   - artifact: {fileID: 11400000, guid: e8230980939692240b21f76f9d1cf385, type: 2}
     count: 20
   startingRecipes:
   - animalsProduced: 0
-    recipe: {fileID: 11400000, guid: 6714ad9db821dbe4081dc37385383763, type: 2}
+    recipe: {fileID: 11400000, guid: d85c7eb7dc742cd4f85e01d7bcfc49b2, type: 2}
     newRecipe: 0
   orderFromRecipesProbability: 0.1
   customerArrivalFrequency: 30
