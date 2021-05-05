@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ce490c64d509134eb352ec283d08619, type: 3}
-  m_Name: Fire Lizard
+  m_Name: Salamander
   m_EditorClassIdentifier: 
-  animal: {fileID: 11400000, guid: 6243577a299972549b04c924bef1cf2a, type: 2}
+  animal: {fileID: 11400000, guid: 5bac4f015f86459458e6cadeb7483b1e, type: 2}
   baseCostEssences:
   - essence: {fileID: 11400000, guid: 15726f3ae81acdc49aa641e34c3eb18d, type: 2}
     limit: 0

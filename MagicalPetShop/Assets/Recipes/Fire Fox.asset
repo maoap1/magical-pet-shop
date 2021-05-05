@@ -60,7 +60,7 @@ MonoBehaviour:
       rarity: 0
     newRarity: 0
     durationDecrease: 0
-    unlockedRecipe: {fileID: 11400000, guid: 4c6c400284d70d24da7bc4b54f004197, type: 2}
+    unlockedRecipe: {fileID: 11400000, guid: 041cb9d12fa27404fa88aec98b6be06f, type: 2}
     valueIncrease: 0
   - treshold: 28
     upgradeType: 6
