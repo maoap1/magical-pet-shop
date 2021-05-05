@@ -13,7 +13,7 @@ public class ButtonSound : MonoBehaviour {
     }
 
     public void ClickedSound() {
-        FindObjectOfType<AudioManager>().Play(AudioType.Click);
+        FindObjectOfType<AudioManager>().Play(SoundType.Click);
     }
 
 }

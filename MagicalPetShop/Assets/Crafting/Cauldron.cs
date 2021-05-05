@@ -10,7 +10,7 @@ public class Cauldron : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            FindObjectOfType<AudioManager>().Play(AudioType.Cauldron);
+            FindObjectOfType<AudioManager>().Play(SoundType.Cauldron);
             recipeSelection.Open();
         }
     }

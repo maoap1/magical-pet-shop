@@ -22,7 +22,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerUp(PointerEventData eventData) {
         if (this.pressed) {
-            FindObjectOfType<AudioManager>().Play(AudioType.TabSwitch);
+            FindObjectOfType<AudioManager>().Play(SoundType.TabSwitch);
             this.onClick.Invoke();
         }
         this.pressed = false;
@@ -35,7 +35,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         if (this.pressed) {
             this.pressedDuration += Time.deltaTime;
             if (this.pressedDuration >= this.requiredDuration) {
-                FindObjectOfType<AudioManager>().Play(AudioType.Click);
+                FindObjectOfType<AudioManager>().Play(SoundType.Click);
                 this.onLongClick.Invoke();
                 this.pressed = false;
                 this.pressedDuration = 0;

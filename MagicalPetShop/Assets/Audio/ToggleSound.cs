@@ -13,6 +13,6 @@ public class ToggleSound : MonoBehaviour {
     }
 
     public void ClickedSound() {
-        FindObjectOfType<AudioManager>().Play(AudioType.TabSwitch);
+        FindObjectOfType<AudioManager>().Play(SoundType.TabSwitch);
     }
 }

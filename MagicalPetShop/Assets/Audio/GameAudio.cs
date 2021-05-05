@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameAudio", menuName = "PetShop/Game Audio")]
 public class GameAudio : ScriptableObject {
 
+    public float sceneSwitchFadeOut;
+
     public List<Sound> sounds;
     public List<Audio> backgroundMusic;
 
@@ -23,7 +25,7 @@ public class GameAudio : ScriptableObject {
         }
     }
 
-    public Sound GetSound(AudioType type) {
+    public Sound GetSound(SoundType type) {
         List<Sound> soundsFound = new List<Sound>();
         foreach (Sound sound in this.sounds) {
             if (type == sound.type)
@@ -39,8 +41,10 @@ public class GameAudio : ScriptableObject {
 public class SceneAudio {
     public string sceneName;
     public List<RepeatedSound> backgroundSounds;
+    public List<AmbientSound> ambientSounds;
 }
 
+/*
 [System.Serializable]
 public class Audio {
     public AudioClip clip;
@@ -51,7 +55,7 @@ public class Audio {
 
 [System.Serializable]
 public class Sound : Audio {
-    public AudioType type;
+    public SoundType type;
 
     [HideInInspector]
     public AudioSource source;
@@ -69,18 +73,4 @@ public class RepeatedSound : Audio {
     [HideInInspector]
     public AudioSource source;
 }
-
-public enum AudioType {
-    Click,
-    TabSwitch,
-    Cash,
-    Splash,
-    CustomerAppear,
-    Door,
-    Steps,
-    Cauldron,
-    ExpeditionSuccessful,
-    ExpeditionFailed,
-    CraftingSuccessful,
-    RecipeUpgrade
-}
+*/

@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class NavButton : MonoBehaviour
 {
-    Dictionary<string, AudioType> transitionSounds = new Dictionary<string, AudioType>() {
-        { "Lab", AudioType.Steps },
-        { "Shop", AudioType.CustomerAppear },
-        { "Yard", AudioType.Door }
+    Dictionary<string, SoundType> transitionSounds = new Dictionary<string, SoundType>() {
+        { "Lab", SoundType.Steps },
+        { "Shop", SoundType.CustomerAppear },
+        { "Yard", SoundType.Door }
     };
 
     public void LoadScene(string sceneName) {

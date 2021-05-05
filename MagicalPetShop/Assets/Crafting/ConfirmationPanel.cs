@@ -23,7 +23,7 @@ public class ConfirmationPanel : MonoBehaviour
     public void Accept()
     {
         if (Crafting.StartCrafting(recipe))
-            FindObjectOfType<AudioManager>().Play(AudioType.Splash);
+            FindObjectOfType<AudioManager>().Play(SoundType.Splash);
         this.gameObject.SetActive(false);
     }
 }

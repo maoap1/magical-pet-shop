@@ -52,7 +52,7 @@ public class OrderPanel : MonoBehaviour
         if (Inventory.HasInInventoryPrecise(customer.desiredAnimal))
         {
             Shop.SellTo(customer);
-            FindObjectOfType<AudioManager>().Play(AudioType.Cash);
+            FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             Close();
         }
     }

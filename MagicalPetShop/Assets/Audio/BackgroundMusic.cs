@@ -37,6 +37,7 @@ public class BackgroundMusic : MonoBehaviour
             this.gameAudio = GameAudio.THIS;
         if (this.gameAudio == null) return;
 
+        if (this.gameAudio.backgroundMusic.Count == 0) return;
         int index = Random.Range(0, this.gameAudio.backgroundMusic.Count);
         Audio music = this.gameAudio.backgroundMusic[index];
         this.audioSource.PlayOneShot(music.clip, music.volume);
