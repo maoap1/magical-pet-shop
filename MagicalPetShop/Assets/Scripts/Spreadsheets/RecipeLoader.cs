@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -223,6 +224,8 @@ public class RecipeLoader : MonoBehaviour
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         //UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(this.gameObject.scene);
+
+        Debug.Log("Recipes loaded");
     }
 
     private static RecipeLevel parseRecipeLevel(string description, int treshold, List<Essence> existingEssences, List<Artifact> existingArtifacts, List<Animal> existingAnimals, List<Recipe> existingRecipes)
@@ -344,3 +347,4 @@ public class RecipeLoader : MonoBehaviour
         return output;
     }
 }
+#endif
