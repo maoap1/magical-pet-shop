@@ -101,7 +101,7 @@ public class RecipeLoader : MonoBehaviour
                     so.value = int.Parse(sheet[name, "Value"].value.Replace(",", ""));
                     so.animalEssence = existingEssences.Find(e => e.name == sheet[name, "Category"].value);
                     so.basePower = int.Parse(sheet[name, "Power"].value.Replace(",", ""));
-                    so.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[name, "Merging artifact"].value);
+                    so.associatedArtifact = existingArtifacts.Find(a => a.name == sheet[name, "Merging artifact"].value);
                     so.secondaryCategories = new List<LocationType>();
                     if (sheet[name, "Secondary category"].value != "---")
                     {
