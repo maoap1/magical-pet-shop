@@ -30,7 +30,7 @@ MonoBehaviour:
     full: 0
     unlocked: 0
   baseCostArtifacts:
-  - artifact: {fileID: 11400000, guid: 8cf25841e3e9edf469ac4a93a139fd5f, type: 2}
+  - artifact: {fileID: 11400000, guid: 58e7e3950186298478c29a906117584a, type: 2}
     count: 5
   baseCostAnimals:
   - animal: {fileID: 11400000, guid: 44ae078fdde1af1458e13a742cbcb5fa, type: 2}
@@ -86,7 +86,7 @@ MonoBehaviour:
       full: 0
       unlocked: 0
     costArtifactDecrease:
-      artifact: {fileID: 11400000, guid: 8cf25841e3e9edf469ac4a93a139fd5f, type: 2}
+      artifact: {fileID: 11400000, guid: 58e7e3950186298478c29a906117584a, type: 2}
       count: 2
     costAnimalDecrease:
       animal: {fileID: 0}
