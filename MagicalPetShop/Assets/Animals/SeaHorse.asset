@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d3c13d24b778314f9321e6bc1c1fdcf, type: 3}
-  m_Name: Seahorse
+  m_Name: SeaHorse
   m_EditorClassIdentifier: 
   name: Seahorse
   level: 2
