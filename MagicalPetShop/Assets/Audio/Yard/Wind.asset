@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd3d0b1bff04724290f67f5a49a9fef, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  volume: 0.5
+  minInterval: 2
+  maxInterval: 5
+  variations:
+  - {fileID: 8300000, guid: 3bf6ba3d791a465428120f286b0571a8, type: 3}
+  - {fileID: 8300000, guid: 5268690a8fe4b514083f59829b8ed664, type: 3}
+  - {fileID: 8300000, guid: c21235c16e15fb74ead8a4036c6645b2, type: 3}
+  - {fileID: 8300000, guid: 38decd987a9749e42b9b45c0750b875b, type: 3}
+  - {fileID: 8300000, guid: 808695866cdab3144a4f120f278bd823, type: 3}
+  volumes: []
+  shouldPlay: 0
+  source: {fileID: 0}

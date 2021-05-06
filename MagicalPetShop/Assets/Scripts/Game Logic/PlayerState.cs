@@ -12,7 +12,7 @@ public class PlayerState : MonoBehaviour
     [HideInInspector]
     public int diamonds;
     [Tooltip("Don't set in editor")]
-    public int level; // TODO: The level should be correctly updated when a recipe of higher level is discovered
+    public int level;
     [Tooltip("Don't set in editor")]
     [SerializeReference]
     public List<EssenceAmount> resources;

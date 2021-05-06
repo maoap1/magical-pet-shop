@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd3d0b1bff04724290f67f5a49a9fef, type: 3}
+  m_Name: Leaves
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  volume: 0.5
+  minInterval: 0
+  maxInterval: 20
+  variations:
+  - {fileID: 8300000, guid: fa71971be32e3f547af47e050b62ffb9, type: 3}
+  - {fileID: 8300000, guid: 33b0fb58e7ecf924db57f8a63c8d8827, type: 3}
+  - {fileID: 8300000, guid: 569c5230c62904243bc45a616cd3c3bc, type: 3}
+  - {fileID: 8300000, guid: 43e061eba8cbb084ebeb433cd88b6ca5, type: 3}
+  - {fileID: 8300000, guid: d227fbce0ff16bf429fa98df19f1d719, type: 3}
+  - {fileID: 8300000, guid: 7471e83f9a5c9534087680b5325e7c15, type: 3}
+  volumes: []
+  shouldPlay: 0
+  source: {fileID: 0}

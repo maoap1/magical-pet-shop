@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a042b8969be9ca04b8a3e2e4a962b3d2, type: 3}
+  m_Name: GameAudio
+  m_EditorClassIdentifier: 
+  sceneSwitchFadeOut: 3
+  sounds:
+  - {fileID: 11400000, guid: 93a5e31f287acb24ba4efb8e243c0689, type: 2}
+  - {fileID: 11400000, guid: c69abaa14e0dc7649b21f14e533bd500, type: 2}
+  - {fileID: 11400000, guid: c9110d3fd855bed40a42f0f244677d1e, type: 2}
+  - {fileID: 11400000, guid: ecfb4db89aeeb6545b28f291e7513b11, type: 2}
+  - {fileID: 11400000, guid: dc41fbc1c98771842ae98cb24a820c02, type: 2}
+  - {fileID: 11400000, guid: 33d71658b22df1744b4bdd7665f5d592, type: 2}
+  - {fileID: 11400000, guid: d6ca8be65c733a74e98682ffda81fd40, type: 2}
+  - {fileID: 11400000, guid: b9631e189b020a14dbc699a25b938ba3, type: 2}
+  - {fileID: 11400000, guid: cd0afee900a57d3488524fb626b15edb, type: 2}
+  - {fileID: 11400000, guid: ef9ffe84c56ef1642adb22d1c49da628, type: 2}
+  - {fileID: 11400000, guid: 983711c9e802f6a4b9d1619154d7cc01, type: 2}
+  - {fileID: 11400000, guid: 856b0f5db4385f6458c461facff52a65, type: 2}
+  backgroundMusic:
+  - {fileID: 11400000, guid: ff0687452009bc04487ce50bc1d9e39c, type: 2}
+  - {fileID: 11400000, guid: 9ab34dabbc322b54fa495899792064f3, type: 2}
+  scenesAudio:
+  - sceneName: Lab
+    backgroundSounds:
+    - {fileID: 11400000, guid: a1fb50102c0cc62468efe052e087da04, type: 2}
+    - {fileID: 11400000, guid: aa3601f85c23b9a4a98fb66559ac99a3, type: 2}
+    ambientSounds: []
+  - sceneName: Shop
+    backgroundSounds:
+    - {fileID: 11400000, guid: 57df08661fde78b4f93c85a2f19aa446, type: 2}
+    ambientSounds:
+    - {fileID: 11400000, guid: d9833b2abb2fef54e9230256e089a76a, type: 2}
+    - {fileID: 11400000, guid: cd085ba0e12acbd41a0492f2481c0015, type: 2}
+  - sceneName: Yard
+    backgroundSounds:
+    - {fileID: 11400000, guid: ecc25fab1e97aab479a8dcb6f636b8d0, type: 2}
+    - {fileID: 11400000, guid: d7fbe4c77efb5964b9c4af8570632820, type: 2}
+    - {fileID: 11400000, guid: 1f6bee87197d81e48a9e89d387889f65, type: 2}
+    ambientSounds:
+    - {fileID: 11400000, guid: ac310ed48344d7141852670233175457, type: 2}

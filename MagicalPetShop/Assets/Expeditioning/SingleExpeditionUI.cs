@@ -33,7 +33,7 @@ public class SingleExpeditionUI : MonoBehaviour {
 
     public void Open(ExpeditionType expedition) {
         this.expedition = expedition;
-        this.currentDifficulty = ExpeditionDifficulty.Medium;
+        this.currentDifficulty = expedition.lastSelectedDifficulty;
         this.activePack = null;
         Refresh();
         this.goButton.interactable = false;
@@ -86,6 +86,7 @@ public class SingleExpeditionUI : MonoBehaviour {
 
     public void StartExpedition() {
         Expeditioning.StartExpedition(this.activePack, this.expedition, this.currentDifficulty);
+        this.expedition.lastSelectedDifficulty = this.currentDifficulty;
         this.activePack = null;
         Close();
     }

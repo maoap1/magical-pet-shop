@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd3d0b1bff04724290f67f5a49a9fef, type: 3}
+  m_Name: AnimalSounds
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  volume: 0.5
+  minInterval: 5
+  maxInterval: 20
+  variations:
+  - {fileID: 8300000, guid: 42b56430aa64c84428187c55743f38aa, type: 3}
+  - {fileID: 8300000, guid: 6afa0408d8907c44f9b656d1aae1844e, type: 3}
+  - {fileID: 8300000, guid: 046c8d8a6f3bba444a585210a7ff90bf, type: 3}
+  - {fileID: 8300000, guid: 46adb49f0fdc52f468dc3b7baf7e1b8a, type: 3}
+  - {fileID: 8300000, guid: 2b699f6ab9704184a87d4e6ccc0b8971, type: 3}
+  volumes: []
+  shouldPlay: 0
+  source: {fileID: 0}
