@@ -77,7 +77,7 @@ MonoBehaviour:
     level: 1
   startingAnimals: []
   startingArtifacts:
-  - artifact: {fileID: 0}
+  - artifact: {fileID: 11400000, guid: 3028beae18119b24ca62aa212fbcca2f, type: 2}
     count: 50
   - artifact: {fileID: 11400000, guid: e8230980939692240b21f76f9d1cf385, type: 2}
     count: 20
