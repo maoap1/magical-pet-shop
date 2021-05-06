@@ -9,13 +9,13 @@ using System.IO;
 [CreateAssetMenu(fileName = "Merging Settings", menuName = "PetShop/Merging Settings")]
 public class MergingSettings : ScriptableObject
 {
-    public MergingLevel[] mergingLevels = new MergingLevel[8];
+    public MergingLevel[] mergingLevels = new MergingLevel[6];
     void OnValidate()
     {
-        if (mergingLevels.Length != 8)
+        if (mergingLevels.Length != 6)
         {
             Debug.LogWarning("Don't change the 'mergingLevels' field's array size!");
-            System.Array.Resize(ref mergingLevels, 8);
+            System.Array.Resize(ref mergingLevels, 6);
         }
     }
 
@@ -23,13 +23,7 @@ public class MergingSettings : ScriptableObject
     void LoadFromCSV()
     {
 #if UNITY_EDITOR
-        Debug.Log("Load from CSV");
-
-
-
-
-
-
+        MergingLoader.LoadMergingSettings();
 #endif
     }
 }
