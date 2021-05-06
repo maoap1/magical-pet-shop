@@ -40,6 +40,7 @@ public class BackgroundSound : MonoBehaviour
                             index = Random.Range(0, count);
                         }
                         this.lastSelected = index;
+                        // use separate volume for the variation, if available, global volume otherwise
                         if (index == this.sound.variations.Count) clip = this.sound.clip;
                         else clip = this.sound.variations[index];
                         if (index < this.sound.volumes.Count) {

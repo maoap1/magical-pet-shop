@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
             Debug.Log("GameAudio.THIS returned null!");
             return;
         }
+        // initialize AudioSource for each sound
         foreach (Sound sound in this.gameAudio.sounds) {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;

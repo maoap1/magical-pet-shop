@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// An action sound with a specific type
 [CreateAssetMenu(fileName = "Sound", menuName = "PetShop/Sound")]
 public class Sound : Audio {
     public SoundType type;

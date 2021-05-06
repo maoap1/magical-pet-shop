@@ -37,40 +37,10 @@ public class GameAudio : ScriptableObject {
     }
 }
 
+// All audio for a specific scene
 [System.Serializable]
 public class SceneAudio {
     public string sceneName;
     public List<RepeatedSound> backgroundSounds;
     public List<AmbientSound> ambientSounds;
 }
-
-/*
-[System.Serializable]
-public class Audio {
-    public AudioClip clip;
-
-    [Range(0f, 1f)]
-    public float volume = 1;
-}
-
-[System.Serializable]
-public class Sound : Audio {
-    public SoundType type;
-
-    [HideInInspector]
-    public AudioSource source;
-}
-
-[System.Serializable]
-public class RepeatedSound : Audio {
-    public List<AudioClip> variations;
-    public int minInterval;
-    public int maxInterval;
-
-    [HideInInspector]
-    public bool shouldPlay;
-
-    [HideInInspector]
-    public AudioSource source;
-}
-*/
