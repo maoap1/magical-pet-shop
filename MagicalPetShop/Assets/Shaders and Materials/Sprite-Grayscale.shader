@@ -7,6 +7,11 @@ Shader "Sprites-GrayScale"
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
+		_StencilComp("Stencil Comparison", Float) = 8
+		_Stencil("Stencil ID", Float) = 0
+		_StencilOp("Stencil Operation", Float) = 0
+		_StencilReadMask("Stencil Read Mask", Float) = 255
+		_ColorMask("Color Mask", Float) = 15
         _GrayscaleAmount ("Grayscale Amount", Range (0, 1)) = 1.0
     }
  
@@ -26,6 +31,15 @@ Shader "Sprites-GrayScale"
         ZWrite Off
         Fog { Mode Off }
         Blend SrcAlpha OneMinusSrcAlpha
+
+		Stencil
+		{
+			Ref[_Stencil]
+			Comp[_StencilComp]
+			Pass[_StencilOp]
+			ReadMask[_StencilReadMask]
+		}
+		ColorMask[_ColorMask]
  
         Pass
         {
@@ -34,6 +48,9 @@ Shader "Sprites-GrayScale"
             #pragma fragment frag
             #pragma multi_compile DUMMY PIXELSNAP_ON
             #include "UnityCG.cginc"
+
+			sampler2D _MainTex;
+			float _GrayscaleAmount;
            
             struct appdata_t
             {
@@ -63,9 +80,6 @@ Shader "Sprites-GrayScale"
  
                 return OUT;
             }
- 
-            sampler2D _MainTex;
-            float _GrayscaleAmount;
  
             fixed4 frag(v2f IN) : COLOR
             {

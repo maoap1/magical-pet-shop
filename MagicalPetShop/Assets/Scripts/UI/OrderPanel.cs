@@ -14,7 +14,7 @@ public class OrderPanel : MonoBehaviour
     {
         this.customer = customer;
         animalImage.sprite = customer.desiredAnimal.animal.artwork;
-        cost.costText.text = ((int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity))).ToString();
+        cost.costText.text = ((int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier)).ToString();
         cost.icon.sprite = GameGraphics.THIS.money;
         LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
         this.gameObject.SetActive(true);

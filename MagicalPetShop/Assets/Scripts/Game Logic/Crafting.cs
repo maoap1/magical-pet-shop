@@ -11,15 +11,16 @@ public static class Crafting
         cost.resources = recipe.costEssences;
         cost.artifacts = recipe.costArtifacts;
         cost.animals = recipe.costAnimals;
-        return Inventory.HasInInventory(cost) && PlayerState.THIS.crafting.Count < 5;
+        return Inventory.HasInInventory(cost) && PlayerState.THIS.crafting.Count < PlayerState.THIS.craftingSlots;
     }
 
     public static bool StartCraftingSafe(RecipeProgress recipe) {
         CraftedAnimal ca = new CraftedAnimal();
         ca.fillRate = 0;
         ca.animal = recipe.animal;
-        ca.rarity = recipe.rarity;
+        ca.rarity = randomImproveRarity(recipe.rarity);
         ca.duration = recipe.duration;
+        ca.recipe = true;
         Cost cost;
         cost.money = 0;
         cost.resources = recipe.costEssences;
@@ -30,7 +31,7 @@ public static class Crafting
         {
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
-            recipe.animalProduced();
+            //recipe.animalProduced();
         }
         return result;
     }
@@ -39,8 +40,9 @@ public static class Crafting
         CraftedAnimal ca = new CraftedAnimal();
         ca.fillRate = 0;
         ca.animal = recipe.animal;
-        ca.rarity = recipe.rarity;
+        ca.rarity = randomImproveRarity(recipe.rarity);
         ca.duration = recipe.duration;
+        ca.recipe = true;
         Cost cost;
         cost.money = 0;
         cost.resources = recipe.costEssences;
@@ -51,7 +53,7 @@ public static class Crafting
         {
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
-            recipe.animalProduced();
+            //recipe.animalProduced();
         }
         return result;
     }
@@ -72,11 +74,14 @@ public static class Crafting
         cost.money = 0;
         cost.resources = new List<EssenceAmount>();
         cost.artifacts = new List<InventoryArtifact>();
-        cost.artifacts.Add(artifactCost);
+        if (artifactCost.count != 0)
+        {
+            cost.artifacts.Add(artifactCost);
+        }
         cost.animals = new List<InventoryAnimal>();
         cost.animals.Add(animalCost);
 
-        return Inventory.HasInInventory(cost) && PlayerState.THIS.crafting.Count < 5;
+        return Inventory.HasInInventory(cost) && PlayerState.THIS.crafting.Count < PlayerState.THIS.craftingSlots;
     }
 
     public static void StartMerging(InventoryAnimal animal)
@@ -87,6 +92,7 @@ public static class Crafting
         ca.animal = animal.animal;
         ca.rarity = animal.rarity;
         ca.duration = mergingCost.duration;
+        ca.recipe = false;
 
 
         InventoryAnimal animalCost = new InventoryAnimal();
@@ -102,7 +108,10 @@ public static class Crafting
         cost.money = 0;
         cost.resources = new List<EssenceAmount>();
         cost.artifacts = new List<InventoryArtifact>();
-        cost.artifacts.Add(artifactCost);
+        if (artifactCost.count != 0)
+        {
+            cost.artifacts.Add(artifactCost);
+        }
         cost.animals = new List<InventoryAnimal>();
         cost.animals.Add(animalCost);
 
@@ -113,6 +122,39 @@ public static class Crafting
             PlayerState.THIS.Save();
         }
     }
+
+    public static Rarity randomImproveRarity(Rarity input)
+    {
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        float random = UnityEngine.Random.value;
+        int increment = 0;
+        PlayerState.THIS.unluckySeries[0]++;
+        PlayerState.THIS.unluckySeries[1]++;
+        PlayerState.THIS.unluckySeries[2]++;
+        PlayerState.THIS.unluckySeries[3]++;
+        if ((random < GameLogic.THIS.upgradeProbabilities[3]) || (PlayerState.THIS.unluckySeries[3] >= GameLogic.THIS.automaticUpgradeTresholds[3]))
+        {
+            increment = 4;
+            PlayerState.THIS.unluckySeries[3] = 0;
+        }
+        else if ((random < GameLogic.THIS.upgradeProbabilities[2] + GameLogic.THIS.upgradeProbabilities[3]) || (PlayerState.THIS.unluckySeries[2] >= GameLogic.THIS.automaticUpgradeTresholds[2]))
+        {
+            increment = 3;
+            PlayerState.THIS.unluckySeries[2] = 0;
+        }
+        else if ((random < GameLogic.THIS.upgradeProbabilities[1] + GameLogic.THIS.upgradeProbabilities[2] + GameLogic.THIS.upgradeProbabilities[3]) || (PlayerState.THIS.unluckySeries[1] >= GameLogic.THIS.automaticUpgradeTresholds[1]))
+        {
+            increment = 2;
+            PlayerState.THIS.unluckySeries[1] = 0;
+        }
+        else if ((random < GameLogic.THIS.upgradeProbabilities[0] + GameLogic.THIS.upgradeProbabilities[1] + GameLogic.THIS.upgradeProbabilities[2] + GameLogic.THIS.upgradeProbabilities[3]) || (PlayerState.THIS.unluckySeries[0] >= GameLogic.THIS.automaticUpgradeTresholds[0]))
+        {
+            increment = 1;
+            PlayerState.THIS.unluckySeries[0] = 0;
+        }
+        Rarity result = (Rarity)Mathf.Clamp(((int)input) + increment, 0, 4);
+        return result;
+    }
 }
 
 [Serializable]
@@ -122,4 +164,5 @@ public class CraftedAnimal
     public Rarity rarity;
     public float duration;
     public Animal animal;
+    public bool recipe;
 }

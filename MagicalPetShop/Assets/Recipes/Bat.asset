@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce490c64d509134eb352ec283d08619, type: 3}
+  m_Name: Bat
+  m_EditorClassIdentifier: 
+  animal: {fileID: 11400000, guid: 595934073678b1546901b34c14f8ef43, type: 2}
+  baseCostEssences:
+  - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
+    limit: 0
+    amount: 14
+    full: 0
+    unlocked: 0
+  baseCostArtifacts:
+  - artifact: {fileID: 11400000, guid: 043b401343b46194f909e92393283c19, type: 2}
+    count: 2
+  baseCostAnimals: []
+  baseRarity: 0
+  baseDuration: 150
+  recipeLevels:
+  - treshold: 7
+    upgradeType: 6
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 50
+  - treshold: 18
+    upgradeType: 4
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 25
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
+  - treshold: 32
+    upgradeType: 5
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 11400000, guid: 443889069d645ae49954ba85f5b98f7d, type: 2}
+    valueIncrease: 0
+  - treshold: 50
+    upgradeType: 0
+    costEssenceDecrease:
+      essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
+      limit: 0
+      amount: 2
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
+  - treshold: 80
+    upgradeType: 1
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 11400000, guid: 043b401343b46194f909e92393283c19, type: 2}
+      count: 1
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0

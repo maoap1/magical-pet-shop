@@ -26,11 +26,11 @@ public class CustomerDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (Shop.customers[CustomerID]==null || !Shop.customers[CustomerID].hasValue)
+        if (Shop.customers != null && (Shop.customers[CustomerID]==null || !Shop.customers[CustomerID].hasValue))
         {
             character.SetActive(false);
         }
-        else if (Shop.customers[CustomerID].hasValue)
+        else if (Shop.customers != null && Shop.customers[CustomerID].hasValue)
         {
             order.sprite = Shop.customers[CustomerID].desiredAnimal.animal.artwork;
             if (!character.activeInHierarchy & !this.justLoaded) FindObjectOfType<AudioManager>().Play(SoundType.CustomerAppear);

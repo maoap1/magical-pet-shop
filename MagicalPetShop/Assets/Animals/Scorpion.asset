@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3c13d24b778314f9321e6bc1c1fdcf, type: 3}
+  m_Name: Scorpion
+  m_EditorClassIdentifier: 
+  name: Scorpion
+  level: 4
+  value: 2150
+  basePower: 300
+  animalEssence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
+  secondaryCategories:
+  - {fileID: 11400000, guid: 2751b4f5cc230894abdf63afeb293478, type: 2}
+  artwork: {fileID: 21300000, guid: 92c59ba96f997c34d8e4283883d342f9, type: 3}
+  bloomSprite: {fileID: 21300000, guid: c1875e5ef346c2745a8978d99625bcaa, type: 3}
+  associatedArtifact: {fileID: 11400000, guid: b30097d7792d16e46bb3767b1d128fb2, type: 2}
