@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce490c64d509134eb352ec283d08619, type: 3}
+  m_Name: Spider
+  m_EditorClassIdentifier: 
+  animal: {fileID: 11400000, guid: c002ce6a36d217c49889660b142921c1, type: 2}
+  baseCostEssences:
+  - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
+    limit: 0
+    amount: 9
+    full: 0
+    unlocked: 0
+  - essence: {fileID: 11400000, guid: 2bc5d06e3596974448f89d3d719369f4, type: 2}
+    limit: 0
+    amount: 5
+    full: 0
+    unlocked: 0
+  baseCostArtifacts: []
+  baseCostAnimals: []
+  baseRarity: 0
+  baseDuration: 70
+  recipeLevels:
+  - treshold: 8
+    upgradeType: 6
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 50
+  - treshold: 20
+    upgradeType: 5
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 11400000, guid: 63e31cc3a6cc2204dbbbce2f08c0bdeb, type: 2}
+    valueIncrease: 0
+  - treshold: 34
+    upgradeType: 0
+    costEssenceDecrease:
+      essence: {fileID: 11400000, guid: 2bc5d06e3596974448f89d3d719369f4, type: 2}
+      limit: 0
+      amount: 3
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
+  - treshold: 60
+    upgradeType: 4
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 0
+    durationDecrease: 25
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0
+  - treshold: 85
+    upgradeType: 3
+    costEssenceDecrease:
+      essence: {fileID: 0}
+      limit: 0
+      amount: 0
+      full: 0
+      unlocked: 0
+    costArtifactDecrease:
+      artifact: {fileID: 0}
+      count: 0
+    costAnimalDecrease:
+      animal: {fileID: 0}
+      count: 0
+      rarity: 0
+    newRarity: 1
+    durationDecrease: 0
+    unlockedRecipe: {fileID: 0}
+    valueIncrease: 0

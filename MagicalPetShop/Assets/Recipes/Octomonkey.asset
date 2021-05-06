@@ -30,10 +30,10 @@ MonoBehaviour:
     full: 0
     unlocked: 0
   baseCostArtifacts:
-  - artifact: {fileID: 11400000, guid: 56872c1e5e4d0cc46a5fea8ffc60fc30, type: 2}
+  - artifact: {fileID: 11400000, guid: 7ddde18e91ac9684a8c77de8ae29caa5, type: 2}
     count: 2
   baseCostAnimals:
-  - animal: {fileID: 11400000, guid: 334cde8ce6bdc6542a800c437e71aa24, type: 2}
+  - animal: {fileID: 11400000, guid: ff7f54bf00ed2cc459849c51fd031a20, type: 2}
     count: 1
     rarity: 0
   baseRarity: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
       rarity: 0
     newRarity: 0
     durationDecrease: 0
-    unlockedRecipe: {fileID: 11400000, guid: 8f40f34a19f8af542a6b452afecfe3af, type: 2}
+    unlockedRecipe: {fileID: 11400000, guid: d2b81d8b12842e141a699debee4f55ab, type: 2}
     valueIncrease: 0
   - treshold: 55
     upgradeType: 6
@@ -127,7 +127,7 @@ MonoBehaviour:
       artifact: {fileID: 0}
       count: 0
     costAnimalDecrease:
-      animal: {fileID: 11400000, guid: 334cde8ce6bdc6542a800c437e71aa24, type: 2}
+      animal: {fileID: 11400000, guid: ff7f54bf00ed2cc459849c51fd031a20, type: 2}
       count: 1
       rarity: 0
     newRarity: 0

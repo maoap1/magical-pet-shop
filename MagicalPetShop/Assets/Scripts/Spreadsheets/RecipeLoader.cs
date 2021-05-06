@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -92,7 +93,7 @@ public class RecipeLoader : MonoBehaviour
             //Load animals
             if (NontrivialName(name) && !AnimalExists(name, existingAnimals))
             {
-                if (sheet[name, "Animal"].value != "---")
+                if (sheet[name, "Name"].value != "---")
                 {
                     Animal so = ScriptableObject.CreateInstance<Animal>();
                     so.name = name;
@@ -100,7 +101,7 @@ public class RecipeLoader : MonoBehaviour
                     so.value = int.Parse(sheet[name, "Value"].value.Replace(",", ""));
                     so.animalEssence = existingEssences.Find(e => e.name == sheet[name, "Category"].value);
                     so.basePower = int.Parse(sheet[name, "Power"].value.Replace(",", ""));
-                    so.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[name, "Merging artifact"].value);
+                    so.associatedArtifact = existingArtifacts.Find(a => a.name == sheet[name, "Merging artifact"].value);
                     so.secondaryCategories = new List<LocationType>();
                     if (sheet[name, "Secondary category"].value != "---")
                     {
@@ -223,6 +224,8 @@ public class RecipeLoader : MonoBehaviour
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         //UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(this.gameObject.scene);
+
+        Debug.Log("Recipes loaded");
     }
 
     private static RecipeLevel parseRecipeLevel(string description, int treshold, List<Essence> existingEssences, List<Artifact> existingArtifacts, List<Animal> existingAnimals, List<Recipe> existingRecipes)
@@ -344,3 +347,4 @@ public class RecipeLoader : MonoBehaviour
         return output;
     }
 }
+#endif
