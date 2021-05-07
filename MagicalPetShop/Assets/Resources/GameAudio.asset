@@ -29,6 +29,7 @@ MonoBehaviour:
   backgroundMusic:
   - {fileID: 11400000, guid: ff0687452009bc04487ce50bc1d9e39c, type: 2}
   - {fileID: 11400000, guid: 9ab34dabbc322b54fa495899792064f3, type: 2}
+  - {fileID: 11400000, guid: 500481aeab036394193f49e3f309d080, type: 2}
   scenesAudio:
   - sceneName: Lab
     backgroundSounds:
