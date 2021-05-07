@@ -16,6 +16,7 @@ MonoBehaviour:
   producerLevels:
   - cost: 0
     productionRate: 0
+    storageLimit: 10
   - cost: 10
     productionRate: 10
     storageLimit: 20

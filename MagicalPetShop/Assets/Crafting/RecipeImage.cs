@@ -53,11 +53,11 @@ public class RecipeImage : MonoBehaviour
         updateTime = Time.time;
         if (Crafting.CanStartCrafting(recipe))
         {
-            gameObject.GetComponent<Image>().material.SetFloat("_GrayscaleAmount", 0);
+            gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 0);
         }
         else
         {
-            gameObject.GetComponent<Image>().material.SetFloat("_GrayscaleAmount", 1);
+            gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 1);
         }
     }
 }

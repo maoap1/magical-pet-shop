@@ -207,6 +207,7 @@ public static class Inventory
         var result = PlayerState.THIS.resources.Find(otherEssence => essenceAmount.essence == otherEssence.essence);
         if (result != null && HasInInventory(essenceAmount)) {
             result.amount -= essenceAmount.amount;
+            result.updateFull();
         }
     }
 

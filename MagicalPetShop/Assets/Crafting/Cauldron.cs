@@ -8,7 +8,7 @@ public class Cauldron : MonoBehaviour
     public RecipeSelection recipeSelection;
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!Utils.IsPointerOverGameObject())
         {
             FindObjectOfType<AudioManager>().Play(SoundType.Cauldron);
             recipeSelection.Open();
