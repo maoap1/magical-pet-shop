@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 270, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &936846877682023811
@@ -1074,6 +1074,8 @@ MonoBehaviour:
   objectsToHide:
   - {fileID: 0}
   - {fileID: 0}
+  sellButton: {fileID: 936846879586545902}
+  sellButtonText: {fileID: 936846878909815850}
   animalImage: {fileID: 936846877792376558}
   cost: {fileID: 936846878718939077}
 --- !u!1 &936846879146941595
