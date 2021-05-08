@@ -18,14 +18,6 @@ public class MergingSettings : ScriptableObject
             System.Array.Resize(ref mergingLevels, 6);
         }
     }
-
-    [ContextMenu("Load from CSV")]
-    void LoadFromCSV()
-    {
-#if UNITY_EDITOR
-        MergingLoader.LoadMergingSettings();
-#endif
-    }
 }
 [System.Serializable]
 public class MergingLevel
