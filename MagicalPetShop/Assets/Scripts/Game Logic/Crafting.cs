@@ -173,17 +173,20 @@ public class CraftedAnimal
     public Recipe recipe;
     public int animalsProduced;
 
-    public bool isUpgraded()
+    public bool isUpgraded
     {
-        if (!isRecipe) { return false; }
-        else
+        get
         {
-            Rarity expectedRarity = recipe.getRarity(animalsProduced);
-            if (rarity > expectedRarity)
+            if (!isRecipe) { return false; }
+            else
             {
-                return true;
+                Rarity expectedRarity = recipe.getRarity(animalsProduced);
+                if (rarity > expectedRarity)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
         }
     }
 }
