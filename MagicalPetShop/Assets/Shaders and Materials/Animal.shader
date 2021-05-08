@@ -281,7 +281,7 @@ Shader "Unlit/Animal"
 		);    Unity_InvertColors_float(_SampleTexture2D_c887d2dcb8834f469f634a608b9cd540_A_7, _InvertColors_9f4b8f00b96a4f46af18429e4ea098ba_InvertColors, _InvertColors_9f4b8f00b96a4f46af18429e4ea098ba_Out_1);
 			float4 _Property_48d7cab3796941d7a0d36ad623824a94_Out_0 = IsGammaSpace() ? LinearToSRGB(_Color) : _Color;
 			float2 _TilingAndOffset_1760631ae5f24d6aaebdec098f9b1c2e_Out_3;
-			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (-0.02, -0.02), _TilingAndOffset_1760631ae5f24d6aaebdec098f9b1c2e_Out_3);
+			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (-0.04, -0.04), _TilingAndOffset_1760631ae5f24d6aaebdec098f9b1c2e_Out_3);
 			float4 _SampleTexture2D_0eb26b1718174e59bfa7ab96d05f0b6a_RGBA_0 = SAMPLE_TEXTURE2D(_Property_4c0886b90215425580ddf07f1a947098_Out_0.tex, _Property_4c0886b90215425580ddf07f1a947098_Out_0.samplerstate, _TilingAndOffset_1760631ae5f24d6aaebdec098f9b1c2e_Out_3);
 			float _SampleTexture2D_0eb26b1718174e59bfa7ab96d05f0b6a_R_4 = _SampleTexture2D_0eb26b1718174e59bfa7ab96d05f0b6a_RGBA_0.r;
 			float _SampleTexture2D_0eb26b1718174e59bfa7ab96d05f0b6a_G_5 = _SampleTexture2D_0eb26b1718174e59bfa7ab96d05f0b6a_RGBA_0.g;
@@ -290,7 +290,7 @@ Shader "Unlit/Animal"
 			float _Subtract_3aefeeec4acf46bea9363aed113f8c1a_Out_2;
 			Unity_Subtract_float(_SampleTexture2D_0eb26b1718174e59bfa7ab96d05f0b6a_A_7, _SampleTexture2D_c887d2dcb8834f469f634a608b9cd540_A_7, _Subtract_3aefeeec4acf46bea9363aed113f8c1a_Out_2);
 			float2 _TilingAndOffset_6b0644ec7c284897a4293b5eb03dee3c_Out_3;
-			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (0.02, -0.02), _TilingAndOffset_6b0644ec7c284897a4293b5eb03dee3c_Out_3);
+			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (0.04, -0.04), _TilingAndOffset_6b0644ec7c284897a4293b5eb03dee3c_Out_3);
 			float4 _SampleTexture2D_a9d1f39a3fb7467bb1bcaf522038e732_RGBA_0 = SAMPLE_TEXTURE2D(_Property_4c0886b90215425580ddf07f1a947098_Out_0.tex, _Property_4c0886b90215425580ddf07f1a947098_Out_0.samplerstate, _TilingAndOffset_6b0644ec7c284897a4293b5eb03dee3c_Out_3);
 			float _SampleTexture2D_a9d1f39a3fb7467bb1bcaf522038e732_R_4 = _SampleTexture2D_a9d1f39a3fb7467bb1bcaf522038e732_RGBA_0.r;
 			float _SampleTexture2D_a9d1f39a3fb7467bb1bcaf522038e732_G_5 = _SampleTexture2D_a9d1f39a3fb7467bb1bcaf522038e732_RGBA_0.g;
@@ -301,7 +301,7 @@ Shader "Unlit/Animal"
 			float _Add_fb6a12c23f8e48e7abc71a383195c809_Out_2;
 			Unity_Add_float(_Subtract_3aefeeec4acf46bea9363aed113f8c1a_Out_2, _Subtract_304755c558704fd6a50fd680838dd319_Out_2, _Add_fb6a12c23f8e48e7abc71a383195c809_Out_2);
 			float2 _TilingAndOffset_3cffe83c38ab4ad4b0dddf08d0187255_Out_3;
-			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (-0.02, 0.02), _TilingAndOffset_3cffe83c38ab4ad4b0dddf08d0187255_Out_3);
+			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (-0.04, 0.04), _TilingAndOffset_3cffe83c38ab4ad4b0dddf08d0187255_Out_3);
 			float4 _SampleTexture2D_ea999e24b62940d9abdda330c3e274cf_RGBA_0 = SAMPLE_TEXTURE2D(_Property_4c0886b90215425580ddf07f1a947098_Out_0.tex, _Property_4c0886b90215425580ddf07f1a947098_Out_0.samplerstate, _TilingAndOffset_3cffe83c38ab4ad4b0dddf08d0187255_Out_3);
 			float _SampleTexture2D_ea999e24b62940d9abdda330c3e274cf_R_4 = _SampleTexture2D_ea999e24b62940d9abdda330c3e274cf_RGBA_0.r;
 			float _SampleTexture2D_ea999e24b62940d9abdda330c3e274cf_G_5 = _SampleTexture2D_ea999e24b62940d9abdda330c3e274cf_RGBA_0.g;
@@ -310,7 +310,7 @@ Shader "Unlit/Animal"
 			float _Subtract_436f362f52214b048c7edd0e79830061_Out_2;
 			Unity_Subtract_float(_SampleTexture2D_ea999e24b62940d9abdda330c3e274cf_A_7, _SampleTexture2D_c887d2dcb8834f469f634a608b9cd540_A_7, _Subtract_436f362f52214b048c7edd0e79830061_Out_2);
 			float2 _TilingAndOffset_a8acf869a3d24e45922b92c21c8dca57_Out_3;
-			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (0.02, 0.02), _TilingAndOffset_a8acf869a3d24e45922b92c21c8dca57_Out_3);
+			Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), float2 (0.04, 0.04), _TilingAndOffset_a8acf869a3d24e45922b92c21c8dca57_Out_3);
 			float4 _SampleTexture2D_7b3a0b51271745479fcfd2097e208b19_RGBA_0 = SAMPLE_TEXTURE2D(_Property_4c0886b90215425580ddf07f1a947098_Out_0.tex, _Property_4c0886b90215425580ddf07f1a947098_Out_0.samplerstate, _TilingAndOffset_a8acf869a3d24e45922b92c21c8dca57_Out_3);
 			float _SampleTexture2D_7b3a0b51271745479fcfd2097e208b19_R_4 = _SampleTexture2D_7b3a0b51271745479fcfd2097e208b19_RGBA_0.r;
 			float _SampleTexture2D_7b3a0b51271745479fcfd2097e208b19_G_5 = _SampleTexture2D_7b3a0b51271745479fcfd2097e208b19_RGBA_0.g;

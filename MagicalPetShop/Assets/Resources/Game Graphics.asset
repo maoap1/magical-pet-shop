@@ -17,7 +17,7 @@ MonoBehaviour:
   changeRarity: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   unknown: {fileID: 21300000, guid: fe55a371ebb4b7945873ec4660df5d58, type: 3}
   commonColor: {r: 0, g: 0, b: 0, a: 0}
-  goodColor: {r: 27.238655, g: 27.238655, b: 0.28522155, a: 1}
-  rareColor: {r: 0.35305908, g: 33.717136, b: 0.35305908, a: 1}
-  epicColor: {r: 25.511568, g: 0.2671369, b: 0.2671369, a: 1}
-  legendaryColor: {r: 9.97986, g: 0.25162795, b: 24.030464, a: 1}
+  goodColor: {r: 2.9960785, g: 1.7005999, b: 0, a: 1}
+  rareColor: {r: 0, g: 2.9960785, b: 0, a: 1}
+  epicColor: {r: 2.9960785, g: 0, b: 0, a: 1}
+  legendaryColor: {r: 1.254902, g: 0, b: 2.9960785, a: 1}
