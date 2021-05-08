@@ -69,15 +69,13 @@ public class RecipeLoader : MonoBehaviour
                     existingArtifacts.Add(so);
                 }
             }
-            /*
-            if (nameValue.value != "" && nameValue.value != "Name" && existingArtifacts.Find(a => a.name != sheet[nameValue.value, "Merging artifact"].value) == null)
+            if (NontrivialName(name) && existingArtifacts.Find(a => a.name == sheet[nameValue.value, "Merging artifact"].value) == null)
             {
                 Artifact so = ScriptableObject.CreateInstance<Artifact>();
-                so.name = sheet[nameValue.value, "Artifact"].value;
+                so.name = sheet[nameValue.value, "Merging artifact"].value;
                 AssetDatabase.CreateAsset(so, "Assets/Artifacts/" + so.name.Replace("/", "").Replace("\\", "") + ".asset");
                 existingArtifacts.Add(so);
             }
-            */
         }
         /*
         foreach (string path in existingRecipesPaths)

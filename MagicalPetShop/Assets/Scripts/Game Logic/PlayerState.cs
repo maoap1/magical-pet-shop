@@ -37,6 +37,8 @@ public class PlayerState : MonoBehaviour
     [HideInInspector]
     public long playerTime;
 
+    public float speed = 1;
+
     //[HideInInspector]
     public List<int> unluckySeries;
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc6c321520c7a849bf7c0aa9163993d, type: 3}
   m_Name: Earth
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 2502c7900f2d8404e96fa7526491ef42, type: 3}
+  icon: {fileID: 21300000, guid: f2970d0959f5757438336eb1ef8ae89e, type: 3}
   essenceName: Earth
   associatedLocation: {fileID: 11400000, guid: 8def009ffd11eea4fbdf5bfd7871d28d, type: 2}

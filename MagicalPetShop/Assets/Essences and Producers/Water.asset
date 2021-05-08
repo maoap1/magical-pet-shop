@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc6c321520c7a849bf7c0aa9163993d, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e977df4ee84cd7442a5a11a47fa72adf, type: 3}
+  icon: {fileID: 21300000, guid: acbd083da1452e447b0b811128165bd8, type: 3}
   essenceName: Water
   associatedLocation: {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}

@@ -20,4 +20,4 @@ MonoBehaviour:
   secondaryCategories: []
   artwork: {fileID: 0}
   bloomSprite: {fileID: 21300000, guid: c1875e5ef346c2745a8978d99625bcaa, type: 3}
-  associatedArtifact: {fileID: 11400000, guid: 7ddde18e91ac9684a8c77de8ae29caa5, type: 2}
+  associatedArtifact: {fileID: 11400000, guid: d84a6b6d01600234a938fc81087dd1e2, type: 2}

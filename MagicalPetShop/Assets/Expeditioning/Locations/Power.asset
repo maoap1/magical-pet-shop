@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Power
   m_EditorClassIdentifier: 
   name: Power
-  artwork: {fileID: 21300000, guid: 4b0f2d172e3a36343af6389d3fb35459, type: 3}
+  artwork: {fileID: 21300000, guid: 81022aa362489fd48b8376d57a0e51a6, type: 3}

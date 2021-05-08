@@ -15,12 +15,12 @@ MonoBehaviour:
   animal: {fileID: 11400000, guid: 8d85321899e57634d908bee8cf0b6821, type: 2}
   baseCostEssences:
   - essence: {fileID: 11400000, guid: 15726f3ae81acdc49aa641e34c3eb18d, type: 2}
-    limit: 0
+    limit: 10
     amount: 85
     full: 0
     unlocked: 0
   - essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
-    limit: 0
+    limit: 10
     amount: 21
     full: 0
     unlocked: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     upgradeType: 4
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
+      limit: 10
       amount: 0
       full: 0
       unlocked: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
     upgradeType: 0
     costEssenceDecrease:
       essence: {fileID: 11400000, guid: 15726f3ae81acdc49aa641e34c3eb18d, type: 2}
-      limit: 0
+      limit: 10
       amount: 20
       full: 0
       unlocked: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
     upgradeType: 1
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
+      limit: 10
       amount: 0
       full: 0
       unlocked: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
     upgradeType: 6
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
+      limit: 10
       amount: 0
       full: 0
       unlocked: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
     upgradeType: 2
     costEssenceDecrease:
       essence: {fileID: 0}
-      limit: 0
+      limit: 10
       amount: 0
       full: 0
       unlocked: 0

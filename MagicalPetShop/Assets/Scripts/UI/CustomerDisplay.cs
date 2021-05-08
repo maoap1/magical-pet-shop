@@ -14,7 +14,7 @@ public class CustomerDisplay : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject() && Shop.customers[CustomerID].hasValue)
+        if (!Utils.IsPointerOverGameObject() && Shop.customers[CustomerID].hasValue)
         {
             orderPanel.Open(Shop.customers[CustomerID]);
         }
