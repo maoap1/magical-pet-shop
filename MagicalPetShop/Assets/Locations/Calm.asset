@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Calm
   m_EditorClassIdentifier: 
   name: Calm
-  artwork: {fileID: 21300000, guid: 5a8258e516de7fc47b31c23e2bac15ff, type: 3}
+  artwork: {fileID: 21300000, guid: 7951f877be76b3f45b63511dcdbf16ca, type: 3}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1602ecb5cc8e3814a926ffb54acf6ccd, type: 3}
+  m_Name: exp6
+  m_EditorClassIdentifier: 
+  name: exp6
+  artwork: {fileID: 0}
+  level: 4
+  duration: 900
+  reward: {fileID: 11400000, guid: d8cf3fd955b78d04b90b3bfd12061461, type: 2}
+  difficultyModes:
+  - difficulty: 0
+    requiredPower:
+      basePower: 1920
+      zeroPercent: 1440
+      fortyPercent: 1600
+    minRewardCount: 3
+    maxRewardCount: 6
+  - difficulty: 1
+    requiredPower:
+      basePower: 3000
+      zeroPercent: 2250
+      fortyPercent: 2500
+    minRewardCount: 8
+    maxRewardCount: 12
+  - difficulty: 2
+    requiredPower:
+      basePower: 4320
+      zeroPercent: 3240
+      fortyPercent: 3600
+    minRewardCount: 15
+    maxRewardCount: 21
+  lastSelectedDifficulty: 1

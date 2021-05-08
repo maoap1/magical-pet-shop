@@ -9,6 +9,7 @@ public class RecipeSelection : MonoBehaviour
 
     public List<GameObject> objectsToAppear;
     public List<GameObject> objectsToHide;
+    public GameObject mergingToggle;
 
     public RecipeLocationFilter defaultRecipeCategory;
 

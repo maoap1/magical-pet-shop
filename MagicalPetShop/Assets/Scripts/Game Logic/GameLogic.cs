@@ -132,10 +132,15 @@ public class GameLogic : ScriptableObject
         GameLogic.UnlockEssence(rp.animal.category);
     }
 
+    public void SetSpeed(int speed)
+    {
+        PlayerState.THIS.speed = speed;
+    }
+
     public void Update()
     {
         long updateTime = Utils.EpochTime();
-        float deltaTime = updateTime - PlayerState.THIS.playerTime;
+        float deltaTime = PlayerState.THIS.speed*(updateTime - PlayerState.THIS.playerTime);
         PlayerState.THIS.playerTime = updateTime;
         for (int i = 0; i < PlayerState.THIS.producers.Count; i++)
         {
@@ -151,6 +156,10 @@ public class GameLogic : ScriptableObject
         foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting)
         {
             craftedAnimal.fillRate += (deltaTime / 1000) / craftedAnimal.duration;
+        }
+        foreach (Expedition expedition in PlayerState.THIS.expeditions)
+        {
+            expedition.fillRate += (deltaTime / 1000) / expedition.expeditionType.duration;
         }
         Shop.UpdateCustomers();
     }
