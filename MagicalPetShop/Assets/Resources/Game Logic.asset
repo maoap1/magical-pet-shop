@@ -15,21 +15,27 @@ MonoBehaviour:
   version: 5
   mergingSettings: {fileID: 11400000, guid: f4fb44b0e3282bc438cc3a892df8a423, type: 2}
   expeditions:
-  - {fileID: 11400000, guid: 0ee414a766efdc34180e3fb3fea715f5, type: 2}
-  - {fileID: 11400000, guid: c004eddc57ef83745a262a740b296b22, type: 2}
-  - {fileID: 11400000, guid: 01f2376aa67ac394a87bbf59ff8ebea9, type: 2}
+  - {fileID: 11400000, guid: c445e5e54b9193a4fa8ebfd75247f3a2, type: 2}
+  - {fileID: 11400000, guid: 107b4efe480187443add6fcdd74379e2, type: 2}
+  - {fileID: 11400000, guid: 72545a9103e5f224da10d366d1405317, type: 2}
+  - {fileID: 11400000, guid: b5cbdd04f34e93848aea58f66ebcf09a, type: 2}
+  - {fileID: 11400000, guid: a71c2b9158070804fbab27f1e10e33b5, type: 2}
+  - {fileID: 11400000, guid: b45b49f816f65644686d95471f5250b1, type: 2}
+  - {fileID: 11400000, guid: 7ab413deee37e5a46a45bd4614d61a7a, type: 2}
+  - {fileID: 11400000, guid: 1dcb72ba38d9474488743b0c2c712f4f, type: 2}
+  - {fileID: 11400000, guid: 330e46fab5e9dbc4f9674ead56f91287, type: 2}
   packLeaders:
-  - {fileID: 11400000, guid: 55366475fce5cbd4fadd9fa1cc5a67b2, type: 2}
-  - {fileID: 11400000, guid: 2b49ec1bfb1f26547894267b319992f3, type: 2}
-  - {fileID: 11400000, guid: 2a46dacd81c6bea4c9283882fad0c017, type: 2}
-  - {fileID: 11400000, guid: 5af7391c708080b4080d888486c2953f, type: 2}
+  - {fileID: 11400000, guid: 0f55db75438c03a4b8b0f8f58455df69, type: 2}
+  - {fileID: 11400000, guid: d51a6cd0d68017c48895503a92e2ccbd, type: 2}
+  - {fileID: 11400000, guid: df0b886a80cd4c940a39377d5146a7fc, type: 2}
+  - {fileID: 11400000, guid: 47c7c205ae49f954db5304fba404df8e, type: 2}
   casualtiesThreshold:
   - 0.03
   - 0.06
   - 0.1
   - 0.14
   startingMoney: 100
-  startingExpeditionSlots: 0
+  startingExpeditionSlots: 5
   startingDiamonds: 0
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
@@ -94,11 +100,11 @@ MonoBehaviour:
   - 2
   - 3
   rarityPowerMultipliers:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 1
+  - 1.1
+  - 1.25
+  - 1.5
+  - 2
   rarityDeathProbs:
   - 0.14
   - 0.1

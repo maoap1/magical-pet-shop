@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   name: Earth
-  artwork: {fileID: 21300000, guid: 2502c7900f2d8404e96fa7526491ef42, type: 3}
+  artwork: {fileID: 21300000, guid: f2970d0959f5757438336eb1ef8ae89e, type: 3}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1602ecb5cc8e3814a926ffb54acf6ccd, type: 3}
+  m_Name: exp7
+  m_EditorClassIdentifier: 
+  name: exp7
+  artwork: {fileID: 0}
+  level: 6
+  duration: 2700
+  reward: {fileID: 11400000, guid: ac9eb437df88886489f2dd758666c823, type: 2}
+  difficultyModes:
+  - difficulty: 0
+    requiredPower:
+      basePower: 3000
+      zeroPercent: 2250
+      fortyPercent: 2500
+    minRewardCount: 3
+    maxRewardCount: 6
+  - difficulty: 1
+    requiredPower:
+      basePower: 3960
+      zeroPercent: 2970
+      fortyPercent: 3300
+    minRewardCount: 8
+    maxRewardCount: 12
+  - difficulty: 2
+    requiredPower:
+      basePower: 5640
+      zeroPercent: 4230
+      fortyPercent: 4700
+    minRewardCount: 15
+    maxRewardCount: 21
+  lastSelectedDifficulty: 1

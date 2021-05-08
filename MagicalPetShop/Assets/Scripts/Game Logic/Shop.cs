@@ -21,14 +21,14 @@ public static class Shop
         {
             lastArrivalTime = Utils.EpochTime();
         }
-        else if (Utils.EpochTime() - lastArrivalTime > nextCustomerToAppear * 1000)
+        else if ((PlayerState.THIS.speed * (Utils.EpochTime() - lastArrivalTime)) > nextCustomerToAppear * 1000)
         {
             TryAddCustomer();
-            lastArrivalTime += nextCustomerToAppear * 1000;
+            lastArrivalTime += (long)((nextCustomerToAppear * 1000) / PlayerState.THIS.speed);
             Random.InitState(System.DateTime.Now.Millisecond);
             nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * Random.Range(0.7f, 1.3f));
         }
-        if (Time.time - updateTime > 10)
+        if (Time.time - updateTime > 0.1)
         {
             updateTime = Time.time;
             nullCount = 0;

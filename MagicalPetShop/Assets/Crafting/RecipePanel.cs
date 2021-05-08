@@ -108,6 +108,7 @@ public class RecipePanel : MonoBehaviour
 
     public void DisplayRecipeInfo()
     {
+        recipesPanel.recipeInfo.tmpHidden.Add(recipesPanel.mergingToggle);
         recipesPanel.recipeInfo.tmpHidden.Add(recipesPanel.gameObject);
         recipesPanel.recipeInfo.Open(recipe);
     }

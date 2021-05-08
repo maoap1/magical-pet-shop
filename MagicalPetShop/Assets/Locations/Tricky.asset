@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Tricky
   m_EditorClassIdentifier: 
   name: Tricky
-  artwork: {fileID: 21300000, guid: 6e6d6a381fb4d0049afbdd45cf7968b9, type: 3}
+  artwork: {fileID: 21300000, guid: 7fd0425755f59b740b166a9bbc180eb2, type: 3}

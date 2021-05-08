@@ -6,7 +6,8 @@ using TMPro;
 
 public class ResourceDisplayProducer : MonoBehaviour
 {
-    public Image icon;
+    public Image imageComponent;
+    public Sprite essenceImage;
     public TextMeshProUGUI text;
     public Button buttonProducer;
     public Essence essence;
@@ -15,7 +16,7 @@ public class ResourceDisplayProducer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        icon.sprite = GameGraphics.THIS.unknown;
+        imageComponent.sprite = GameGraphics.THIS.unknown;
         buttonProducer.interactable = false;
     }
 
@@ -37,7 +38,7 @@ public class ResourceDisplayProducer : MonoBehaviour
             if (essenceAmount.unlocked & !unlockedImage)
             {
                 buttonProducer.interactable = true;
-                icon.sprite = essenceAmount.essence.icon;
+                imageComponent.sprite = essenceImage;
                 unlockedImage = true;
             }
             text.text = essenceAmount.amount.ToString();
