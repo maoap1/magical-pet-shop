@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public static class Inventory
 {
@@ -137,7 +138,8 @@ public static class Inventory
     }
 
     public static void AddToInventory(int money) {
-        PlayerState.THIS.money += money;
+        int endValue = PlayerState.THIS.money + money;
+        DOTween.To(() => PlayerState.THIS.money, m => PlayerState.THIS.money = m, endValue, 1f).SetEase(Ease.OutCubic);
     }
 
 
