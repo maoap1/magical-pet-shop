@@ -20,7 +20,9 @@ public static class Crafting
         ca.animal = recipe.animal;
         ca.rarity = randomImproveRarity(recipe.rarity);
         ca.duration = recipe.duration;
-        ca.recipe = true;
+        ca.isRecipe = true;
+        ca.recipe = recipe.recipe;
+        ca.animalsProduced = recipe.animalsProduced;
         Cost cost;
         cost.money = 0;
         cost.resources = recipe.costEssences;
@@ -42,7 +44,9 @@ public static class Crafting
         ca.animal = recipe.animal;
         ca.rarity = randomImproveRarity(recipe.rarity);
         ca.duration = recipe.duration;
-        ca.recipe = true;
+        ca.isRecipe = true;
+        ca.recipe = recipe.recipe;
+        ca.animalsProduced = recipe.animalsProduced;
         Cost cost;
         cost.money = 0;
         cost.resources = recipe.costEssences;
@@ -92,7 +96,7 @@ public static class Crafting
         ca.animal = animal.animal;
         ca.rarity = animal.rarity;
         ca.duration = mergingCost.duration;
-        ca.recipe = false;
+        ca.isRecipe = false;
 
 
         InventoryAnimal animalCost = new InventoryAnimal();
@@ -164,5 +168,25 @@ public class CraftedAnimal
     public Rarity rarity;
     public float duration;
     public Animal animal;
-    public bool recipe;
+    public bool isRecipe;
+    [SerializeReference]
+    public Recipe recipe;
+    public int animalsProduced;
+
+    public bool isUpgraded
+    {
+        get
+        {
+            if (!isRecipe) { return false; }
+            else
+            {
+                Rarity expectedRarity = recipe.getRarity(animalsProduced);
+                if (rarity > expectedRarity)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
 }

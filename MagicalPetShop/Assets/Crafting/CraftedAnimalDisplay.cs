@@ -55,7 +55,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
             Inventory.AddToInventory(ia);
             PlayerState.THIS.crafting.Remove(craftedAnimal);
             PlayerState.THIS.Save();
-            if (craftedAnimal.recipe)
+            if (craftedAnimal.isRecipe)
             {
                 PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
             }
