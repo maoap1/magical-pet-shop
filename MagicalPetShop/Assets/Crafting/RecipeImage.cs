@@ -23,6 +23,9 @@ public class RecipeImage : MonoBehaviour
                     recipePanel.recipesPanel.defaultRecipeCategory.Display();
                 }
                 recipePanel.UpdateInfo();
+                // close the crafting menu, if all slots are full
+                if (PlayerState.THIS.crafting.Count == PlayerState.THIS.craftingSlots)
+                    GameObject.FindObjectOfType<RecipeSelection>().Close();
             }
             else
             {

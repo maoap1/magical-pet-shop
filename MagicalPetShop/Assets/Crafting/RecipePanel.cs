@@ -15,6 +15,8 @@ public class RecipePanel : MonoBehaviour
     public ProgressBar recipeProgress;
     public Image upgrade;
     public GameObject isNew;
+    public GameObject ongoingCount;
+    public TextMeshProUGUI ongoingCountText;
 
     public RecipeProgress recipe;
 
@@ -90,6 +92,17 @@ public class RecipePanel : MonoBehaviour
                     break;
             }
             recipeProgress.fillRate = recipe.progress;
+        }
+        // Get number of ongoing recipes, if positive, show it
+        int ongoing = 0;
+        foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting) {
+            if (craftedAnimal.animal == this.recipe.animal) ++ongoing;
+        }
+        if (ongoing > 0) {
+            this.ongoingCountText.text = ongoing.ToString();
+            this.ongoingCount.SetActive(true);
+        } else {
+            this.ongoingCount.SetActive(false);
         }
     }
 
