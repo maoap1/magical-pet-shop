@@ -18,6 +18,7 @@ public class MergingLoader : MonoBehaviour
         MergingSettings ms = Resources.Load<MergingSettings>("Merging Settings");
         for (int i = 0; i < ms.mergingLevels.Length; i++) {
             string columnName = "Tier " + (i + 1);
+            Debug.Log(columnName);
             ms.mergingLevels[i].rarityMergingSettings[0].artifactCost = int.Parse(sheet["C->G", columnName].value);
             ms.mergingLevels[i].rarityMergingSettings[1].artifactCost = int.Parse(sheet["G->R", columnName].value);
             ms.mergingLevels[i].rarityMergingSettings[2].artifactCost = int.Parse(sheet["R->E", columnName].value);

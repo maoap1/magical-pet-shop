@@ -102,7 +102,6 @@ public class ResourceCost : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(artifactCost);
                         costText.color = Color.red;
                     }
                     break;

@@ -123,7 +123,6 @@ public static class PacksManager {
         bool newPackUnlocked = false;
         foreach (Pack pack in PlayerState.THIS.packs) {
             if (!pack.unlocked && pack.level <= PlayerState.THIS.level) {
-                Debug.Log("unlocking");
                 pack.unlocked = true;
                 newPackUnlocked = true;
             }
