@@ -20,8 +20,8 @@ MonoBehaviour:
   unlocked: 0
   requiredLocations:
   - {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}
-  - {fileID: 11400000, guid: 807631239c83ebf4e9bc63c7acff3b6c, type: 2}
+  - {fileID: 11400000, guid: 924ce6bd5a0584146a8736b9f1ededf6, type: 2}
   - {fileID: 11400000, guid: 2751b4f5cc230894abdf63afeb293478, type: 2}
   - {fileID: 11400000, guid: 8e0efb332859a4141b5c9fa0b224f34d, type: 2}
-  - {fileID: 11400000, guid: 4f52eb563c685a641bd01605cbb31c7b, type: 2}
-  - {fileID: 11400000, guid: f36d7f46441f7eb49bb02d1998509b9b, type: 2}
+  - {fileID: 11400000, guid: 6a260ada5b6eb6a4aafe6b29ae6c30fd, type: 2}
+  - {fileID: 11400000, guid: 606aa861e60fc3746ba39d04cc7549ce, type: 2}
