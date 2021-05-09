@@ -34,6 +34,7 @@ public class CustomerDisplay : MonoBehaviour
         {
             InventoryAnimal desiredAnimal = Shop.customers[CustomerID].desiredAnimal;
             order.sprite = desiredAnimal.animal.artwork;
+            order.material = new Material(order.material);
             order.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(desiredAnimal.rarity));
             order.material.SetTexture("_BloomTex", desiredAnimal.animal.bloomSprite.texture);
             if (!character.activeInHierarchy & !this.justLoaded) FindObjectOfType<AudioManager>().Play(SoundType.CustomerAppear);
