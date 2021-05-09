@@ -18,6 +18,6 @@ MonoBehaviour:
   unknown: {fileID: 21300000, guid: fe55a371ebb4b7945873ec4660df5d58, type: 3}
   commonColor: {r: 0, g: 0, b: 0, a: 0}
   goodColor: {r: 0, g: 8, b: 0, a: 1}
-  rareColor: {r: 0, g: 0, b: 8, a: 1}
+  rareColor: {r: 0, g: 1.9685862, b: 8, a: 1}
   epicColor: {r: 7.174942, g: 0, b: 8, a: 1}
   legendaryColor: {r: 8, g: 6.3205976, b: 0, a: 1}
