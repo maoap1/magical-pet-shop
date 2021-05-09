@@ -81,17 +81,13 @@ MonoBehaviour:
   - model: {fileID: 11400000, guid: 991983f5431ea1e4ba5298c899baac37, type: 2}
     level: 1
   startingAnimals: []
-  startingArtifacts:
-  - artifact: {fileID: 11400000, guid: 3028beae18119b24ca62aa212fbcca2f, type: 2}
-    count: 50
-  - artifact: {fileID: 11400000, guid: e8230980939692240b21f76f9d1cf385, type: 2}
-    count: 20
+  startingArtifacts: []
   startingRecipes:
   - animalsProduced: 0
     recipe: {fileID: 11400000, guid: d85c7eb7dc742cd4f85e01d7bcfc49b2, type: 2}
     newRecipe: 0
   orderFromRecipesProbability: 0.1
-  customerArrivalFrequency: 30
+  customerArrivalFrequency: 25
   rarityMultipliers:
   - 1
   - 1.25
