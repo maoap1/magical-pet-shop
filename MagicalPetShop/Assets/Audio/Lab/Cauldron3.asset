@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cauldron3
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ab08e97e0cdec044283d4c947d9b5f22, type: 3}
-  volume: 0.8
+  volume: 0.5
   type: 7
   source: {fileID: 0}

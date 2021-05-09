@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Splash3
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: afed31527785307419be02189ca42445, type: 3}
-  volume: 1
+  volume: 0.5
   type: 3
   source: {fileID: 0}
