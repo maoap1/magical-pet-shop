@@ -14,6 +14,7 @@ public class RecipeInfo : MonoBehaviour
     public GameObject progressPrefab;
     public TextMeshProUGUI animalsProduced;
     public Image categoryImage;
+    public Image secondaryCategoryImage;
     public TextMeshProUGUI level;
     public ResourceCost moneyValue;
     public ResourceCost craftTime;
@@ -28,6 +29,7 @@ public class RecipeInfo : MonoBehaviour
     {
         recipe = rp;
         this.gameObject.SetActive(true);
+        secondaryCategoryImage.gameObject.SetActive(false);
         foreach (GameObject g in objectsToAppear)
         {
             g.SetActive(true);
@@ -75,7 +77,13 @@ public class RecipeInfo : MonoBehaviour
         }
         animalsProduced.text = recipe.animalsProduced.ToString();
         categoryImage.sprite = recipe.animal.category.artwork;
+        if (recipe.animal.secondaryCategories.Count>0)
+        {
+            secondaryCategoryImage.sprite = recipe.animal.secondaryCategories[0].artwork;
+            secondaryCategoryImage.gameObject.SetActive(true);
+        }
         level.text = "T" + recipe.animal.level;
+        moneyValue.SetNoRed();
         moneyValue.SetCost(recipe.animal.value);
         craftTime.SetCostTime(recipe.duration);
     }
