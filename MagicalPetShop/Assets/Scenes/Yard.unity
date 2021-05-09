@@ -3426,7 +3426,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -3016, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605407793
 MonoBehaviour:
@@ -3489,7 +3489,6 @@ MonoBehaviour:
   producers: []
   animals: []
   artifacts: []
-  numberOfExpeditionSlots: 1
   expeditions: []
   packs: []
   crafting: []
@@ -3777,7 +3776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073958421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -17280}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 103.73213, y: 101.551544, z: 192}
   m_Children: []
   m_Father: {fileID: 605407792}
@@ -3792,11 +3791,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 270
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 480
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634340056673, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7957,7 +7956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856789376298398049, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -287.34
+      value: -287.33997
       objectReference: {fileID: 0}
     - target: {fileID: 1856789376298398049, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
