@@ -21,7 +21,7 @@ MonoBehaviour:
   requiredLocations:
   - {fileID: 11400000, guid: 2751b4f5cc230894abdf63afeb293478, type: 2}
   - {fileID: 11400000, guid: 95ac811957c1c2842a967ac96964e629, type: 2}
-  - {fileID: 11400000, guid: 140a7cb50317ccb408997f61b936a280, type: 2}
+  - {fileID: 11400000, guid: 8def009ffd11eea4fbdf5bfd7871d28d, type: 2}
   - {fileID: 11400000, guid: 8e0efb332859a4141b5c9fa0b224f34d, type: 2}
-  - {fileID: 11400000, guid: a1d9193ad9a0c6745bb4cba60bbb368b, type: 2}
-  - {fileID: 11400000, guid: a1d9193ad9a0c6745bb4cba60bbb368b, type: 2}
+  - {fileID: 11400000, guid: 840c4c09ca052ea47a446f64d381e0cd, type: 2}
+  - {fileID: 11400000, guid: 840c4c09ca052ea47a446f64d381e0cd, type: 2}
