@@ -40,13 +40,13 @@ public class CheatsUI : MonoBehaviour
         // Finish all crafting
         if (GUI.Button(new Rect(200, 10, 100, 50), "Crafting")) {
             foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting) {
-                if (craftedAnimal.recipe) craftedAnimal.fillRate = 1;
+                if (craftedAnimal.isRecipe) craftedAnimal.fillRate = 1;
             }
         }
         // Finish all merging
         if (GUI.Button(new Rect(200, 60, 100, 50), "Merging")) {
             foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting) {
-                if (!craftedAnimal.recipe) craftedAnimal.fillRate = 1;
+                if (!craftedAnimal.isRecipe) craftedAnimal.fillRate = 1;
             }
         }
         // Normal speed
