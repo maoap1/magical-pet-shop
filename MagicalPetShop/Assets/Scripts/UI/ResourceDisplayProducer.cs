@@ -44,7 +44,7 @@ public class ResourceDisplayProducer : MonoBehaviour
             text.text = essenceAmount.amount.ToString();
             if (essenceAmount.full)
             {
-                text.color = Color.red;
+                text.color = new Color(0, 168, 0);
             }
             else
             {

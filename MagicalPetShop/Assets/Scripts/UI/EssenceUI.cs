@@ -20,7 +20,7 @@ public class EssenceUI : MonoBehaviour
                 if (producer.essenceAmount.essence == this.essence) {
                     // set count
                     this.countText.text = producer.essenceAmount.amount.ToString();
-                    if (producer.essenceAmount.full) this.countText.color = Color.red;
+                    if (producer.essenceAmount.full) this.countText.color = new Color(0, 168, 0);
                     else this.countText.color = Color.black;
                     // set icon
                     if (producer.level > 0) this.icon.sprite = this.essence.icon;
