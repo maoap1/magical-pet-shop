@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Arcane Crystal
   m_EditorClassIdentifier: 
   name: Arcane Crystal
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: fa11613612818b34eb91431d7cdb9208, type: 3}

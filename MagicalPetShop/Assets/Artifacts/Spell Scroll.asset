@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Spell Scroll
   m_EditorClassIdentifier: 
   name: Spell Scroll
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 9dbda92a0d77d6847bcf54d4e5a727b9, type: 3}

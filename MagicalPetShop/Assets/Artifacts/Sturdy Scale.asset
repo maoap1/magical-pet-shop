@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sturdy Scale
   m_EditorClassIdentifier: 
   name: Sturdy Scale
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: fb2dd777a58f59246aa6b4615a6eaacd, type: 3}

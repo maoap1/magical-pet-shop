@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Blessed Poop
   m_EditorClassIdentifier: 
   name: Blessed Poop
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: bb7da95e789092d48bd30bd4027121da, type: 3}
