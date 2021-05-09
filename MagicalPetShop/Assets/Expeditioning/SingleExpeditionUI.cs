@@ -29,11 +29,13 @@ public class SingleExpeditionUI : MonoBehaviour {
 
     Pack activePack;
     ExpeditionType expedition;
+    int expeditionIndex;
     ExpeditionDifficulty currentDifficulty;
 
     public void Open(ExpeditionType expedition) {
         this.expedition = expedition;
-        this.currentDifficulty = expedition.lastSelectedDifficulty;
+        this.expeditionIndex = GameLogic.THIS.expeditions.IndexOf(this.expedition);
+        this.currentDifficulty = PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex];
         this.activePack = null;
         Refresh();
         this.goButton.interactable = false;
@@ -47,6 +49,7 @@ public class SingleExpeditionUI : MonoBehaviour {
     }
 
     public void Close() {
+        PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex] = this.currentDifficulty;
         this.gameObject.SetActive(false);
         foreach (GameObject g in objectsToAppear) {
             g.SetActive(false);
@@ -86,7 +89,7 @@ public class SingleExpeditionUI : MonoBehaviour {
 
     public void StartExpedition() {
         Expeditioning.StartExpedition(this.activePack, this.expedition, this.currentDifficulty);
-        this.expedition.lastSelectedDifficulty = this.currentDifficulty;
+        PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex] = this.currentDifficulty;
         this.activePack = null;
         Close();
     }
@@ -96,6 +99,7 @@ public class SingleExpeditionUI : MonoBehaviour {
         this.iconImage.sprite = this.expedition.artwork;
         this.nameText.text = this.expedition.name;
         // refresh difficulty details
+        Debug.Log("Skowing difficuly: " + this.currentDifficulty);
         ExpeditionMode mode = this.expedition.difficultyModes[(int)this.currentDifficulty];
         this.expeditionModeUI.DisplayData(this.expedition, mode);
         // refresh pack leaders (first clear)

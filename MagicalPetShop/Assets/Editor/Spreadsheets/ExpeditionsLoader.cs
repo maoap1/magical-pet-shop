@@ -54,7 +54,6 @@ public class ExpeditionsLoader : MonoBehaviour
             {
                 ExpeditionType expedition = existingExpeditions.Find(e => e.name == name);
                 expedition.duration = int.Parse(sheet[name, "Duration"].value);
-                expedition.lastSelectedDifficulty = ExpeditionDifficulty.Medium;
                 expedition.level = int.Parse(sheet[name, "Level"].value);
                 expedition.reward = existingArtifacts.Find(a => a.name == sheet[name, "Artifact"].value);
                 expedition.difficultyModes = new List<ExpeditionMode>();

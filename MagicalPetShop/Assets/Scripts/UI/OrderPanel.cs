@@ -17,6 +17,9 @@ public class OrderPanel : MonoBehaviour
     {
         this.customer = customer;
         animalImage.sprite = customer.desiredAnimal.animal.artwork;
+        animalImage.material = new Material(animalImage.material);
+        animalImage.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(customer.desiredAnimal.rarity));
+        animalImage.material.SetTexture("_BloomTex", customer.desiredAnimal.animal.bloomSprite.texture);
         cost.costText.text = ((int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier)).ToString();
         cost.icon.sprite = GameGraphics.THIS.money;
         if (!Inventory.HasInInventoryPrecise(customer.desiredAnimal)) {

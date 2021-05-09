@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: exp1
   m_EditorClassIdentifier: 
   name: exp1
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 2d9a7262057de8e4b89be98b4acc5cb2, type: 3}
   level: 2
   duration: 300
   reward: {fileID: 11400000, guid: 043b401343b46194f909e92393283c19, type: 2}
@@ -39,4 +39,3 @@ MonoBehaviour:
       fortyPercent: 2100
     minRewardCount: 15
     maxRewardCount: 21
-  lastSelectedDifficulty: 1

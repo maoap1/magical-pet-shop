@@ -18,6 +18,6 @@ MonoBehaviour:
   basePower: 100
   animalEssence: {fileID: 11400000, guid: 91eee898d52a2734aa9817eae5043bd5, type: 2}
   secondaryCategories: []
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 895a3e75a7259e34eb1129c2a407ae66, type: 3}
   bloomSprite: {fileID: 21300000, guid: c1875e5ef346c2745a8978d99625bcaa, type: 3}
   associatedArtifact: {fileID: 11400000, guid: d84a6b6d01600234a938fc81087dd1e2, type: 2}
