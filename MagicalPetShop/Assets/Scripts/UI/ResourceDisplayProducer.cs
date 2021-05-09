@@ -16,7 +16,8 @@ public class ResourceDisplayProducer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        imageComponent.sprite = GameGraphics.THIS.unknown;
+        imageComponent.sprite = essenceImage;
+        imageComponent.color = Color.black;
         buttonProducer.interactable = false;
     }
 
@@ -38,7 +39,8 @@ public class ResourceDisplayProducer : MonoBehaviour
             if (essenceAmount.unlocked & !unlockedImage)
             {
                 buttonProducer.interactable = true;
-                imageComponent.sprite = essenceImage;
+                //imageComponent.sprite = essenceImage;
+                imageComponent.color = Color.white;
                 unlockedImage = true;
             }
             text.text = essenceAmount.amount.ToString();
