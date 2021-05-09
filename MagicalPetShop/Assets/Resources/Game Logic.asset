@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8f9724d551944d86ddb94147c6c21, type: 3}
   m_Name: Game Logic
   m_EditorClassIdentifier: 
-  version: 5
+  version: 6
   mergingSettings: {fileID: 11400000, guid: f4fb44b0e3282bc438cc3a892df8a423, type: 2}
   expeditions:
   - {fileID: 11400000, guid: c445e5e54b9193a4fa8ebfd75247f3a2, type: 2}
@@ -35,7 +35,6 @@ MonoBehaviour:
   - 0.1
   - 0.14
   startingMoney: 100
-  startingExpeditionSlots: 5
   startingDiamonds: 0
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}

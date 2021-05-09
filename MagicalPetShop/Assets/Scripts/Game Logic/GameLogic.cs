@@ -31,7 +31,6 @@ public class GameLogic : ScriptableObject
     public float[] casualtiesThreshold = new float[4];
     [Header("Starting Settings")]
     public int startingMoney;
-    public int startingExpeditionSlots;
     public int startingDiamonds;
     public List<EssenceAmount> startingResources;
     public List<ModelAndLevel> startingProducerLevels;

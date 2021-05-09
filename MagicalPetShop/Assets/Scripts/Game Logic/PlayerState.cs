@@ -23,8 +23,6 @@ public class PlayerState : MonoBehaviour
     [HideInInspector]
     public List<InventoryArtifact> artifacts;
     [HideInInspector]
-    public int numberOfExpeditionSlots;
-    [HideInInspector]
     public List<Expedition> expeditions;
     [Tooltip("Don't set in editor")]
     public List<Pack> packs;
@@ -111,7 +109,6 @@ public class PlayerState : MonoBehaviour
         this.money = GameLogic.THIS.startingMoney;
         this.diamonds = GameLogic.THIS.startingDiamonds;
         this.level = 1;
-        this.numberOfExpeditionSlots = GameLogic.THIS.startingExpeditionSlots;
         this.producers = new List<EssenceProducer>();
         this.resources = new List<EssenceAmount>();
         foreach (var p in GameLogic.THIS.startingProducerLevels)

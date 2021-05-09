@@ -7,8 +7,8 @@ public static class Expeditioning
     /// TODO
 
     // tests if a new expedition can be started
-    public static bool CanStartExpedition() {
-        return PlayerState.THIS.numberOfExpeditionSlots > PlayerState.THIS.expeditions.Count;
+    public static bool CanStartExpedition(Pack pack) {
+        return pack.owned && !pack.busy;
     }
 
     // try to start a specific expedition
