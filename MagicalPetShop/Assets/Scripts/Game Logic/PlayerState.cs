@@ -78,7 +78,15 @@ public class PlayerState : MonoBehaviour
 
     public void Start()
     {
-        this.version = GameLogic.THIS.version;
+        if (int.TryParse(Application.version.Split('.')[1], out int ver))
+        {
+            this.version = ver;
+        }
+        else
+        {
+            this.version = GameLogic.THIS.version;
+            Debug.LogError("Automatic versioning not working");
+        }
         string path = getPath();
         if (File.Exists(path))
         {
