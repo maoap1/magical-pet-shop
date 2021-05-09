@@ -4,7 +4,6 @@ using UnityEngine;
 
 public static class Expeditioning
 {
-    /// TODO
 
     // tests if a new expedition can be started
     public static bool CanStartExpedition(Pack pack) {
