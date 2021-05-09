@@ -45,6 +45,9 @@ public class PlayerState : MonoBehaviour
     [HideInInspector]
     public Customer[] customers;
 
+    [HideInInspector]
+    public List<ExpeditionDifficulty> lastExpeditionDifficulties;
+
     private static PlayerState _THIS;
     public static PlayerState THIS
     {
@@ -170,6 +173,10 @@ public class PlayerState : MonoBehaviour
             {
                 PlayerState.THIS.level = r.animal.level;
             }
+        }
+        this.lastExpeditionDifficulties = new List<ExpeditionDifficulty>();
+        for (int i = 0; i < GameLogic.THIS.expeditions.Count; ++i) {
+            this.lastExpeditionDifficulties.Add(ExpeditionDifficulty.Easy);
         }
         this.expeditions = new List<Expedition>();
         this.crafting = new List<CraftedAnimal>();
