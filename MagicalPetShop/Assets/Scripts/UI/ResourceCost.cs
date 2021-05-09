@@ -15,6 +15,7 @@ public class ResourceCost : MonoBehaviour
     private int moneyCost;
     private ResourceType resourceType = ResourceType.Money;
     private float updateTime = 0;
+    private bool red = true;
     public void SetCost(Sprite icon, int cost)
     {
         this.icon.sprite = icon;
@@ -60,6 +61,11 @@ public class ResourceCost : MonoBehaviour
         resourceType = ResourceType.Money;
     }
 
+    public void SetNoRed()
+    {
+        red = false;
+    }
+
     public void SetCostTime(int value)
     {
         this.icon.sprite = GameGraphics.THIS.time;
@@ -86,7 +92,7 @@ public class ResourceCost : MonoBehaviour
             switch (resourceType)
             {
                 case ResourceType.Animal:
-                    if (Inventory.HasInInventory(animalCost))
+                    if (Inventory.HasInInventory(animalCost) || !red)
                     {
                         costText.color = Color.black;
                     }
@@ -96,7 +102,7 @@ public class ResourceCost : MonoBehaviour
                     }
                     break;
                 case ResourceType.Artifact:
-                    if (Inventory.HasInInventory(artifactCost))
+                    if (Inventory.HasInInventory(artifactCost) || !red)
                     {
                         costText.color = Color.black;
                     }
@@ -114,7 +120,7 @@ public class ResourceCost : MonoBehaviour
                     {
                         this.icon.sprite = GameGraphics.THIS.unknown;
                     }
-                    if (Inventory.HasInInventory(essenceCost))
+                    if (Inventory.HasInInventory(essenceCost) || !red)
                     {
                         costText.color = Color.black;
                     }
@@ -124,7 +130,7 @@ public class ResourceCost : MonoBehaviour
                     }
                     break;
                 case ResourceType.Money:
-                    if (Inventory.HasInInventory(moneyCost))
+                    if (Inventory.HasInInventory(moneyCost) || !red)
                     {
                         costText.color = Color.black;
                     }

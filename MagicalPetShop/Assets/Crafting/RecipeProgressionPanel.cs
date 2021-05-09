@@ -54,7 +54,7 @@ public class RecipeProgressionPanel : MonoBehaviour
                 break;
             case RecipeUpgradeType.unlockRecipe:
                 text.gameObject.SetActive(false);
-                image.rectTransform.sizeDelta = new Vector2(180, 180);
+                image.rectTransform.sizeDelta = new Vector2(160, 160);
                 image.sprite = rp.recipe.recipeLevels[level].unlockedRecipe.animal.artwork;
                 if (rp.level < level)
                 {
