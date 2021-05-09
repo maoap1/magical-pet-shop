@@ -10,7 +10,7 @@ public class CraftingInfo : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - updateTime > 1)
+        if (Time.time - updateTime > 1 && PlayerState.THIS != null && PlayerState.THIS.crafting != null)
         {
             updateTime = Time.time;
             UpdateCrafting();
@@ -26,6 +26,7 @@ public class CraftingInfo : MonoBehaviour
                 GameObject.Destroy(child.gameObject);
             }
         }
+        //Debug.Log("Crafting: " + PlayerState.THIS.crafting);
         PlayerState.THIS.crafting.Sort((a1, a2) => (a1.duration * (1 - a1.fillRate)).CompareTo((a2.duration * (1 - a2.fillRate))));
         foreach (CraftedAnimal ca in PlayerState.THIS.crafting)
         {
