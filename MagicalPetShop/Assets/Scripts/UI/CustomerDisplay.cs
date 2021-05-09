@@ -32,7 +32,10 @@ public class CustomerDisplay : MonoBehaviour
         }
         else if (Shop.customers != null && Shop.customers[CustomerID].hasValue)
         {
-            order.sprite = Shop.customers[CustomerID].desiredAnimal.animal.artwork;
+            InventoryAnimal desiredAnimal = Shop.customers[CustomerID].desiredAnimal;
+            order.sprite = desiredAnimal.animal.artwork;
+            order.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(desiredAnimal.rarity));
+            order.material.SetTexture("_BloomTex", desiredAnimal.animal.bloomSprite.texture);
             if (!character.activeInHierarchy & !this.justLoaded) FindObjectOfType<AudioManager>().Play(SoundType.CustomerAppear);
             character.SetActive(true);
         }
