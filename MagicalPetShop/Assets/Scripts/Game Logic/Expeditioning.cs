@@ -7,8 +7,8 @@ public static class Expeditioning
     /// TODO
 
     // tests if a new expedition can be started
-    public static bool CanStartExpedition() {
-        return PlayerState.THIS.numberOfExpeditionSlots > PlayerState.THIS.expeditions.Count;
+    public static bool CanStartExpedition(Pack pack) {
+        return pack.owned && !pack.busy;
     }
 
     // try to start a specific expedition
@@ -123,7 +123,6 @@ public static class PacksManager {
         bool newPackUnlocked = false;
         foreach (Pack pack in PlayerState.THIS.packs) {
             if (!pack.unlocked && pack.level <= PlayerState.THIS.level) {
-                Debug.Log("unlocking");
                 pack.unlocked = true;
                 newPackUnlocked = true;
             }

@@ -81,7 +81,7 @@ public class SingleExpeditionUI : MonoBehaviour {
         }
         pack.Activate();
         this.activePack = pack.pack;
-        if (Expeditioning.CanStartExpedition()) this.goButton.interactable = true;
+        if (Expeditioning.CanStartExpedition(this.activePack)) this.goButton.interactable = true;
     }
 
     public void StartExpedition() {
@@ -109,7 +109,7 @@ public class SingleExpeditionUI : MonoBehaviour {
                 newSlot.Initialize(pack, mode, this.expedition.level, this, this.packOverview);
                 if (this.activePack == pack) {
                     newSlot.Activate();
-                    if (Expeditioning.CanStartExpedition()) this.goButton.interactable = true;
+                    if (Expeditioning.CanStartExpedition(this.activePack)) this.goButton.interactable = true;
                 }
             }
         }

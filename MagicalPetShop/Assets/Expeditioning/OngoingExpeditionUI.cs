@@ -41,6 +41,7 @@ public class OngoingExpeditionUI : MonoBehaviour {
                 progressRing.gameObject.SetActive(false);
                 readyMessage.SetActive(true);
             } else {
+                readyMessage.SetActive(false);
                 progressRing.fillRate = expedition.fillRate;
             }
         }
