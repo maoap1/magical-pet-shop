@@ -35,6 +35,9 @@ public class LocationAnimalSlotUI : MonoBehaviour
         this.slot = slot;
 
         this.iconImage.sprite = animal.animal.artwork;
+        this.iconImage.material = new Material(this.iconImage.material);
+        this.iconImage.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(animal.rarity));
+        this.iconImage.material.SetTexture("_BloomTex", animal.animal.bloomSprite.texture);
         this.countText.text = animal.count.ToString();
         this.nameText.text = animal.animal.name;
         this.powerText.text = animal.GetPower().ToString();
