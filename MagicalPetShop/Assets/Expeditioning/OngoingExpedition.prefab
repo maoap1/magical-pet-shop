@@ -84,9 +84,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expeditionSummary: {fileID: 0}
+  expedition:
+    fillRate: 0
+    expeditionType: {fileID: 0}
+    difficulty: 0
+    pack:
+      name: 
+      level: 0
+      cost: 0
+      artwork: {fileID: 0}
+      owned: 0
+      unlocked: 0
+      slots: []
+      busy: 0
+  isUpperPanel: 0
   progressRing: {fileID: 5340954029213058949}
   readyMessage: {fileID: 5863834685906669896}
   expeditionImage: {fileID: 216833560740549272}
+  references:
+    version: 1
 --- !u!114 &347029760189902267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2962526183882103588
@@ -382,8 +398,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294940190
-  m_fontColor: {r: 0.11698109, g: 0.5879474, b: 1, a: 1}
+    rgba: 4278247669
+  m_fontColor: {r: 0.9622642, g: 0.8802792, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -449,6 +465,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6631830106830372688}
     m_Modifications:
+    - target: {fileID: 761399920774126996, guid: bc370afb97bd88e4b91cb9bdf38eae61, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761399920774126996, guid: bc370afb97bd88e4b91cb9bdf38eae61, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8802792
+      objectReference: {fileID: 0}
+    - target: {fileID: 761399920774126996, guid: bc370afb97bd88e4b91cb9bdf38eae61, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
     - target: {fileID: 761399920774126996, guid: bc370afb97bd88e4b91cb9bdf38eae61, type: 3}
       propertyPath: m_FillAmount
       value: 0.56
