@@ -29,5 +29,8 @@ public class MergingLoader : MonoBehaviour
             ms.mergingLevels[i].rarityMergingSettings[2].duration = int.Parse(sheet["R->E Time", columnName].value);
             ms.mergingLevels[i].rarityMergingSettings[3].duration = int.Parse(sheet["E->L Time", columnName].value);
         }
+        EditorUtility.SetDirty(ms);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 }
