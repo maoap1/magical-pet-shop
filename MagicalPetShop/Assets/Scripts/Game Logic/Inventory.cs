@@ -8,10 +8,9 @@ public static class Inventory
 {
 
     public static List<InventoryAnimal> GetOrderedAnimals() {
-        // TODO: Remove the following line when PLayerState is initialized correctly
         if (PlayerState.THIS.animals == null) return new List<InventoryAnimal>();
         // descending order according to value - sorted in place, may be redone later, if necessary
-        PlayerState.THIS.animals.Sort((a1, a2) => a2.animal.value.CompareTo(a1.animal.value));
+        PlayerState.THIS.animals.Sort((a1, a2) => a2.GetValue().CompareTo(a1.GetValue()));
         return PlayerState.THIS.animals;
     }
 
@@ -365,6 +364,10 @@ public class InventoryAnimal {
         this.animal = animal;
         this.count = count;
         this.rarity = rarity;
+    }
+
+    public int GetValue() {
+        return ((int)(animal.value * GameLogic.THIS.getRarityMultiplier(rarity) * PlayerState.THIS.recipes.Find(r => r.animal == animal).costMultiplier));
     }
 
     public float GetProbabilityOfDeath() {
