@@ -55,9 +55,9 @@ public class OngoingExpeditionUI : MonoBehaviour {
             ExpeditionResult result = Expeditioning.FinishExpedition(this.expedition);
             this.expeditionSummary.Open(result, this.isUpperPanel);
             if (result.isSuccessful) {
-                FindObjectOfType<AudioManager>().Play(SoundType.ExpeditionSuccessful);
+                FindObjectOfType<AudioManager>().Play(SoundType.Success);
             } else {
-                FindObjectOfType<AudioManager>().Play(SoundType.ExpeditionFailed);
+                FindObjectOfType<AudioManager>().Play(SoundType.Fail);
             }
             Destroy(this.gameObject);
         }

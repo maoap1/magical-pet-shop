@@ -10,6 +10,7 @@ public class NewRecipeDisplay : MonoBehaviour
     {
         animalImage.sprite = rp.animal.artwork;
         this.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
