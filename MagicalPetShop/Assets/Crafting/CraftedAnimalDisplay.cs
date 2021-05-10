@@ -55,7 +55,12 @@ public class CraftedAnimalDisplay : MonoBehaviour
             Inventory.AddToInventory(ia);
             PlayerState.THIS.crafting.Remove(craftedAnimal);
             PlayerState.THIS.Save();
-            if (craftedAnimal.isRecipe)
+            if (craftedAnimal.isUpgraded)
+            {
+                HigherRarityCrafted newRecipeDisplay = Resources.FindObjectsOfTypeAll<HigherRarityCrafted>()[0];
+                newRecipeDisplay.Open(PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal), craftedAnimal.rarity);
+            }
+            else if (craftedAnimal.isRecipe)
             {
                 PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
             }
