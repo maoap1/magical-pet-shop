@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9147224dadf8a49abc721953cc9aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredDuration: 1.5
+  requiredDuration: 1
   onClick:
     m_PersistentCalls:
       m_Calls:
