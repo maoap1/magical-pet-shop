@@ -60,8 +60,8 @@ public class ExpeditionsLoader : MonoBehaviour
                 ExpeditionMode emEasy = new ExpeditionMode();
 
                 emEasy.difficulty = ExpeditionDifficulty.Easy;
-                emEasy.maxRewardCount = 6;
-                emEasy.minRewardCount = 3;
+                emEasy.maxRewardCount = 8;
+                emEasy.minRewardCount = 5;
                 int basePower = int.Parse(sheet[name, "Easy"].value);
                 emEasy.requiredPower.zeroPercent = (int)(0.9 * basePower);
                 emEasy.requiredPower.fortyPercent = (int)(1.0 * basePower);
@@ -70,8 +70,8 @@ public class ExpeditionsLoader : MonoBehaviour
 
                 ExpeditionMode emMedium = new ExpeditionMode();
                 emMedium.difficulty = ExpeditionDifficulty.Medium;
-                emMedium.maxRewardCount = 12;
-                emMedium.minRewardCount = 8;
+                emMedium.maxRewardCount = 14;
+                emMedium.minRewardCount = 10;
                 basePower = int.Parse(sheet[name, "Medium"].value);
                 emMedium.requiredPower.zeroPercent = (int)(0.9 * basePower);
                 emMedium.requiredPower.fortyPercent = (int)(1.0 * basePower);
@@ -81,7 +81,7 @@ public class ExpeditionsLoader : MonoBehaviour
                 ExpeditionMode emHard = new ExpeditionMode();
                 emHard.difficulty = ExpeditionDifficulty.Hard;
                 emHard.maxRewardCount = 21;
-                emHard.minRewardCount = 15;
+                emHard.minRewardCount = 16;
                 basePower = int.Parse(sheet[name, "Hard"].value);
                 emHard.requiredPower.zeroPercent = (int)(0.9 * basePower);
                 emHard.requiredPower.fortyPercent = (int)(1.0 * basePower);
