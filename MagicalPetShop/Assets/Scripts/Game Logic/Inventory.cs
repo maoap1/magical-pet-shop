@@ -7,16 +7,17 @@ using DG.Tweening;
 public static class Inventory
 {
 
+    private static int moneyTmp = -1;
+    private static Tween moneyTween = null;
+
     public static List<InventoryAnimal> GetOrderedAnimals() {
-        // TODO: Remove the following line when PLayerState is initialized correctly
         if (PlayerState.THIS.animals == null) return new List<InventoryAnimal>();
         // descending order according to value - sorted in place, may be redone later, if necessary
-        PlayerState.THIS.animals.Sort((a1, a2) => a2.animal.value.CompareTo(a1.animal.value));
+        PlayerState.THIS.animals.Sort((a1, a2) => a2.GetValue().CompareTo(a1.GetValue()));
         return PlayerState.THIS.animals;
     }
 
     public static List<InventoryArtifact> GetOrderedArtifacts() {
-        // TODO: Remove the following line when PLayerState is initialized correctly
         if (PlayerState.THIS.artifacts == null)
             return new List<InventoryArtifact>();
         // descending order according to level of an expedition, where the artifact is a reward
@@ -138,8 +139,12 @@ public static class Inventory
     }
 
     public static void AddToInventory(int money) {
-        int endValue = PlayerState.THIS.money + money;
-        DOTween.To(() => PlayerState.THIS.money, m => PlayerState.THIS.money = m, endValue, 1f).SetEase(Ease.OutCubic);
+        if (moneyTmp == -1) moneyTmp = PlayerState.THIS.money;
+        moneyTmp += money;
+        if (moneyTween != null) {
+            moneyTween.Kill();
+        }
+        DOTween.To(() => PlayerState.THIS.money, m => PlayerState.THIS.money = m, moneyTmp, 1f).SetEase(Ease.OutCubic);
     }
 
 
@@ -365,6 +370,10 @@ public class InventoryAnimal {
         this.animal = animal;
         this.count = count;
         this.rarity = rarity;
+    }
+
+    public int GetValue() {
+        return ((int)(animal.value * GameLogic.THIS.getRarityMultiplier(rarity) * PlayerState.THIS.recipes.Find(r => r.animal == animal).costMultiplier));
     }
 
     public float GetProbabilityOfDeath() {

@@ -6,7 +6,7 @@ public static class Shop
 {
     public static long lastArrivalTime;
     public static Customer[] customers = new Customer[5];
-    private static int nullCount = 5;
+    private static int nullCount = 0;
     private static float updateTime = Time.time;
     private static int nextCustomerToAppear = -1;
 
@@ -28,14 +28,11 @@ public static class Shop
             Random.InitState(System.DateTime.Now.Millisecond);
             nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * Random.Range(0.7f, 1.3f));
         }
-        if (Time.time - updateTime > 0.1)
-        {
+        if (Time.time - updateTime > 0.1) {
             updateTime = Time.time;
             nullCount = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                if (!customers[i].hasValue)
-                {
+            for (int i = 0; i < 5; i++) {
+                if (!customers[i].hasValue) {
                     nullCount++;
                 }
             }

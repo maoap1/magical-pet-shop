@@ -59,6 +59,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
             {
                 PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
             }
+            FindObjectOfType<AudioManager>().Play(SoundType.Crafting);
             Destroy(this.gameObject);
         }
     }

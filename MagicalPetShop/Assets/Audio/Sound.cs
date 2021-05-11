@@ -20,8 +20,8 @@ public enum SoundType {
     Door,
     Steps,
     Cauldron,
-    ExpeditionSuccessful,
-    ExpeditionFailed,
-    CraftingSuccessful,
+    Success,
+    Fail,
+    Crafting,
     RecipeUpgrade
 }
