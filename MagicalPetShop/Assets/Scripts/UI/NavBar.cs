@@ -6,15 +6,10 @@ using UnityEngine.UI;
 public class NavBar : MonoBehaviour {
 
     [SerializeField]
-    private List<GameObject> buttons;
-
-    [SerializeField]
     private InventoryUI inventory;
     [SerializeField]
     private PackLeadersUI packLeaders;
 
-    [SerializeField]
-    private HorizontalLayoutGroup layout;
     [SerializeField]
     private InvButton inventoryButton;
     [SerializeField]
@@ -26,10 +21,6 @@ public class NavBar : MonoBehaviour {
             inventoryButton.SetInventory(inventory);
         if (packLeaders != null)
             leadersButton.SetPackLeaders(packLeaders);
-        foreach (GameObject button in this.buttons) {
-            button.transform.SetParent(this.layout.transform, false);
-            button.SetActive(true);
-        }
     }
 
     // Update is called once per frame
