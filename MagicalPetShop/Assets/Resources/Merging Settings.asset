@@ -14,74 +14,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mergingLevels:
   - rarityMergingSettings:
-    - artifactCost: 1
-      duration: 20
-    - artifactCost: 1
-      duration: 30
     - artifactCost: 2
-      duration: 40
-    - artifactCost: 2
-      duration: 50
-  - rarityMergingSettings:
-    - artifactCost: 1
-      duration: 30
-    - artifactCost: 1
-      duration: 40
-    - artifactCost: 2
+      duration: 45
+    - artifactCost: 4
       duration: 60
+    - artifactCost: 6
+      duration: 90
+    - artifactCost: 8
+      duration: 180
+  - rarityMergingSettings:
     - artifactCost: 2
-      duration: 80
+      duration: 160
+    - artifactCost: 4
+      duration: 210
+    - artifactCost: 6
+      duration: 320
+    - artifactCost: 8
+      duration: 640
   - rarityMergingSettings:
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
+    - artifactCost: 2
+      duration: 280
+    - artifactCost: 4
+      duration: 380
+    - artifactCost: 6
+      duration: 570
+    - artifactCost: 8
+      duration: 1150
   - rarityMergingSettings:
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
+    - artifactCost: 2
+      duration: 540
+    - artifactCost: 4
+      duration: 720
+    - artifactCost: 6
+      duration: 1090
+    - artifactCost: 8
+      duration: 2180
   - rarityMergingSettings:
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
+    - artifactCost: 2
+      duration: 790
+    - artifactCost: 4
+      duration: 1050
+    - artifactCost: 6
+      duration: 1580
+    - artifactCost: 8
+      duration: 3160
   - rarityMergingSettings:
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-  - rarityMergingSettings:
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-  - rarityMergingSettings:
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
-    - artifactCost: 0
-      duration: 0
+    - artifactCost: 2
+      duration: 1080
+    - artifactCost: 4
+      duration: 1440
+    - artifactCost: 6
+      duration: 2160
+    - artifactCost: 8
+      duration: 4320

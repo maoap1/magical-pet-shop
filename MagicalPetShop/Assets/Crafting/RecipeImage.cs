@@ -57,10 +57,17 @@ public class RecipeImage : MonoBehaviour
         if (Crafting.CanStartCrafting(recipe))
         {
             gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 0);
+            recipePanel.GetComponent<Button>().interactable = true;
+            if (recipe.progress == -1)
+            {
+                recipePanel.gameObject.GetComponent<Image>().color = new Color(130, 100, 0, 255);
+            }
         }
         else
         {
             gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 1);
+            recipePanel.GetComponent<Button>().interactable = false;
+            recipePanel.GetComponent<Image>().color = Color.white;
         }
     }
 }
