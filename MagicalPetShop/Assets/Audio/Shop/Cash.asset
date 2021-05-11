@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cash
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 200609406d2dc5d43a6cc0fd4f2d5038, type: 3}
-  volume: 1
+  volume: 0.9
   type: 2
   source: {fileID: 0}
