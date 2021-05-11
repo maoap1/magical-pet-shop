@@ -169,7 +169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &45584786 stripped
 RectTransform:
@@ -183,6 +183,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1467973373}
     m_Modifications:
+    - target: {fileID: 1561027954845913455, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: level
       value: 4
@@ -190,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: expeditionLevel
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856789376298398048, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856789376298398049, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_Pivot.x
@@ -278,6 +286,10 @@ PrefabInstance:
     - target: {fileID: 1856789376298398050, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_Name
       value: PortalUI2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856789376298398050, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
@@ -3243,7 +3255,7 @@ RectTransform:
   m_Children:
   - {fileID: 605407792}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3257,6 +3269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1467973373}
     m_Modifications:
+    - target: {fileID: 1561027954845913455, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: level
       value: 2
@@ -3264,6 +3280,10 @@ PrefabInstance:
     - target: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: expeditionLevel
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856789376298398048, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856789376298398048, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3385,6 +3405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalUI1
       objectReference: {fileID: 0}
+    - target: {fileID: 1856789376298398050, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
 --- !u!224 &367149253 stripped
@@ -3433,7 +3457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9146475413006226125, guid: cbb4296bd9cbdfe4abb7f37cb84ce118, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9146475413006226125, guid: cbb4296bd9cbdfe4abb7f37cb84ce118, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3689,7 +3713,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -2284.1343, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605407793
 MonoBehaviour:
@@ -3723,6 +3747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1467973373}
     m_Modifications:
+    - target: {fileID: 1561027954845913455, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: level
       value: 6
@@ -3730,6 +3758,10 @@ PrefabInstance:
     - target: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: expeditionLevel
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856789376298398048, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856789376298398049, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_Pivot.x
@@ -3818,6 +3850,10 @@ PrefabInstance:
     - target: {fileID: 1856789376298398050, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
       propertyPath: m_Name
       value: PortalUI3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856789376298398050, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
@@ -4165,11 +4201,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 293.90625
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 522.5
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634340056673, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4201,7 +4237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498625, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6478255635920498625, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4533,7 +4569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1318222756}
   - component: {fileID: 1318222757}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4608,7 +4644,7 @@ Transform:
   - {fileID: 1363325567}
   - {fileID: 774949207}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363325566
 GameObject:
@@ -4780,7 +4816,7 @@ GameObject:
   - component: {fileID: 1467973373}
   - component: {fileID: 1467973376}
   - component: {fileID: 1467973375}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Portals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5166,7 +5202,7 @@ GameObject:
   - component: {fileID: 1611269808}
   - component: {fileID: 1611269807}
   - component: {fileID: 1611269806}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas Blur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5180,7 +5216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611269805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -5232,7 +5268,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!224 &1611269809
 RectTransform:
@@ -5247,7 +5283,7 @@ RectTransform:
   m_Children:
   - {fileID: 1318222756}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5730,7 +5766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1709745208 stripped
 RectTransform:
@@ -5791,7 +5827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 857123785926862936, guid: 01e389014d484d347ae008dd7b16a8dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 241.66507
+      value: 228
       objectReference: {fileID: 0}
     - target: {fileID: 857123785926862936, guid: 01e389014d484d347ae008dd7b16a8dc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5863,7 +5899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4900279616553690318, guid: 01e389014d484d347ae008dd7b16a8dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 422.83252
+      value: 416
       objectReference: {fileID: 0}
     - target: {fileID: 4900279616553690318, guid: 01e389014d484d347ae008dd7b16a8dc, type: 3}
       propertyPath: m_AnchoredPosition.y
