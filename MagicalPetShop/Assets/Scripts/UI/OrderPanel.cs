@@ -29,8 +29,8 @@ public class OrderPanel : MonoBehaviour
             sellButton.interactable = true;
             sellButtonText.color = Color.black;
         }
-        LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
         this.gameObject.SetActive(true);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
         foreach (GameObject g in objectsToAppear)
         {
             g.SetActive(true);
