@@ -26,7 +26,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
     public void Accept()
     {
         if (canUpgrade()) {
-            PlayerState.THIS.money -= cost;
+            Inventory.TakeFromInventory(cost);
             PlayerState.THIS.craftingSlots++;
             PlayerState.THIS.Save();
             this.gameObject.SetActive(false);

@@ -221,8 +221,14 @@ public static class Inventory
     public static void TakeFromInventory(int money) {
         if (HasInInventory(money))
         {
-            PlayerState.THIS.money -= money;
+            if (moneyTmp == -1) moneyTmp = PlayerState.THIS.money;
+            moneyTmp -= money;
+            if (moneyTween != null) {
+                moneyTween.Kill();
+            }
+            DOTween.To(() => PlayerState.THIS.money, m => PlayerState.THIS.money = m, moneyTmp, 1f).SetEase(Ease.OutCubic);
         }
+
     }
 
 
