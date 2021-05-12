@@ -43,7 +43,7 @@ public class EssenceProducer
     public void UpgradeProducer()
     {
         int upgradeCost = model.GetCost(level + 1);
-        PlayerState.THIS.money -= upgradeCost;
+        Inventory.TakeFromInventory(upgradeCost);
         this.level += 1;
         PlayerState.THIS.Save();
     }
