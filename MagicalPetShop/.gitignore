@@ -2,8 +2,9 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+[Uu]serSettings/
+
 /[Ll]ibrary/
-/UserSettings/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
