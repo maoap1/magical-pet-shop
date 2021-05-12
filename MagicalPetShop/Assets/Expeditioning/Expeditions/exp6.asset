@@ -23,19 +23,19 @@ MonoBehaviour:
       basePower: 1920
       zeroPercent: 1440
       fortyPercent: 1600
-    minRewardCount: 3
-    maxRewardCount: 6
+    minRewardCount: 5
+    maxRewardCount: 8
   - difficulty: 1
     requiredPower:
       basePower: 3000
       zeroPercent: 2250
       fortyPercent: 2500
-    minRewardCount: 8
-    maxRewardCount: 12
+    minRewardCount: 10
+    maxRewardCount: 14
   - difficulty: 2
     requiredPower:
       basePower: 4320
       zeroPercent: 3240
       fortyPercent: 3600
-    minRewardCount: 15
+    minRewardCount: 16
     maxRewardCount: 21
