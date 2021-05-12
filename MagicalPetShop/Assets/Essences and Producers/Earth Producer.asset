@@ -15,20 +15,20 @@ MonoBehaviour:
   essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
   producerLevels:
   - cost: 0
-    productionRatePerMinute: 0
-    storageLimit: 10
-  - cost: 10
     productionRatePerMinute: 10
-    storageLimit: 20
-  - cost: 20
-    productionRatePerMinute: 20
-    storageLimit: 50
-  - cost: 50
-    productionRatePerMinute: 30
-    storageLimit: 100
+    storageLimit: 10
   - cost: 100
-    productionRatePerMinute: 40
-    storageLimit: 200
+    productionRatePerMinute: 15
+    storageLimit: 15
   - cost: 200
-    productionRatePerMinute: 50
-    storageLimit: 400
+    productionRatePerMinute: 20
+    storageLimit: 20
+  - cost: 500
+    productionRatePerMinute: 23
+    storageLimit: 30
+  - cost: 1000
+    productionRatePerMinute: 26
+    storageLimit: 40
+  - cost: 2000
+    productionRatePerMinute: 28
+    storageLimit: 50
