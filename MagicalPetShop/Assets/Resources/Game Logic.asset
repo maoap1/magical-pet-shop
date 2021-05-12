@@ -34,7 +34,7 @@ MonoBehaviour:
   - 0.06
   - 0.1
   - 0.14
-  startingMoney: 100
+  startingMoney: 0
   startingDiamonds: 0
   startingResources:
   - essence: {fileID: 11400000, guid: a0d69fee717884f4eab9e5416c2d26c3, type: 2}
@@ -79,7 +79,7 @@ MonoBehaviour:
   - model: {fileID: 11400000, guid: 98c066df982856645a7aed0edfafffd0, type: 2}
     level: 0
   - model: {fileID: 11400000, guid: 991983f5431ea1e4ba5298c899baac37, type: 2}
-    level: 1
+    level: 0
   startingAnimals: []
   startingArtifacts: []
   startingRecipes:
@@ -114,10 +114,10 @@ MonoBehaviour:
   automaticUpgradeTresholds: 1e0000003c00000064000000c8000000
   craftingSlotUpgrades:
   - level: 1
-    cost: 10
+    cost: 100
   - level: 2
-    cost: 20
-  - level: 3
-    cost: 50
-  - level: 5
     cost: 200
+  - level: 3
+    cost: 500
+  - level: 5
+    cost: 1000
