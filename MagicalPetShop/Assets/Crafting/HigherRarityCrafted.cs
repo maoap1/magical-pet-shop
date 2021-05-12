@@ -16,8 +16,9 @@ public class HigherRarityCrafted : MonoBehaviour
         animalImage.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(rarity));
         animalImage.material.SetTexture("_BloomTex", rp.animal.bloomSprite.texture);
         animalName.text = rp.animal.name;
-        description.text = rarity.ToString("G") + " animal crafted";
+        description.text = rarity.ToString("G") + " animal crafted!";
         this.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
