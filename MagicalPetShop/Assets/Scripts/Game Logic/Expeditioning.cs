@@ -125,6 +125,11 @@ public static class PacksManager {
                 pack.unlocked = true;
                 newPackUnlocked = true;
             }
+            else if (pack.level > PlayerState.THIS.level)
+            {
+                pack.unlocked = false;
+                pack.owned = false;
+            }
         }
         PlayerState.THIS.Save();
         return newPackUnlocked;

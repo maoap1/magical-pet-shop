@@ -115,9 +115,10 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    private void loadFromGameLogic()
+    public void loadFromGameLogic()
     {
         this.money = GameLogic.THIS.startingMoney;
+        Inventory.moneyTmp = -1;
         this.diamonds = GameLogic.THIS.startingDiamonds;
         this.level = 1;
         this.producers = new List<EssenceProducer>();
@@ -185,6 +186,8 @@ public class PlayerState : MonoBehaviour
         unluckySeries.AddRange(new int[] {0, 0, 0, 0});
         this.playerTime = Utils.EpochTime();
         Shop.lastArrivalTime = playerTime;
+        Shop.customers = new Customer[5];
+        customers = Shop.customers;
         PacksManager.UnlockPacks();
         Save();
     }

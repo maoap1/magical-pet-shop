@@ -66,8 +66,8 @@ public class CheatsUI : MonoBehaviour
             GameLogic.THIS.SetSpeed(100);
         }
         // x1000 speed
-        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY + 1 * height, width, height), "x1000")) {
-            GameLogic.THIS.SetSpeed(1000);
+        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY + 1 * height, width, height), "Restart")) {
+            PlayerState.THIS.loadFromGameLogic();
         }
 #endif
     }

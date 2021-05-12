@@ -14,8 +14,8 @@ public class CraftingUpgradeDisplay : MonoBehaviour
         craftingInfo = ci;
         cost = GameLogic.THIS.craftingSlotUpgrades[PlayerState.THIS.craftingSlots - 1].cost;
         costDisplay.SetCost(cost);
-        UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(costDisplay.GetComponent<RectTransform>());
         this.gameObject.SetActive(true);
+        UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(costDisplay.GetComponent<RectTransform>());
     }
 
     public void Reject()

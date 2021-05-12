@@ -7,7 +7,7 @@ using DG.Tweening;
 public static class Inventory
 {
 
-    private static int moneyTmp = -1;
+    public static int moneyTmp = -1;
     private static Tween moneyTween = null;
 
     public static List<InventoryAnimal> GetOrderedAnimals() {
