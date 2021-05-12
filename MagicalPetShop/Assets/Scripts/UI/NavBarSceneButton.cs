@@ -19,10 +19,12 @@ public class NavBarSceneButton : MonoBehaviour {
     };
 
     public void LoadScene() {
-        if (transitionSounds.ContainsKey(this.sceneName)) {
-            FindObjectOfType<AudioManager>().Play(transitionSounds[this.sceneName]);
+        if (!this.isActive) {
+            if (transitionSounds.ContainsKey(this.sceneName)) {
+                FindObjectOfType<AudioManager>().Play(transitionSounds[this.sceneName]);
+            }
+            SceneManager.LoadScene(sceneName);
         }
-        SceneManager.LoadScene(sceneName);
     }
 
     // Start is called before the first frame update

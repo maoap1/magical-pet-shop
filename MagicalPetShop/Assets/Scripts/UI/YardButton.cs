@@ -11,7 +11,7 @@ public class YardButton : MonoBehaviour {
     public Image icon;
     public Material grayscale;
 
-
+    private bool isActive = false;
     private bool isUnlocked = false;
     private Button button;
     private Image background;
@@ -24,10 +24,12 @@ public class YardButton : MonoBehaviour {
     };
 
     public void LoadScene() {
-        if (transitionSounds.ContainsKey(this.sceneName)) {
-            FindObjectOfType<AudioManager>().Play(transitionSounds[this.sceneName]);
+        if (!this.isActive) {
+            if (transitionSounds.ContainsKey(this.sceneName)) {
+                FindObjectOfType<AudioManager>().Play(transitionSounds[this.sceneName]);
+            }
+            SceneManager.LoadScene(sceneName);
         }
-        SceneManager.LoadScene(sceneName);
     }
 
     // Start is called before the first frame update
@@ -63,11 +65,13 @@ public class YardButton : MonoBehaviour {
             this.icon.material.SetFloat("_GrayscaleAmount", 0);
         }
 
-        if (this.isUnlocked && SceneManager.GetActiveScene().name == this.sceneName) {
+        if (this.isUnlocked && !this.isActive && SceneManager.GetActiveScene().name == this.sceneName) {
+            this.isActive = true;
             // TODO: Use color from pallete
             this.background.color = new Color(0.651f, 0.486f, 0f); // dark gold
         }
-        if (this.isUnlocked && SceneManager.GetActiveScene().name != this.sceneName) {
+        if (this.isUnlocked && this.isActive && SceneManager.GetActiveScene().name != this.sceneName) {
+            this.isActive = false;
             // TODO: Use color from pallete
             this.background.color = new Color(0.4118f, 0f, 0.5882f); // dark violet
         }
