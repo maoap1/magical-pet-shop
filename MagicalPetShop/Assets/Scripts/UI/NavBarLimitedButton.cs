@@ -13,11 +13,6 @@ public class NavBarLimitedButton : MonoBehaviour
     private Button button;
     private Image background;
     private PlayerState playerState;
-    private Color originalColor;
-
-    public void Clicked() {
-        if (!this.isActive) return;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +21,6 @@ public class NavBarLimitedButton : MonoBehaviour
         this.background = gameObject.GetComponent<Image>();
         this.button.interactable = false;
         // initialize everything to grey
-        this.originalColor = this.background.color;
         this.background.color = Color.gray;
         this.icon.material = new Material(this.grayscale);
         this.icon.material.SetFloat("_GrayscaleAmount", 1);
@@ -41,7 +35,8 @@ public class NavBarLimitedButton : MonoBehaviour
             // activate, change colors to normal
             this.isActive = true;
             this.button.interactable = true;
-            this.background.color = this.originalColor;
+            // TODO: Use color from pallete
+            this.background.color = new Color(0.4118f, 0f, 0.5882f); // dark violet
             this.icon.material.SetFloat("_GrayscaleAmount", 0);
         }
     }

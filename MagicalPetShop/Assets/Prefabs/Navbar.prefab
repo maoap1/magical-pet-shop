@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &476666382470827131
+--- !u!114 &2169037073402691280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,25 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2586020563976950855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83bbe8a799ef22940a97855c45ab0888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fromLevel: 3
-  icon: {fileID: 6500539246187448071}
-  grayscale: {fileID: 2100000, guid: 56adb0ef59ceb484f8cba6f4bb5251c3, type: 2}
---- !u!114 &5772439164738727127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2586020563976950855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac58b2a738439949925b5ff9ec249e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b73d53fe044af0428ac2b2d1d8cd933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Yard
+  fromLevel: 3
+  icon: {fileID: 6500539246187448071}
+  grayscale: {fileID: 2100000, guid: 56adb0ef59ceb484f8cba6f4bb5251c3, type: 2}
 --- !u!114 &8350459593376415203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +387,7 @@ PrefabInstance:
     - target: {fileID: 5992383241657302048, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5772439164738727127}
+      objectReference: {fileID: 2169037073402691280}
     - target: {fileID: 5992383241657302048, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -410,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5992383241657302048, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NavBarSceneButton, Assembly-CSharp
+      value: YardButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5992383241657302048, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -866,14 +854,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
---- !u!1 &6662648867096569586 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 491262328306831637, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
-  m_PrefabInstance: {fileID: 6532237768707389415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1443163534708716429 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5665543941813797994, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
+  m_PrefabInstance: {fileID: 6532237768707389415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6662648867096569586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 491262328306831637, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
   m_PrefabInstance: {fileID: 6532237768707389415}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8742882785759421390

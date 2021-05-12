@@ -34,17 +34,15 @@ public class NavBarSceneButton : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        // if the current scene is scene of this button, 
         if (!this.isActive && SceneManager.GetActiveScene().name == this.sceneName) {
             this.isActive = true;
             // TODO: Use color from pallete
-            this.image.color = new Color(255, 215, 0); // gold
+            this.image.color = new Color(0.651f, 0.486f, 0f); // dark gold
         }
-        // if the button is active and this is not its scene, deactivate it
         if (this.isActive && SceneManager.GetActiveScene().name != this.sceneName) {
             this.isActive = false;
             // TODO: Use color from pallete
-            this.image.color = new Color(176, 0, 180); // violet
+            this.image.color = new Color(0.4118f, 0f, 0.5882f); // dark violet
         }
     }
 }
