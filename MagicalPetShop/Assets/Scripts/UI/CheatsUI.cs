@@ -53,21 +53,21 @@ public class CheatsUI : MonoBehaviour
                 if (!craftedAnimal.isRecipe) craftedAnimal.fillRate = 1;
             }
         }
-        // Normal speed
-        if (GUI.Button(new Rect(offsetX + 3 * width, offsetY, width, height), "x1")) {
-            GameLogic.THIS.SetSpeed(1);
+        // Restart progress
+        if (GUI.Button(new Rect(offsetX + 3 * width, offsetY, width, height), "Restart")) {
+            PlayerState.THIS.loadFromGameLogic();
         }
         // x10 speed
-        if (GUI.Button(new Rect(offsetX + 3 * width, offsetY + 1 * height, width, height), "x10")) {
-            GameLogic.THIS.SetSpeed(10);
+        if (GUI.Button(new Rect(offsetX + 3 * width, offsetY + 1 * height, width, height), "x1")) {
+            GameLogic.THIS.SetSpeed(1);
         }
         // x100 speed
-        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY, width, height), "x100")) {
-            GameLogic.THIS.SetSpeed(100);
+        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY, width, height), "x10")) {
+            GameLogic.THIS.SetSpeed(10);
         }
-        // x1000 speed
-        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY + 1 * height, width, height), "Restart")) {
-            PlayerState.THIS.loadFromGameLogic();
+        // Normal speed
+        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY + 1 * height, width, height), "x100")) {
+            GameLogic.THIS.SetSpeed(100);
         }
 #endif
     }
