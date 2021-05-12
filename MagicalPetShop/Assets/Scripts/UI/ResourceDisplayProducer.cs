@@ -43,13 +43,21 @@ public class ResourceDisplayProducer : MonoBehaviour
                 imageComponent.color = Color.white;
                 unlockedImage = true;
             }
-            text.text = essenceAmount.amount.ToString();
-            if (essenceAmount.full)
+            if (essenceAmount.unlocked)
             {
-                text.color = new Color(0, 168, 0);
+                text.text = essenceAmount.amount.ToString();
+                if (essenceAmount.full)
+                {
+                    text.color = new Color(0, 168, 0);
+                }
+                else
+                {
+                    text.color = Color.white;
+                }
             }
             else
             {
+                text.text = "0";
                 text.color = Color.white;
             }
         }

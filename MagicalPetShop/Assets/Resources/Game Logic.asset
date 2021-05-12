@@ -64,7 +64,7 @@ MonoBehaviour:
     unlocked: 0
   - essence: {fileID: 11400000, guid: 900061c64ccb1244f83054a7e7ec8ddd, type: 2}
     limit: 0
-    amount: 20
+    amount: 10
     full: 0
     unlocked: 0
   startingProducerLevels:
@@ -79,7 +79,7 @@ MonoBehaviour:
   - model: {fileID: 11400000, guid: 98c066df982856645a7aed0edfafffd0, type: 2}
     level: 0
   - model: {fileID: 11400000, guid: 991983f5431ea1e4ba5298c899baac37, type: 2}
-    level: 1
+    level: 0
   startingAnimals: []
   startingArtifacts: []
   startingRecipes:
@@ -116,8 +116,8 @@ MonoBehaviour:
   - level: 1
     cost: 100
   - level: 2
-    cost: 200
-  - level: 3
-    cost: 500
-  - level: 5
     cost: 1000
+  - level: 3
+    cost: 10000
+  - level: 5
+    cost: 50000
