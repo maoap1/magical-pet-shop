@@ -76,7 +76,7 @@ public class ExpeditionSummaryUI : MonoBehaviour {
         int c = this.casualtiesLayout.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(this.casualtiesLayout.transform.GetChild(i).gameObject);
-        foreach (Animal animal in result.casualties) {
+        foreach (InventoryAnimal animal in result.casualties) {
             CasualtyIconUI newSlot = Instantiate(this.casualtySlot, this.casualtiesLayout.transform).GetComponent<CasualtyIconUI>();
             newSlot.Initialize(animal);
         }

@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
     [SerializeField]
     float requiredDuration;
+
+    [SerializeField]
+    GameObject longPressIndication;
+    [SerializeField]
+    ProgressBar progressBar;
+
+    [SerializeField]
+    float startOfIndication;
 
     public UnityEvent onClick;
     public UnityEvent onLongClick;
@@ -18,6 +28,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerDown(PointerEventData eventData) {
         this.pressed = true;
+        gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
     }
 
     public void OnPointerUp(PointerEventData eventData) {
@@ -27,6 +38,9 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         }
         this.pressed = false;
         this.pressedDuration = 0;
+        this.longPressIndication.SetActive(false);
+        this.progressBar.fillRate = 0;
+        gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
     }
 
     // Update is called once per frame
@@ -39,6 +53,12 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 this.onLongClick.Invoke();
                 this.pressed = false;
                 this.pressedDuration = 0;
+                this.longPressIndication.SetActive(false);
+                this.progressBar.fillRate = 0;
+                gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
+            } else if (this.pressedDuration >= this.startOfIndication) {
+                this.progressBar.fillRate = (this.pressedDuration - this.startOfIndication) / (this.requiredDuration - this.startOfIndication);
+                this.longPressIndication.SetActive(true);
             }
         }
     }
