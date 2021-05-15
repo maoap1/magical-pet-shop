@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using DG.Tweening;
 
 public static class Inventory
 {
-
-    public static int moneyTmp = -1;
-    private static Tween moneyTween = null;
 
     public static List<InventoryAnimal> GetOrderedAnimals() {
         if (PlayerState.THIS.animals == null) return new List<InventoryAnimal>();
@@ -139,12 +135,7 @@ public static class Inventory
     }
 
     public static void AddToInventory(int money) {
-        if (moneyTmp == -1) moneyTmp = PlayerState.THIS.money;
-        moneyTmp += money;
-        if (moneyTween != null) {
-            moneyTween.Kill();
-        }
-        DOTween.To(() => PlayerState.THIS.money, m => PlayerState.THIS.money = m, moneyTmp, 1f).SetEase(Ease.OutCubic);
+        PlayerState.THIS.money += money;
     }
 
 
@@ -220,15 +211,7 @@ public static class Inventory
 
     public static void TakeFromInventory(int money) {
         if (HasInInventory(money))
-        {
-            if (moneyTmp == -1) moneyTmp = PlayerState.THIS.money;
-            moneyTmp -= money;
-            if (moneyTween != null) {
-                moneyTween.Kill();
-            }
-            DOTween.To(() => PlayerState.THIS.money, m => PlayerState.THIS.money = m, moneyTmp, 1f).SetEase(Ease.OutCubic);
-        }
-
+            PlayerState.THIS.money -= money;
     }
 
 
