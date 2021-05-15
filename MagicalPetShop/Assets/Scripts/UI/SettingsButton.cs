@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class SettingsButton : MonoBehaviour
 {
-
+    [SerializeField]
     private GameObject settings;
+    [SerializeField]
+    private CheatsUI cheats;
+
+    void Start() {
+    }
 
     public void SetSettings(GameObject settings) {
         this.settings = settings;
@@ -15,15 +20,7 @@ public class SettingsButton : MonoBehaviour
         this.settings.SetActive(true);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ShowCheats() {
+        cheats.ToggleVisibility();
     }
 }
