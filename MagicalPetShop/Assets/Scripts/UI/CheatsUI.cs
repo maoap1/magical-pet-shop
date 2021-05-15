@@ -6,23 +6,37 @@ using UnityEngine;
 
 public class CheatsUI : MonoBehaviour
 {
-
     public void ToggleVisibility() {
         gameObject.SetActive(!gameObject.activeInHierarchy);
     }
 
+    private int width = 200;
+    private int height = 100;
+    private int offsetX = 0;
+    private int offsetY = 10;
+
+    private bool restart = false;
+
+    private int ColumnToX(int column)
+        => offsetX + column * width;
+
+    private int RowToY(int row)
+        => offsetY + row * height;
+
     private void OnGUI() {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        int width = 200;
-        int height = 100;
-        int offsetX = 0;
-        int offsetY = 10;
+        
+
+        
+        
+        GUI.skin.button.fontSize = 35;
+
         // Add 10 000 money
-        if (GUI.Button(new Rect(offsetX, offsetY, width, height), "Money")) {
+        if (GUI.Button(new Rect(ColumnToX(0), RowToY(0), width, height), "Money")) {
             Inventory.AddToInventory(10000);
         }
         // Instantly give maximum level for all the recipes we have
-        if (GUI.Button(new Rect(offsetX, offsetY + 1 * height, width, height), "Recipes")) {
+        if (GUI.Button(new Rect(ColumnToX(0), RowToY(1), width, height), "Recipes")) {
             int recipesCount = PlayerState.THIS.recipes.Count;
             for (int i = 0; i < recipesCount; ++i) {
                 RecipeProgress recipe = PlayerState.THIS.recipes[i];
@@ -32,57 +46,75 @@ public class CheatsUI : MonoBehaviour
             }
         }
         // Full essence collectors
-        if (GUI.Button(new Rect(offsetX + 1*width, 10, width, height), "Essences")) {
+        if (GUI.Button(new Rect(ColumnToX(1), RowToY(0), width, height), "Essences")) {
             foreach (EssenceAmount essence in PlayerState.THIS.resources) {
                 essence.IncreaseAmount(essence.limit);
             }
         }
         // Finish all expeditions
-        if (GUI.Button(new Rect(offsetX + 1 * width, offsetY + 1 * height, width, height), "Expeditions")) {
+        if (GUI.Button(new Rect(ColumnToX(1), RowToY(1), width, height), "Expeditions")) {
             foreach (Expedition expedition in PlayerState.THIS.expeditions) {
                 expedition.fillRate = 1;
             }
         }
         // Finish all crafting
-        if (GUI.Button(new Rect(offsetX + 2 * width, offsetY, width, height), "Crafting")) {
+        if (GUI.Button(new Rect(ColumnToX(2), RowToY(0), width, height), "Crafting")) {
             foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting) {
                 if (craftedAnimal.isRecipe) craftedAnimal.fillRate = 1;
             }
         }
         // Finish all merging
-        if (GUI.Button(new Rect(offsetX + 2 * width, offsetY + 1 * height, width, height), "Merging")) {
+        if (GUI.Button(new Rect(ColumnToX(2), RowToY(1), width, height), "Merging")) {
             foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting) {
                 if (!craftedAnimal.isRecipe) craftedAnimal.fillRate = 1;
             }
         }
         // Restart progress
-        if (GUI.Button(new Rect(offsetX + 3 * width, offsetY, width, height), "Restart")) {
-            PlayerState.THIS.loadFromGameLogic();
+
+        if (GUI.Button(new Rect(ColumnToX(2), RowToY(2), width, height), "Restart")) {
+            restart = true;
+            
         }
         // Normal speed
-        if (GUI.Button(new Rect(offsetX + 3 * width, offsetY + 1 * height, width, height), "x1")) {
+        if (GUI.Button(new Rect(ColumnToX(3), RowToY(0), width, height), "x1")) {
             GameLogic.THIS.SetSpeed(1);
         }
         // x10 speed
-        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY, width, height), "x10")) {
+        if (GUI.Button(new Rect(ColumnToX(3), RowToY(1), width, height), "x10")) {
             GameLogic.THIS.SetSpeed(10);
         }
         // 10x speed
-        if (GUI.Button(new Rect(offsetX + 4 * width, offsetY + 1 * height, width, height), "x100")) {
+        if (GUI.Button(new Rect(ColumnToX(3), RowToY(2), width, height), "x100")) {
             GameLogic.THIS.SetSpeed(100);
         }
-
         // Adds 10 of each artifact
-        if (GUI.Button(new Rect(offsetX, offsetY + 2 * height, width, height), "Artifacts"))
+        if (GUI.Button(new Rect(ColumnToX(0), RowToY(2), width, height), "Artifacts"))
         {
             AddArtifacts(10);
         }
-
         // Adds 10 of each discovered animal
-        if (GUI.Button(new Rect(offsetX + 1 * width, offsetY + 2 * height, width, height), "Animals"))
+        if (GUI.Button(new Rect(ColumnToX(1), RowToY(2), width, height), "Animals"))
         {
             AddAnimals(10);
         }
+
+
+        if (restart)
+        {
+            if(GUI.Button(new Rect(ColumnToX(1), RowToY(6), 1.5f*width, 2*height), "NO"))
+            {
+                restart = false;
+            }
+            if(GUI.Button(new Rect(ColumnToX(3), RowToY(6), 1.5f*width, 2*height), "YES Restart"))
+            {
+                restart = false;
+                PlayerState.THIS.loadFromGameLogic();
+            }
+        }
+
+
+        
+
 #endif
     }
 
