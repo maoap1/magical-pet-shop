@@ -121,3 +121,4 @@ MonoBehaviour:
     cost: 10000
   - level: 5
     cost: 50000
+  moneyForLevels: f4010000d00700008813000010270000204e0000

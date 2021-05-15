@@ -7,16 +7,24 @@ public class NewRecipeDisplay : MonoBehaviour
 {
     public Image animalImage;
     public TMPro.TextMeshProUGUI animalName;
-    public void Open(RecipeProgress rp)
+    private bool level = false;
+    private NewLevelDisplay newLevelDisplay;
+    public void Open(RecipeProgress rp, bool newLevel)
     {
+        level = newLevel;
         animalImage.sprite = rp.animal.artwork;
         animalName.text = rp.animal.name;
         this.gameObject.SetActive(true);
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
+        newLevelDisplay = Resources.FindObjectsOfTypeAll<NewLevelDisplay>()[0];
     }
 
     public void Close()
     {
+        if (level)
+        {
+            newLevelDisplay.Open();
+        }
         this.gameObject.SetActive(false);
     }
 }

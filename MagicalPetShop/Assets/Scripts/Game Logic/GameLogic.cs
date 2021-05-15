@@ -55,6 +55,9 @@ public class GameLogic : ScriptableObject
     [Header("Crafting slots")]
     public CraftingSlotUpgrade[] craftingSlotUpgrades = new CraftingSlotUpgrade[4];
 
+    [Header("Money for levels")]
+    public int[] moneyForLevels = new int[5];
+
     void OnValidate()
     {
         if (rarityMultipliers.Length != 5)
@@ -86,6 +89,12 @@ public class GameLogic : ScriptableObject
         {
             Debug.LogWarning("Don't change the 'craftingSlotUpgrades' field's array size!");
             Array.Resize(ref craftingSlotUpgrades, 4);
+        }
+
+        if (moneyForLevels.Length != 5)
+        {
+            Debug.LogWarning("Don't change the 'moneyForLevels' field's array size!");
+            Array.Resize(ref moneyForLevels, 5);
         }
     }
 
@@ -120,13 +129,18 @@ public class GameLogic : ScriptableObject
         {
             rp.newRecipe = true;
             PlayerState.THIS.recipes.Add(rp);
-            NewRecipeDisplay newRecipeDisplay = Resources.FindObjectsOfTypeAll<NewRecipeDisplay>()[0];
-            newRecipeDisplay.Open(rp);
         }
         if (PlayerState.THIS.level<rp.animal.level)
         {
             PlayerState.THIS.level = rp.animal.level;
             PacksManager.UnlockPacks();
+            NewRecipeDisplay newRecipeDisplay = Resources.FindObjectsOfTypeAll<NewRecipeDisplay>()[0];
+            newRecipeDisplay.Open(rp, true);
+        }
+        else
+        {
+            NewRecipeDisplay newRecipeDisplay = Resources.FindObjectsOfTypeAll<NewRecipeDisplay>()[0];
+            newRecipeDisplay.Open(rp, false);
         }
         GameLogic.UnlockEssence(rp.animal.category);
     }

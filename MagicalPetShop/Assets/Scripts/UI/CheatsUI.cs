@@ -121,10 +121,13 @@ public class CheatsUI : MonoBehaviour
     private void AddArtifacts(int number)
     {
         List<Artifact> artifacts = new List<Artifact>();
-        string[] guids = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(Artifact)));
-        for (int i = 0; i < guids.Length; i++)
+        foreach (ExpeditionType ET in GameLogic.THIS.expeditions)
         {
-            artifacts.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guids[i]), typeof(Artifact)) as Artifact);
+            Artifact a = ET.reward;
+            if (artifacts.Find(artifact => a.name == artifact.name) == null)
+            {
+                artifacts.Add(a);
+            }
         }
         foreach (Artifact a in artifacts)
         {

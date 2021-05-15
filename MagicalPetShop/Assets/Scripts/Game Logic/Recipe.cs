@@ -171,6 +171,16 @@ public class Recipe : ScriptableObject
         }
         return null;
     }
+
+    public RecipeLevel getUnlockedUpgrade(int animalsProduced)
+    {
+        int level = getCurrentLevel(animalsProduced);
+        if (level >= 0 && recipeLevels[level].treshold == animalsProduced)
+        {
+            return recipeLevels[level];
+        }
+        return null;
+    }
 }
 
 [System.Serializable]
@@ -285,6 +295,11 @@ public class RecipeProgress
             rp.animalsProduced = 0;
             rp.recipe = recipe.getUnlockedRecipe(animalsProduced);
             GameLogic.UnlockRecipe(rp);
+        }
+        else if (recipe.getUnlockedUpgrade(animalsProduced)!=null)
+        {
+            NewUpgradeDisplay newRecipeDisplay = Resources.FindObjectsOfTypeAll<NewUpgradeDisplay>()[0];
+            newRecipeDisplay.Open(this, recipe.getUnlockedUpgrade(animalsProduced));
         }
     }
 }
