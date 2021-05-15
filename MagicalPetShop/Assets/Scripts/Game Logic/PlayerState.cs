@@ -118,7 +118,6 @@ public class PlayerState : MonoBehaviour
     public void loadFromGameLogic()
     {
         this.money = GameLogic.THIS.startingMoney;
-        Inventory.moneyTmp = -1;
         this.diamonds = GameLogic.THIS.startingDiamonds;
         this.level = 1;
         this.producers = new List<EssenceProducer>();

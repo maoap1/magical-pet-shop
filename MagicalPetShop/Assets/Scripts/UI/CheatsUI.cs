@@ -6,6 +6,17 @@ using UnityEngine;
 
 public class CheatsUI : MonoBehaviour
 {
+
+    void Awake() {
+        CheatsUI[] objs = GameObject.FindObjectsOfType<CheatsUI>();
+        if (objs.Length > 1) {
+            Destroy(this.gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
+        this.gameObject.SetActive(false);
+    }
+
     public void ToggleVisibility() {
         gameObject.SetActive(!gameObject.activeInHierarchy);
     }
