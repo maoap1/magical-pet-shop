@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Game Logic", menuName = "PetShop/Game Logic")]
 public class Tutorials : ScriptableObject
 {
-    public List<ITutorial>
+    public List<ITutorial> tutorials;
+    public int currentIndex = -1;
 }
