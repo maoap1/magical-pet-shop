@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CheatsUI : MonoBehaviour
@@ -57,18 +59,66 @@ public class CheatsUI : MonoBehaviour
         if (GUI.Button(new Rect(offsetX + 3 * width, offsetY, width, height), "Restart")) {
             PlayerState.THIS.loadFromGameLogic();
         }
-        // x10 speed
+        // Normal speed
         if (GUI.Button(new Rect(offsetX + 3 * width, offsetY + 1 * height, width, height), "x1")) {
             GameLogic.THIS.SetSpeed(1);
         }
-        // x100 speed
+        // x10 speed
         if (GUI.Button(new Rect(offsetX + 4 * width, offsetY, width, height), "x10")) {
             GameLogic.THIS.SetSpeed(10);
         }
-        // Normal speed
+        // 10x speed
         if (GUI.Button(new Rect(offsetX + 4 * width, offsetY + 1 * height, width, height), "x100")) {
             GameLogic.THIS.SetSpeed(100);
         }
+
+        // Adds 10 of each artifact
+        if (GUI.Button(new Rect(offsetX, offsetY + 2 * height, width, height), "Artifacts"))
+        {
+            AddArtifacts(10);
+        }
+
+        // Adds 10 of each discovered animal
+        if (GUI.Button(new Rect(offsetX + 1 * width, offsetY + 2 * height, width, height), "Animals"))
+        {
+            AddAnimals(10);
+        }
 #endif
+    }
+
+    private void AddArtifacts(int number)
+    {
+        List<Artifact> artifacts = new List<Artifact>();
+        string[] guids = AssetDatabase.FindAssets(String.Format("t:{0}", typeof(Artifact)));
+        for (int i = 0; i < guids.Length; i++)
+        {
+            artifacts.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guids[i]), typeof(Artifact)) as Artifact);
+        }
+        foreach (Artifact a in artifacts)
+        {
+            InventoryArtifact ia = new InventoryArtifact();
+            ia.artifact = a;
+            ia.count = number;
+            Inventory.AddToInventory(ia);
+        }
+    }
+
+    private void AddAnimals(int number)
+    {
+        List<RecipeProgress> RPs = PlayerState.THIS.recipes;
+        int recipesCount = PlayerState.THIS.recipes.Count;
+        for (int i=0; i<recipesCount; i++)
+        {
+            RecipeProgress rp = PlayerState.THIS.recipes[i];
+            InventoryAnimal ia = new InventoryAnimal();
+            ia.count = number;
+            ia.animal = rp.animal;
+            ia.rarity = rp.rarity;
+            for (int j=0; j<number; j++)
+            {
+                rp.animalProduced();
+            }
+            Inventory.AddToInventory(ia);
+        }
     }
 }
