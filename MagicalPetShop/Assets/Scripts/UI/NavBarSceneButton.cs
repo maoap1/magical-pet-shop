@@ -16,22 +16,12 @@ public class NavBarSceneButton : MonoBehaviour {
     private bool isUnlocked = false;
     private Button button;
 
-    private PlayerState playerState;
-
     private NavBarButton navBarButton;
 
-    Dictionary<string, SoundType> transitionSounds = new Dictionary<string, SoundType>() {
-        { "Lab", SoundType.Steps },
-        { "Shop", SoundType.CustomerAppear },
-        { "Yard", SoundType.Door }
-    };
 
     public void LoadScene() {
         if (!this.isActive) {
-            if (transitionSounds.ContainsKey(this.sceneName)) {
-                FindObjectOfType<AudioManager>().Play(transitionSounds[this.sceneName]);
-            }
-            SceneManager.LoadScene(sceneName);
+            GameObject.FindObjectOfType<SceneSwitcher>().LoadScene(sceneName);
         }
     }
 
@@ -59,17 +49,14 @@ public class NavBarSceneButton : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (this.playerState == null && PlayerState.THIS != null)
-            this.playerState = PlayerState.THIS;
-        if (this.playerState == null || this.playerState.level < this.fromLevel) {
+        if (PlayerState.THIS.level < this.fromLevel) {
             this.button.interactable = false;
         } else {
             this.button.interactable = true;
         }
 
-        if (this.playerState == null && PlayerState.THIS != null)
-            this.playerState = PlayerState.THIS;
-        if (!this.isUnlocked && this.playerState != null && this.playerState.level >= this.fromLevel) {
+        
+        if (!this.isUnlocked && PlayerState.THIS.level >= this.fromLevel) {
             // activate, change colors to normal
             this.isUnlocked = true;
             this.button.interactable = true;
