@@ -27,6 +27,12 @@ public class NavBarSceneButton : MonoBehaviour {
         }
     }
 
+    public void LoadSceneOfName(string sceneName)
+    {
+        this.sceneName = sceneName;
+        LoadScene();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
