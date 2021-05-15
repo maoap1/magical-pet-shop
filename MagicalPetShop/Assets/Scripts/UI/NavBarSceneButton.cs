@@ -18,7 +18,6 @@ public class NavBarSceneButton : MonoBehaviour {
 
     private PlayerState playerState;
 
-    //private Image background;
     private NavBarButton navBarButton;
 
     Dictionary<string, SoundType> transitionSounds = new Dictionary<string, SoundType>() {
@@ -41,8 +40,15 @@ public class NavBarSceneButton : MonoBehaviour {
             this.navBarButton.ShowNotification();
         }
     }
+    
     public void HideNotification() {
         this.navBarButton.HideNotification();
+    }
+
+    public void LoadSceneOfName(string sceneName)
+    {
+        this.sceneName = sceneName;
+        LoadScene();
     }
 
     // Start is called before the first frame update
