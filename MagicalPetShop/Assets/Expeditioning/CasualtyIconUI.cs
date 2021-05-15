@@ -9,8 +9,11 @@ public class CasualtyIconUI : MonoBehaviour
     [SerializeField]
     Image iconImage;
 
-    public void Initialize(Animal animal) {
-        this.iconImage.sprite = animal.artwork;
+    public void Initialize(InventoryAnimal animal) {
+        this.iconImage.material = new Material(this.iconImage.material);
+        this.iconImage.sprite = animal.animal.artwork;
+        this.iconImage.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(animal.rarity));
+        this.iconImage.material.SetTexture("_BloomTex", animal.animal.bloomSprite.texture);
     }
 
     // Start is called before the first frame update

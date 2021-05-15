@@ -33,7 +33,7 @@ public static class Expeditioning
             rewardCount = Random.Range(mode.minRewardCount, mode.maxRewardCount);
         }
         // determine casualties
-        List<Animal> casualties = ProcessCasualties(expedition, isSuccessful);
+        List<InventoryAnimal> casualties = ProcessCasualties(expedition, isSuccessful);
         // update everything
         InventoryArtifact reward = new InventoryArtifact(expedition.expeditionType.reward, rewardCount);
         if (rewardCount > 0) {
@@ -67,7 +67,7 @@ public static class Expeditioning
         return Random.value < successChance;
     }
 
-    private static List<Animal> ProcessCasualties(Expedition expedition, bool isSuccessful) {
+    private static List<InventoryAnimal> ProcessCasualties(Expedition expedition, bool isSuccessful) {
         Random.InitState(System.DateTime.Now.Millisecond);
         // for each animal, determine life/death
         float averageProbOfDeath = 0;
@@ -81,7 +81,7 @@ public static class Expeditioning
                 if (Random.value < prob) casualties.Add(slot);
             }
         }
-        if (count == 0) return new List<Animal>();
+        if (count == 0) return new List<InventoryAnimal>();
 
         averageProbOfDeath /= count;
         // if too many animals are destined to die, choose only some of them
@@ -94,9 +94,9 @@ public static class Expeditioning
         for (int i = maxCasualties; i < casualties.Count; i++) {
             casualties.RemoveAt(Random.Range(0, casualties.Count - 1));
         }
-        List<Animal> animalCasualties = new List<Animal>();
+        List<InventoryAnimal> animalCasualties = new List<InventoryAnimal>();
         foreach (PackSlot slot in casualties)
-            animalCasualties.Add(slot.animal.animal);
+            animalCasualties.Add(slot.animal);
         // apply changes
         PacksManager.ManageCasualties(casualties);
 
@@ -200,9 +200,9 @@ public enum ExpeditionDifficulty {
 public class ExpeditionResult {
     public bool isSuccessful;
     public InventoryArtifact reward;
-    public List<Animal> casualties;
+    public List<InventoryAnimal> casualties;
 
-    public ExpeditionResult(bool success, InventoryArtifact reward, List<Animal> casualties) {
+    public ExpeditionResult(bool success, InventoryArtifact reward, List<InventoryAnimal> casualties) {
         this.isSuccessful = success;
         this.reward = reward;
         this.casualties = casualties;
