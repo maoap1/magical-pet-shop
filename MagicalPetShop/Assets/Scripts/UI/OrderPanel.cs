@@ -22,6 +22,7 @@ public class OrderPanel : MonoBehaviour
         animalImage.material.SetTexture("_BloomTex", customer.desiredAnimal.animal.bloomSprite.texture);
         cost.costText.text = ((int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier)).ToString();
         cost.icon.sprite = GameGraphics.THIS.money;
+        cost.SetNoRed();
         if (!Inventory.HasInInventoryPrecise(customer.desiredAnimal)) {
             sellButton.interactable = false;
             sellButtonText.color = Color.red;

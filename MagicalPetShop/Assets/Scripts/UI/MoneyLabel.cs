@@ -35,9 +35,10 @@ public class MoneyLabel : MonoBehaviour
         }
 
         if (this.playerState.money != this.lastMoney) {
-            if (this.moneyTween != null && this.moneyTween.IsPlaying()) {
-                moneyTween.Kill();
+            if (this.moneyTween != null && this.moneyTween.IsActive()) {
+                this.moneyTween.Kill();
             }
+            this.moneyTween = null;
             this.lastMoney = this.playerState.money;
             this.moneyTween = DOTween.To(() => this.moneyTmp, m => { this.moneyTmp = m; this.moneyText.text = m.ToString(); }, this.playerState.money, 1f).SetEase(Ease.OutCubic);
         }

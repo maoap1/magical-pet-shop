@@ -11,10 +11,14 @@ public class ResourceDisplay : MonoBehaviour
     public Essence essence;
     private EssenceAmount essenceAmount = null;
     private bool unlockedImage = false;
+    private Button button;
+
     // Start is called before the first frame update
     void Start()
     {
         icon.sprite = GameGraphics.THIS.unknown;
+        button = gameObject.GetComponent<Button>();
+        button.interactable = false;
     }
 
     // Update is called once per frame
@@ -34,6 +38,7 @@ public class ResourceDisplay : MonoBehaviour
         {
             if (essenceAmount.unlocked & !unlockedImage)
             {
+                button.interactable = true;
                 icon.sprite = essenceAmount.essence.icon;
                 unlockedImage = true;
             }
