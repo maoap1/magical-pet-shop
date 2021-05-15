@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Shop
 {
+    [HideInInspector]
+    public static bool customersComing = true;
     public static long lastArrivalTime;
     public static Customer[] customers = new Customer[5];
     private static int nullCount = 0;
@@ -12,6 +14,10 @@ public static class Shop
 
     public static void UpdateCustomers()
     {
+        if (!customersComing)
+        {
+            lastArrivalTime = Utils.EpochTime();
+        }
         if (nextCustomerToAppear==-1)
         {
             Random.InitState(System.DateTime.Now.Millisecond);
