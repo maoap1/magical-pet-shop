@@ -31,7 +31,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Shop
   fromLevel: 0
-  selectedIcon: {fileID: 21300000, guid: 2dcfcc7216ea7da4da8564e89983f71c, type: 3}
+  selectedIcon: {fileID: 21300000, guid: 65cbf21f3feb38244a0df3ba353a429e, type: 3}
   image: {fileID: 5791650094173354352}
   grayscale: {fileID: 2100000, guid: 56adb0ef59ceb484f8cba6f4bb5251c3, type: 2}
 --- !u!114 &95606149352564934
@@ -574,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 7974482240962179806, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 21300000, guid: 2dcfcc7216ea7da4da8564e89983f71c, type: 3}
+      objectReference: {fileID: 21300000, guid: 307b15e04a235a6439961beddce090ed, type: 3}
     - target: {fileID: 7974482240962179806, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
       propertyPath: text
       value: Shop

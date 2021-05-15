@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5985564563139211964}
   - component: {fileID: 5985564563139211967}
-  - component: {fileID: 5985564563139211966}
+  - component: {fileID: 2433125452942679101}
   m_Layer: 0
   m_Name: SceneSwiper
   m_TagString: Untagged
@@ -48,8 +48,8 @@ MonoBehaviour:
   OnSwipeLeft:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5985564563139211966}
-        m_TargetAssemblyTypeName: NavBarSceneButton, Assembly-CSharp
+      - m_Target: {fileID: 2433125452942679101}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadSceneOfName
         m_Mode: 5
         m_Arguments:
@@ -63,8 +63,8 @@ MonoBehaviour:
   OnSwipeRight:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5985564563139211966}
-        m_TargetAssemblyTypeName: NavBarSceneButton, Assembly-CSharp
+      - m_Target: {fileID: 2433125452942679101}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadSceneOfName
         m_Mode: 5
         m_Arguments:
@@ -81,7 +81,7 @@ MonoBehaviour:
   OnSwipeDown:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5985564563139211966
+--- !u!114 &2433125452942679101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5985564563139211937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac58b2a738439949925b5ff9ec249e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 205fba0bf02d06c418a68bc3b59dce01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 

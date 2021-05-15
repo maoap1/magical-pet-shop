@@ -45,12 +45,6 @@ public class NavBarSceneButton : MonoBehaviour {
         this.navBarButton.HideNotification();
     }
 
-    public void LoadSceneOfName(string sceneName)
-    {
-        this.sceneName = sceneName;
-        LoadScene();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
