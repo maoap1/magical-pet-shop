@@ -13,8 +13,15 @@ public class NavBarButton : MonoBehaviour {
     Image iconImage;
     [SerializeField]
     TextMeshProUGUI textTMP;
+    [SerializeField]
+    Image notification;
 
-
+    public void ShowNotification() {
+        this.notification.gameObject.SetActive(true);
+    }
+    public void HideNotification() {
+        this.notification.gameObject.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()

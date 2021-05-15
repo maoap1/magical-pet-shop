@@ -7,10 +7,19 @@ using UnityEngine.SceneManagement;
 public class NavBarSceneButton : MonoBehaviour {
 
     public string sceneName;
+    public int fromLevel;
+    public Sprite selectedIcon;
+    public Image image;
+    public Material grayscale;
 
     private bool isActive = false;
+    private bool isUnlocked = false;
+    private Button button;
 
-    private Image image;
+    private PlayerState playerState;
+
+    //private Image background;
+    private NavBarButton navBarButton;
 
     Dictionary<string, SoundType> transitionSounds = new Dictionary<string, SoundType>() {
         { "Lab", SoundType.Steps },
@@ -27,24 +36,53 @@ public class NavBarSceneButton : MonoBehaviour {
         }
     }
 
+    public void ShowNotification() {
+        if (!this.isActive) {
+            this.navBarButton.ShowNotification();
+        }
+    }
+    public void HideNotification() {
+        this.navBarButton.HideNotification();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        this.image = gameObject.GetComponent<Image>();
+        this.button = gameObject.GetComponent<Button>();
+        this.button.interactable = false;
+        // initialize everything to grey
+        this.image.material = new Material(this.grayscale);
+        this.image.material.SetFloat("_GrayscaleAmount", 1);
+        this.navBarButton = gameObject.GetComponent<NavBarButton>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!this.isActive && SceneManager.GetActiveScene().name == this.sceneName) {
-            this.isActive = true;
-            // TODO: Use color from pallete
-            this.image.color = new Color(0.651f, 0.486f, 0f); // dark gold
+        if (this.playerState == null && PlayerState.THIS != null)
+            this.playerState = PlayerState.THIS;
+        if (this.playerState == null || this.playerState.level < this.fromLevel) {
+            this.button.interactable = false;
+        } else {
+            this.button.interactable = true;
         }
-        if (this.isActive && SceneManager.GetActiveScene().name != this.sceneName) {
+
+        if (this.playerState == null && PlayerState.THIS != null)
+            this.playerState = PlayerState.THIS;
+        if (!this.isUnlocked && this.playerState != null && this.playerState.level >= this.fromLevel) {
+            // activate, change colors to normal
+            this.isUnlocked = true;
+            this.button.interactable = true;
+            this.image.material.SetFloat("_GrayscaleAmount", 0);
+        }
+
+        if (this.isUnlocked && !this.isActive && SceneManager.GetActiveScene().name == this.sceneName) {
+            this.isActive = true;
+            this.image.sprite = this.selectedIcon;
+        }
+        if (this.isUnlocked && this.isActive && SceneManager.GetActiveScene().name != this.sceneName) {
             this.isActive = false;
-            // TODO: Use color from pallete
-            this.image.color = new Color(0.4118f, 0f, 0.5882f); // dark violet
+            this.image.sprite = this.navBarButton.icon;
         }
     }
 }
