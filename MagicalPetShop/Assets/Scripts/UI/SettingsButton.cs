@@ -6,7 +6,7 @@ public class SettingsButton : MonoBehaviour
 {
     [SerializeField]
     private GameObject settings;
-    [SerializeField]
+
     private CheatsUI cheats;
 
     void Start() {
@@ -21,6 +21,19 @@ public class SettingsButton : MonoBehaviour
     }
 
     public void ShowCheats() {
-        cheats.ToggleVisibility();
+        if (this.cheats != null) {
+            this.cheats.ToggleVisibility();
+            return;
+        }
+        this.cheats = FindObjectOfType<CheatsUI>();
+        if (this.cheats != null) {
+            this.cheats.ToggleVisibility();
+            return;
+        }
+        List<CheatsUI> cheatsTmp = FindObjects.FindObject<CheatsUI>();
+        if (cheatsTmp.Count > 0) {
+            this.cheats = cheatsTmp[0];
+            this.cheats.ToggleVisibility();
+        } else Debug.Log("Cheats not found");
     }
 }

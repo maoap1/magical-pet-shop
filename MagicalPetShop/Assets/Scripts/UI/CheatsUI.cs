@@ -14,7 +14,6 @@ public class CheatsUI : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this.gameObject);
-        this.gameObject.SetActive(false);
     }
 
     public void ToggleVisibility() {
