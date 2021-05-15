@@ -77,7 +77,7 @@ public class GameLogic : ScriptableObject
             Debug.LogWarning("Don't change the 'casualtiesThreshold' field's array size!");
             Array.Resize(ref casualtiesThreshold, 4);
         }
-        if (upgradeProbabilities.Length != 5) {
+        if (upgradeProbabilities.Length != 4) {
             Debug.LogWarning("Don't change the 'upgradeProbabilities' field's array size!");
             Array.Resize(ref upgradeProbabilities, 4);
         }
