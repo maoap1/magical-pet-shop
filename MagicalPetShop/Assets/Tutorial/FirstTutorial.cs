@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorials1 : MonoBehaviour
+public class FirstTutorial : ScriptableObject, ITutorial
 {
-    // Start is called before the first frame update
-    void Start()
+    private int progress;
+    public bool finished()
     {
-        
+        return false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool tryStart()
     {
-        
+        progress = 0;
+        return true;
+    }
+
+    public void update()
+    {
+        progress = 0;
     }
 }
