@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 9
+  initializeOnStart: 1
 --- !u!1 &4647693223866099244
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 10
+  initializeOnStart: 1
 --- !u!1 &4849553066168624344
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 10
+  initializeOnStart: 1
 --- !u!1 &5674696664161208680
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 10
+  initializeOnStart: 1
 --- !u!1 &5710590267378329266
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
+  initializeOnStart: 1
 --- !u!114 &1602092213947096173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
+  initializeOnStart: 1
 --- !u!114 &8947190567391053292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,6 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 11
+  initializeOnStart: 1
 --- !u!1 &6537874025870239579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1188,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: bc0cd068bc0de1f44983fe7566fc7217, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1247,6 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 5
+  initializeOnStart: 1
 --- !u!1 &7278284114592248353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1290,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &39380093524279158
 CanvasRenderer:
@@ -1534,3 +1542,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 10
+  initializeOnStart: 1
