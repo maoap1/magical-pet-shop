@@ -118,7 +118,7 @@ public class CheatsUI : MonoBehaviour
             if(GUI.Button(new Rect(ColumnToX(3), RowToY(6), 1.5f*width, 2*height), "YES Restart"))
             {
                 restart = false;
-                PlayerState.THIS.loadFromGameLogic();
+                PlayerState.THIS.LoadFromGameLogic();
             }
         }
 

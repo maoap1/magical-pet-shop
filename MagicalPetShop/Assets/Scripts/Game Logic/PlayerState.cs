@@ -48,6 +48,8 @@ public class PlayerState : MonoBehaviour
     [HideInInspector]
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
+    private bool initialized = false;
+
     private static PlayerState _THIS;
     public static PlayerState THIS
     {
@@ -62,6 +64,7 @@ public class PlayerState : MonoBehaviour
                 _THIS = ps.AddComponent<PlayerState>();                
             }
             GameObject.DontDestroyOnLoad(_THIS);
+            THIS.Init();
             return _THIS;
         }
     }
@@ -79,8 +82,11 @@ public class PlayerState : MonoBehaviour
     private PlayerState() {
     }
 
-    public void Start()
+    public void Init()
     {
+        if (initialized) return;
+        initialized = true;
+
         if (int.TryParse(Application.version.Split('.')[1], out int ver))
         {
             this.version = ver;
@@ -106,16 +112,21 @@ public class PlayerState : MonoBehaviour
             }
             else
             {
-                loadFromGameLogic();
+                LoadFromGameLogic();
             }
         }
         else
         {
-            loadFromGameLogic();
+            LoadFromGameLogic();
         }
     }
 
-    public void loadFromGameLogic()
+    public void Start()
+    {
+        Init();  
+    }
+
+    public void LoadFromGameLogic()
     {
         this.money = GameLogic.THIS.startingMoney;
         this.diamonds = GameLogic.THIS.startingDiamonds;
