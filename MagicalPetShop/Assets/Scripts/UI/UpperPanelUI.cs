@@ -16,8 +16,6 @@ public class UpperPanelUI : MonoBehaviour {
     [SerializeField]
     private SettingsButton settingsButton;
 
-    private PlayerState playerState;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,16 +25,7 @@ public class UpperPanelUI : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (this.playerState == null && PlayerState.THIS != null)
-            this.playerState = PlayerState.THIS;
-        if (this.playerState == null) {
-            this.level.text = "0";
-            this.money.text = "0";
-            this.diamonds.text = "0";
-        } else {
-            this.level.text = this.playerState.level.ToString();
-            this.money.text = this.playerState.money.ToString();
-            this.diamonds.text = this.playerState.diamonds.ToString();
-        }
+        this.level.text = PlayerState.THIS.level.ToString();
+        this.diamonds.text = PlayerState.THIS.diamonds.ToString();
     }
 }

@@ -27,6 +27,9 @@ public class MoneyLabel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        moneyText.text = moneyTmp.ToString();
+
         if (PlayerState.THIS.money != this.lastMoney) 
         {
             if (this.moneyTween != null && this.moneyTween.IsActive()) 
@@ -35,12 +38,13 @@ public class MoneyLabel : MonoBehaviour
                 this.moneyTween = null;
             }
             this.lastMoney = PlayerState.THIS.money;
+
             this.moneyTween = DOTween.To(
                     () => this.moneyTmp,
-                    m => { this.moneyTmp = m; this.moneyText.text = m.ToString(); Debug.Log(m); },
+                    m => this.moneyTmp = m,
                     PlayerState.THIS.money,
                     1f)
-                .SetEase(Ease.OutCubic);
+                .SetEase(Ease.OutCubic).OnComplete(() => moneyTmp = PlayerState.THIS.money);
         }
     }
 }
