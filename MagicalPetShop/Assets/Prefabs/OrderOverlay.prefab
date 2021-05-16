@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 936846879120801115}
   - component: {fileID: 936846879120801116}
   - component: {fileID: 936846879120801117}
+  - component: {fileID: 4442046101660503439}
   m_Layer: 5
   m_Name: OrderOverlay
   m_TagString: Untagged
@@ -1112,6 +1113,20 @@ MonoBehaviour:
   sellButtonText: {fileID: 936846878909815850}
   animalImage: {fileID: 936846877792376558}
   cost: {fileID: 936846878718939077}
+--- !u!114 &4442046101660503439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936846879120801119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f024159ba77999a41a2cfe3e59342047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToAppear: []
+  ObjectsToHide: []
 --- !u!1 &936846879146941595
 GameObject:
   m_ObjectHideFlags: 0

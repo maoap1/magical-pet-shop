@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 5879592683205491551}
   - component: {fileID: 7370927402529909159}
   - component: {fileID: 2224473207733613061}
+  - component: {fileID: 4294047442171481124}
   m_Layer: 5
   m_Name: ArtifactSlot
   m_TagString: Untagged
@@ -469,6 +470,19 @@ MonoBehaviour:
   name: {fileID: 3605706548617776406}
   image: {fileID: 173682575761861617}
   count: {fileID: 7387075977727738396}
+--- !u!114 &4294047442171481124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636645156529528860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5c45175d938354896e824f9182faad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 5
 --- !u!1 &8475478778486878257
 GameObject:
   m_ObjectHideFlags: 0

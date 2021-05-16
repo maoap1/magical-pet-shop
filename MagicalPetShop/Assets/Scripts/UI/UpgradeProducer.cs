@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(AppearHideComponent))]
 public class UpgradeProducer : MonoBehaviour
 {
     public Image image;
@@ -15,9 +16,6 @@ public class UpgradeProducer : MonoBehaviour
     public Button upgrade;
     [HideInInspector]
     public EssenceProducer producer;
-
-    public List<GameObject> objectsToAppear;
-    public List<GameObject> objectsToHide;
 
     private int upgradeCost;
 
@@ -39,11 +37,11 @@ public class UpgradeProducer : MonoBehaviour
     {
         producer = PlayerState.THIS.producers.Find(x => x.essenceAmount.essence.essenceName == e.essenceName);
         this.gameObject.SetActive(true);
-        foreach (GameObject g in objectsToAppear)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
         {
             g.SetActive(true);
         }
-        foreach (GameObject g in objectsToHide)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
         {
             g.SetActive(false);
         }
@@ -71,11 +69,11 @@ public class UpgradeProducer : MonoBehaviour
     public void Close()
     {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
         {
             g.SetActive(false);
         }
-        foreach (GameObject g in objectsToHide)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
         {
             g.SetActive(true);
         }

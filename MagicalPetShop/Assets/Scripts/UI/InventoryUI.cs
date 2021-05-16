@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AppearHideComponent))]
 public class InventoryUI : MonoBehaviour {
-
-    [SerializeField]
-    List<GameObject> objectsToHide;
-    [SerializeField]
-    List<GameObject> objectsToAppear;
 
     public RecipeInfo recipeInfo;
 
@@ -30,20 +26,20 @@ public class InventoryUI : MonoBehaviour {
     public void Open() {
         Refresh();
         this.gameObject.SetActive(true);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(true);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(false);
         }
     }
 
     public void Close() {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(false);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(true);
         }
     }
@@ -85,17 +81,5 @@ public class InventoryUI : MonoBehaviour {
         c = artifactsGrid.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(artifactsGrid.transform.GetChild(i).gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AppearHideComponent))]
 public class NewUpgradeDisplay : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI animalName;
     public Image image;
     public TMPro.TextMeshProUGUI text;
-
-    public List<GameObject> objectsToAppear;
-    public List<GameObject> objectsToHide;
 
     public void Open(RecipeProgress rp, RecipeLevel level)
     {
@@ -43,11 +41,11 @@ public class NewUpgradeDisplay : MonoBehaviour
                 text.text = "-" + level.durationDecrease.ToString() + "%";
                 break;
         }
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(true);
         }
         this.gameObject.SetActive(true);
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(false);
         }
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
@@ -56,10 +54,10 @@ public class NewUpgradeDisplay : MonoBehaviour
     public void Close()
     {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(false);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(true);
         }
     }

@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 2930911298371216886}
   - component: {fileID: 2930911298371216887}
   - component: {fileID: 3444700376088503857}
+  - component: {fileID: 3963543130636269780}
   m_Layer: 5
   m_Name: ExpeditionSummary
   m_TagString: Untagged
@@ -488,6 +489,20 @@ MonoBehaviour:
   noCasualtiesText: {fileID: 8556963664734253735}
   casualtySlot: {fileID: 7734048220239045405, guid: d42280949b7ffe045b1e93b6515bdefe, type: 3}
   casualtiesLayout: {fileID: 2930911298753853677}
+--- !u!114 &3963543130636269780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930911298371216885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f024159ba77999a41a2cfe3e59342047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToAppear: []
+  ObjectsToHide: []
 --- !u!1 &2930911298423990502
 GameObject:
   m_ObjectHideFlags: 0

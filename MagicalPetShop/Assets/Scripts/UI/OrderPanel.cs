@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(AppearHideComponent))]
 public class OrderPanel : MonoBehaviour
 {
-    public List<GameObject> objectsToAppear;
-    public List<GameObject> objectsToHide;
     public Button sellButton;
     public TextMeshProUGUI sellButtonText;
     public Image animalImage;
@@ -33,11 +32,11 @@ public class OrderPanel : MonoBehaviour
         }
         this.gameObject.SetActive(true);
         LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
-        foreach (GameObject g in objectsToAppear)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
         {
             g.SetActive(true);
         }
-        foreach (GameObject g in objectsToHide)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
         {
             g.SetActive(false);
         }
@@ -47,11 +46,11 @@ public class OrderPanel : MonoBehaviour
     {
         GameLogic.THIS.inSellingOverlay = false;
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
         {
             g.SetActive(false);
         }
-        foreach (GameObject g in objectsToHide)
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
         {
             g.SetActive(true);
         }

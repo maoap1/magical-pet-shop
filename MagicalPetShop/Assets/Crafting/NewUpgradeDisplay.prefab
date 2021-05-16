@@ -1122,6 +1122,7 @@ GameObject:
   - component: {fileID: 6747263897373266084}
   - component: {fileID: 1628509912620291163}
   - component: {fileID: 7644641156681160451}
+  - component: {fileID: 4599654771068907391}
   m_Layer: 5
   m_Name: NewUpgradeDisplay
   m_TagString: Untagged
@@ -1207,3 +1208,19 @@ MonoBehaviour:
   animalName: {fileID: 4364912506346575289}
   image: {fileID: 1367798357993170638}
   text: {fileID: 2727013175304244234}
+  objectsToAppear: []
+  objectsToHide: []
+--- !u!114 &4599654771068907391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221241551527222708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f024159ba77999a41a2cfe3e59342047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToAppear: []
+  ObjectsToHide: []

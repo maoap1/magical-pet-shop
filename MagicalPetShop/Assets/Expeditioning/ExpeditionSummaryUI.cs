@@ -4,15 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Shows summary of expedition results - number of artifacts, casualties
+[RequireComponent(typeof(AppearHideComponent))]
 public class ExpeditionSummaryUI : MonoBehaviour {
-
-    [SerializeField]
-    List<GameObject> objectsToHide;
     [SerializeField]
     List<GameObject> objectsToHideFromUpper;
-    [SerializeField]
-    List<GameObject> objectsToAppear;
-
     [SerializeField]
     Text resultText;
     [SerializeField]
@@ -33,12 +28,12 @@ public class ExpeditionSummaryUI : MonoBehaviour {
         DisplayData(result);
         this.gameObject.SetActive(true);
         if (!fromUpper) {
-            foreach (GameObject g in objectsToAppear) {
+            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
                 g.SetActive(true);
             }
         }
         if (!fromUpper) {
-            foreach (GameObject g in objectsToHide) {
+            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
                 g.SetActive(false);
             }
         } else {
@@ -51,12 +46,12 @@ public class ExpeditionSummaryUI : MonoBehaviour {
     public void Close() {
         this.gameObject.SetActive(false);
         if (!openedFromUpperPanel) {
-            foreach (GameObject g in objectsToAppear) {
+            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
                 g.SetActive(false);
             }
         }
         if (!openedFromUpperPanel) {
-            foreach (GameObject g in objectsToHide) {
+            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
                 g.SetActive(true);
             }
         } else {
@@ -80,17 +75,5 @@ public class ExpeditionSummaryUI : MonoBehaviour {
             CasualtyIconUI newSlot = Instantiate(this.casualtySlot, this.casualtiesLayout.transform).GetComponent<CasualtyIconUI>();
             newSlot.Initialize(animal);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
