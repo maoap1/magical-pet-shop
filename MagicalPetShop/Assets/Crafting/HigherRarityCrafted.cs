@@ -9,6 +9,10 @@ public class HigherRarityCrafted : MonoBehaviour
     public TMPro.TextMeshProUGUI animalName;
     public TMPro.TextMeshProUGUI description;
     private RecipeProgress rp;
+
+    public List<GameObject> objectsToAppear;
+    public List<GameObject> objectsToHide;
+
     public void Open(RecipeProgress rp, Rarity rarity)
     {
         this.rp = rp;
@@ -17,7 +21,13 @@ public class HigherRarityCrafted : MonoBehaviour
         animalImage.material.SetTexture("_BloomTex", rp.animal.bloomSprite.texture);
         animalName.text = rp.animal.name;
         description.text = rarity.ToString("G") + " animal crafted!";
+        foreach (GameObject g in objectsToAppear) {
+            g.SetActive(true);
+        }
         this.gameObject.SetActive(true);
+        foreach (GameObject g in objectsToHide) {
+            g.SetActive(false);
+        }
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
@@ -25,5 +35,11 @@ public class HigherRarityCrafted : MonoBehaviour
     {
         rp.animalProduced();
         this.gameObject.SetActive(false);
+        foreach (GameObject g in objectsToAppear) {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in objectsToHide) {
+            g.SetActive(true);
+        }
     }
 }

@@ -8,6 +8,10 @@ public class NewUpgradeDisplay : MonoBehaviour
     public TMPro.TextMeshProUGUI animalName;
     public Image image;
     public TMPro.TextMeshProUGUI text;
+
+    public List<GameObject> objectsToAppear;
+    public List<GameObject> objectsToHide;
+
     public void Open(RecipeProgress rp, RecipeLevel level)
     {
         animalName.text = rp.animal.name;
@@ -39,13 +43,24 @@ public class NewUpgradeDisplay : MonoBehaviour
                 text.text = "-" + level.durationDecrease.ToString() + "%";
                 break;
         }
-
+        foreach (GameObject g in objectsToAppear) {
+            g.SetActive(true);
+        }
         this.gameObject.SetActive(true);
+        foreach (GameObject g in objectsToHide) {
+            g.SetActive(false);
+        }
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
     {
         this.gameObject.SetActive(false);
+        foreach (GameObject g in objectsToAppear) {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in objectsToHide) {
+            g.SetActive(true);
+        }
     }
 }
