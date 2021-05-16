@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 2736120745614434692}
   - component: {fileID: 2005084151305067666}
   - component: {fileID: 7989476947125270546}
+  - component: {fileID: 2528822438963930294}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -218,8 +219,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -278,6 +279,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2528822438963930294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714366318008960042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9b8a95e44c7cf499c6c2f67b17b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 11
 --- !u!1 &1732861285015673845
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +378,7 @@ GameObject:
   - component: {fileID: 9144886436734736009}
   - component: {fileID: 7808196359830200200}
   - component: {fileID: 810031104144009679}
+  - component: {fileID: 2784394459057745693}
   m_Layer: 5
   m_Name: Notification
   m_TagString: Untagged
@@ -411,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.84313726, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.09447622, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -428,3 +443,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2784394459057745693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544975198509933201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5c45175d938354896e824f9182faad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 6
