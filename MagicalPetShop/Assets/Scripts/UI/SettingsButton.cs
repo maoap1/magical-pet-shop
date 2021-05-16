@@ -30,7 +30,7 @@ public class SettingsButton : MonoBehaviour
             this.cheats.ToggleVisibility();
             return;
         }
-        List<CheatsUI> cheatsTmp = FindObjects.FindObject<CheatsUI>();
+        List<CheatsUI> cheatsTmp = Utils.FindObject<CheatsUI>();
         if (cheatsTmp.Count > 0) {
             this.cheats = cheatsTmp[0];
             this.cheats.ToggleVisibility();
