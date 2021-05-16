@@ -5,12 +5,8 @@ using UnityEngine.UI;
 
 
 // Shows list of animals with a specific trait (to assign animals to a pack)
+[RequireComponent(typeof(AppearHideComponent))]
 public class AnimalsUI : MonoBehaviour {
-
-    [SerializeField]
-    List<GameObject> objectsToHide;
-    [SerializeField]
-    List<GameObject> objectsToAppear;
     [SerializeField]
     PackOverviewUI packOverview;
 
@@ -29,20 +25,20 @@ public class AnimalsUI : MonoBehaviour {
         this.expeditionLevel = expeditionLevel;
         Refresh();
         this.gameObject.SetActive(true);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(true);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(false);
         }
     }
 
     public void Close() {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(false);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(true);
         }
     }
@@ -97,17 +93,5 @@ public class AnimalsUI : MonoBehaviour {
         int c = animalsGrid.transform.childCount;
         for (int i = c - 1; i >= 0; i--)
             GameObject.Destroy(animalsGrid.transform.GetChild(i).gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -11,8 +11,6 @@ public class PackOverviewUI : MonoBehaviour {
     [SerializeField]
     List<GameObject> objectsToHideFromLeaders;
     [SerializeField]
-    List<GameObject> objectsToAppear;
-    [SerializeField]
     AnimalsUI animalsUI;
 
     [SerializeField]
@@ -47,9 +45,11 @@ public class PackOverviewUI : MonoBehaviour {
         this.pack = pack;
         Refresh();
         this.gameObject.SetActive(true);
+        /*
         foreach (GameObject g in objectsToAppear) {
             g.SetActive(true);
         }
+        */
         if (this.openedFromExpedition) {
             foreach (GameObject g in objectsToHideFromExpedition) {
                 g.SetActive(false);
@@ -67,9 +67,11 @@ public class PackOverviewUI : MonoBehaviour {
 
     public void Close() {
         this.gameObject.SetActive(false);
+        /*
         foreach (GameObject g in objectsToAppear) {
             g.SetActive(false);
         }
+        */
         if (this.openedFromExpedition) {
             foreach (GameObject g in objectsToHideFromExpedition) {
                 g.SetActive(true);
@@ -105,15 +107,4 @@ public class PackOverviewUI : MonoBehaviour {
             GameObject.Destroy(slotsGrid.transform.GetChild(i).gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

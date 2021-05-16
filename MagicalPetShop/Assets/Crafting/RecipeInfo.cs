@@ -18,8 +18,6 @@ public class RecipeInfo : MonoBehaviour
     public TextMeshProUGUI level;
     public ResourceCost moneyValue;
     public ResourceCost craftTime;
-    public List<GameObject> objectsToAppear;
-    public List<GameObject> objectsToHide;
     [HideInInspector]
     public List<GameObject> tmpHidden;
 
@@ -30,14 +28,6 @@ public class RecipeInfo : MonoBehaviour
         recipe = rp;
         this.gameObject.SetActive(true);
         secondaryCategoryImage.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear)
-        {
-            g.SetActive(true);
-        }
-        foreach (GameObject g in objectsToHide)
-        {
-            g.SetActive(false);
-        }
         foreach (GameObject g in tmpHidden)
         {
             g.SetActive(false);
@@ -91,14 +81,6 @@ public class RecipeInfo : MonoBehaviour
     public void Close()
     {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear)
-        {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in objectsToHide)
-        {
-            g.SetActive(true);
-        }
         foreach (GameObject g in tmpHidden)
         {
             g.SetActive(true);

@@ -4,13 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Shows information of one expedition type, allows to select difficulty, pack and to begin the expedition
+[RequireComponent(typeof(AppearHideComponent))]
 public class SingleExpeditionUI : MonoBehaviour {
-
-    [SerializeField]
-    List<GameObject> objectsToHide;
-    [SerializeField]
-    List<GameObject> objectsToAppear;
-
     [SerializeField]
     PackOverviewUI packOverview;
 
@@ -40,10 +35,10 @@ public class SingleExpeditionUI : MonoBehaviour {
         Refresh();
         this.goButton.interactable = false;
         this.gameObject.SetActive(true);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(true);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(false);
         }
     }
@@ -51,10 +46,10 @@ public class SingleExpeditionUI : MonoBehaviour {
     public void Close() {
         PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex] = this.currentDifficulty;
         this.gameObject.SetActive(false);
-        foreach (GameObject g in objectsToAppear) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
             g.SetActive(false);
         }
-        foreach (GameObject g in objectsToHide) {
+        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
             g.SetActive(true);
         }
     }
@@ -118,15 +113,4 @@ public class SingleExpeditionUI : MonoBehaviour {
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
