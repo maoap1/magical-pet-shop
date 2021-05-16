@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 public class Tweenable : MonoBehaviour
 {
-    public UnityEvent OnDisableTween = null;
     public UnityEvent OnEnableTween = null;
+    public UnityEvent OnDisableTween = null;
 
     private bool IsNull(UnityEvent unityEvent)
     {
