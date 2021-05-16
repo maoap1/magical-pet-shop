@@ -52,4 +52,17 @@ public static class Utils
         }
     }
 
+    public static void TweenAwareDisable(this GameObject go)
+    {
+        Tweenable tweenable = go.GetComponent<Tweenable>();
+        if (tweenable) tweenable.Disable();
+        else go.SetActive(false);
+    }
+
+    public static void TweenAwareEnable(this GameObject go)
+    {
+        Tweenable tweenable = go.GetComponent<Tweenable>();
+        if (tweenable) tweenable.Enable();
+        else go.SetActive(true);
+    }
 }

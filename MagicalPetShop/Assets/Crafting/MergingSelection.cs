@@ -14,41 +14,20 @@ public class MergingSelection : MonoBehaviour
     public void Open()
     {
         this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(true);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
         defaultMergingCategory.Display();
     }
 
     public void Close()
     {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
 
     public void ShutDown()
     {
         this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
         recipes.Close();
     }
 }

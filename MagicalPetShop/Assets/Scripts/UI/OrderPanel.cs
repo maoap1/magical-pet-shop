@@ -32,28 +32,14 @@ public class OrderPanel : MonoBehaviour
         }
         this.gameObject.SetActive(true);
         LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(true);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close()
     {
         GameLogic.THIS.inSellingOverlay = false;
         this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
 
     public void Refuse()

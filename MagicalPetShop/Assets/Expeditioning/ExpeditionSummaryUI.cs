@@ -27,36 +27,30 @@ public class ExpeditionSummaryUI : MonoBehaviour {
         this.openedFromUpperPanel = fromUpper;
         DisplayData(result);
         this.gameObject.SetActive(true);
-        if (!fromUpper) {
-            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-                g.SetActive(true);
-            }
+        if (!fromUpper)
+        {
+            GetComponent<AppearHideComponent>().Do();
         }
-        if (!fromUpper) {
-            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-                g.SetActive(false);
-            }
-        } else {
-            foreach (GameObject g in objectsToHideFromUpper) {
-                g.SetActive(false);
+        else 
+        {
+            foreach (GameObject g in objectsToHideFromUpper) 
+            {
+                g.TweenAwareDisable();
             }
         }
     }
 
     public void Close() {
         this.gameObject.SetActive(false);
-        if (!openedFromUpperPanel) {
-            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-                g.SetActive(false);
-            }
-        }
-        if (!openedFromUpperPanel) {
-            foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-                g.SetActive(true);
-            }
-        } else {
-            foreach (GameObject g in objectsToHideFromUpper) {
-                g.SetActive(true);
+        if (!openedFromUpperPanel) 
+        {
+            GetComponent<AppearHideComponent>().Revert();
+        } 
+        else 
+        {
+            foreach (GameObject g in objectsToHideFromUpper) 
+            {
+                g.TweenAwareEnable();
             }
         }
     }

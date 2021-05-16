@@ -41,24 +41,14 @@ public class NewUpgradeDisplay : MonoBehaviour
                 text.text = "-" + level.durationDecrease.ToString() + "%";
                 break;
         }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Do();
         this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(false);
-        }
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(true);
-        }
+        this.gameObject.SetActive(false); 
+        GetComponent<AppearHideComponent>().Revert();
     }
 }

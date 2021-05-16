@@ -35,23 +35,13 @@ public class SingleExpeditionUI : MonoBehaviour {
         Refresh();
         this.goButton.interactable = false;
         this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(true);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
         PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex] = this.currentDifficulty;
         this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
     public void OnEnable() {
         if (this.expedition != null) Refresh();
