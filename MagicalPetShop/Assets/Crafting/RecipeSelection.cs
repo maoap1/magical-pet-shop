@@ -16,14 +16,12 @@ public class RecipeSelection : MonoBehaviour
 
     public void Open()
     {
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
         defaultRecipeCategory.Display();
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 }

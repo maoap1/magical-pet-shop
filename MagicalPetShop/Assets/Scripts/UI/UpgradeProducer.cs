@@ -36,7 +36,6 @@ public class UpgradeProducer : MonoBehaviour
     public void Open(Essence e)
     {
         producer = PlayerState.THIS.producers.Find(x => x.essenceAmount.essence.essenceName == e.essenceName);
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
         UpdateInfo();
     }
@@ -61,7 +60,6 @@ public class UpgradeProducer : MonoBehaviour
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 

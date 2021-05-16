@@ -34,13 +34,11 @@ public class SingleExpeditionUI : MonoBehaviour {
         this.activePack = null;
         Refresh();
         this.goButton.interactable = false;
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
         PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex] = this.currentDifficulty;
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
     public void OnEnable() {

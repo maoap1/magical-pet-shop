@@ -26,13 +26,13 @@ public class ExpeditionSummaryUI : MonoBehaviour {
     public void Open(ExpeditionResult result, bool fromUpper = false) {
         this.openedFromUpperPanel = fromUpper;
         DisplayData(result);
-        this.gameObject.SetActive(true);
         if (!fromUpper)
         {
             GetComponent<AppearHideComponent>().Do();
         }
         else 
         {
+            gameObject.TweenAwareEnable();
             foreach (GameObject g in objectsToHideFromUpper) 
             {
                 g.TweenAwareDisable();
@@ -41,13 +41,13 @@ public class ExpeditionSummaryUI : MonoBehaviour {
     }
 
     public void Close() {
-        this.gameObject.SetActive(false);
         if (!openedFromUpperPanel) 
         {
             GetComponent<AppearHideComponent>().Revert();
         } 
         else 
         {
+            gameObject.TweenAwareDisable();
             foreach (GameObject g in objectsToHideFromUpper) 
             {
                 g.TweenAwareEnable();

@@ -30,15 +30,13 @@ public class OrderPanel : MonoBehaviour
             sellButton.interactable = true;
             sellButtonText.color = Color.black;
         }
-        this.gameObject.SetActive(true);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
         GetComponent<AppearHideComponent>().Do();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
     }
 
     public void Close()
     {
         GameLogic.THIS.inSellingOverlay = false;
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 

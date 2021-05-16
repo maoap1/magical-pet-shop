@@ -20,14 +20,12 @@ public class HigherRarityCrafted : MonoBehaviour
         animalName.text = rp.animal.name;
         description.text = rarity.ToString("G") + " animal crafted!";
         GetComponent<AppearHideComponent>().Do();
-        this.gameObject.SetActive(true);
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
     {
         rp.animalProduced();
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 }

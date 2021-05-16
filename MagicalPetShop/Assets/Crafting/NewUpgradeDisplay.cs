@@ -42,13 +42,11 @@ public class NewUpgradeDisplay : MonoBehaviour
                 break;
         }
         GetComponent<AppearHideComponent>().Do();
-        this.gameObject.SetActive(true);
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false); 
         GetComponent<AppearHideComponent>().Revert();
     }
 }

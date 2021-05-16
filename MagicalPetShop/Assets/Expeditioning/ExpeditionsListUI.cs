@@ -16,12 +16,10 @@ public class ExpeditionsListUI : MonoBehaviour {
 
     public void Open(int level) {
         DisplayItems(level);
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 

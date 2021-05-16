@@ -7,13 +7,11 @@ public class UIPanel : MonoBehaviour
 {
     public void Open()
     {
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 }

@@ -9,6 +9,7 @@ public class AppearHideComponent : MonoBehaviour
 
     public void Do()
     {
+        gameObject.TweenAwareEnable();
         foreach (GameObject go in ObjectsToAppear)
         {
             go.TweenAwareEnable();
@@ -21,6 +22,7 @@ public class AppearHideComponent : MonoBehaviour
 
     public void Revert()
     {
+        gameObject.TweenAwareDisable();
         foreach (GameObject go in ObjectsToAppear)
         {
             go.TweenAwareDisable();

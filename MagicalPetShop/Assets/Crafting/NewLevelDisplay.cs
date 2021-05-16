@@ -7,7 +7,6 @@ public class NewLevelDisplay : MonoBehaviour {
     public void Open()
     {
         GetComponent<AppearHideComponent>().Do();
-        this.gameObject.SetActive(true);
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
@@ -15,7 +14,6 @@ public class NewLevelDisplay : MonoBehaviour {
     {
         int money = GameLogic.THIS.moneyForLevels[PlayerState.THIS.level - 2];
         Inventory.AddToInventory(money);
-        this.gameObject.SetActive(false); 
         GetComponent<AppearHideComponent>().Revert();
     }
 }

@@ -25,12 +25,10 @@ public class InventoryUI : MonoBehaviour {
 
     public void Open() {
         Refresh();
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 

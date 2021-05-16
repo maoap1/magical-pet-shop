@@ -13,20 +13,17 @@ public class MergingSelection : MonoBehaviour
 
     public void Open()
     {
-        this.gameObject.SetActive(true);
         GetComponent<AppearHideComponent>().Do();
         defaultMergingCategory.Display();
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
     }
 
     public void ShutDown()
     {
-        this.gameObject.SetActive(false);
         GetComponent<AppearHideComponent>().Revert();
         recipes.Close();
     }
