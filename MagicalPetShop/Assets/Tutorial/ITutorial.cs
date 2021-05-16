@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITutorial
+public abstract class Tutorial : ScriptableObject
 {
-    bool tryStart();
-    void update();
-    bool finished();
+    public abstract bool tryStart();
+    public abstract void update();
+    public abstract bool finished();
 }

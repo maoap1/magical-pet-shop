@@ -15,6 +15,7 @@ public class OrderPanel : MonoBehaviour
     private Customer customer;
     public void Open(Customer customer)
     {
+        GameLogic.THIS.inSellingOverlay = true;
         this.customer = customer;
         animalImage.sprite = customer.desiredAnimal.animal.artwork;
         animalImage.material = new Material(animalImage.material);
@@ -44,6 +45,7 @@ public class OrderPanel : MonoBehaviour
 
     public void Close()
     {
+        GameLogic.THIS.inSellingOverlay = false;
         this.gameObject.SetActive(false);
         foreach (GameObject g in objectsToAppear)
         {

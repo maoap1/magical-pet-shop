@@ -49,6 +49,7 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
+    private bool tutorial = false;
 
     private static PlayerState _THIS;
     public static PlayerState THIS
@@ -128,6 +129,10 @@ public class PlayerState : MonoBehaviour
 
     public void LoadFromGameLogic()
     {
+        if (tutorial)
+        {
+            Tutorials.THIS.init();
+        }
         this.money = GameLogic.THIS.startingMoney;
         this.diamonds = GameLogic.THIS.startingDiamonds;
         this.level = 1;
@@ -214,6 +219,10 @@ public class PlayerState : MonoBehaviour
     public void Update()
     {
         GameLogic.THIS.Update();
+        if (tutorial)
+        {
+            Tutorials.THIS.Update();
+        }
     }
 
 }

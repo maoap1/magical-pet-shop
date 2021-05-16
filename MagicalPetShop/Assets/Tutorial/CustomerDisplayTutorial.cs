@@ -20,7 +20,6 @@ public class CustomerDisplayTutorial : MonoBehaviour
     {
         if (customer.hasValue)
         {
-            this.gameObject.SetActive(false);
             orderPanel.Open(customer);
         }
     }

@@ -58,6 +58,13 @@ public class GameLogic : ScriptableObject
     [Header("Money for levels")]
     public int[] moneyForLevels = new int[5];
 
+
+    [Header("Helper variables for tutorial")]
+    public bool inSellingOverlay = false;
+    public bool inInventory = false;
+    public bool inCrafting = false;
+    public EssenceProducer essenceProducerOpened = null;
+
     void OnValidate()
     {
         if (rarityMultipliers.Length != 5)
