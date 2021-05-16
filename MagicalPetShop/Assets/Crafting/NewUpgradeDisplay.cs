@@ -12,6 +12,10 @@ public class NewUpgradeDisplay : MonoBehaviour
 
     public void Open(RecipeProgress rp, RecipeLevel level)
     {
+        Color defaultColor = UIPalette.THIS.GetColor(text.gameObject.GetComponent<TMPColor>().color);
+        text.color = defaultColor;
+        text.outlineColor = Color.black;
+
         animalName.text = rp.animal.name;
 
         switch (level.upgradeType)
@@ -19,6 +23,7 @@ public class NewUpgradeDisplay : MonoBehaviour
             case RecipeUpgradeType.changeRarity:
                 image.sprite = GameGraphics.THIS.changeRarity;
                 text.text = level.newRarity.ToString("G");
+                text.color = GameGraphics.THIS.getRarityColor(level.newRarity);
                 break;
             case RecipeUpgradeType.increaseValue:
                 image.sprite = GameGraphics.THIS.money;
