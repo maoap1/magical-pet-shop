@@ -19,7 +19,7 @@ MonoBehaviour:
   SelectedTabColor: {r: 0.6901961, g: 0.06666667, b: 0.8117647, a: 1}
   GridItemColor: {r: 1, g: 0.9924823, b: 0.759434, a: 1}
   NotificationColor: {r: 1, g: 0.84313726, b: 0, a: 1}
-  InactiveColor: {r: 0.92941177, g: 0.7529412, b: 1, a: 1}
+  InactiveColor: {r: 0.7921604, g: 0.76784444, b: 0.8018868, a: 1}
   HighlightDarkColor: {r: 0.71099997, g: 0.53001815, b: 0, a: 1}
   HighlightLightColor: {r: 1, g: 0.84313726, b: 0, a: 1}
   TextDarkColor: {r: 0, g: 0, b: 0, a: 1}

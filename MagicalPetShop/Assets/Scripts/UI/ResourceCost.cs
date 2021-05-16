@@ -16,6 +16,9 @@ public class ResourceCost : MonoBehaviour
     private ResourceType resourceType = ResourceType.Money;
     private float updateTime = 0;
     private bool red = true;
+
+    private Color defaultTextColor;
+
     public void SetCost(Sprite icon, int cost)
     {
         this.icon.sprite = icon;
@@ -94,7 +97,7 @@ public class ResourceCost : MonoBehaviour
                 case ResourceType.Animal:
                     if (Inventory.HasInInventory(animalCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
@@ -104,7 +107,7 @@ public class ResourceCost : MonoBehaviour
                 case ResourceType.Artifact:
                     if (Inventory.HasInInventory(artifactCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
@@ -122,7 +125,7 @@ public class ResourceCost : MonoBehaviour
                     }
                     if (Inventory.HasInInventory(essenceCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
@@ -132,13 +135,27 @@ public class ResourceCost : MonoBehaviour
                 case ResourceType.Money:
                     if (Inventory.HasInInventory(moneyCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
                         costText.color = Color.red;
                     }
                     break;
+            }
+        }
+    }
+
+    private void Start() {
+        TMPColor colorComponent = costText.gameObject.GetComponent<TMPColor>();
+        if (colorComponent != null)
+            this.defaultTextColor = UIPalette.THIS.GetColor(colorComponent.color);
+        else { 
+            TextColor colorComponent2 = costText.gameObject.GetComponent<TextColor>();
+            if (colorComponent2 != null) {
+                this.defaultTextColor = UIPalette.THIS.GetColor(colorComponent2.color);
+            } else {
+                this.defaultTextColor = Color.black;
             }
         }
     }

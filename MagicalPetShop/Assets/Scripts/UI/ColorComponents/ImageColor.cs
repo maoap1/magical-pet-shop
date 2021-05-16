@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class ImageColor : MonoBehaviour {
     public PaletteColor color;
+    public bool initializeOnStart = true;
 
     // Start is called before the first frame update
     void Start() {
-        gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(this.color);
+        if (this.initializeOnStart)
+            gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(this.color);
     }
 }
