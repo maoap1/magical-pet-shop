@@ -17,7 +17,7 @@ public class ResourceCost : MonoBehaviour
     private float updateTime = 0;
     private bool red = true;
 
-    private Color defaultTextColor;
+    private Color defaultTextColor = Color.clear;
 
     public void SetCost(Sprite icon, int cost)
     {
@@ -95,6 +95,7 @@ public class ResourceCost : MonoBehaviour
 
     public void Update()
     {
+        if (defaultTextColor == Color.clear) InitializeColor();
         if (Time.time - updateTime > 1)
         {
             updateTime = Time.time;

@@ -25,8 +25,8 @@ public class UIPalette : ScriptableObject {
     public Color GridItemColor;
     public Color NotificationColor;
     public Color InactiveColor;
+    public Color HighlightColor;
     public Color HighlightDarkColor;
-    public Color HighlightLightColor;
     public Color TextDarkColor;
     public Color TextLightColor;
 
@@ -50,8 +50,8 @@ public class UIPalette : ScriptableObject {
                 return InactiveColor;
             case PaletteColor.HighlightDark:
                 return HighlightDarkColor;
-            case PaletteColor.HighlightLight:
-                return HighlightLightColor;
+            case PaletteColor.Highlight:
+                return HighlightColor;
             case PaletteColor.TextDark:
                 return TextDarkColor;
             case PaletteColor.TextLight:
@@ -72,7 +72,7 @@ public enum PaletteColor {
     Notification,
     Inactive,
     HighlightDark,
-    HighlightLight,
+    Highlight,
     TextDark,
     TextLight
 }
