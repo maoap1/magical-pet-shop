@@ -12,7 +12,7 @@ public class LocationSlotUI : MonoBehaviour
     [SerializeField]
     Image locationIcon;
     [SerializeField]
-    Sprite emptySlot;
+    GameObject plusSign;
     [SerializeField]
     Material normalMaterial;
     [SerializeField]
@@ -29,6 +29,8 @@ public class LocationSlotUI : MonoBehaviour
         this.normalMaterial = new Material(this.normalMaterial);
         this.graygcaleMaterial = new Material(this.graygcaleMaterial);
         if (slot.animal != null) {
+            this.animalIcon.gameObject.SetActive(true);
+            this.plusSign.SetActive(false);
             this.animalIcon.sprite = slot.animal.animal.artwork;
             if (pack.busy) {
                 this.animalIcon.material = this.graygcaleMaterial;
@@ -38,7 +40,10 @@ public class LocationSlotUI : MonoBehaviour
                 this.animalIcon.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(slot.animal.rarity));
                 this.animalIcon.material.SetTexture("_BloomTex", slot.animal.animal.bloomSprite.texture);
             }
-        } else this.animalIcon.sprite = this.emptySlot;
+        } else {
+            this.animalIcon.gameObject.SetActive(false);
+            this.plusSign.SetActive(true);
+        }
         
         this.locationIcon.sprite = slot.location.artwork;
         this.gameObject.GetComponent<Button>().interactable = !pack.busy; // if the pack is exploring, it cannot be changed

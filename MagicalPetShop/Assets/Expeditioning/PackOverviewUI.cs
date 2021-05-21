@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 // Shows information of a specific pack - slots with traits and assigned animals, total power, ...
 public class PackOverviewUI : MonoBehaviour {
@@ -14,13 +15,13 @@ public class PackOverviewUI : MonoBehaviour {
     AnimalsUI animalsUI;
 
     [SerializeField]
-    Text nameText;
+    TextMeshProUGUI nameText;
     [SerializeField]
     Image iconImage;
     [SerializeField]
-    Text powerText;
+    TextMeshProUGUI powerText;
     [SerializeField]
-    Text statusText;
+    TextMeshProUGUI statusText;
     [SerializeField]
     GridLayoutGroup slotsGrid;
     [SerializeField]
