@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5c45175d938354896e824f9182faad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 5
+  color: 7
   initializeOnStart: 1
 --- !u!1 &9193962152961826920
 GameObject:
