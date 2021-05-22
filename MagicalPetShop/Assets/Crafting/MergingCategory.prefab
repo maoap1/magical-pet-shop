@@ -56,7 +56,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240774401551210803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -150,6 +150,8 @@ MonoBehaviour:
   mergingPanel: {fileID: 0}
   locationType: {fileID: 11400000, guid: da54410f3dfcd8346aabdfa053d9e6ab, type: 2}
   artwork: {fileID: 3305733164574180561}
+  activeSprite: {fileID: 21300000, guid: e51881a0d7c929c40834b49520b276c6, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: 5471d46f767fdfa42a170cf1b36716ba, type: 3}
   mergingDisplayPanel: {fileID: 0}
   locationFilterPanel: {fileID: 0}
   selected: 0

@@ -8,6 +8,8 @@ public class RecipeLocationFilter : MonoBehaviour
     public RecipeSelection recipesPanel;
     public LocationType locationType;
     public Image artwork;
+    public Sprite activeSprite;
+    public Sprite inactiveSprite;
     public RecipeDisplayPanel recipesDisplayPanel;
     public GameObject locationFilterPanel;
     public GameObject newRecipe;
@@ -16,18 +18,18 @@ public class RecipeLocationFilter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        artwork.sprite = locationType.artwork;
+        artwork.sprite = inactiveSprite;
     }
 
     public void Update()
     {
         if (selected)
         {
-            gameObject.GetComponent<Image>().color = Color.white;
+            artwork.sprite = activeSprite;
         }
         else
         {
-            gameObject.GetComponent<Image>().color = Color.gray;
+            artwork.sprite = inactiveSprite;
         }
     }
 

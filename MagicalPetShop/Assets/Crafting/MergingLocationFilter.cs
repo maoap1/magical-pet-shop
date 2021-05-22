@@ -9,6 +9,8 @@ public class MergingLocationFilter : MonoBehaviour
     public MergingSelection mergingPanel;
     public LocationType locationType;
     public Image artwork;
+    public Sprite activeSprite;
+    public Sprite inactiveSprite;
     public MergingDisplayPanel mergingDisplayPanel;
     public GameObject locationFilterPanel;
     [HideInInspector]
@@ -16,18 +18,18 @@ public class MergingLocationFilter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        artwork.sprite = locationType.artwork;
+        artwork.sprite = activeSprite;//locationType.artwork;
     }
 
     public void Update()
     {
         if (selected)
         {
-            gameObject.GetComponent<Image>().color = Color.white;
+            artwork.sprite = activeSprite;
         }
         else
         {
-            gameObject.GetComponent<Image>().color = Color.gray;
+            artwork.sprite = inactiveSprite;
         }
     }
 

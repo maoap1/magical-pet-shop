@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 11
-  initializeOnStart: 1
+  initializeOnStart: 0
 --- !u!1 &3680383280668969924
 GameObject:
   m_ObjectHideFlags: 0

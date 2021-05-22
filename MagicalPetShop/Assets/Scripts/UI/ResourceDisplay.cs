@@ -13,6 +13,8 @@ public class ResourceDisplay : MonoBehaviour
     private bool unlockedImage = false;
     private Button button;
 
+    private Color defaultTextColor = Color.clear;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class ResourceDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (defaultTextColor == Color.clear) InitializeColor();
         if (essenceAmount == null && PlayerState.THIS.resources != null && PlayerState.THIS.resources.Count > 0)
         {
             foreach (EssenceAmount r in PlayerState.THIS.resources)
@@ -51,14 +54,23 @@ public class ResourceDisplay : MonoBehaviour
                 }
                 else
                 {
-                    text.color = Color.white;
+                    text.color = this.defaultTextColor;
                 }
             }
             else
             {
                 text.text = "0";
-                text.color = Color.white;
+                text.color = this.defaultTextColor;
             }
+        }
+    }
+
+    private void InitializeColor() {
+        TMPColor colorComponent = text.gameObject.GetComponent<TMPColor>();
+        if (colorComponent != null)
+            this.defaultTextColor = UIPalette.THIS.GetColor(colorComponent.color);
+        else {
+            this.defaultTextColor = Color.white;
         }
     }
 }
