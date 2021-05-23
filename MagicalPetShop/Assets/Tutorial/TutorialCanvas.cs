@@ -26,7 +26,17 @@ public class TutorialCanvas : MonoBehaviour
         imageDarkening.DOColor(new Color(0, 0, 0, 0.6f), 0.5f).SetEase(Ease.OutCubic);
     }
 
-    public void DisableAllExcept(TutorialPanel highlight, bool debug=false)
+    public void EnableMask()
+    {
+        mask.GetComponent<Mask>().enabled = true;
+    }
+
+    public void DisableMask()
+    {
+        mask.GetComponent<Mask>().enabled = false;
+    }
+
+    public void DisableAllExcept(TutorialPanel highlight, bool firstTime = false, bool debug=false)
     {
         if (debug)
         {
@@ -41,9 +51,14 @@ public class TutorialCanvas : MonoBehaviour
         bottom.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.width, 1920 - highlight.top - highlight.height);
         top.GetComponent<RectTransform>().anchoredPosition = new Vector3(highlight.left, 0, 0);
         bottom.GetComponent<RectTransform>().anchoredPosition = new Vector3(highlight.left, 0, 0);
-
         mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(highlight.width, highlight.height), 0.5f).SetEase(Ease.OutCubic);
         mask.GetComponent<RectTransform>().DOAnchorPos(new Vector3(highlight.left, -highlight.top, 0), 0.5f).SetEase(Ease.OutCubic);
+        mask.GetComponent<Mask>().enabled = true;
+        if (firstTime)
+        {
+            Invoke(nameof(DisableMask), 0.01f);
+            Invoke(nameof(EnableMask), 0.5f);
+        }
         imageDarkening.DOColor(new Color(0, 0, 0, 0.6f), 0.5f).SetEase(Ease.OutCubic);
         //backgroundBlur.SetActive(true);
     }
