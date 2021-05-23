@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class ExpeditionModeDetailsUI : MonoBehaviour
 {
     [SerializeField]
-    Text difficultyText;
+    TMPro.TextMeshProUGUI difficultyText;
     [SerializeField]
     Image rewardImage;
     [SerializeField]
-    Text rewardCountText;
+    TMPro.TextMeshProUGUI rewardCountText;
     [SerializeField]
-    Text durationText;
+    TMPro.TextMeshProUGUI durationText;
 
     public void DisplayData(ExpeditionType expeditionType, ExpeditionMode mode) {
         this.difficultyText.text = mode.difficulty.ToString();

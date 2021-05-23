@@ -10,9 +10,7 @@ public class SingleExpeditionUI : MonoBehaviour {
     PackOverviewUI packOverview;
 
     [SerializeField]
-    Image iconImage;
-    [SerializeField]
-    Text nameText;
+    TMPro.TextMeshProUGUI nameText;
     [SerializeField]
     Button goButton;
     [SerializeField]
@@ -79,8 +77,7 @@ public class SingleExpeditionUI : MonoBehaviour {
 
     private void Refresh() {
         // display correct data
-        this.iconImage.sprite = this.expedition.artwork;
-        this.nameText.text = this.expedition.name;
+        this.nameText.text = this.expedition.reward.name;
         // refresh difficulty details
         ExpeditionMode mode = this.expedition.difficultyModes[(int)this.currentDifficulty];
         this.expeditionModeUI.DisplayData(this.expedition, mode);

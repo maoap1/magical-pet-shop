@@ -20,7 +20,7 @@ public class OngoingExpeditionUI : MonoBehaviour {
         this.expedition = expedition;
         this.isUpperPanel = isUpperPanel;
         this.expeditionSummary = expeditionSummary;
-        this.expeditionImage.sprite = expedition.expeditionType.artwork;
+        this.expeditionImage.sprite = expedition.expeditionType.reward.artwork;
         if (!PlayerState.THIS.expeditions.Contains(expedition)) {
             PlayerState.THIS.expeditions.Add(expedition);
         }

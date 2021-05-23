@@ -9,13 +9,15 @@ public class ExpeditionSummaryUI : MonoBehaviour {
     [SerializeField]
     List<GameObject> objectsToHideFromUpper;
     [SerializeField]
-    Text resultText;
+    TMPro.TextMeshProUGUI resultText;
+    [SerializeField]
+    Image leaderImage;
     [SerializeField]
     Image rewardImage;
     [SerializeField]
-    Text rewardCountText;
+    TMPro.TextMeshProUGUI rewardCountText;
     [SerializeField]
-    Text noCasualtiesText;
+    TMPro.TextMeshProUGUI noCasualtiesText;
     [SerializeField]
     GameObject casualtySlot;
     [SerializeField]
@@ -57,6 +59,7 @@ public class ExpeditionSummaryUI : MonoBehaviour {
 
     private void DisplayData(ExpeditionResult result) {
         this.resultText.text = result.isSuccessful ? "SUCCESS" : "FAIL";
+        this.leaderImage.sprite = result.pack.artwork;
         this.rewardImage.sprite = result.reward.artifact.artwork;
         this.rewardCountText.text = "+" + result.reward.count.ToString();
         this.noCasualtiesText.gameObject.SetActive(result.casualties.Count == 0);

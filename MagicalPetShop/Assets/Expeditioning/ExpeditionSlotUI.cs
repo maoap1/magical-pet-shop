@@ -9,11 +9,9 @@ public class ExpeditionSlotUI : MonoBehaviour {
     [SerializeField]
     Image iconImage;
     [SerializeField]
-    Text nameText;
+    TMPro.TextMeshProUGUI nameText;
     [SerializeField]
-    Image rewardImage;
-    [SerializeField]
-    Text durationText;
+    TMPro.TextMeshProUGUI durationText;
 
     private ExpeditionType expedition;
     private SingleExpeditionUI expeditionUI;
@@ -22,9 +20,8 @@ public class ExpeditionSlotUI : MonoBehaviour {
         this.expedition = expedition;
         this.expeditionUI = expeditionUI;
 
-        this.iconImage.sprite = expedition.artwork;
-        this.nameText.text = expedition.name;
-        this.rewardImage.sprite = expedition.reward.artwork;
+        this.iconImage.sprite = expedition.reward.artwork;
+        this.nameText.text = expedition.reward.name;
         this.durationText.text = expedition.GetFormattedDuration();
     }
 
