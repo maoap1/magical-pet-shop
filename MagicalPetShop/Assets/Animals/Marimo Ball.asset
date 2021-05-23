@@ -21,4 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e0efb332859a4141b5c9fa0b224f34d, type: 2}
   artwork: {fileID: 21300000, guid: b81d785c7fff69c47b61e21d1e820d4a, type: 3}
   bloomSprite: {fileID: 21300000, guid: c1875e5ef346c2745a8978d99625bcaa, type: 3}
-  associatedArtifact: {fileID: 11400000, guid: d84a6b6d01600234a938fc81087dd1e2, type: 2}
+  associatedArtifact: {fileID: 11400000, guid: d8cf3fd955b78d04b90b3bfd12061461, type: 2}

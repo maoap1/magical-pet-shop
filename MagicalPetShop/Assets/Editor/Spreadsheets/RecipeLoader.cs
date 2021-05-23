@@ -116,7 +116,7 @@ public class RecipeLoader : MonoBehaviour
                 animal.value = int.Parse(sheet[name, "Value"].value.Replace(",", ""));
                 animal.animalEssence = existingEssences.Find(e => e.name == sheet[name, "Category"].value);
                 animal.basePower = int.Parse(sheet[name, "Power"].value.Replace(",", ""));
-                animal.associatedArtifact = existingArtifacts.Find(a => a.name != sheet[name, "Merging artifact"].value);
+                animal.associatedArtifact = existingArtifacts.Find(a => a.name == sheet[name, "Merging artifact"].value);
                 EditorUtility.SetDirty(animal);
             }
         }
