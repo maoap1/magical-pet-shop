@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorials:
   - {fileID: 11400000, guid: 3be9dd4e24ec9ea4fa5eddd86646a6f0, type: 2}
-  currentIndex: -1
+  - {fileID: 11400000, guid: 7485b36538643c04eb9e9c8439aebd89, type: 2}
+  - {fileID: 11400000, guid: 64eb5e6769e984049b6baf46e5bce380, type: 2}
+  currentIndex: 2

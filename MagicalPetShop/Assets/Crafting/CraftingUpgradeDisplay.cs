@@ -11,6 +11,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
     private CraftingInfo craftingInfo;
     public void Open(CraftingInfo ci)
     {
+        GameLogic.THIS.buyingCraftingSlot = true;
         craftingInfo = ci;
         cost = GameLogic.THIS.craftingSlotUpgrades[PlayerState.THIS.craftingSlots - 1].cost;
         costDisplay.SetCost(cost);
@@ -20,6 +21,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
 
     public void Reject()
     {
+        GameLogic.THIS.buyingCraftingSlot = false;
         this.gameObject.SetActive(false);
     }
 
@@ -29,6 +31,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
             Inventory.TakeFromInventory(cost);
             PlayerState.THIS.craftingSlots++;
             PlayerState.THIS.Save();
+            GameLogic.THIS.buyingCraftingSlot = false;
             this.gameObject.SetActive(false);
         }
     }

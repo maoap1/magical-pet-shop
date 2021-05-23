@@ -63,6 +63,7 @@ public class GameLogic : ScriptableObject
     public bool inSellingOverlay = false;
     public bool inInventory = false;
     public bool inCrafting = false;
+    public bool buyingCraftingSlot = false;
     public EssenceProducer essenceProducerOpened = null;
 
     void OnValidate()
@@ -182,6 +183,15 @@ public class GameLogic : ScriptableObject
             expedition.fillRate += (deltaTime / 1000) / expedition.expeditionType.duration;
         }
         Shop.UpdateCustomers();
+    }
+
+    public void InitTutorialVariables()
+    {
+        inSellingOverlay = false;
+        inInventory = false;
+        inCrafting = false;
+        buyingCraftingSlot = false;
+        essenceProducerOpened = null;
     }
 }
 

@@ -49,7 +49,7 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
-    private bool tutorial = false;
+    private bool tutorial = true;
 
     private static PlayerState _THIS;
     public static PlayerState THIS
@@ -120,6 +120,7 @@ public class PlayerState : MonoBehaviour
         {
             LoadFromGameLogic();
         }
+        GameLogic.THIS.InitTutorialVariables();
     }
 
     public void Start()

@@ -16,6 +16,7 @@ public class RecipeSelection : MonoBehaviour
 
     public void Open()
     {
+        GameLogic.THIS.inCrafting = true;
         this.gameObject.SetActive(true);
         foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
         {
@@ -30,6 +31,7 @@ public class RecipeSelection : MonoBehaviour
 
     public void Close()
     {
+        GameLogic.THIS.inCrafting = false;
         this.gameObject.SetActive(false);
         foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
         {

@@ -99,8 +99,15 @@ public static class Shop
                 nullCount++;
                 customers[i].hasValue = false;
                 PlayerState.THIS.Save();
-                break;
+                return;
             }
+        }
+        if (Inventory.HasInInventoryPrecise(customer.desiredAnimal))
+        {
+            int cost = (int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier);
+            Inventory.TakeFromInventoryPrecise(customer.desiredAnimal);
+            Inventory.AddToInventory(cost);
+            PlayerState.THIS.Save();
         }
     }
 }

@@ -122,3 +122,16 @@ MonoBehaviour:
   - level: 5
     cost: 50000
   moneyForLevels: f4010000d00700008813000010270000204e0000
+  inSellingOverlay: 0
+  inInventory: 0
+  inCrafting: 0
+  essenceProducerOpened:
+    level: 0
+    essenceAmount:
+      id: 0
+    fillRate: 0
+    model: {fileID: 0}
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }

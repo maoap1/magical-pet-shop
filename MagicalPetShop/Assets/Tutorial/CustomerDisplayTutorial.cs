@@ -46,7 +46,6 @@ public class CustomerDisplayTutorial : MonoBehaviour
             order.material = new Material(order.material);
             order.material.SetColor("_Color", GameGraphics.THIS.getRarityColor(desiredAnimal.rarity));
             order.material.SetTexture("_BloomTex", desiredAnimal.animal.bloomSprite.texture);
-            character.SetActive(true);
             if (!this.justLoaded)
             {
                 FindObjectOfType<AudioManager>().Play(SoundType.CustomerAppear);

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public static class Crafting
 {
+    public static bool randomImproveQuality = true;
     public static bool CanStartCrafting(RecipeProgress recipe) {
         Cost cost;
         cost.money = 0;
@@ -129,6 +130,10 @@ public static class Crafting
 
     public static Rarity randomImproveRarity(Rarity input)
     {
+        if (!randomImproveQuality)
+        {
+            return input;
+        }
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
         float random = UnityEngine.Random.value;
         int increment = 0;
