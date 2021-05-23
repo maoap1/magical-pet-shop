@@ -49,7 +49,7 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
-    private bool tutorial = true;
+    private bool tutorial = false;
 
     private static PlayerState _THIS;
     public static PlayerState THIS
