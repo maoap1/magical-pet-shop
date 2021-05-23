@@ -8,11 +8,11 @@ public class UpperPanelUI : MonoBehaviour {
     [SerializeField]
     private GameObject settings;
     [SerializeField]
-    private Text level;
+    private TMPro.TextMeshProUGUI level;
     [SerializeField]
-    private Text money;
+    private TMPro.TextMeshProUGUI money;
     [SerializeField]
-    private Text diamonds;
+    private TMPro.TextMeshProUGUI diamonds;
     [SerializeField]
     private SettingsButton settingsButton;
 
