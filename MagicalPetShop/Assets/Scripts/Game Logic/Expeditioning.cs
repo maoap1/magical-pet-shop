@@ -45,7 +45,7 @@ public static class Expeditioning
         }
         PlayerState.THIS.expeditions.Remove(expedition);
         PlayerState.THIS.Save();
-        return new ExpeditionResult(isSuccessful, reward, casualties);
+        return new ExpeditionResult(isSuccessful, expedition.pack, reward, casualties);
     }
 
     private static bool DetermineIfSuccessful(Expedition expedition) {
@@ -199,11 +199,13 @@ public enum ExpeditionDifficulty {
 
 public class ExpeditionResult {
     public bool isSuccessful;
+    public Pack pack;
     public InventoryArtifact reward;
     public List<InventoryAnimal> casualties;
 
-    public ExpeditionResult(bool success, InventoryArtifact reward, List<InventoryAnimal> casualties) {
+    public ExpeditionResult(bool success, Pack pack, InventoryArtifact reward, List<InventoryAnimal> casualties) {
         this.isSuccessful = success;
+        this.pack = pack;
         this.reward = reward;
         this.casualties = casualties;
     }
