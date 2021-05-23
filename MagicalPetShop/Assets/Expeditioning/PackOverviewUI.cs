@@ -45,19 +45,14 @@ public class PackOverviewUI : MonoBehaviour {
     private void Open_Internal(Pack pack) {
         this.pack = pack;
         Refresh();
-        this.gameObject.SetActive(true);
-        /*
-        foreach (GameObject g in objectsToAppear) {
-            g.SetActive(true);
-        }
-        */
+        gameObject.TweenAwareEnable();
         if (this.openedFromExpedition) {
             foreach (GameObject g in objectsToHideFromExpedition) {
-                g.SetActive(false);
+                g.TweenAwareDisable();
             }
         } else {
             foreach (GameObject g in objectsToHideFromLeaders) {
-                g.SetActive(false);
+                g.TweenAwareDisable();
             }
         }
     }
@@ -67,19 +62,14 @@ public class PackOverviewUI : MonoBehaviour {
     }
 
     public void Close() {
-        this.gameObject.SetActive(false);
-        /*
-        foreach (GameObject g in objectsToAppear) {
-            g.SetActive(false);
-        }
-        */
+        gameObject.TweenAwareDisable();
         if (this.openedFromExpedition) {
             foreach (GameObject g in objectsToHideFromExpedition) {
-                g.SetActive(true);
+                g.TweenAwareEnable();
             }
         } else {
             foreach (GameObject g in objectsToHideFromLeaders) {
-                g.SetActive(true);
+                g.TweenAwareEnable();
             }
         }
     }

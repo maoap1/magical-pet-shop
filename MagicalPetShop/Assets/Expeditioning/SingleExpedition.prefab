@@ -2081,6 +2081,9 @@ GameObject:
   - component: {fileID: 1195129856875011626}
   - component: {fileID: 284962097171253792}
   - component: {fileID: 3435870557288787974}
+  - component: {fileID: 7596587152832110661}
+  - component: {fileID: 4306279551512250776}
+  - component: {fileID: 6466023574041647252}
   m_Layer: 5
   m_Name: SingleExpedition
   m_TagString: Untagged
@@ -2219,6 +2222,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToAppear: []
   ObjectsToHide: []
+--- !u!225 &7596587152832110661
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755440029935666602}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4306279551512250776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755440029935666602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1047dbc83e975a49b9fbfc55805fbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  backDuration: 0.5
+  disable: 1
+  enable: 1
+--- !u!114 &6466023574041647252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755440029935666602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03680f226f93c0a4fa85b0572a44cbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4306279551512250776}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDisableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4306279551512250776}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &6841771614094929782
 PrefabInstance:
   m_ObjectHideFlags: 0
