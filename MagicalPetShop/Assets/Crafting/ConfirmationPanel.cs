@@ -11,7 +11,9 @@ public class ConfirmationPanel : MonoBehaviour
     public void Open(RecipeProgress rp)
     {
         recipe = rp;
-        highestQuality.text = Inventory.HighestRarityToPay(rp.costAnimals).ToString("G");
+        Rarity rarity = Inventory.HighestRarityToPay(rp.costAnimals);
+        highestQuality.text = rarity.ToString("G");
+        highestQuality.color = GameGraphics.THIS.getRarityColor(rarity);
         this.gameObject.SetActive(true);
     }
 

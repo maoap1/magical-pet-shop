@@ -60,7 +60,7 @@ public class RecipePanel : MonoBehaviour
         {
             recipeProgress.gameObject.SetActive(false);
             upgrade.gameObject.SetActive(false);
-            this.gameObject.GetComponent<Image>().color = new Color(130, 100, 0, 255);
+            this.gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(PaletteColor.HighlightLight);
         }
         else {
             recipeProgress.gameObject.SetActive(true);
