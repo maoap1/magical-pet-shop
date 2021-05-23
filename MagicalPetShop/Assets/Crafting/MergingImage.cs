@@ -39,10 +39,12 @@ public class MergingImage : MonoBehaviour
         if (Crafting.CanStartMerging(animal))
         {
             gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 0);
+            mergingPanel.GetComponent<Button>().interactable = true;
         }
         else
         {
             gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 1);
+            mergingPanel.GetComponent<Button>().interactable = false;
         }
     }
 }

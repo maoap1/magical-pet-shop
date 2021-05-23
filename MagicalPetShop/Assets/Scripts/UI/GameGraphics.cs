@@ -26,6 +26,7 @@ public class GameGraphics : ScriptableObject
     public Sprite changeRarity;
 
     public Sprite unknown;
+    public Sprite unknownHighlight;
 
     [ColorUsageAttribute(true, true)]
     public Color commonColor;
