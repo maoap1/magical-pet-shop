@@ -64,7 +64,7 @@ public class LeaderSlotUI : MonoBehaviour {
             this.status.SetActive(false);
             this.costText.text = this.pack.cost.ToString();
             if (Inventory.HasInInventory(this.pack.cost)) {
-                this.costText.color = Color.black;
+                this.costText.color = UIPalette.THIS.GetColor(this.costText.gameObject.GetComponent<TextColor>().color);
                 this.iconImage.material.SetFloat("_GrayscaleAmount", 0);
             } else {
                 this.costText.color = Color.red;

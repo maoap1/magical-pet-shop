@@ -16,10 +16,14 @@ public class ResourceCost : MonoBehaviour
     private ResourceType resourceType = ResourceType.Money;
     private float updateTime = 0;
     private bool red = true;
+
+    private Color defaultTextColor = Color.clear;
+
     public void SetCost(Sprite icon, int cost)
     {
         this.icon.sprite = icon;
         costText.text = cost.ToString();
+        InitializeColor();
     }
 
     public void SetCost(InventoryAnimal inventoryAnimal)
@@ -28,6 +32,7 @@ public class ResourceCost : MonoBehaviour
         costText.text = inventoryAnimal.count.ToString();
         animalCost = inventoryAnimal;
         resourceType = ResourceType.Animal;
+        InitializeColor();
     }
 
     public void SetCost(InventoryArtifact inventoryArtifact)
@@ -36,6 +41,7 @@ public class ResourceCost : MonoBehaviour
         costText.text = inventoryArtifact.count.ToString();
         artifactCost = inventoryArtifact;
         resourceType = ResourceType.Artifact;
+        InitializeColor();
     }
 
     public void SetCost(EssenceAmount essenceAmount)
@@ -51,6 +57,7 @@ public class ResourceCost : MonoBehaviour
         costText.text = essenceAmount.amount.ToString();
         essenceCost = essenceAmount; 
         resourceType = ResourceType.Essence;
+        InitializeColor();
     }
 
     public void SetCost(int money)
@@ -59,6 +66,7 @@ public class ResourceCost : MonoBehaviour
         costText.text = money.ToString();
         moneyCost = money;
         resourceType = ResourceType.Money;
+        InitializeColor();
     }
 
     public void SetNoRed()
@@ -82,10 +90,12 @@ public class ResourceCost : MonoBehaviour
         }
         costText.text = text;
         resourceType = ResourceType.Other;
+        InitializeColor();
     }
 
     public void Update()
     {
+        if (defaultTextColor == Color.clear) InitializeColor();
         if (Time.time - updateTime > 1)
         {
             updateTime = Time.time;
@@ -94,7 +104,7 @@ public class ResourceCost : MonoBehaviour
                 case ResourceType.Animal:
                     if (Inventory.HasInInventory(animalCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
@@ -104,7 +114,7 @@ public class ResourceCost : MonoBehaviour
                 case ResourceType.Artifact:
                     if (Inventory.HasInInventory(artifactCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
@@ -122,7 +132,7 @@ public class ResourceCost : MonoBehaviour
                     }
                     if (Inventory.HasInInventory(essenceCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
@@ -132,13 +142,27 @@ public class ResourceCost : MonoBehaviour
                 case ResourceType.Money:
                     if (Inventory.HasInInventory(moneyCost) || !red)
                     {
-                        costText.color = Color.black;
+                        costText.color = this.defaultTextColor;
                     }
                     else
                     {
                         costText.color = Color.red;
                     }
                     break;
+            }
+        }
+    }
+
+    private void InitializeColor() {
+        TMPColor colorComponent = costText.gameObject.GetComponent<TMPColor>();
+        if (colorComponent != null)
+            this.defaultTextColor = UIPalette.THIS.GetColor(colorComponent.color);
+        else { 
+            TextColor colorComponent2 = costText.gameObject.GetComponent<TextColor>();
+            if (colorComponent2 != null) {
+                this.defaultTextColor = UIPalette.THIS.GetColor(colorComponent2.color);
+            } else {
+                this.defaultTextColor = Color.black;
             }
         }
     }

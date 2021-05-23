@@ -19,25 +19,13 @@ public class HigherRarityCrafted : MonoBehaviour
         animalImage.material.SetTexture("_BloomTex", rp.animal.bloomSprite.texture);
         animalName.text = rp.animal.name;
         description.text = rarity.ToString("G") + " animal crafted!";
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(true);
-        }
-        this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
     {
         rp.animalProduced();
-        this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
 }

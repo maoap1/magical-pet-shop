@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 90, y: 30}
   m_SizeDelta: {x: 60, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &669766564599092724
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6301888114667924354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -360,6 +360,8 @@ MonoBehaviour:
   recipesPanel: {fileID: 0}
   locationType: {fileID: 0}
   artwork: {fileID: 7758719929129252448}
+  activeSprite: {fileID: 21300000, guid: e51881a0d7c929c40834b49520b276c6, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: 5471d46f767fdfa42a170cf1b36716ba, type: 3}
   recipesDisplayPanel: {fileID: 0}
   locationFilterPanel: {fileID: 0}
   newRecipe: {fileID: 920000811686111883}

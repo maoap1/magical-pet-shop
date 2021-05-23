@@ -32,6 +32,13 @@ public static class Utils
     public static Color WithB(this Color c, float b)
         => new Color(c.r, c.g, b, c.a);
 
+
+    public static Vector2 WithX(this Vector2 v, float x)
+        => new Vector2(x, v.y);
+    public static Vector2 WithY(this Vector2 v, float y)
+        => new Vector2(v.x, y);
+
+
     public static List<T> FindObject<T>() where T : Component {
         List<T> result = new List<T>();
         foreach (GameObject root in SceneManager.GetActiveScene().GetRootGameObjects()) {
@@ -52,4 +59,17 @@ public static class Utils
         }
     }
 
+    public static void TweenAwareDisable(this GameObject go)
+    {
+        Tweenable tweenable = go.GetComponent<Tweenable>();
+        if (tweenable) tweenable.Disable();
+        else go.SetActive(false);
+    }
+
+    public static void TweenAwareEnable(this GameObject go)
+    {
+        Tweenable tweenable = go.GetComponent<Tweenable>();
+        if (tweenable) tweenable.Enable();
+        else go.SetActive(true);
+    }
 }

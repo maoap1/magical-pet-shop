@@ -7,6 +7,7 @@ public class MergingPanel : MonoBehaviour
 {
     public MergingSelection mergingPanel;
     public MergingImage image;
+    public TMPro.TextMeshProUGUI name;
     public GameObject costPanel;
     public GameObject costPartPrefab;
     public TMPro.TextMeshProUGUI quality;
@@ -20,7 +21,9 @@ public class MergingPanel : MonoBehaviour
     {
         image.animal = animal;
         image.GetComponent<Image>().sprite = animal.animal.artwork;
+        name.text = animal.animal.name;
         quality.text = animal.rarity.ToString("G");
+        quality.color = GameGraphics.THIS.getRarityColor(animal.rarity);
         RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level].rarityMergingSettings[(int)animal.rarity - 1];
         foreach (Transform child in costPanel.transform)
         {

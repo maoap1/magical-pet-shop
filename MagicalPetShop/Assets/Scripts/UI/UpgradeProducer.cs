@@ -19,12 +19,14 @@ public class UpgradeProducer : MonoBehaviour
 
     private int upgradeCost;
 
-    public void Update()
-    {
+    private Color defaultTextColor = Color.clear;
+
+    public void Update() {
+        if (defaultTextColor == Color.clear) InitializeColor();
         essenceInStock.text = producer.essenceAmount.amount.ToString() + "/" + producer.storageLimit.ToString();
         if (PlayerState.THIS.money >= upgradeCost)
         {
-            cost.color = Color.black;
+            cost.color = this.defaultTextColor;
             upgrade.interactable = true;
         }
         else
@@ -37,15 +39,7 @@ public class UpgradeProducer : MonoBehaviour
     {
         producer = PlayerState.THIS.producers.Find(x => x.essenceAmount.essence.essenceName == e.essenceName);
         GameLogic.THIS.essenceProducerOpened = producer;
-        this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(true);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
         UpdateInfo();
     }
 
@@ -70,15 +64,7 @@ public class UpgradeProducer : MonoBehaviour
     public void Close()
     {
         GameLogic.THIS.essenceProducerOpened = null;
-        this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear)
-        {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide)
-        {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
 
     public void Upgrade()
@@ -88,5 +74,14 @@ public class UpgradeProducer : MonoBehaviour
             producer.UpgradeProducer();
         }
         UpdateInfo();
+    }
+
+    private void InitializeColor() {
+        TMPColor colorComponent = cost.gameObject.GetComponent<TMPColor>();
+        if (colorComponent != null)
+            this.defaultTextColor = UIPalette.THIS.GetColor(colorComponent.color);
+        else {
+            this.defaultTextColor = Color.black;
+        }
     }
 }

@@ -24,23 +24,11 @@ public class AnimalsUI : MonoBehaviour {
         this.slot = slot;
         this.expeditionLevel = expeditionLevel;
         Refresh();
-        this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(true);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
-        this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
 
     public void Refresh() {

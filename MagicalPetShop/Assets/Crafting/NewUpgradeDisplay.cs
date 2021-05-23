@@ -12,6 +12,10 @@ public class NewUpgradeDisplay : MonoBehaviour
 
     public void Open(RecipeProgress rp, RecipeLevel level)
     {
+        Color defaultColor = UIPalette.THIS.GetColor(text.gameObject.GetComponent<TMPColor>().color);
+        text.color = defaultColor;
+        text.outlineColor = Color.black;
+
         animalName.text = rp.animal.name;
 
         switch (level.upgradeType)
@@ -19,6 +23,7 @@ public class NewUpgradeDisplay : MonoBehaviour
             case RecipeUpgradeType.changeRarity:
                 image.sprite = GameGraphics.THIS.changeRarity;
                 text.text = level.newRarity.ToString("G");
+                text.color = GameGraphics.THIS.getRarityColor(level.newRarity);
                 break;
             case RecipeUpgradeType.increaseValue:
                 image.sprite = GameGraphics.THIS.money;
@@ -41,24 +46,12 @@ public class NewUpgradeDisplay : MonoBehaviour
                 text.text = "-" + level.durationDecrease.ToString() + "%";
                 break;
         }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(true);
-        }
-        this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
     }
 }

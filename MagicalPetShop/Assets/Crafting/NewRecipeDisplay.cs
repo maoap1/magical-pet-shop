@@ -16,25 +16,13 @@ public class NewRecipeDisplay : MonoBehaviour
         level = newLevel;
         animalImage.sprite = rp.animal.artwork;
         animalName.text = rp.animal.name;
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(true);
-        }
-        this.gameObject.SetActive(true);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(false);
-        }
+        GetComponent<AppearHideComponent>().Do();
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
         newLevelDisplay = Resources.FindObjectsOfTypeAll<NewLevelDisplay>()[0];
     }
 
     public void Close() {
-        this.gameObject.SetActive(false);
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToAppear) {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in GetComponent<AppearHideComponent>().ObjectsToHide) {
-            g.SetActive(true);
-        }
+        GetComponent<AppearHideComponent>().Revert();
         if (level)
         {
             newLevelDisplay.Open();
