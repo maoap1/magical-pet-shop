@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4068781074029206568}
   - component: {fileID: 880744778206167803}
   - component: {fileID: 7362790331767483064}
-  - component: {fileID: 6045971011649777173}
   - component: {fileID: 1165660969473475183}
+  - component: {fileID: 2892606984716968930}
   m_Layer: 5
   m_Name: ExpeditionSlot
   m_TagString: Untagged
@@ -179,18 +179,6 @@ MonoBehaviour:
   iconImage: {fileID: 7163421359574187516}
   nameText: {fileID: 3748591409387324625}
   durationText: {fileID: 5406593187510115969}
---- !u!114 &6045971011649777173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041031553270328451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1165660969473475183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +193,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 5
   initializeOnStart: 1
+--- !u!114 &2892606984716968930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041031553270328451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!1 &1208182519165273034
 GameObject:
   m_ObjectHideFlags: 0

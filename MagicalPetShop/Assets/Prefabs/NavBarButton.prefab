@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5992383241657302048}
   - component: {fileID: 5419166262994058192}
   - component: {fileID: 7974482240962179806}
-  - component: {fileID: 7475881459497197895}
+  - component: {fileID: 2647660250028788213}
   m_Layer: 5
   m_Name: NavBarButton
   m_TagString: Untagged
@@ -132,7 +132,7 @@ MonoBehaviour:
   iconImage: {fileID: 9152645387592139349}
   textTMP: {fileID: 7989476947125270546}
   notification: {fileID: 810031104144009679}
---- !u!114 &7475881459497197895
+--- !u!114 &2647660250028788213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,9 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 491262328306831637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!1 &1714366318008960042
 GameObject:
   m_ObjectHideFlags: 0

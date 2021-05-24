@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6603298387459573490}
   - component: {fileID: 6884489193367081860}
   - component: {fileID: 6362245127293298257}
-  - component: {fileID: 2914470953015680503}
   - component: {fileID: 3166919134014725437}
+  - component: {fileID: 960174568831187897}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -135,18 +135,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2914470953015680503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261985739669933964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3166919134014725437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +149,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   initializeOnStart: 1
+--- !u!114 &960174568831187897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261985739669933964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!1 &404765930954224894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1143,7 @@ GameObject:
   - component: {fileID: 1932242637199866601}
   - component: {fileID: 1800583381641841827}
   - component: {fileID: 3774849274136888017}
-  - component: {fileID: 939772901917329967}
+  - component: {fileID: 8549743538426152727}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1280,7 +1281,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &939772901917329967
+--- !u!114 &8549743538426152727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1289,9 +1290,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4983117853331971705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!114 &7843396242577324902
 MonoBehaviour:
   m_ObjectHideFlags: 0

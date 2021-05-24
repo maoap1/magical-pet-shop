@@ -1218,8 +1218,8 @@ GameObject:
   - component: {fileID: 7598452047180317113}
   - component: {fileID: 4002186313247200557}
   - component: {fileID: 4162810574882967534}
-  - component: {fileID: 978641836005202179}
   - component: {fileID: 650631137263950243}
+  - component: {fileID: 2361901123794029734}
   m_Layer: 5
   m_Name: LocationAnimalSlot
   m_TagString: Untagged
@@ -1391,18 +1391,6 @@ MonoBehaviour:
   deathProbText: {fileID: 5611147308261158441}
   locationSlot: {fileID: 4922104340297612277, guid: 7edd8a3e5f633814a96c48df500011b2, type: 3}
   locationsLayout: {fileID: 5611147307052679393}
---- !u!114 &978641836005202179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990857401706432514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &650631137263950243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,6 +1405,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 5
   initializeOnStart: 1
+--- !u!114 &2361901123794029734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990857401706432514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!1 &7111419240559814314
 GameObject:
   m_ObjectHideFlags: 0

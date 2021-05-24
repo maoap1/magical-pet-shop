@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 7252349587681453083}
   - component: {fileID: 4546995193998384796}
   - component: {fileID: 9074669799486444352}
-  - component: {fileID: 1788348673641235812}
+  - component: {fileID: 7197920333883842172}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1130,7 +1130,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1788348673641235812
+--- !u!114 &7197920333883842172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1139,9 +1139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3962736083614286017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!1 &4483294402890105925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,7 +1392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5152160417384175504}
   - component: {fileID: 9113777575875307158}
-  - component: {fileID: 6578912940149091253}
+  - component: {fileID: 3351212407605289688}
   m_Layer: 5
   m_Name: AnimalsToggle
   m_TagString: Untagged
@@ -1467,9 +1468,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6578912940149091253}
-        m_TargetAssemblyTypeName: ToggleSound, Assembly-CSharp
-        m_MethodName: ClickedSound
+      - m_Target: {fileID: 3351212407605289688}
+        m_TargetAssemblyTypeName: ClickedSound, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1504,7 +1505,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
---- !u!114 &6578912940149091253
+--- !u!114 &3351212407605289688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1513,9 +1514,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5251420340151651591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae82f4da123ef7140b427500280d1667, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundType: 1
 --- !u!1 &5904190337003448458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1675,6 @@ MonoBehaviour:
   animalSlot: {fileID: 6636645156529528860, guid: 53a3c4b2b469b8e45b9b90c8525659ed, type: 3}
   artifactsGrid: {fileID: 63845367716896409}
   artifactSlot: {fileID: 6636645156529528860, guid: 81146998aef7c6c49840de321ef23348, type: 3}
-  essencesUI: {fileID: 0}
 --- !u!114 &2475312152394089499
 MonoBehaviour:
   m_ObjectHideFlags: 0

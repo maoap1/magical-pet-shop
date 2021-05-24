@@ -841,8 +841,8 @@ GameObject:
   - component: {fileID: 4181571528518646404}
   - component: {fileID: 4181571528518646405}
   - component: {fileID: 4181571528518646410}
-  - component: {fileID: 6828011269926734300}
   - component: {fileID: 8081314370153615346}
+  - component: {fileID: 3948933638807655561}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -1044,18 +1044,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6828011269926734300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4181571528518646408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8081314370153615346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +1058,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 11
   initializeOnStart: 1
+--- !u!114 &3948933638807655561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4181571528518646408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
 --- !u!114 &7524573789784502945
 MonoBehaviour:
   m_ObjectHideFlags: 0

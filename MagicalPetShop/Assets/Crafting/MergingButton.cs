@@ -35,7 +35,6 @@ public class MergingButton : MonoBehaviour
             this.imageComponent.sprite = craftingSprite;
             this.rectComponent.sizeDelta = new Vector2(185, 185);
         }
-        FindObjectOfType<AudioManager>().Play(SoundType.TabSwitch);
     }
 
     public void Reset() {
