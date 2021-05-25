@@ -15,26 +15,36 @@ public class MergingLocationFilter : MonoBehaviour
     public GameObject locationFilterPanel;
     [HideInInspector]
     public bool selected = false;
+
+    private EssenceAmount essenceAmount = null;
+    private bool unlocked = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        artwork.sprite = activeSprite;//locationType.artwork;
+        artwork.sprite = GameGraphics.THIS.unknown;
     }
 
     public void Update()
     {
-        if (selected)
-        {
-            artwork.sprite = activeSprite;
-        }
-        else
-        {
-            artwork.sprite = inactiveSprite;
+        UpdateUnlocked();
+        if (unlocked) {
+            if (selected) {
+                artwork.sprite = activeSprite;
+            } else {
+                artwork.sprite = inactiveSprite;
+            }
+        } else {
+            if (selected) {
+                artwork.sprite = GameGraphics.THIS.unknownHighlight;
+            } else {
+                artwork.sprite = GameGraphics.THIS.unknown;
+            }
         }
     }
 
-    public void Display()
-    {
+    public void Display() {
+        UpdateUnlocked();
         foreach (Transform child in mergingDisplayPanel.transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -48,5 +58,19 @@ public class MergingLocationFilter : MonoBehaviour
         }
         selected = true;
         mergingPanel.defaultMergingCategory = this;
+    }
+
+    private void UpdateUnlocked() {
+        if (essenceAmount == null && PlayerState.THIS.resources != null && PlayerState.THIS.resources.Count > 0) {
+            foreach (EssenceAmount r in PlayerState.THIS.resources) {
+                if (r.essence.essenceName == locationType.name) {
+                    essenceAmount = r;
+                }
+            }
+        } else if (essenceAmount != null) {
+            if (essenceAmount.unlocked & !unlocked) {
+                unlocked = true;
+            }
+        }
     }
 }
