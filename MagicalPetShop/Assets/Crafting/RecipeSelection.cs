@@ -9,8 +9,6 @@ public class RecipeSelection : MonoBehaviour
     public MergingButton mergingButton;
     public ConfirmationPanel confirmationPanel;
 
-    public GameObject mergingToggle;
-
     public RecipeLocationFilter defaultRecipeCategory;
 
     private int upgradeCost;
