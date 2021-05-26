@@ -736,6 +736,8 @@ GameObject:
   - component: {fileID: 2641525437378052670}
   - component: {fileID: 4698314774704225488}
   - component: {fileID: 1049144360086645773}
+  - component: {fileID: 4522056819209353330}
+  - component: {fileID: 1485148324418268338}
   m_Layer: 5
   m_Name: Recipe Panel
   m_TagString: Untagged
@@ -854,7 +856,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -905,6 +907,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 5
   initializeOnStart: 1
+--- !u!114 &4522056819209353330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830137068037030024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
+--- !u!114 &1485148324418268338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830137068037030024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4063469184148395775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,8 +1169,6 @@ GameObject:
   - component: {fileID: 7388627964836648642}
   - component: {fileID: 1932242637199866601}
   - component: {fileID: 1800583381641841827}
-  - component: {fileID: 3774849274136888017}
-  - component: {fileID: 8549743538426152727}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1225,75 +1250,6 @@ MonoBehaviour:
     animalsProduced: 0
     recipe: {fileID: 0}
     newRecipe: 0
---- !u!114 &3774849274136888017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4983117853331971705}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1932242637199866601}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1800583381641841827}
-        m_TargetAssemblyTypeName: RecipeImage, Assembly-CSharp
-        m_MethodName: Clicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8549743538426152727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4983117853331971705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundType: 0
 --- !u!114 &7843396242577324902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,7 +1385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1734,7 +1690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1873,7 +1829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2012,7 +1968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2151,7 +2107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3759608128502926946, guid: 68e6edbdd52b3eb43a5d40e5b7d0ecbe, type: 3}
       propertyPath: m_AnchoredPosition.y
