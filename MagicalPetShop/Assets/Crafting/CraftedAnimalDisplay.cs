@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 public class CraftedAnimalDisplay : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class CraftedAnimalDisplay : MonoBehaviour
     public GameObject readyMessage;
     public Image animalImage;
     private bool finished;
+
     public void Start()
     {
         readyMessage.SetActive(true);
@@ -48,6 +51,8 @@ public class CraftedAnimalDisplay : MonoBehaviour
     {
         if (finished)
         {
+            GetComponent<TweenAnimalToInventory>().Tween(craftedAnimal.animal);
+
             InventoryAnimal ia = new InventoryAnimal();
             ia.animal = craftedAnimal.animal;
             ia.count = 1;

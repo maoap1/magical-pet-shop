@@ -11,6 +11,7 @@ public class SlidingTween : MonoBehaviour
     public bool enable = true;
 
     public AnimationCurve tweenType;
+    public AnimationCurve backTweenType;
 
     public bool GetToStart = false;
     public bool TweenToTarget = false;
@@ -53,11 +54,11 @@ public class SlidingTween : MonoBehaviour
             .OnComplete(() => { if (disable) gameObject.SetActive(false); });
     }
 
-    public void SlideYBackSameTween()
+    public void SlideYBackCurve()
     {
         SetY(targetY);
         GetComponent<RectTransform>().DOAnchorPosY(startY, backDuration)
-            .SetEase(tweenType)
+            .SetEase(backTweenType)
             .OnComplete(() => { if (disable) gameObject.SetActive(false); });
     }
 }
