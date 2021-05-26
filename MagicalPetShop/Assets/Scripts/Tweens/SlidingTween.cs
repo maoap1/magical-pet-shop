@@ -52,4 +52,12 @@ public class SlidingTween : MonoBehaviour
             .SetEase(Ease.InCubic)
             .OnComplete(() => { if (disable) gameObject.SetActive(false); });
     }
+
+    public void SlideYBackSameTween()
+    {
+        SetY(targetY);
+        GetComponent<RectTransform>().DOAnchorPosY(startY, backDuration)
+            .SetEase(tweenType)
+            .OnComplete(() => { if (disable) gameObject.SetActive(false); });
+    }
 }
