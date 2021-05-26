@@ -73,7 +73,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 455, y: 620}
+  m_CellSize: {x: 450, y: 620}
   m_Spacing: {x: 30, y: 30}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 20, y: -20}
-  m_SizeDelta: {x: -40, y: -40}
+  m_AnchoredPosition: {x: 25, y: -25}
+  m_SizeDelta: {x: -50, y: -50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &121250217609915200
 CanvasRenderer:
@@ -1319,6 +1319,14 @@ PrefabInstance:
     - target: {fileID: 4321453821493772871, guid: cae2fa0e173c2634aae4fedcf0888c3d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084346724359183147, guid: cae2fa0e173c2634aae4fedcf0888c3d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084346724359183147, guid: cae2fa0e173c2634aae4fedcf0888c3d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9084346724476242502, guid: cae2fa0e173c2634aae4fedcf0888c3d, type: 3}
       propertyPath: m_AnchorMax.y
