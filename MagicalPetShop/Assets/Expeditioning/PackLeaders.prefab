@@ -334,7 +334,7 @@ MonoBehaviour:
   OnEnableTween:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8273263394293167633}
         m_TargetAssemblyTypeName: SlidingTween, Assembly-CSharp
         m_MethodName: SlideY
         m_Mode: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
   OnDisableTween:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8273263394293167633}
         m_TargetAssemblyTypeName: SlidingTween, Assembly-CSharp
         m_MethodName: SlideYBack
         m_Mode: 1
