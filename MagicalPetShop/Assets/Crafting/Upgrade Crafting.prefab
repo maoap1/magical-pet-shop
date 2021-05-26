@@ -352,8 +352,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 5284107588216659373}
   - component: {fileID: 8656709577183416035}
   - component: {fileID: 4819709138385048736}
+  - component: {fileID: 1505351110522400230}
   m_Layer: 5
   m_Name: Reject
   m_TagString: Untagged
@@ -594,7 +595,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -658,6 +659,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &1505351110522400230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3567012544830366981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3864569686479707048
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,8 +1009,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1141,6 +1154,7 @@ GameObject:
   - component: {fileID: 5349634643689685162}
   - component: {fileID: 2367249124455293870}
   - component: {fileID: 5901617681762630368}
+  - component: {fileID: 5571146467843974459}
   m_Layer: 5
   m_Name: Accept
   m_TagString: Untagged
@@ -1225,7 +1239,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1289,6 +1303,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &5571146467843974459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771638216047247496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6923473905335177037
 GameObject:
   m_ObjectHideFlags: 0

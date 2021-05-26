@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 3570974962592821478}
   - component: {fileID: 1919641206863124768}
   - component: {fileID: 2146362820930159360}
+  - component: {fileID: 3452299991157906841}
   m_Layer: 5
   m_Name: AutoAssignButton
   m_TagString: Untagged
@@ -336,8 +337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 736.25, y: -100}
-  m_SizeDelta: {x: 400, y: 130}
+  m_AnchoredPosition: {x: 702.5, y: -100}
+  m_SizeDelta: {x: 400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3570974962592821476
 CanvasRenderer:
@@ -396,7 +397,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -448,6 +449,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &3452299991157906841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570974962592821496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3570974962741415041
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,8 +711,9 @@ GameObject:
   - component: {fileID: 3570974963116214232}
   - component: {fileID: 3570974963116214233}
   - component: {fileID: 7259153522662358394}
+  - component: {fileID: 1697259171571833543}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -722,7 +736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -50}
+  m_AnchoredPosition: {x: -50, y: -57.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3570974963116214215
@@ -782,7 +796,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -832,6 +846,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &1697259171571833543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570974963116214235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3570974963183506855
 GameObject:
   m_ObjectHideFlags: 0

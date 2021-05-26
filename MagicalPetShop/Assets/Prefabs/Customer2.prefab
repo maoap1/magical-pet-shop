@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: 818617784196010652}
   - component: {fileID: 818936033027954078}
   - component: {fileID: 4447596471099424274}
+  - component: {fileID: 2033189826270091893}
+  - component: {fileID: 5926159553733211323}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -193,6 +195,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &2033189826270091893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065689423644805041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
+--- !u!114 &5926159553733211323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065689423644805041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4591581874467735224
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +425,7 @@ MonoBehaviour:
   - {x: 79.073425, y: -168.1225, z: 0}
   m_ShapePathHash: 843976423
   m_Mesh: {fileID: 0}
-  m_InstanceId: -294388
+  m_InstanceId: 293190
 --- !u!1 &7361154363049724515
 GameObject:
   m_ObjectHideFlags: 0

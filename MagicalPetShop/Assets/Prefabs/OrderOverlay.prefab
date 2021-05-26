@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 2826156352293715280}
   - component: {fileID: 2371357016862449827}
   - component: {fileID: 8938137006388573302}
+  - component: {fileID: 8351805558335595225}
   m_Layer: 5
   m_Name: Wait
   m_TagString: Untagged
@@ -279,7 +280,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -1300}
-  m_SizeDelta: {x: 350, y: 150}
+  m_SizeDelta: {x: 350, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &936846878082622195
 CanvasRenderer:
@@ -338,7 +339,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 0.81568635, g: 0.6039216, b: 0.83921576, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -418,6 +419,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &8351805558335595225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936846878082622199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &936846878543527991
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +938,7 @@ GameObject:
   - component: {fileID: 6931142034234546661}
   - component: {fileID: 3241456938394634832}
   - component: {fileID: 3718850493021993911}
+  - component: {fileID: 720035938283717312}
   m_Layer: 5
   m_Name: Refuse
   m_TagString: Untagged
@@ -950,7 +964,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -215, y: -1100}
-  m_SizeDelta: {x: 350, y: 150}
+  m_SizeDelta: {x: 350, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &936846879047742799
 CanvasRenderer:
@@ -1009,7 +1023,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 0.81568635, g: 0.6039216, b: 0.83921576, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1089,6 +1103,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &720035938283717312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936846879047742803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &936846879120801119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1557,7 @@ GameObject:
   - component: {fileID: 4582558156394884837}
   - component: {fileID: 1384582287799276601}
   - component: {fileID: 4891188103747707891}
+  - component: {fileID: 5854706960603426693}
   m_Layer: 5
   m_Name: Sell
   m_TagString: Untagged
@@ -1556,7 +1583,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 215, y: -1100}
-  m_SizeDelta: {x: 350, y: 150}
+  m_SizeDelta: {x: 350, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &936846879586545900
 CanvasRenderer:
@@ -1615,7 +1642,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 0.81568635, g: 0.6039216, b: 0.83921576, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1695,6 +1722,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
+--- !u!114 &5854706960603426693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936846879586545904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8386083802283847183
 GameObject:
   m_ObjectHideFlags: 0
