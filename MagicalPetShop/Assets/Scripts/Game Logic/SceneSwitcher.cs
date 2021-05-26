@@ -40,6 +40,7 @@ public class SceneSwitcher : MonoBehaviour
         while (!asyncOperation.isDone)
         {
             asyncOperation.allowSceneActivation = true;
+            DOTween.KillAll();
             yield return null;
         }
     }
