@@ -19,6 +19,12 @@ public class TutorialCanvas : MonoBehaviour
     public GameObject mask;
     public CutoutMaskUI imageDarkening;
 
+    public void Start()
+    {
+        upperText.gameObject.GetComponent<Image>().color = UIPalette.THIS.HeaderColor;
+        lowerText.gameObject.GetComponent<Image>().color = UIPalette.THIS.HeaderColor;
+    }
+
     public void DisableAll(bool noDarkening = false, bool instant = false)
     {
         left.GetComponent<RectTransform>().sizeDelta = new Vector2(540, 1920);

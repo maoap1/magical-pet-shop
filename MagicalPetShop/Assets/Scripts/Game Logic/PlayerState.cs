@@ -49,7 +49,7 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
-    private bool tutorial = false;
+    private bool tutorial = true;
     public int currentTutorial = 0;
     public int tutorialProgress = 0;
 
@@ -77,7 +77,14 @@ public class PlayerState : MonoBehaviour
         if (tutorial)
         {
             currentTutorial = Tutorials.THIS.currentIndex;
-            tutorialProgress = Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].progress;
+            if (Tutorials.THIS.currentIndex >= 0)
+            {
+                tutorialProgress = Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].progress;
+            }
+            else
+            {
+                tutorialProgress = 0;
+            }
         }
         lastArrivalTime = Shop.lastArrivalTime;
         customers = Shop.customers;

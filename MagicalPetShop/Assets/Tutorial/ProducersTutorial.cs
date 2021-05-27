@@ -33,7 +33,7 @@ public class ProducersTutorial : Tutorial
 
     public override bool tryStart()
     {
-        if (SceneManager.GetActiveScene().name == "LabTutorial")
+        if (SceneManager.GetActiveScene().name == "Lab")
         {
             progress = 0;
             return true;
@@ -81,9 +81,9 @@ public class ProducersTutorial : Tutorial
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
             canvas.lowerText.Display("Tap on the upgrade button to purchese a new level of the collector!");
             TutorialPanel tp = new TutorialPanel();
-            tp.left = 700;
+            tp.left = 600;
             tp.top = 1055;
-            tp.width = 300;
+            tp.width = 400;
             tp.height = 150;
             canvas.DisableAllExcept(tp);
             progress++;
