@@ -115,7 +115,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             progress++;
         }
-        else if (progress==4 && SceneManager.GetActiveScene().name == "LabTutorial")
+        else if (progress==4 && SceneManager.GetActiveScene().name == "Lab")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.leftArrow.SetActive(false);
@@ -129,7 +129,7 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the cauldron to open the crafting menu!");
-            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Cauldron").GetComponent<TutorialPanel>(), true);
+            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Cauldron Clickable").GetComponent<TutorialPanel>(), true);
             progress++;
         }
         else if (progress==6 && GameLogic.THIS.inCrafting)
@@ -179,7 +179,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/ShopButton").GetComponent<TutorialPanel>());
             progress++;
         }
-        else if (progress==10 && SceneManager.GetActiveScene().name == "ShopTutorial")
+        else if (progress==10 && SceneManager.GetActiveScene().name == "Shop")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
             canvas.rightArrow.SetActive(true);
@@ -273,7 +273,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             progress++;
         }
-        else if (progress == 101 && SceneManager.GetActiveScene().name == "LabTutorial")
+        else if (progress == 101 && SceneManager.GetActiveScene().name == "Lab")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.DisableAll(true, true);
@@ -294,7 +294,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             progress++;
         }
-        else if (progress == 111 && SceneManager.GetActiveScene().name == "LabTutorial")
+        else if (progress == 111 && SceneManager.GetActiveScene().name == "Lab")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.leftArrow.SetActive(false);
