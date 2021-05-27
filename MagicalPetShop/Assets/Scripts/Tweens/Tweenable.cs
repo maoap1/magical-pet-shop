@@ -21,13 +21,13 @@ public class Tweenable : MonoBehaviour
 
     public void Disable()
     {
-        if (IsNull(OnDisableTween)) { gameObject.SetActive(false); Debug.Log("Disable null"); }
-        else { OnDisableTween.Invoke(); Debug.Log("Disable tween"); }
+        if (IsNull(OnDisableTween)) gameObject.SetActive(false);
+        else OnDisableTween.Invoke();
     }
 
     public void Enable()
     {
-        if (IsNull(OnEnableTween)) { gameObject.SetActive(true); Debug.Log("Enable null"); }
-        else { OnEnableTween.Invoke(); Debug.Log("Enable tween"); }
+        if (IsNull(OnEnableTween)) gameObject.SetActive(true);
+        else OnEnableTween.Invoke();
     }
 }

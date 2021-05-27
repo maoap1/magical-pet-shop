@@ -6,9 +6,8 @@ using UnityEngine;
 public class RecipeSelection : MonoBehaviour
 {
     public RecipeInfo recipeInfo;
+    public MergingButton mergingButton;
     public ConfirmationPanel confirmationPanel;
-
-    public GameObject mergingToggle;
 
     public RecipeLocationFilter defaultRecipeCategory;
 
@@ -17,6 +16,7 @@ public class RecipeSelection : MonoBehaviour
     public void Open()
     {
         GameLogic.THIS.inCrafting = true;
+        this.mergingButton.Reset();
         GetComponent<AppearHideComponent>().Do();
         defaultRecipeCategory.Display();
     }

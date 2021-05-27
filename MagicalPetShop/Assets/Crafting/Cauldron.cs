@@ -17,7 +17,6 @@ public class Cauldron : MonoBehaviour
 
     public void OpenRecipes()
     {
-        FindObjectOfType<AudioManager>().Play(SoundType.Cauldron);
         recipeSelection.Open();
     }
 }

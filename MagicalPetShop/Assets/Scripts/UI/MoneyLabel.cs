@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class MoneyLabel : MonoBehaviour
 {
-    private Text moneyText;
+    private TMPro.TextMeshProUGUI moneyText;
 
     private Tween moneyTween;
 
@@ -17,7 +17,7 @@ public class MoneyLabel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.moneyText = gameObject.GetComponent<Text>();
+        this.moneyText = gameObject.GetComponent<TMPro.TextMeshProUGUI>();
         this.moneyTween = null;
         this.lastMoney = PlayerState.THIS.money;
         this.moneyTmp = PlayerState.THIS.money;

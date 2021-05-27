@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5992383241657302048}
   - component: {fileID: 5419166262994058192}
   - component: {fileID: 7974482240962179806}
-  - component: {fileID: 7475881459497197895}
+  - component: {fileID: 2647660250028788213}
+  - component: {fileID: 6496081308378798057}
   m_Layer: 5
   m_Name: NavBarButton
   m_TagString: Untagged
@@ -132,7 +133,7 @@ MonoBehaviour:
   iconImage: {fileID: 9152645387592139349}
   textTMP: {fileID: 7989476947125270546}
   notification: {fileID: 810031104144009679}
---- !u!114 &7475881459497197895
+--- !u!114 &2647660250028788213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +142,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 491262328306831637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a43e6e10d17c04196ad6166cc50871, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 0
+--- !u!114 &6496081308378798057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491262328306831637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1714366318008960042
@@ -292,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 11
+  initializeOnStart: 1
 --- !u!1 &1732861285015673845
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,8 +417,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: -5}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 5, y: 5}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7808196359830200200
 CanvasRenderer:
@@ -433,7 +448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 761fafd5797ff024ba3c1e9c0c181777, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -456,3 +471,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 6
+  initializeOnStart: 1

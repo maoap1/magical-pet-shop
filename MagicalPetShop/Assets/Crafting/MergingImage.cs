@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MergingImage : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class MergingImage : MonoBehaviour
     private float updateTime = 0;
     public void Clicked()
     {
-        if (Crafting.CanStartMerging(animal))
-        {
+        if (Crafting.CanStartMerging(animal)) {
             int recipesBefore = PlayerState.THIS.recipes.Count;
             Crafting.StartMerging(animal);
             mergingPanel.mergingPanel.defaultMergingCategory.Display();
             mergingPanel.UpdateInfo();
+        } else { 
+            mergingPanel.gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
     }
     private void Update()
@@ -39,10 +41,12 @@ public class MergingImage : MonoBehaviour
         if (Crafting.CanStartMerging(animal))
         {
             gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 0);
+            mergingPanel.GetComponent<Button>().interactable = true;
         }
         else
         {
             gameObject.GetComponent<Image>().materialForRendering.SetFloat("_GrayscaleAmount", 1);
+            mergingPanel.GetComponent<Button>().interactable = false;
         }
     }
 }

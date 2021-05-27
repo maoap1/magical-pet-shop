@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 // Shows icon and progress of an ongoing expedition
-public class OngoingExpeditionUI : MonoBehaviour {
+public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
 
     public ExpeditionSummaryUI expeditionSummary;
     public Expedition expedition;
@@ -14,13 +16,15 @@ public class OngoingExpeditionUI : MonoBehaviour {
     public ProgressBar progressRing;
     public GameObject readyMessage;
     public Image expeditionImage;
+    public Image imageMask;
     private bool finished;
+    private Color defaultBgColor;
 
     public void Initialize(Expedition expedition, bool isUpperPanel, ExpeditionSummaryUI expeditionSummary) {
         this.expedition = expedition;
         this.isUpperPanel = isUpperPanel;
         this.expeditionSummary = expeditionSummary;
-        this.expeditionImage.sprite = expedition.expeditionType.artwork;
+        this.expeditionImage.sprite = expedition.expeditionType.reward.artwork;
         if (!PlayerState.THIS.expeditions.Contains(expedition)) {
             PlayerState.THIS.expeditions.Add(expedition);
         }
@@ -28,6 +32,8 @@ public class OngoingExpeditionUI : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        defaultBgColor = UIPalette.THIS.GetColor(imageMask.gameObject.GetComponent<ImageColor>().color);
+        imageMask.color = this.defaultBgColor;
         readyMessage.SetActive(false);
         progressRing.gameObject.SetActive(true);
         finished = false;
@@ -40,9 +46,11 @@ public class OngoingExpeditionUI : MonoBehaviour {
                 finished = true;
                 progressRing.gameObject.SetActive(false);
                 readyMessage.SetActive(true);
+                imageMask.color = UIPalette.THIS.GetColor(PaletteColor.GridItem);
             } else {
                 readyMessage.SetActive(false);
                 progressRing.fillRate = expedition.fillRate;
+                imageMask.color = this.defaultBgColor;
             }
         }
         if (PlayerState.THIS.expeditions.Find(x => x == expedition) == null) {
@@ -60,6 +68,15 @@ public class OngoingExpeditionUI : MonoBehaviour {
                 FindObjectOfType<AudioManager>().Play(SoundType.Fail);
             }
             Destroy(this.gameObject);
+        } else {
+            gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
     }
+
+    public void OnPointerDown(PointerEventData eventData) {
+        if (finished) {
+            gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
+        }
+    }
+
 }

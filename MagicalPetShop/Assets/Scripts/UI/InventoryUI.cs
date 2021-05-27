@@ -20,9 +20,6 @@ public class InventoryUI : MonoBehaviour {
     [SerializeField]
     private GameObject artifactSlot;
 
-    [SerializeField]
-    private EssencesUI essencesUI;
-
     public void Open() {
         Refresh();
         GetComponent<AppearHideComponent>().Do();
@@ -56,8 +53,6 @@ public class InventoryUI : MonoBehaviour {
             newSlot.SetActive(true);
             newSlot.transform.SetParent(artifactsGrid.transform, false);
         }
-        // display essences
-        essencesUI.Refresh();
     }
 
     private void Clear() {

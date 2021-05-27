@@ -60,7 +60,7 @@ public class RecipePanel : MonoBehaviour
         {
             recipeProgress.gameObject.SetActive(false);
             upgrade.gameObject.SetActive(false);
-            this.gameObject.GetComponent<Image>().color = new Color(130, 100, 0, 255);
+            this.gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(PaletteColor.HighlightLight);
         }
         else {
             recipeProgress.gameObject.SetActive(true);
@@ -108,7 +108,7 @@ public class RecipePanel : MonoBehaviour
 
     public void DisplayRecipeInfo()
     {
-        recipesPanel.recipeInfo.tmpHidden.Add(recipesPanel.mergingToggle);
+        recipesPanel.recipeInfo.tmpHidden.Add(recipesPanel.mergingButton.gameObject);
         recipesPanel.recipeInfo.tmpHidden.Add(recipesPanel.gameObject);
         recipesPanel.recipeInfo.Open(recipe);
     }

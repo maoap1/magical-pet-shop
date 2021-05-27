@@ -15,32 +15,40 @@ public class RecipeLocationFilter : MonoBehaviour
     public GameObject newRecipe;
     [HideInInspector]
     public bool selected = false;
+
+    private EssenceAmount essenceAmount = null;
+    private bool unlocked = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        artwork.sprite = inactiveSprite;
+        artwork.sprite = GameGraphics.THIS.unknown;
     }
 
-    public void Update()
-    {
-        if (selected)
-        {
-            artwork.sprite = activeSprite;
-        }
-        else
-        {
-            artwork.sprite = inactiveSprite;
+    public void Update() {
+        UpdateUnlocked();
+        if (unlocked) {
+            if (selected) {
+                artwork.sprite = activeSprite;
+            } else {
+                artwork.sprite = inactiveSprite;
+            }
+        } else {
+            if (selected) {
+                artwork.sprite = GameGraphics.THIS.unknownHighlight;
+            } else {
+                artwork.sprite = GameGraphics.THIS.unknown;
+            }
         }
     }
 
     public void Display()
     {
-        foreach (Transform child in recipesDisplayPanel.transform)
-        {
+        UpdateUnlocked();
+        foreach (Transform child in recipesDisplayPanel.transform) {
             GameObject.Destroy(child.gameObject);
         }
-        foreach (RecipeLocationFilter rlf in locationFilterPanel.GetComponentsInChildren<RecipeLocationFilter>())
-        {
+        foreach (RecipeLocationFilter rlf in locationFilterPanel.GetComponentsInChildren<RecipeLocationFilter>()) {
             rlf.selected = false;
             rlf.UpdateNew();
         }
@@ -63,6 +71,20 @@ public class RecipeLocationFilter : MonoBehaviour
         else
         {
             newRecipe.SetActive(false);
+        }
+    }
+
+    private void UpdateUnlocked() {
+        if (essenceAmount == null && PlayerState.THIS.resources != null && PlayerState.THIS.resources.Count > 0) {
+            foreach (EssenceAmount r in PlayerState.THIS.resources) {
+                if (r.essence.essenceName == locationType.name) {
+                    essenceAmount = r;
+                }
+            }
+        } else if (essenceAmount != null) {
+            if (essenceAmount.unlocked & !unlocked) {
+                unlocked = true;
+            }
         }
     }
 }
