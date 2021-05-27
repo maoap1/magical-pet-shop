@@ -33,7 +33,7 @@ public class CraftingSlotsTutorial : Tutorial
 
     public override bool tryStart()
     {
-        if ((SceneManager.GetActiveScene().name == "LabTutorial" || SceneManager.GetActiveScene().name == "ShopTutorial") && PlayerState.THIS.craftingSlots == 1 && PlayerState.THIS.crafting.Count==1)
+        if ((SceneManager.GetActiveScene().name == "Lab" || SceneManager.GetActiveScene().name == "Shop") && PlayerState.THIS.craftingSlots == 1 && PlayerState.THIS.crafting.Count==1)
         {
             progress = 0;
             return true;
@@ -83,7 +83,7 @@ public class CraftingSlotsTutorial : Tutorial
             TutorialPanel tp = new TutorialPanel();
             tp.left = 545;
             tp.top = 1100;
-            tp.width = 250;
+            tp.width = 300;
             tp.height = 150;
             canvas.DisableAllExcept(tp);
             progress++;

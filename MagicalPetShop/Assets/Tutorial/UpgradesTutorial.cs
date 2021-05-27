@@ -79,7 +79,7 @@ public class UpgradesTutorial : Tutorial
             tp.width = 250;
             tp.height = 150;
             canvas.DisableAllExcept(tp);
-            if (SceneManager.GetActiveScene().name == "ShopTutorial")
+            if (SceneManager.GetActiveScene().name == "Shop")
             {
                 progress++;
             }
@@ -91,7 +91,12 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 4 && !GameLogic.THIS.inNewRecipeDisplay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
+            TutorialPanel tp = new TutorialPanel();
+            tp.left = 20;
+            tp.top = 1670;
+            tp.width = 200;
+            tp.height = 250;
+            canvas.DisableAllExcept(tp);
             canvas.lowerText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
@@ -100,7 +105,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 5 && SceneManager.GetActiveScene().name == "LabTutorial")
+        else if (progress == 5 && SceneManager.GetActiveScene().name == "Lab")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
@@ -114,11 +119,16 @@ public class UpgradesTutorial : Tutorial
         {
             progress++;
         }
-        else if (progress == 7 && SceneManager.GetActiveScene().name == "LabTutorial" && !GameLogic.THIS.inNewRecipeDisplay)
+        else if (progress == 7 && SceneManager.GetActiveScene().name == "Lab" && !GameLogic.THIS.inNewRecipeDisplay)
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the cauldron!");
-            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Cauldron").GetComponent<TutorialPanel>(), true);
+            TutorialPanel tp = new TutorialPanel();
+            tp.left = 90;
+            tp.top = 900;
+            tp.width = 900;
+            tp.height = 700;
+            canvas.DisableAllExcept(tp);
             progress++;
         }
         else if (progress == 8 && GameLogic.THIS.inCrafting)
@@ -265,7 +275,7 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("The animal has one or more categories");
             TutorialPanel tp = new TutorialPanel();
             tp.left = 60;
-            tp.top = 1560;
+            tp.top = 1580;
             tp.width = 200;
             tp.height = 250;
             canvas.DisableAllExcept(tp);
@@ -278,7 +288,7 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Fish is an animal of tier 1.");
             TutorialPanel tp = new TutorialPanel();
             tp.left = 390;
-            tp.top = 1560;
+            tp.top = 1580;
             tp.width = 200;
             tp.height = 250;
             canvas.DisableAllExcept(tp);
@@ -288,7 +298,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 22 && Utils.EpochTime() - updateTime > 2000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Animals with higher tiers are stronger and more valuable.");
+            canvas.upperText.Display("Animals of higher tiers are stronger and more valuable.");
             updateTime = Utils.EpochTime();
             progress++;
         }
@@ -298,7 +308,7 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Fish of common quality is worth 50 coins.");
             TutorialPanel tp = new TutorialPanel();
             tp.left = 570;
-            tp.top = 1560;
+            tp.top = 1580;
             tp.width = 240;
             tp.height = 250;
             canvas.DisableAllExcept(tp);
@@ -311,7 +321,7 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("And it takes 15 seconds to craft it.");
             TutorialPanel tp = new TutorialPanel();
             tp.left = 785;
-            tp.top = 1560;
+            tp.top = 1580;
             tp.width = 240;
             tp.height = 250;
             canvas.DisableAllExcept(tp);
