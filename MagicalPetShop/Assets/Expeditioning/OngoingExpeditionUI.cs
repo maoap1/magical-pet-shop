@@ -16,7 +16,9 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
     public ProgressBar progressRing;
     public GameObject readyMessage;
     public Image expeditionImage;
+    public Image imageMask;
     private bool finished;
+    private Color defaultBgColor;
 
     public void Initialize(Expedition expedition, bool isUpperPanel, ExpeditionSummaryUI expeditionSummary) {
         this.expedition = expedition;
@@ -30,6 +32,8 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
 
     // Start is called before the first frame update
     void Start() {
+        defaultBgColor = UIPalette.THIS.GetColor(imageMask.gameObject.GetComponent<ImageColor>().color);
+        imageMask.color = this.defaultBgColor;
         readyMessage.SetActive(false);
         progressRing.gameObject.SetActive(true);
         finished = false;
@@ -42,9 +46,11 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
                 finished = true;
                 progressRing.gameObject.SetActive(false);
                 readyMessage.SetActive(true);
+                imageMask.color = UIPalette.THIS.GetColor(PaletteColor.GridItem);
             } else {
                 readyMessage.SetActive(false);
                 progressRing.fillRate = expedition.fillRate;
+                imageMask.color = this.defaultBgColor;
             }
         }
         if (PlayerState.THIS.expeditions.Find(x => x == expedition) == null) {

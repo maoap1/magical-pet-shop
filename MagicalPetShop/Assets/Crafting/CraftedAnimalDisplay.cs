@@ -12,10 +12,14 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
     public ProgressBar progressRing;
     public GameObject readyMessage;
     public Image animalImage;
+    public Image imageMask;
     private bool finished;
+    private Color defaultBgColor;
 
     public void Start()
     {
+        defaultBgColor = UIPalette.THIS.GetColor(imageMask.gameObject.GetComponent<ImageColor>().color);
+        imageMask.color = this.defaultBgColor;
         readyMessage.SetActive(true);
         progressRing.gameObject.SetActive(true);
         finished = false;
@@ -35,11 +39,13 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
                 finished = true;
                 progressRing.gameObject.SetActive(false);
                 readyMessage.SetActive(true);
+                imageMask.color = UIPalette.THIS.GetColor(PaletteColor.GridItem);
             }
             else
             {
                 readyMessage.SetActive(false);
                 progressRing.fillRate = craftedAnimal.fillRate;
+                imageMask.color = this.defaultBgColor;
             }
         }
         if (PlayerState.THIS.crafting.Find(x => x == craftedAnimal) == null)

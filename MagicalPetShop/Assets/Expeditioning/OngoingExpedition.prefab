@@ -101,6 +101,7 @@ MonoBehaviour:
   progressRing: {fileID: 5340954029213058949}
   readyMessage: {fileID: 5863834685906669896}
   expeditionImage: {fileID: 216833560740549272}
+  imageMask: {fileID: 6560394823168778056}
   references:
     version: 1
 --- !u!114 &347029760189902267

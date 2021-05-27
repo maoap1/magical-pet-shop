@@ -95,6 +95,7 @@ MonoBehaviour:
   progressRing: {fileID: 5340954029213058949}
   readyMessage: {fileID: 1267618550802598304}
   animalImage: {fileID: 216833560740549272}
+  imageMask: {fileID: 6560394823168778056}
 --- !u!114 &4319239075083932211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
-  initializeOnStart: 1
+  initializeOnStart: 0
 --- !u!1 &3363982382905609362
 GameObject:
   m_ObjectHideFlags: 0
