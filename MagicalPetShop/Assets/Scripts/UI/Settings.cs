@@ -15,7 +15,7 @@ public class Settings : MonoBehaviour
         foreach (GameObject go in ahc.ObjectsToHide) {
             go.TweenAwareDisable();
         }
-        content.SetActive(true);
+        content.TweenAwareEnable();
     }
 
     public void Close() {
@@ -26,7 +26,7 @@ public class Settings : MonoBehaviour
         foreach (GameObject go in ahc.ObjectsToHide) {
             go.TweenAwareEnable();
         }
-        content.SetActive(false);
+        content.TweenAwareDisable();
     }
 
 }
