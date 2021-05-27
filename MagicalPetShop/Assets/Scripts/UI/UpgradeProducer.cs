@@ -37,9 +37,13 @@ public class UpgradeProducer : MonoBehaviour
     }
     public void Open(Essence e)
     {
+        GetComponent<AppearHideComponent>().Do();
+        Show(e);
+    }
+
+    public void Show(Essence e) {
         producer = PlayerState.THIS.producers.Find(x => x.essenceAmount.essence.essenceName == e.essenceName);
         GameLogic.THIS.essenceProducerOpened = producer;
-        GetComponent<AppearHideComponent>().Do();
         UpdateInfo();
     }
 

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 // Shows icon and progress of an ongoing expedition
-public class OngoingExpeditionUI : MonoBehaviour {
+public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
 
     public ExpeditionSummaryUI expeditionSummary;
     public Expedition expedition;
@@ -60,6 +62,15 @@ public class OngoingExpeditionUI : MonoBehaviour {
                 FindObjectOfType<AudioManager>().Play(SoundType.Fail);
             }
             Destroy(this.gameObject);
+        } else {
+            gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
     }
+
+    public void OnPointerDown(PointerEventData eventData) {
+        if (finished) {
+            gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
+        }
+    }
+
 }
