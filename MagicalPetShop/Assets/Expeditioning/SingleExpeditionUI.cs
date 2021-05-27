@@ -32,6 +32,7 @@ public class SingleExpeditionUI : MonoBehaviour {
         this.activePack = null;
         Refresh();
         this.goButton.interactable = false;
+        this.goButton.gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(PaletteColor.Inactive);
         GetComponent<AppearHideComponent>().Do();
     }
 
@@ -65,7 +66,10 @@ public class SingleExpeditionUI : MonoBehaviour {
         }
         pack.Activate();
         this.activePack = pack.pack;
-        if (Expeditioning.CanStartExpedition(this.activePack)) this.goButton.interactable = true;
+        if (Expeditioning.CanStartExpedition(this.activePack)) {
+            this.goButton.interactable = true;
+            this.goButton.gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(this.goButton.gameObject.GetComponent<ImageColor>().color);
+        }
     }
 
     public void StartExpedition() {

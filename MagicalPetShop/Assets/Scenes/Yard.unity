@@ -3250,7 +3250,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -2735.2258, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605407793
 MonoBehaviour:
@@ -4131,11 +4131,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1080
+      value: 261.5625
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634226184419, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1920
+      value: 465
       objectReference: {fileID: 0}
     - target: {fileID: 6478255634340056673, guid: 065935f57b470c846bc2c78093c2a9a2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6934,7 +6934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110533184465032948, guid: 98d7f250882ce314684ea3a86ff18be4, type: 3}
       propertyPath: ObjectsToAppear.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1110533184465032948, guid: 98d7f250882ce314684ea3a86ff18be4, type: 3}
       propertyPath: ObjectsToHide.Array.data[0]
@@ -6955,7 +6955,7 @@ PrefabInstance:
     - target: {fileID: 1110533184465032948, guid: 98d7f250882ce314684ea3a86ff18be4, type: 3}
       propertyPath: ObjectsToAppear.Array.data[1]
       value: 
-      objectReference: {fileID: 1561229232}
+      objectReference: {fileID: 0}
     - target: {fileID: 1215490542649669721, guid: 98d7f250882ce314684ea3a86ff18be4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7671,7 +7671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2930911298122505014, guid: e3eaf283673bda04eb412eae6fee68d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1012.1677
+      value: -1012.16766
       objectReference: {fileID: 0}
     - target: {fileID: 2930911298371216884, guid: e3eaf283673bda04eb412eae6fee68d1, type: 3}
       propertyPath: m_Pivot.x
@@ -7883,7 +7883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2930911299282344001, guid: e3eaf283673bda04eb412eae6fee68d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -453.5837
+      value: -453.58368
       objectReference: {fileID: 0}
     - target: {fileID: 2930911299455233974, guid: e3eaf283673bda04eb412eae6fee68d1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9707,7 +9707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3435870557288787974, guid: ccb309aad49e7c545839d680039e6d13, type: 3}
       propertyPath: ObjectsToHide.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3435870557288787974, guid: ccb309aad49e7c545839d680039e6d13, type: 3}
       propertyPath: ObjectsToHide.Array.data[0]
@@ -9716,7 +9716,7 @@ PrefabInstance:
     - target: {fileID: 3435870557288787974, guid: ccb309aad49e7c545839d680039e6d13, type: 3}
       propertyPath: ObjectsToHide.Array.data[1]
       value: 
-      objectReference: {fileID: 1561229232}
+      objectReference: {fileID: 0}
     - target: {fileID: 3823187967984796351, guid: ccb309aad49e7c545839d680039e6d13, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -10479,7 +10479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8984104452913190357, guid: ccb309aad49e7c545839d680039e6d13, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -453.64505
+      value: -453.64502
       objectReference: {fileID: 0}
     - target: {fileID: 9150756550342075951, guid: ccb309aad49e7c545839d680039e6d13, type: 3}
       propertyPath: m_AnchorMax.y

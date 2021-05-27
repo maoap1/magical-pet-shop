@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 9
-  initializeOnStart: 1
+  initializeOnStart: 0
 --- !u!114 &8729312500958773505
 MonoBehaviour:
   m_ObjectHideFlags: 0
