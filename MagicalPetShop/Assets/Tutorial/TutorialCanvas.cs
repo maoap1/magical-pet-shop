@@ -11,6 +11,9 @@ public class TutorialCanvas : MonoBehaviour
     public GameObject top;
     public GameObject bottom;
 
+    public GameObject leftArrow;
+    public GameObject rightArrow;
+
     public TutorialText upperText;
     public TutorialText lowerText;
     public GameObject mask;

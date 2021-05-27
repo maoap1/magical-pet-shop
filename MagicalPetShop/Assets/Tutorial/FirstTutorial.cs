@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "First Tutorial", menuName = "Tutorials/First Tutorial")]
 public class FirstTutorial : Tutorial
 {
-    private int progress;
     private long updateTime;
     public override bool finished()
     {
@@ -19,6 +18,36 @@ public class FirstTutorial : Tutorial
             Shop.customersComing = true;
         }
         return progress==16;
+    }
+
+    public override void startWithProgress(int progress)
+    {
+        SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+        switcher.on = false;
+        if (progress < 4)
+        {
+            this.progress = 0;
+        }
+        else if (progress < 7)
+        {
+            this.progress = 3;
+        }
+        else if (progress == 7)
+        {
+            this.progress = 100;
+        }
+        else if (progress == 8)
+        {
+            this.progress = 110;
+        }
+        else if (progress > 13)
+        {
+            this.progress = 10;
+        }
+        else if (progress < 16)
+        {
+            this.progress = 13;
+        }
     }
 
     public override bool tryStart()
@@ -34,6 +63,8 @@ public class FirstTutorial : Tutorial
         {
             Shop.customersComing = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             canvas.DisableAll(true, true);
 
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
@@ -79,11 +110,17 @@ public class FirstTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
             canvas.upperText.Display("Animals are crafted in the lab. Swipe left or use the navbar to go there.");
+            canvas.leftArrow.SetActive(true);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             progress++;
         }
         else if (progress==4 && SceneManager.GetActiveScene().name == "LabTutorial")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
+            canvas.leftArrow.SetActive(false);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             canvas.DisableAll(true, true);
             updateTime = Utils.EpochTime();
             progress++;
@@ -137,12 +174,17 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Return to the shop to sell the fish!");
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/ShopButton").GetComponent<TutorialPanel>());
             progress++;
         }
         else if (progress==10 && SceneManager.GetActiveScene().name == "ShopTutorial")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
+            canvas.rightArrow.SetActive(true);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             canvas.DisableAll(true, true);
             updateTime = Utils.EpochTime();
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
@@ -160,6 +202,7 @@ public class FirstTutorial : Tutorial
         else if (progress==11 && Utils.EpochTime() - updateTime > 1000)
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
+            canvas.rightArrow.SetActive(false);
             canvas.upperText.Display("Tap on the customer to sell the fish to him!");
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
             canvas.DisableAllExcept(customer.GetComponent<TutorialPanel>(), true);
@@ -204,8 +247,62 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Close();
             canvas.lowerText.Close();
             Inventory.AddToInventory(100);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             progress++;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        else if (progress == 100)
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
+            canvas.upperText.Display("Move to the lab!");
+            canvas.leftArrow.SetActive(true);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
+            progress++;
+        }
+        else if (progress == 101 && SceneManager.GetActiveScene().name == "LabTutorial")
+        {
+            TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
+            canvas.DisableAll(true, true);
+            canvas.leftArrow.SetActive(false);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
+            updateTime = Utils.EpochTime();
+            progress=7;
+        }
+
+        else if (progress == 110)
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
+            canvas.upperText.Display("Move to the lab!");
+            canvas.leftArrow.SetActive(true);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
+            progress++;
+        }
+        else if (progress == 111 && SceneManager.GetActiveScene().name == "LabTutorial")
+        {
+            TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
+            canvas.leftArrow.SetActive(false);
+            canvas.DisableAll(true, true);
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
+            updateTime = Utils.EpochTime();
+            progress = 8;
         }
     }
 }

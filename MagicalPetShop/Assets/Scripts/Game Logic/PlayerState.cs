@@ -49,7 +49,9 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
-    private bool tutorial = false;
+    private bool tutorial = true;
+    public int currentTutorial = 0;
+    public int tutorialProgress = 0;
 
     private static PlayerState _THIS;
     public static PlayerState THIS
@@ -72,6 +74,11 @@ public class PlayerState : MonoBehaviour
     
     public void Save()
     {
+        if (tutorial)
+        {
+            currentTutorial = Tutorials.THIS.currentIndex;
+            tutorialProgress = Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].progress;
+        }
         lastArrivalTime = Shop.lastArrivalTime;
         customers = Shop.customers;
         string json = JsonUtility.ToJson(this);
@@ -110,6 +117,10 @@ public class PlayerState : MonoBehaviour
                 JsonUtility.FromJsonOverwrite(stateJson, this);
                 Shop.lastArrivalTime = lastArrivalTime;
                 Shop.customers = customers;
+                Tutorials.THIS.currentIndex = this.currentTutorial;
+                if (Tutorials.THIS.currentIndex < Tutorials.THIS.tutorials.Count) {
+                    Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].startWithProgress(this.tutorialProgress);
+                }
             }
             else
             {

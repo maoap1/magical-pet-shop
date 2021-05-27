@@ -10,6 +10,10 @@ public class SceneSwitcher : MonoBehaviour
     public Image BlackBG;
     public float FadeDuration;
     public bool switching = false;
+    [HideInInspector]
+    public bool on = true;
+    [HideInInspector]
+    public List<string> disabledScenes = new List<string>();
 
     Dictionary<string, SoundType> transitionSounds = new Dictionary<string, SoundType>() {
         { "Lab", SoundType.Steps },
@@ -19,6 +23,8 @@ public class SceneSwitcher : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        if (!on) return;
+        if (disabledScenes.Contains(sceneName)) return;
         if (switching) return;
         switching = true;
 
