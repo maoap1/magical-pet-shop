@@ -588,7 +588,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 8620118484537647149}
         m_TargetAssemblyTypeName: SettingsButton, Assembly-CSharp
         m_MethodName: ShowCheats
@@ -613,7 +613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d04cc1251641554a877877de0a2542d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
 --- !u!114 &4574403848887356408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,7 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b9aa6f4ca1821498f41e3a618aaaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
   level: {fileID: 4682070915949629868}
   money: {fileID: 8072254828024891483}
   diamonds: {fileID: 854695155044010849}

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class UpperPanelUI : MonoBehaviour {
 
     [SerializeField]
-    private GameObject settings;
-    [SerializeField]
     private TMPro.TextMeshProUGUI level;
     [SerializeField]
     private TMPro.TextMeshProUGUI money;
@@ -19,7 +17,6 @@ public class UpperPanelUI : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        settingsButton.SetSettings(this.settings);
     }
 
     // Update is called once per frame

@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class SettingsButton : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject settings;
 
     private CheatsUI cheats;
 
     void Start() {
     }
 
-    public void SetSettings(GameObject settings) {
-        this.settings = settings;
-    }
-
     public void ShowSettings() {
-        this.settings.SetActive(true);
+        FindObjectOfType<Settings>().Open();
     }
 
     public void ShowCheats() {
