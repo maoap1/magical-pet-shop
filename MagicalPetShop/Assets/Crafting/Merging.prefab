@@ -855,8 +855,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -65, y: 0}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4181571528518646407
 CanvasRenderer:
@@ -1410,6 +1410,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2eb7f698fc502a8488278e651081e2ac, type: 3}
+    - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: locationType
       value: 
       objectReference: {fileID: 11400000, guid: 6a260ada5b6eb6a4aafe6b29ae6c30fd, type: 2}
@@ -1546,6 +1550,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e330b0b7d5ad6d3478243d6a23dfba02, type: 3}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: locationType
       value: 
@@ -1684,6 +1692,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b1e73b51cc41c54abe700394d3eaa14, type: 3}
+    - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: locationType
       value: 
       objectReference: {fileID: 11400000, guid: 840c4c09ca052ea47a446f64d381e0cd, type: 2}
@@ -1821,6 +1833,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e372c7876ab8604e98a563d6fac2fb2, type: 3}
+    - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: locationType
       value: 
       objectReference: {fileID: 11400000, guid: 606aa861e60fc3746ba39d04cc7549ce, type: 2}
@@ -1831,7 +1847,7 @@ PrefabInstance:
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: inactiveSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 60c5323c271f3e043a4b6e870f2727f4, type: 3}
+      objectReference: {fileID: 21300000, guid: 093a5be25e2911440a959e9982a0470c, type: 3}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: locationFilterPanel
       value: 
@@ -1957,6 +1973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 801ea3bedd0e86342baa5a02c479cfae, type: 3}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: locationType
       value: 
@@ -2700,6 +2720,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 759dfb31a37b32f4bbdf683b60cac1ea, type: 3}
     - target: {fileID: 2685069711642133785, guid: ad8760ef1baaf5d49a4eb22b3aac5679, type: 3}
       propertyPath: mergingPanel
       value: 
