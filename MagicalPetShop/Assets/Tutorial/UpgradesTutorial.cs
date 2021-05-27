@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Upgrades Tutorial", menuName = "Tutorials/Upgrades Tutorial")]
 public class UpgradesTutorial : Tutorial
 {
-    private int progress;
     private long updateTime;
     public override bool finished()
     {
@@ -18,6 +17,14 @@ public class UpgradesTutorial : Tutorial
             Shop.customersComing = true;
         }
         return progress == 28;
+    }
+
+    public override void startWithProgress(int progress)
+    {
+        if (progress < 28)
+        {
+            this.progress = 0;
+        }
     }
 
     public override bool tryStart()
@@ -38,6 +45,8 @@ public class UpgradesTutorial : Tutorial
         if (progress == 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             canvas.DisableAll(true, false);
             updateTime = Utils.EpochTime();
             progress++;
@@ -84,13 +93,19 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
             canvas.lowerText.Close();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             canvas.upperText.Display("Move to the lab!");
+            canvas.leftArrow.SetActive(true);
             updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 5 && SceneManager.GetActiveScene().name == "LabTutorial")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            canvas.leftArrow.SetActive(false);
+            switcher.on = false;
             canvas.DisableAll(true, false);
             updateTime = Utils.EpochTime();
             progress++;
@@ -135,7 +150,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 10 && GameLogic.THIS.currentRecipeCategory.name == "Water")
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Click oon the info to find out more about the recipe!");
+            canvas.lowerText.Display("Click on the info to find out more about the recipe!");
             TutorialPanel tp = new TutorialPanel();
             tp.left = 72;
             tp.top = 1102;
@@ -326,6 +341,8 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();
             canvas.upperText.Close();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             canvas.EnableAll();
             progress++;
         }

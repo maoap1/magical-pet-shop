@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Crafting Slots Tutorial", menuName = "Tutorials/Crafting Slots Tutorial")]
 public class CraftingSlotsTutorial : Tutorial
 {
-    private int progress;
     private long updateTime;
     public override bool finished()
     {
@@ -18,6 +17,18 @@ public class CraftingSlotsTutorial : Tutorial
             Shop.customersComing = true;
         }
         return progress == 6;
+    }
+
+    public override void startWithProgress(int progress)
+    {
+        if (progress < 4)
+        {
+            this.progress = 0;
+        }
+        else if (progress < 6)
+        {
+            this.progress = 4;
+        }
     }
 
     public override bool tryStart()
@@ -37,6 +48,8 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 0)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll(true, false);
             updateTime = Utils.EpochTime();
@@ -89,6 +102,8 @@ public class CraftingSlotsTutorial : Tutorial
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             progress++;
         }
     }

@@ -7,4 +7,6 @@ public abstract class Tutorial : ScriptableObject
     public abstract bool tryStart();
     public abstract void update();
     public abstract bool finished();
+    public abstract void startWithProgress(int progress);
+    public int progress;
 }

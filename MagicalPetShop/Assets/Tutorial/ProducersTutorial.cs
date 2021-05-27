@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Producers Tutorial", menuName = "Tutorials/Producers Tutorial")]
 public class ProducersTutorial : Tutorial
 {
-    private int progress;
     private long updateTime;
     public override bool finished()
     {
@@ -18,6 +17,18 @@ public class ProducersTutorial : Tutorial
             Shop.customersComing = true;
         }
         return progress == 7;
+    }
+
+    public override void startWithProgress(int progress)
+    {
+        if (progress < 4)
+        {
+            this.progress = 0;
+        }
+        else if (progress < 7)
+        {
+            this.progress = 4;
+        }
     }
 
     public override bool tryStart()
@@ -38,6 +49,8 @@ public class ProducersTutorial : Tutorial
         if (progress == 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             canvas.DisableAll(true, false);
             updateTime = Utils.EpochTime();
             progress++;
@@ -97,6 +110,8 @@ public class ProducersTutorial : Tutorial
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             progress++;  
         }
     }

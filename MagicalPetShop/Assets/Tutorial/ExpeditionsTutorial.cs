@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Expeditions Tutorial", menuName = "Tutorials/Expeditions Tutorial")]
 public class ExpeditionsTutorial : Tutorial
 {
-    private int progress;
     private long updateTime;
     public override bool finished()
     {
@@ -18,6 +17,22 @@ public class ExpeditionsTutorial : Tutorial
             Shop.customersComing = true;
         }
         return progress == 60;
+    }
+
+    public override void startWithProgress(int progress)
+    {
+        if (progress<8)
+        {
+            this.progress = 1;
+        }
+        else if (progress==8)
+        {
+            this.progress = 8;
+        }
+        else
+        {
+            this.progress = 9;
+        }
     }
 
     public override bool tryStart()
@@ -103,7 +118,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 8)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("You have to buy someone to lead the pack. Get the money to do so!");
+            canvas.upperText.Close();
             canvas.EnableAll();
             progress++;
         }

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Levels Tutorial", menuName = "Tutorials/Levels Tutorial")]
 public class NewLevelTutorial : Tutorial
 {
-    private int progress;
     private long updateTime;
     public override bool finished()
     {
@@ -18,6 +17,14 @@ public class NewLevelTutorial : Tutorial
             Shop.customersComing = true;
         }
         return progress == 11;
+    }
+
+    public override void startWithProgress(int progress)
+    {
+        if (progress < 11)
+        {
+            this.progress = 0;
+        }
     }
 
     public override bool tryStart()
@@ -38,6 +45,8 @@ public class NewLevelTutorial : Tutorial
         if (progress == 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             canvas.DisableAll(true, false);
             updateTime = Utils.EpochTime();
             progress++;
@@ -110,7 +119,7 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("You will receive it once you close the new level overlay.");
+            canvas.upperText.Display("You will receive it after you close the new level overlay.");
             canvas.DisableAll();
             progress++;
         }
@@ -118,6 +127,8 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
             progress++;
         }
     }
