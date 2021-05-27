@@ -15,6 +15,7 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
     public Image imageMask;
     private bool finished;
     private Color defaultBgColor;
+    private Tween tween = null;
 
     public void Start()
     {
@@ -73,15 +74,16 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
                 PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
             }
             FindObjectOfType<AudioManager>().Play(SoundType.Crafting);
+            if (tween != null) tween.Kill();
             Destroy(this.gameObject);
         } else {
+            if (tween != null) tween.Kill();
             gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        if (finished) {
-            gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
-        }
+        if (tween != null) tween.Kill(); 
+        tween = gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
     }
 }
