@@ -18,10 +18,12 @@ public class PackLeadersUI : MonoBehaviour {
 
     public void Open() {
         Refresh();
+        GameLogic.THIS.inPackLeaderSelection = true;
         GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
+        GameLogic.THIS.inPackLeaderSelection = false;
         GetComponent<AppearHideComponent>().Revert();
     }
 

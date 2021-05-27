@@ -19,10 +19,12 @@ public class NewRecipeDisplay : MonoBehaviour
         GetComponent<AppearHideComponent>().Do();
         FindObjectOfType<AudioManager>().Play(SoundType.Success);
         newLevelDisplay = Resources.FindObjectsOfTypeAll<NewLevelDisplay>()[0];
+        GameLogic.THIS.inNewRecipeDisplay = true;
     }
 
     public void Close() {
         GetComponent<AppearHideComponent>().Revert();
+        GameLogic.THIS.inNewRecipeDisplay = false;
         if (level)
         {
             newLevelDisplay.Open();

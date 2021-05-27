@@ -64,6 +64,11 @@ public class GameLogic : ScriptableObject
     public bool inInventory = false;
     public bool inCrafting = false;
     public bool buyingCraftingSlot = false;
+    public bool inRecipeInfo = false;
+    public bool inNewRecipeDisplay = false;
+    public bool inNewLevelDisplay = false;
+    public bool inPackLeaderSelection = false;
+    public LocationType currentRecipeCategory = null;
     public EssenceProducer essenceProducerOpened = null;
 
     void OnValidate()
@@ -191,6 +196,11 @@ public class GameLogic : ScriptableObject
         inInventory = false;
         inCrafting = false;
         buyingCraftingSlot = false;
+        inRecipeInfo = false;
+        inNewRecipeDisplay = false;
+        inNewLevelDisplay = false;
+        inPackLeaderSelection = false;
+        currentRecipeCategory = null;
         essenceProducerOpened = null;
     }
 }

@@ -51,7 +51,7 @@ public class RecipeLocationFilter : MonoBehaviour
         List<RecipeProgress> recipesDisplay = PlayerState.THIS.recipes.FindAll(r => (r.recipe.animal.category == locationType));
         recipesDisplay.Sort((r1, r2) => r2.recipe.animal.level.CompareTo(r1.recipe.animal.level));
         recipesDisplayPanel.Display(recipesDisplay);
-
+        GameLogic.THIS.currentRecipeCategory = locationType;
     }
 
     public void UpdateNew()

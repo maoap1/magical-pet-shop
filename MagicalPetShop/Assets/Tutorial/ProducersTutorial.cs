@@ -10,14 +10,14 @@ public class ProducersTutorial : Tutorial
     private long updateTime;
     public override bool finished()
     {
-        if (progress == 5)
+        if (progress == 7)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
         }
-        return progress == 5;
+        return progress == 7;
     }
 
     public override bool tryStart()
@@ -38,12 +38,19 @@ public class ProducersTutorial : Tutorial
         if (progress == 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.DisableAll(true, false);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 1 && Utils.EpochTime() - updateTime > 1000)
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
             canvas.DisableAll();
             canvas.lowerText.Display("You need essences to craft animals and they are produced by collectors.");
             progress++;
         }
-        else if (progress == 1 && Utils.EpochTime() - updateTime > 2000)
+        else if (progress == 2 && Utils.EpochTime() - updateTime > 3000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("Tap on the water collector to increase its capacity and production rate!");
@@ -55,31 +62,39 @@ public class ProducersTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress == 2 && GameLogic.THIS.essenceProducerOpened != null && GameLogic.THIS.essenceProducerOpened.essenceAmount.essence.name=="Water")
+        else if (progress == 3 && GameLogic.THIS.essenceProducerOpened != null && GameLogic.THIS.essenceProducerOpened.essenceAmount.essence.name=="Water")
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
             canvas.lowerText.Display("Tap on the upgrade button to purchese a new level of the collector!");
             TutorialPanel tp = new TutorialPanel();
-            tp.left = 715;
-            tp.top = 1045;
+            tp.left = 700;
+            tp.top = 1055;
             tp.width = 300;
             tp.height = 150;
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress == 3 && PlayerState.THIS.producers.Find(p => p.essenceAmount.essence.name=="Water").level == 1)
+        else if (progress == 4 && PlayerState.THIS.producers.Find(p => p.essenceAmount.essence.name=="Water").level == 1)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Congratulations you have just upgraded a collector! You receive 100 coin as a reward!");
+            canvas.lowerText.Display("Congratulations you have just upgraded a collector!");
             canvas.DisableAll();
-            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Cauldron").GetComponent<TutorialPanel>());
             progress++;
             updateTime = Utils.EpochTime();
         }
-        else if (progress == 4 && Utils.EpochTime() - updateTime > 2000)
+        else if (progress == 5 && Utils.EpochTime() - updateTime > 2000)
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.lowerText.Display("You receive 100 coins as a reward!");
+            canvas.DisableAll();
+            progress++;
+            updateTime = Utils.EpochTime();
+        }
+        else if (progress == 6 && Utils.EpochTime() - updateTime > 2000)
         {
             Inventory.AddToInventory(100);
+            FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();
             progress++;  

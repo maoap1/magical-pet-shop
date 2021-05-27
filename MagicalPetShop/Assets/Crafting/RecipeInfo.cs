@@ -25,6 +25,7 @@ public class RecipeInfo : MonoBehaviour
 
     public void Open(RecipeProgress rp)
     {
+        GameLogic.THIS.inRecipeInfo = true;
         recipe = rp;
         this.gameObject.SetActive(true);
         secondaryCategoryImage.gameObject.SetActive(false);
@@ -80,6 +81,8 @@ public class RecipeInfo : MonoBehaviour
 
     public void Close()
     {
+        GameLogic.THIS.inRecipeInfo = false;
+        GameLogic.THIS.currentRecipeCategory = null;
         this.gameObject.SetActive(false);
         foreach (GameObject g in tmpHidden)
         {

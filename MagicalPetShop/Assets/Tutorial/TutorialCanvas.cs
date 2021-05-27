@@ -16,14 +16,46 @@ public class TutorialCanvas : MonoBehaviour
     public GameObject mask;
     public CutoutMaskUI imageDarkening;
 
-    public void DisableAll()
+    public void DisableAll(bool noDarkening = false, bool instant = false)
     {
         left.GetComponent<RectTransform>().sizeDelta = new Vector2(540, 1920);
         right.GetComponent<RectTransform>().sizeDelta = new Vector2(540, 1920);
         top.GetComponent<RectTransform>().sizeDelta = new Vector2(1080, 0);
         bottom.GetComponent<RectTransform>().sizeDelta = new Vector2(1080, 0);
-        mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 0), 0.5f).SetEase(Ease.OutCubic);
-        imageDarkening.DOColor(new Color(0, 0, 0, 0.6f), 0.5f).SetEase(Ease.OutCubic);
+        if (!instant)
+        {
+            if (!noDarkening)
+            {
+                mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 0), 0.5f).SetEase(Ease.OutCubic);
+                mask.GetComponent<RectTransform>().DOAnchorPos(new Vector3(540, -960, 0), 0.5f).SetEase(Ease.OutCubic);
+                imageDarkening.DOColor(new Color(0, 0, 0, 0.6f), 0.5f).SetEase(Ease.OutCubic);
+            }
+            else
+            {
+                mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 0), 0.5f).SetEase(Ease.OutCubic);
+                mask.GetComponent<RectTransform>().DOAnchorPos(new Vector3(540, -960, 0), 0.5f).SetEase(Ease.OutCubic);
+                imageDarkening.DOColor(new Color(0, 0, 0, 0.0f), 0.5f).SetEase(Ease.OutCubic);
+                Invoke(nameof(DisableMask), 0.01f);
+                Invoke(nameof(EnableMask), 0.05f);
+            }
+        }
+        else
+        {
+            if (!noDarkening)
+            {
+                mask.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+                mask.GetComponent<RectTransform>().anchoredPosition = new Vector3(540, -960, 0);
+                imageDarkening.color = new Color(0, 0, 0, 0.6f);
+            }
+            else
+            {
+                mask.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+                mask.GetComponent<RectTransform>().anchoredPosition = new Vector3(540, -960, 0);
+                imageDarkening.color = new Color(0, 0, 0, 0.0f);
+                Invoke(nameof(DisableMask), 0.01f);
+                Invoke(nameof(EnableMask), 0.05f);
+            }
+        }
     }
 
     public void EnableMask()
@@ -57,7 +89,7 @@ public class TutorialCanvas : MonoBehaviour
         if (firstTime)
         {
             Invoke(nameof(DisableMask), 0.01f);
-            Invoke(nameof(EnableMask), 0.5f);
+            Invoke(nameof(EnableMask), 0.05f);
         }
         imageDarkening.DOColor(new Color(0, 0, 0, 0.6f), 0.5f).SetEase(Ease.OutCubic);
         //backgroundBlur.SetActive(true);
