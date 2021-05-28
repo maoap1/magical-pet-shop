@@ -93,11 +93,13 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("Looks like there is a customer wanting to order a fish. Tap on him!");
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
             GameObject customerBlur = GameObject.Find("Canvas Blur/SpawnPoint/TutorialCustomer");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 415;
-            tp.top = 1070;
-            tp.width = 250;
-            tp.height = 550;
+            Rect tp = new Rect
+            {
+                x = 415,
+                y = 1070,
+                width = 250,
+                height = 550
+            };
             canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp);
             foreach (Transform child in customer.transform)
@@ -114,22 +116,26 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Oh snap! It looks like we don't have fish in stock. Tell the customer to wait!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 340;
-            tp.top = 1385;
-            tp.width = 400;
-            tp.height = 200;
+            Rect tp = new Rect
+            {
+                x = 340,
+                y = 1385,
+                width = 400,
+                height = 200
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
         else if (progress==3 && !GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 20;
-            tp.top = 1670;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 20,
+                y = 1670,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             canvas.upperText.Display("Animals are crafted in the lab. Swipe left or use the navbar to go there.");
             canvas.leftArrow.SetActive(true);
@@ -152,11 +158,13 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the cauldron to open the crafting menu!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 90;
-            tp.top = 900;
-            tp.width = 900;
-            tp.height = 700;
+            Rect tp = new Rect
+            {
+                x = 90,
+                y = 900,
+                width = 900,
+                height = 700
+            };
             canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp);
             progress++;
@@ -165,11 +173,13 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Click on the panel with the fish to start crafting it!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 60;
-            tp.top = 680;
-            tp.width = 320;
-            tp.height = 500;
+            Rect tp = new Rect
+            {
+                x = 60,
+                y = 680,
+                width = 320,
+                height = 500
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -177,11 +187,13 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The fish is being crafted! Wait until it is finished!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 860;
-            tp.top = 1495;
-            tp.width = 200;
-            tp.height = 200;
+            Rect tp = new Rect
+            {
+                x = 860,
+                y = 1495,
+                width = 200,
+                height = 200
+            };
             canvas.DisableAllExcept(tp);
             progress++;
             PlayerState.THIS.Save();
@@ -190,11 +202,13 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Crafting has finished! Collect the fish by clicking on it!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 860;
-            tp.top = 1495;
-            tp.width = 200;
-            tp.height = 200;
+            Rect tp = new Rect
+            {
+                x = 860,
+                y = 1495,
+                width = 200,
+                height = 200
+            };
             canvas.DisableAllExcept(tp);
             progress++;
             PlayerState.THIS.Save();
@@ -205,11 +219,13 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("Return to the shop to sell the fish!");
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 230;
-            tp.top = 1670;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 230,
+                y = 1670,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             canvas.rightArrow.SetActive(true);
             progress++;
@@ -239,11 +255,13 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the customer to sell the fish to him!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 415;
-            tp.top = 1070;
-            tp.width = 250;
-            tp.height = 550;
+            Rect tp = new Rect
+            {
+                x = 415,
+                y = 1070,
+                width = 250,
+                height = 550
+            };
             canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp);
             progress++;
@@ -252,11 +270,13 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Click on the sell button to sell the fish to the customer!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 555;
-            tp.top = 1185;
-            tp.width = 400;
-            tp.height = 200;
+            Rect tp = new Rect
+            {
+                x = 555,
+                y = 1185,
+                width = 400,
+                height = 200
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -313,11 +333,13 @@ public class FirstTutorial : Tutorial
         else if (progress == 100)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 20;
-            tp.top = 1670;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 20,
+                y = 1670,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             canvas.upperText.Display("Move to the lab!");
             canvas.leftArrow.SetActive(true);
@@ -339,11 +361,13 @@ public class FirstTutorial : Tutorial
         else if (progress == 110)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 20;
-            tp.top = 1670;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 20,
+                y = 1670,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             canvas.upperText.Display("Move to the lab!");
             canvas.leftArrow.SetActive(true);

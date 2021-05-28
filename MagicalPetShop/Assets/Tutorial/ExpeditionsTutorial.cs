@@ -95,11 +95,13 @@ public class ExpeditionsTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Move to the pack manager!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 860;
-            tp.top = 1670;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 860,
+                y = 1670,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -107,11 +109,13 @@ public class ExpeditionsTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("You have to buy someone to lead the pack. Get the money to do so!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 60;
-            tp.top = 330;
-            tp.width = 480;
-            tp.height = 650;
+            Rect tp = new Rect
+            {
+                x = 60,
+                y = 330,
+                width = 480,
+                height = 650
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
