@@ -7,7 +7,7 @@ using DG.Tweening;
 
 
 // Shows icon and progress of an ongoing expedition
-public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
+public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler, IPointerExitHandler {
 
     public ExpeditionSummaryUI expeditionSummary;
     public Expedition expedition;
@@ -19,6 +19,7 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
     public Image imageMask;
     private bool finished;
     private Color defaultBgColor;
+    private Tween tween = null;
 
     public void Initialize(Expedition expedition, bool isUpperPanel, ExpeditionSummaryUI expeditionSummary) {
         this.expedition = expedition;
@@ -58,6 +59,15 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
         }
     }
 
+    private void OnDestroy() {
+        SafeKillTween();
+    }
+
+    private void SafeKillTween() {
+        if (tween == null) return;
+        if (tween.active) tween.Kill();
+    }
+
     public void Clicked() {
         if (finished) {
             ExpeditionResult result = Expeditioning.FinishExpedition(this.expedition);
@@ -67,16 +77,22 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler {
             } else {
                 FindObjectOfType<AudioManager>().Play(SoundType.Fail);
             }
+            SafeKillTween();
             Destroy(this.gameObject);
         } else {
-            gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
+            SafeKillTween();
+            tween = gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        if (finished) {
-            gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
-        }
+        SafeKillTween();
+        tween = gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        SafeKillTween();
+        tween = gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
     }
 
 }
