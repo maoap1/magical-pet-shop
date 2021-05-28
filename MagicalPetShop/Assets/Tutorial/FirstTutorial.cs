@@ -13,6 +13,7 @@ public class FirstTutorial : Tutorial
     {
         if (progress==16 && !completed)
         {
+            Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
@@ -26,6 +27,7 @@ public class FirstTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        Tutorials.THIS.settingsDisabled = true;
         completed = false;
         SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
         switcher.on = false;
@@ -70,6 +72,7 @@ public class FirstTutorial : Tutorial
         if (progress==0)
         {
             PlayerState.THIS.Save();
+            Tutorials.THIS.settingsDisabled = true;
             Shop.customersComing = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];

@@ -12,6 +12,7 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 6 && !completed)
         {
+            Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
@@ -23,6 +24,7 @@ public class CraftingSlotsTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        Tutorials.THIS.settingsDisabled = true;
         completed = false;
         if (progress < 5)
         {
@@ -56,6 +58,7 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 0)
         {
+            Tutorials.THIS.settingsDisabled = true;
             PlayerState.THIS.Save();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
