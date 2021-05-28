@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Portal
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: a8cc60fd0a6e76647b4869b8bcad6e08, type: 3}
-  volume: 0.5
+  volume: 0.4
   type: 12
   source: {fileID: 0}

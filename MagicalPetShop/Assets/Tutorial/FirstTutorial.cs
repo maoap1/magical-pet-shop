@@ -189,10 +189,10 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("The fish is being crafted! Wait until it is finished!");
             Rect tp = new Rect
             {
-                x = 860,
-                y = 1495,
-                width = 200,
-                height = 200
+                x = 850,
+                y = 1485,
+                width = 220,
+                height = 220
             };
             canvas.DisableAllExcept(tp);
             progress++;
@@ -204,10 +204,10 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("Crafting has finished! Collect the fish by clicking on it!");
             Rect tp = new Rect
             {
-                x = 860,
-                y = 1495,
-                width = 200,
-                height = 200
+                x = 850,
+                y = 1485,
+                width = 220,
+                height = 220
             };
             canvas.DisableAllExcept(tp);
             progress++;

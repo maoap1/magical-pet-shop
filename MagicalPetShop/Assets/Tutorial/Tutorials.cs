@@ -29,7 +29,7 @@ public class Tutorials : ScriptableObject
 
     public void Update()
     {
-        if (!finished && Utils.EpochTime()-lastUpdateTime>100)
+        if (!finished)
         {
             lastUpdateTime = Utils.EpochTime();
             if (tutorials.Count == 0 || (currentIndex+1 == tutorials.Count && tutorials[currentIndex].finished()))
