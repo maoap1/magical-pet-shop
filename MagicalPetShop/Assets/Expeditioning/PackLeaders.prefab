@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b3f1a363337084ca09da444900a504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backDuration: 0.4
+  backDuration: 0.3
   disable: 1
   enable: 1
 --- !u!1 &121250218118382927
@@ -847,6 +847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!1 &5450307563080046322
 GameObject:
   m_ObjectHideFlags: 0

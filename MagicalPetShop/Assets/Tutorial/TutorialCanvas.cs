@@ -35,8 +35,7 @@ public class TutorialCanvas : MonoBehaviour
         mask.GetComponent<RectTransform>().sizeDelta = size;
         mask.GetComponent<RectTransform>().anchoredPosition = pos;
     }
-        
-    
+      
 
     public void DisableAll(bool noDarkening = false, bool instant = false)
     {
@@ -49,8 +48,7 @@ public class TutorialCanvas : MonoBehaviour
         {
             if (!noDarkening)
             {
-                mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 0), duration).SetEase(Ease.OutCubic);
-                mask.GetComponent<RectTransform>().DOAnchorPos(new Vector3(540, -960, 0), duration).SetEase(Ease.OutCubic);
+                mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 0), duration).SetEase(Ease.OutCubic).OnComplete(() => mask.GetComponent<RectTransform>().anchoredPosition = new Vector3(540, -960, 0));
                 imageDarkening.DOColor(new Color(0, 0, 0, 0.6f), duration).SetEase(Ease.OutCubic);
             }
             else
