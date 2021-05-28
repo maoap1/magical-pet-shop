@@ -32,6 +32,10 @@ public class UpgradesTutorial : Tutorial
             switcher.on = false;
             this.progress = 0;
         }
+        if (progress == 28)
+        {
+            this.progress = 28;
+        }
     }
 
     public override bool tryStart()

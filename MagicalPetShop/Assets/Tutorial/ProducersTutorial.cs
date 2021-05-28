@@ -43,6 +43,10 @@ public class ProducersTutorial : Tutorial
             switcher.on = false;
             this.progress = 4;
         }
+        if (progress == 7)
+        {
+            this.progress = 7;
+        }
     }
 
     public override bool tryStart()

@@ -39,6 +39,10 @@ public class CraftingSlotsTutorial : Tutorial
             switcher.on = false;
             this.progress = 4;
         }
+        if (progress == 6)
+        {
+            this.progress = 6;
+        }
     }
 
     public override bool tryStart()

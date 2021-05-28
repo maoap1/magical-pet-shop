@@ -57,6 +57,10 @@ public class FirstTutorial : Tutorial
         {
             this.progress = 13;
         }
+        if (progress == 16)
+        {
+            this.progress = 16;
+        }
     }
 
     public override bool tryStart()
