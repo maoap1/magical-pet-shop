@@ -68,7 +68,7 @@ public class CraftingSlotsTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
             canvas.upperText.Display("Luckily you can buy a new one. Click on the + icon to do so!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 650;
             tp.top = 1495;
             tp.width = 200;
@@ -80,7 +80,7 @@ public class CraftingSlotsTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Tap on the OK button to buy a new crafting slot");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 545;
             tp.top = 1100;
             tp.width = 300;
