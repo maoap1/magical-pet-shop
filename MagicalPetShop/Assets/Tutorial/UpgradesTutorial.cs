@@ -58,7 +58,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.lowerText.Display("You just unlocked a recipe upgrade.");
+            canvas.upperText.Display("You just unlocked a recipe upgrade.");
             canvas.DisableAll();
             progress++;
         }
@@ -66,7 +66,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.lowerText.Display("In this case you found recipe for a new animal.");
+            canvas.upperText.Display("In this case you found recipe for a new animal.");
             canvas.DisableAll();
             progress++;
         }
@@ -74,7 +74,6 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.lowerText.Close();
             canvas.upperText.Display("Close the anouncement to find out where to craft the unlocked animal.");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 420;
@@ -100,7 +99,6 @@ public class UpgradesTutorial : Tutorial
             tp.width = 200;
             tp.height = 250;
             canvas.DisableAllExcept(tp);
-            canvas.lowerText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             canvas.upperText.Display("Move to the lab!");
@@ -137,8 +135,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 8 && GameLogic.THIS.inCrafting)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Close();
-            canvas.lowerText.Display("A new animal was discovered in the earth category, move there!");
+            canvas.upperText.Display("A new animal was discovered in the earth category, move there!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 230;
             tp.top = 500;
@@ -150,8 +147,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 9 && GameLogic.THIS.currentRecipeCategory.name == "Earth")
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Close();
-            canvas.lowerText.Display("Now you know where to craft new animals. Lets find out more about upgrades!");
+            canvas.upperText.Display("Now you know where to craft new animals. Lets find out more about upgrades!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 80;
             tp.top = 500;
@@ -163,7 +159,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 10 && GameLogic.THIS.currentRecipeCategory.name == "Water")
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Click on the info to find out more about the recipe!");
+            canvas.upperText.Display("Click on the info to find out more about the recipe!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 72;
             tp.top = 1102;
@@ -175,7 +171,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 11 && GameLogic.THIS.inRecipeInfo)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("This display tells you everything important about the veiltail fish!");
+            canvas.upperText.Display("This display tells you everything important about the veiltail fish!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 490;
@@ -188,7 +184,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 12 && Utils.EpochTime()-updateTime > 4000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("The name and a picture of the crafted animal!");
+            canvas.upperText.Display("The name and a picture of the crafted animal!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 490;
@@ -201,7 +197,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 13 && Utils.EpochTime() - updateTime > 4000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Resources needed for crafting.");
+            canvas.upperText.Display("Resources needed for crafting.");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 810;
@@ -214,7 +210,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 14 && Utils.EpochTime() - updateTime > 4000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("The number of animals of this type produced so far.");
+            canvas.upperText.Display("The number of animals of this type produced so far.");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 1150;
@@ -227,14 +223,13 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 15 && Utils.EpochTime() - updateTime > 4000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Producing enough animals can give you various upgrades!");
+            canvas.upperText.Display("Producing enough animals can give you various upgrades!");
             updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 16 && Utils.EpochTime() - updateTime > 4000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Close();
             canvas.upperText.Display("You already unlocked the first upgrade - new recipe!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 60;
