@@ -21,12 +21,16 @@ public class CraftingSlotsTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
-        if (progress < 4)
+        if (progress < 5)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             this.progress = 0;
         }
         else if (progress < 6)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             this.progress = 4;
         }
     }
@@ -48,6 +52,7 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 0)
         {
+            PlayerState.THIS.Save();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
@@ -95,6 +100,7 @@ public class CraftingSlotsTutorial : Tutorial
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress == 5 && Utils.EpochTime() - updateTime > 2000)
         {
@@ -105,6 +111,7 @@ public class CraftingSlotsTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             progress++;
+            PlayerState.THIS.Save();
         }
     }
 }

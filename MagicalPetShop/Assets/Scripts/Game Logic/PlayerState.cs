@@ -125,7 +125,7 @@ public class PlayerState : MonoBehaviour
                 Shop.lastArrivalTime = lastArrivalTime;
                 Shop.customers = customers;
                 Tutorials.THIS.currentIndex = this.currentTutorial;
-                if (Tutorials.THIS.currentIndex < Tutorials.THIS.tutorials.Count) {
+                if (Tutorials.THIS.currentIndex < Tutorials.THIS.tutorials.Count && Tutorials.THIS.currentIndex >= 0) {
                     Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].startWithProgress(this.tutorialProgress);
                 }
             }
