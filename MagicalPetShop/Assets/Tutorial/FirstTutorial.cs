@@ -137,7 +137,7 @@ public class FirstTutorial : Tutorial
                 height = 250
             };
             canvas.DisableAllExcept(tp);
-            canvas.upperText.Display("Animals are crafted in the lab. Swipe left or use the navbar to go there.");
+            canvas.upperText.Display("Animals are crafted in the lab. Swipe to the left or use the navbar to go there.");
             canvas.leftArrow.SetActive(true);
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
