@@ -70,6 +70,7 @@ public class FirstTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
+            
             canvas.DisableAll(true, true);
 
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
@@ -97,6 +98,7 @@ public class FirstTutorial : Tutorial
             tp.top = 1070;
             tp.width = 250;
             tp.height = 550;
+            canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp);
             foreach (Transform child in customer.transform)
             {
@@ -155,6 +157,7 @@ public class FirstTutorial : Tutorial
             tp.top = 900;
             tp.width = 900;
             tp.height = 700;
+            canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp);
             progress++;
         }

@@ -8,11 +8,11 @@ public class TutorialText : MonoBehaviour
     public void Display(string displayedText)
     {
         text.text = displayedText;
-        this.gameObject.SetActive(true);
+        this.gameObject.TweenAwareEnable();
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
+        this.gameObject.TweenAwareDisable();
     }
 }
