@@ -124,8 +124,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 0}
+  m_AnchoredPosition: {x: 415, y: 0}
+  m_SizeDelta: {x: 250, y: 1070}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2199048357600040921
 CanvasRenderer:
@@ -200,7 +200,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1920}
+  m_SizeDelta: {x: 415, y: 1920}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2199048358044664388
 CanvasRenderer:
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 0}
+  m_AnchoredPosition: {x: 415, y: 0}
+  m_SizeDelta: {x: 250, y: 300}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2199048358182472887
 CanvasRenderer:
@@ -350,7 +350,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1920}
+  m_SizeDelta: {x: 415, y: 1920}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &2199048359165836538
 CanvasRenderer:
@@ -636,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8574957030522698855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2366143883160008481}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1188,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -10, y: 10}
-  m_SizeDelta: {x: 1100, y: 1940}
+  m_AnchoredPosition: {x: 414.99997, y: -1069.9999}
+  m_SizeDelta: {x: 250.00005, y: 550.00006}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &115251904639363629
 CanvasRenderer:
@@ -1276,7 +1276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.999817, y: -4}
+  m_AnchoredPosition: {x: 3.9997177, y: -4.000061}
   m_SizeDelta: {x: 5000, y: 5000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2256884462889111274
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1.6101961e-12}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As a reward you receive 100 more coins!
+  m_text: Looks like there is a customer wanting to order a fish. Tap on him!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}

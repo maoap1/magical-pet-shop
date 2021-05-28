@@ -26,6 +26,7 @@ public class Tutorials : ScriptableObject
     private long lastUpdateTime;
 
     private bool finished = false;
+    public bool settingsDisabled = false;
 
     public void Update()
     {
