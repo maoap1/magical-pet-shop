@@ -16,6 +16,8 @@ public class FirstTutorial : Tutorial
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
         }
         return progress==16;
     }
@@ -24,25 +26,25 @@ public class FirstTutorial : Tutorial
     {
         SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
         switcher.on = false;
-        if (progress < 4)
+        Crafting.randomImproveQuality = false;
+        Shop.customersComing = false;
+        if (progress < 5)
         {
             this.progress = 0;
-            Debug.Log(this.progress);
         }
-        else if (progress < 7)
+        else if (progress < 8)
         {
             this.progress = 3;
-            Debug.Log(this.progress);
-        }
-        else if (progress == 7)
-        {
-            this.progress = 100;
         }
         else if (progress == 8)
         {
+            this.progress = 100;
+        }
+        else if (progress == 9)
+        {
             this.progress = 110;
         }
-        else if (progress > 13)
+        else if (progress < 14)
         {
             this.progress = 10;
         }
@@ -63,6 +65,7 @@ public class FirstTutorial : Tutorial
     {
         if (progress==0)
         {
+            PlayerState.THIS.Save();
             Shop.customersComing = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
@@ -141,6 +144,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAll(true, true);
             updateTime = Utils.EpochTime();
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress==5 && Utils.EpochTime() - updateTime > 1000)
         {
@@ -179,6 +183,7 @@ public class FirstTutorial : Tutorial
             tp.height = 200;
             canvas.DisableAllExcept(tp);
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress==8 && PlayerState.THIS.crafting.Count > 0 && PlayerState.THIS.crafting[0].fillRate >= 1)
         {
@@ -191,6 +196,7 @@ public class FirstTutorial : Tutorial
             tp.height = 200;
             canvas.DisableAllExcept(tp);
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress==9 && PlayerState.THIS.crafting.Count == 0)
         {
@@ -206,6 +212,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             canvas.rightArrow.SetActive(true);
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress==10 && SceneManager.GetActiveScene().name == "Shop")
         {
@@ -268,6 +275,7 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("The fish was sold congratulations! You earned 50 coins!");
             updateTime = Utils.EpochTime();
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress==14 && Utils.EpochTime()-updateTime > 2000)
         {
@@ -287,6 +295,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             progress++;
+            PlayerState.THIS.Save();
         }
 
 

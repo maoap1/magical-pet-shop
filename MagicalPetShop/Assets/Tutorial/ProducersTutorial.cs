@@ -21,12 +21,16 @@ public class ProducersTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
-        if (progress < 4)
+        if (progress < 5)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             this.progress = 0;
         }
         else if (progress < 7)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             this.progress = 4;
         }
     }
@@ -48,6 +52,7 @@ public class ProducersTutorial : Tutorial
     {
         if (progress == 0)
         {
+            PlayerState.THIS.Save();
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
@@ -94,6 +99,7 @@ public class ProducersTutorial : Tutorial
             canvas.lowerText.Display("Congratulations you have just upgraded a collector!");
             canvas.DisableAll();
             progress++;
+            PlayerState.THIS.Save();
             updateTime = Utils.EpochTime();
         }
         else if (progress == 5 && Utils.EpochTime() - updateTime > 2000)
@@ -112,7 +118,8 @@ public class ProducersTutorial : Tutorial
             canvas.lowerText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
-            progress++;  
+            progress++;
+            PlayerState.THIS.Save();
         }
     }
 }

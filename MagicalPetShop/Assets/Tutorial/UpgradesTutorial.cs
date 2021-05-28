@@ -23,6 +23,8 @@ public class UpgradesTutorial : Tutorial
     {
         if (progress < 28)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             this.progress = 0;
         }
     }
@@ -44,6 +46,7 @@ public class UpgradesTutorial : Tutorial
     {
         if (progress == 0)
         {
+            PlayerState.THIS.Save();
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
@@ -355,6 +358,7 @@ public class UpgradesTutorial : Tutorial
             switcher.on = true;
             canvas.EnableAll();
             progress++;
+            PlayerState.THIS.Save();
         }
     }
 }

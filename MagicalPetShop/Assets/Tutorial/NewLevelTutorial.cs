@@ -23,6 +23,8 @@ public class NewLevelTutorial : Tutorial
     {
         if (progress < 11)
         {
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
             this.progress = 0;
         }
     }
@@ -44,6 +46,7 @@ public class NewLevelTutorial : Tutorial
     {
         if (progress == 0)
         {
+            PlayerState.THIS.Save();
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
@@ -130,6 +133,7 @@ public class NewLevelTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             progress++;
+            PlayerState.THIS.Save();
         }
     }
 }
