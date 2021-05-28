@@ -25,10 +25,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1dcb72ba38d9474488743b0c2c712f4f, type: 2}
   - {fileID: 11400000, guid: 330e46fab5e9dbc4f9674ead56f91287, type: 2}
   packLeaders:
-  - {fileID: 11400000, guid: 0f55db75438c03a4b8b0f8f58455df69, type: 2}
-  - {fileID: 11400000, guid: d51a6cd0d68017c48895503a92e2ccbd, type: 2}
-  - {fileID: 11400000, guid: df0b886a80cd4c940a39377d5146a7fc, type: 2}
-  - {fileID: 11400000, guid: 47c7c205ae49f954db5304fba404df8e, type: 2}
+  - {fileID: 11400000, guid: e3828048270a26745bf2dce12aa67817, type: 2}
+  - {fileID: 11400000, guid: bd7ca2d22ca0f0545a1f6646102c2d9d, type: 2}
+  - {fileID: 11400000, guid: 6f62921ad2db1744490813fd9475883c, type: 2}
+  - {fileID: 11400000, guid: 4798be4ca1dd54a4bb831e82e78e1587, type: 2}
   casualtiesThreshold:
   - 0.03
   - 0.06
@@ -121,10 +121,16 @@ MonoBehaviour:
     cost: 10000
   - level: 5
     cost: 50000
-  moneyForLevels: f4010000d00700008813000010270000204e0000
+  moneyForLevels: f4010000e8030000d00700008813000010270000
   inSellingOverlay: 0
   inInventory: 0
   inCrafting: 0
+  buyingCraftingSlot: 0
+  inRecipeInfo: 0
+  inNewRecipeDisplay: 0
+  inNewLevelDisplay: 0
+  inPackLeaderSelection: 1
+  currentRecipeCategory: {fileID: 0}
   essenceProducerOpened:
     level: 0
     essenceAmount:

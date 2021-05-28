@@ -609,10 +609,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 66
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 6
     m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1363,6 +1363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!1 &9084346726050468319
 GameObject:
   m_ObjectHideFlags: 0
