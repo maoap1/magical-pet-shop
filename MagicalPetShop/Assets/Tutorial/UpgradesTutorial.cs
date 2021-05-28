@@ -375,8 +375,6 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("As a reward for completing this tutorial you receive 200 coins!");
-            Inventory.AddToInventory(200);
-            FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;
@@ -387,6 +385,8 @@ public class UpgradesTutorial : Tutorial
             canvas.lowerText.Close();
             canvas.upperText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            Inventory.AddToInventory(200);
+            FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             switcher.on = true;
             canvas.EnableAll();
             progress++;
