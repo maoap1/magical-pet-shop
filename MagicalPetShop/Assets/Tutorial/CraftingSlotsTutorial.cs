@@ -12,6 +12,7 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 6 && !completed)
         {
+            PlayerState.THIS.Save();
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();

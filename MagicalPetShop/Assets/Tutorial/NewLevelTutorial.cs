@@ -10,20 +10,24 @@ public class NewLevelTutorial : Tutorial
     private bool completed = false;
     public override bool finished()
     {
+        Debug.Log("finished called");
         if (progress == 11 && !completed)
         {
+            Debug.Log("completed");
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
             completed = true;
+            PlayerState.THIS.Save();
         }
         return progress == 11;
     }
 
     public override void startWithProgress(int progress)
     {
+        Debug.Log("starting");
         Tutorials.THIS.settingsDisabled = true;
         completed = false;
         if (progress < 11)
@@ -31,6 +35,11 @@ public class NewLevelTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             this.progress = 0;
+        }
+        else if (progress==11)
+        {
+            this.progress = 11;
+            Debug.Log(this.progress);
         }
     }
 
