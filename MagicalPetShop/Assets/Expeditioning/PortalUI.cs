@@ -15,6 +15,8 @@ public class PortalUI : MonoBehaviour
     [SerializeField]
     private Button portalButton;
 
+    public bool comingSoon = false;
+
     private bool locked;
 
     private ExpeditionsListUI expeditionsList;
@@ -42,6 +44,6 @@ public class PortalUI : MonoBehaviour
             this.locked = false;
             this.lockImage.SetActive(false);
             this.portalButton.interactable = true;
-        }
+        } else if (this.comingSoon) this.portalButton.interactable = true;
     }
 }
