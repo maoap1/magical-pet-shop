@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BirdsAndFrogs
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 84d2de399bbca9b419a7a5a44aa6d54f, type: 3}
-  volume: 0.1
+  volume: 0.05
   fadeInLength: 4
   source: {fileID: 0}
