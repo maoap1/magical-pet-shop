@@ -72,7 +72,7 @@ public class ProducersTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("Tap on the water collector to increase its capacity and production rate!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 335;
             tp.top = 150;
             tp.width = 160;
@@ -85,7 +85,7 @@ public class ProducersTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
             canvas.lowerText.Display("Tap on the upgrade button to purchese a new level of the collector!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 600;
             tp.top = 1055;
             tp.width = 400;

@@ -15,7 +15,8 @@ public static class Crafting
         return Inventory.HasInInventory(cost) && PlayerState.THIS.crafting.Count < PlayerState.THIS.craftingSlots;
     }
 
-    public static bool StartCraftingSafe(RecipeProgress recipe) {
+    private static CraftedAnimal CreateCraftedAnimal(RecipeProgress recipe)
+    {
         CraftedAnimal ca = new CraftedAnimal();
         ca.fillRate = 0;
         ca.animal = recipe.animal;
@@ -24,36 +25,33 @@ public static class Crafting
         ca.isRecipe = true;
         ca.recipe = recipe.recipe;
         ca.animalsProduced = recipe.animalsProduced;
+        return ca;
+    }
+    private static Cost CreateCost(RecipeProgress recipe)
+    {
         Cost cost;
         cost.money = 0;
         cost.resources = recipe.costEssences;
         cost.artifacts = recipe.costArtifacts;
         cost.animals = recipe.costAnimals;
-        bool result = Inventory.TakeFromInventoryPrecise(cost);
-        if (result)
-        {
-            PlayerState.THIS.crafting.Add(ca);
-            PlayerState.THIS.Save();
-            //recipe.animalProduced();
-        }
-        return result;
+        return cost;
+    }
+    public static bool StartCraftingSafe(RecipeProgress recipe) 
+    {
+        return StartCraftingImpl(recipe, Inventory.TakeFromInventoryPrecise);
     }
 
-    public static bool StartCrafting(RecipeProgress recipe) {
-        CraftedAnimal ca = new CraftedAnimal();
-        ca.fillRate = 0;
-        ca.animal = recipe.animal;
-        ca.rarity = randomImproveRarity(recipe.rarity);
-        ca.duration = recipe.duration;
-        ca.isRecipe = true;
-        ca.recipe = recipe.recipe;
-        ca.animalsProduced = recipe.animalsProduced;
-        Cost cost;
-        cost.money = 0;
-        cost.resources = recipe.costEssences;
-        cost.artifacts = recipe.costArtifacts;
-        cost.animals = recipe.costAnimals;
-        bool result = Inventory.TakeFromInventory(cost);
+    public static bool StartCrafting(RecipeProgress recipe)
+    {
+        return StartCraftingImpl(recipe, Inventory.TakeFromInventory);
+    }
+
+    private static bool StartCraftingImpl(RecipeProgress recipe, System.Func<Cost, bool> takeFromInventory)
+    {
+        var ca = CreateCraftedAnimal(recipe);
+        var cost = CreateCost(recipe);
+
+        bool result = takeFromInventory(cost);
         if (result)
         {
             PlayerState.THIS.crafting.Add(ca);

@@ -76,7 +76,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             canvas.lowerText.Close();
             canvas.upperText.Display("Close the anouncement to find out where to craft the unlocked animal.");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 420;
             tp.top = 1455;
             tp.width = 250;
@@ -94,7 +94,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 4 && !GameLogic.THIS.inNewRecipeDisplay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 20;
             tp.top = 1670;
             tp.width = 200;
@@ -126,7 +126,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the cauldron!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 90;
             tp.top = 900;
             tp.width = 900;
@@ -139,7 +139,7 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
             canvas.lowerText.Display("A new animal was discovered in the earth category, move there!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 230;
             tp.top = 500;
             tp.width = 150;
@@ -152,7 +152,7 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
             canvas.lowerText.Display("Now you know where to craft new animals. Lets find out more about upgrades!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 80;
             tp.top = 500;
             tp.width = 150;
@@ -164,7 +164,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("Click on the info to find out more about the recipe!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 72;
             tp.top = 1102;
             tp.width = 60;
@@ -176,7 +176,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("This display tells you everything important about the veiltail fish!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 490;
             tp.width = 980;
@@ -189,7 +189,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("The name and a picture of the crafted animal!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 490;
             tp.width = 980;
@@ -202,7 +202,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("Resources needed for crafting.");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 810;
             tp.width = 980;
@@ -215,7 +215,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("The number of animals of this type produced so far.");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 1150;
             tp.width = 980;
@@ -236,7 +236,7 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();
             canvas.upperText.Display("You already unlocked the first upgrade - new recipe!");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 60;
             tp.top = 1280;
             tp.width = 200;
@@ -256,7 +256,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Other upgrades include lower crafting cost, faster crafting time...");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 50;
             tp.top = 1280;
             tp.width = 980;
@@ -276,7 +276,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The animal has one or more categories");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 60;
             tp.top = 1580;
             tp.width = 200;
@@ -289,7 +289,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish is an animal of tier 1.");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 390;
             tp.top = 1580;
             tp.width = 200;
@@ -309,7 +309,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish of common quality is worth 50 coins.");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 570;
             tp.top = 1580;
             tp.width = 240;
@@ -322,7 +322,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("And it takes 15 seconds to craft it.");
-            TutorialPanel tp = new TutorialPanel();
+            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 785;
             tp.top = 1580;
             tp.width = 240;
