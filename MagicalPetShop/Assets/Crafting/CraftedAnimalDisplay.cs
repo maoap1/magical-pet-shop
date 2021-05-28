@@ -55,6 +55,17 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
         }
     }
 
+    private void OnDestroy()
+    {
+        SafeKillTween();
+    }
+
+    private void SafeKillTween()
+    {
+        if (tween == null) return;
+        if (tween.active) tween.Kill();
+    }
+
     public void OnPointerClicked()
     {
         if (finished) {
@@ -74,16 +85,16 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
                 PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
             }
             FindObjectOfType<AudioManager>().Play(SoundType.Crafting);
-            if (tween != null) tween.Kill();
+            SafeKillTween();
             Destroy(this.gameObject);
         } else {
-            if (tween != null) tween.Kill();
-            gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
+            SafeKillTween();
+            tween = gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        if (tween != null) tween.Kill(); 
+        SafeKillTween();
         tween = gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
     }
 }
