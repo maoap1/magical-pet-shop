@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9147224dadf8a49abc721953cc9aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredDuration: 1
+  requiredDuration: 0.7
   longPressIndication: {fileID: 5932743080841789544}
   progressBar: {fileID: 1559096397671767199}
   startOfIndication: 0.1
