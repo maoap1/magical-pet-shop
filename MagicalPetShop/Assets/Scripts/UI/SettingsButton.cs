@@ -11,7 +11,10 @@ public class SettingsButton : MonoBehaviour
     }
 
     public void ShowSettings() {
-        FindObjectOfType<Settings>().Open();
+        if (!Tutorials.THIS.settingsDisabled)
+        {
+            FindObjectOfType<Settings>().Open();
+        }
     }
 
     public void ShowCheats() {

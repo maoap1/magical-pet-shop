@@ -12,6 +12,7 @@ public class ProducersTutorial : Tutorial
     {
         if (progress == 7 && !completed)
         {
+            Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
@@ -23,6 +24,7 @@ public class ProducersTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        Tutorials.THIS.settingsDisabled = true;
         completed = false;
         if (SceneManager.GetActiveScene().name != "Lab")
         {
@@ -61,6 +63,7 @@ public class ProducersTutorial : Tutorial
     {
         if (progress == 0 && SceneManager.GetActiveScene().name == "Lab")
         {
+            Tutorials.THIS.settingsDisabled = true;
             PlayerState.THIS.Save();
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];

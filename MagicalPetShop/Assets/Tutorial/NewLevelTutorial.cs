@@ -12,6 +12,7 @@ public class NewLevelTutorial : Tutorial
     {
         if (progress == 11 && !completed)
         {
+            Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
@@ -23,6 +24,7 @@ public class NewLevelTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        Tutorials.THIS.settingsDisabled = true;
         completed = false;
         if (progress < 11)
         {
@@ -50,6 +52,7 @@ public class NewLevelTutorial : Tutorial
     {
         if (progress == 0)
         {
+            Tutorials.THIS.settingsDisabled = true;
             PlayerState.THIS.Save();
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
