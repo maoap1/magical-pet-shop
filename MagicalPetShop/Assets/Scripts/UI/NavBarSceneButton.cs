@@ -36,7 +36,7 @@ public class NavBarSceneButton : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         this.button = gameObject.GetComponent<Button>();
         this.button.interactable = false;
