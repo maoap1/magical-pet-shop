@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class CraftingSlotsTutorial : Tutorial
 {
     private long updateTime;
+    private bool completed = false;
     public override bool finished()
     {
-        if (progress == 6)
+        if (progress == 6 && !completed)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
+            completed = true;
         }
         return progress == 6;
     }
@@ -40,6 +42,7 @@ public class CraftingSlotsTutorial : Tutorial
         if ((SceneManager.GetActiveScene().name == "Lab" || SceneManager.GetActiveScene().name == "Shop") && PlayerState.THIS.craftingSlots == 1 && PlayerState.THIS.crafting.Count==1)
         {
             progress = 0;
+            completed = false;
             return true;
         }
         else

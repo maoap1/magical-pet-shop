@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class UpgradesTutorial : Tutorial
 {
     private long updateTime;
+    private bool completed = false;
     public override bool finished()
     {
-        if (progress == 28)
+        if (progress == 28 && !completed)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
+            completed = true;
         }
         return progress == 28;
     }
@@ -34,6 +36,7 @@ public class UpgradesTutorial : Tutorial
         if (GameLogic.THIS.inNewRecipeDisplay)
         {
             progress = 0;
+            completed = false;
             return true;
         }
         else

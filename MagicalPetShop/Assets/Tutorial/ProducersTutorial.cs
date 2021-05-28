@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class ProducersTutorial : Tutorial
 {
     private long updateTime;
+    private bool completed = false;
     public override bool finished()
     {
-        if (progress == 7)
+        if (progress == 7 && !completed)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
+            completed = true;
         }
         return progress == 7;
     }
@@ -45,6 +47,7 @@ public class ProducersTutorial : Tutorial
         if (SceneManager.GetActiveScene().name == "Lab")
         {
             progress = 0;
+            completed = false;
             return true;
         }
         else

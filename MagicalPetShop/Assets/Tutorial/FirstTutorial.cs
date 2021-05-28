@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class FirstTutorial : Tutorial
 {
     private long updateTime;
+    private bool completed = false;
     public override bool finished()
     {
-        if (progress==16)
+        if (progress==16 && !completed)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
@@ -18,6 +19,7 @@ public class FirstTutorial : Tutorial
             Shop.customersComing = true;
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
+            completed = true;
         }
         return progress==16;
     }
@@ -58,6 +60,7 @@ public class FirstTutorial : Tutorial
     {
         Crafting.randomImproveQuality = false;
         progress = 0;
+        completed = false;
         return true;
     }
 

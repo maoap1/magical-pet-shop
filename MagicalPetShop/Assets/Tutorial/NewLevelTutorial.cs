@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class NewLevelTutorial : Tutorial
 {
     private long updateTime;
+    private bool completed = false;
     public override bool finished()
     {
-        if (progress == 11)
+        if (progress == 11 && !completed)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
+            completed = true;
         }
         return progress == 11;
     }
@@ -34,6 +36,7 @@ public class NewLevelTutorial : Tutorial
         if (PlayerState.THIS.level == 2 && GameLogic.THIS.inNewLevelDisplay)
         {
             progress = 0;
+            completed = false;
             return true;
         }
         else
