@@ -65,13 +65,13 @@ public class ProducersTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
             canvas.DisableAll();
-            canvas.lowerText.Display("You need essences to craft animals and they are produced by collectors.");
+            canvas.middleText.Display("You need essences to craft animals and they are produced by collectors.");
             progress++;
         }
         else if (progress == 2 && Utils.EpochTime() - updateTime > 3000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Tap on the water collector to increase its capacity and production rate!");
+            canvas.middleText.Display("Tap on the water collector to increase its capacity and production rate!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 335;
             tp.top = 150;
@@ -84,7 +84,7 @@ public class ProducersTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
-            canvas.lowerText.Display("Tap on the upgrade button to purchase a new level of the collector!");
+            canvas.middleText.Display("Tap on the upgrade button to purchase a new level of the collector!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 600;
             tp.top = 1055;
@@ -96,7 +96,7 @@ public class ProducersTutorial : Tutorial
         else if (progress == 4 && PlayerState.THIS.producers.Find(p => p.essenceAmount.essence.name=="Water").level == 1)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("Congratulations you have just upgraded a collector!");
+            canvas.middleText.Display("Congratulations you have just upgraded a collector!");
             canvas.DisableAll();
             progress++;
             PlayerState.THIS.Save();
@@ -105,7 +105,7 @@ public class ProducersTutorial : Tutorial
         else if (progress == 5 && Utils.EpochTime() - updateTime > 2000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Display("You receive 100 coins as a reward!");
+            canvas.middleText.Display("You receive 100 coins as a reward!");
             canvas.DisableAll();
             progress++;
             updateTime = Utils.EpochTime();
@@ -115,7 +115,7 @@ public class ProducersTutorial : Tutorial
             Inventory.AddToInventory(100);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Close();
+            canvas.middleText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             progress++;

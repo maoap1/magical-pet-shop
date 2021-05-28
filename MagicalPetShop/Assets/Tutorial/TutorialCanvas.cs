@@ -15,6 +15,7 @@ public class TutorialCanvas : MonoBehaviour
     public GameObject rightArrow;
 
     public TutorialText upperText;
+    public TutorialText middleText;
     public TutorialText lowerText;
     public GameObject mask;
     public CutoutMaskUI imageDarkening;
@@ -22,7 +23,11 @@ public class TutorialCanvas : MonoBehaviour
     public void Start()
     {
         upperText.gameObject.GetComponent<Image>().color = UIPalette.THIS.HeaderColor;
+        middleText.gameObject.GetComponent<Image>().color = UIPalette.THIS.HeaderColor;
         lowerText.gameObject.GetComponent<Image>().color = UIPalette.THIS.HeaderColor;
+
+        leftArrow.gameObject.GetComponent<Image>().color = UIPalette.THIS.HighlightColor;
+        rightArrow.gameObject.GetComponent<Image>().color = UIPalette.THIS.HighlightColor;
     }
 
     public void SetMask(Vector3 pos, Vector2 size)

@@ -164,8 +164,7 @@ public class FirstTutorial : Tutorial
         else if (progress==6 && GameLogic.THIS.inCrafting)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Close();
-            canvas.lowerText.Display("Click on the panel with the fish to start crafting it!");
+            canvas.upperText.Display("Click on the panel with the fish to start crafting it!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 60;
             tp.top = 680;
@@ -177,7 +176,6 @@ public class FirstTutorial : Tutorial
         else if (progress==7 && PlayerState.THIS.crafting.Count > 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.lowerText.Close();
             canvas.upperText.Display("The fish is being crafted! Wait until it is finished!");
             TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
             tp.left = 860;
@@ -246,6 +244,7 @@ public class FirstTutorial : Tutorial
             tp.top = 1070;
             tp.width = 250;
             tp.height = 550;
+            canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp);
             progress++;
         }
