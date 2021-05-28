@@ -23,6 +23,7 @@ public class ProducersTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        completed = false;
         if (SceneManager.GetActiveScene().name != "Lab")
         {
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];

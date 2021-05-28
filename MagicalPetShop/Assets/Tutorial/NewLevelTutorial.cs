@@ -23,6 +23,7 @@ public class NewLevelTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        completed = false;
         if (progress < 11)
         {
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];

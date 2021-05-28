@@ -23,6 +23,7 @@ public class CraftingSlotsTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        completed = false;
         if (progress < 5)
         {
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];

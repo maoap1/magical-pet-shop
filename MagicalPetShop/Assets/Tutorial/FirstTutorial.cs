@@ -26,6 +26,7 @@ public class FirstTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        completed = false;
         SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
         switcher.on = false;
         Crafting.randomImproveQuality = false;

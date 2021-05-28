@@ -23,6 +23,7 @@ public class UpgradesTutorial : Tutorial
 
     public override void startWithProgress(int progress)
     {
+        completed = false;
         if (progress < 28)
         {
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
