@@ -76,11 +76,14 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             canvas.lowerText.Close();
             canvas.upperText.Display("Close the anouncement to find out where to craft the unlocked animal.");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 420;
-            tp.top = 1455;
-            tp.width = 250;
-            tp.height = 150;
+
+            Rect tp = new Rect
+            {
+                x = 420,
+                y = 1455,
+                width = 250,
+                height = 150
+            };
             canvas.DisableAllExcept(tp);
             if (SceneManager.GetActiveScene().name == "Shop")
             {
@@ -94,11 +97,13 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 4 && !GameLogic.THIS.inNewRecipeDisplay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 20;
-            tp.top = 1670;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 20,
+                y = 1670,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             canvas.lowerText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
@@ -126,11 +131,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the cauldron!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 90;
-            tp.top = 900;
-            tp.width = 900;
-            tp.height = 700;
+            Rect tp = new Rect
+            {
+                x = 90,
+                y = 900,
+                width = 900,
+                height = 700
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -139,11 +146,13 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
             canvas.lowerText.Display("A new animal was discovered in the earth category, move there!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 230;
-            tp.top = 500;
-            tp.width = 150;
-            tp.height = 150;
+            Rect tp = new Rect
+            {
+                x = 230,
+                y = 500,
+                width = 150,
+                height = 150
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -152,11 +161,13 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
             canvas.lowerText.Display("Now you know where to craft new animals. Lets find out more about upgrades!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 80;
-            tp.top = 500;
-            tp.width = 150;
-            tp.height = 150;
+            Rect tp = new Rect
+            {
+                x = 80,
+                y = 500,
+                width = 150,
+                height = 150
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -164,11 +175,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("Click on the info to find out more about the recipe!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 72;
-            tp.top = 1102;
-            tp.width = 60;
-            tp.height = 60;
+            Rect tp = new Rect
+            {
+                x = 72,
+                y = 1102,
+                width = 60,
+                height = 60
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
@@ -176,11 +189,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("This display tells you everything important about the veiltail fish!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 50;
-            tp.top = 490;
-            tp.width = 980;
-            tp.height = 1325;
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 490,
+                width = 980,
+                height = 1325
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -189,11 +204,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("The name and a picture of the crafted animal!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 50;
-            tp.top = 490;
-            tp.width = 980;
-            tp.height = 350;
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 490,
+                width = 980,
+                height = 350
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -202,11 +219,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("Resources needed for crafting.");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 50;
-            tp.top = 810;
-            tp.width = 980;
-            tp.height = 380;
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 810,
+                width = 980,
+                height = 380
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -215,11 +234,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Display("The number of animals of this type produced so far.");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 50;
-            tp.top = 1150;
-            tp.width = 980;
-            tp.height = 150;
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 1150,
+                width = 980,
+                height = 150
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -236,11 +257,13 @@ public class UpgradesTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();
             canvas.upperText.Display("You already unlocked the first upgrade - new recipe!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 60;
-            tp.top = 1280;
-            tp.width = 200;
-            tp.height = 300;
+            Rect tp = new Rect
+            {
+                x = 60,
+                y = 1280,
+                width = 200,
+                height = 300
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -256,11 +279,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Other upgrades include lower crafting cost, faster crafting time...");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 50;
-            tp.top = 1280;
-            tp.width = 980;
-            tp.height = 300;
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 1280,
+                width = 980,
+                height = 300
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -276,11 +301,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The animal has one or more categories");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 60;
-            tp.top = 1580;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 60,
+                y = 1580,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -289,11 +316,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish is an animal of tier 1.");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 390;
-            tp.top = 1580;
-            tp.width = 200;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 390,
+                y = 1580,
+                width = 200,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -309,11 +338,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish of common quality is worth 50 coins.");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 570;
-            tp.top = 1580;
-            tp.width = 240;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 570,
+                y = 1580,
+                width = 240,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;
@@ -322,11 +353,13 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("And it takes 15 seconds to craft it.");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 785;
-            tp.top = 1580;
-            tp.width = 240;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 785,
+                y = 1580,
+                width = 240,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
             progress++;

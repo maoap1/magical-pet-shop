@@ -72,24 +72,35 @@ public class ProducersTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.middleText.Display("Tap on the water collector to increase its capacity and production rate!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 335;
-            tp.top = 150;
-            tp.width = 160;
-            tp.height = 250;
+            Rect tp = new Rect
+            {
+                x = 335,
+                y = 150,
+                width = 160,
+                height = 250
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }
         else if (progress == 3 && GameLogic.THIS.essenceProducerOpened != null && GameLogic.THIS.essenceProducerOpened.essenceAmount.essence.name=="Water")
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.DisableAllExcept(GameObject.Find("Canvas/SpawnPoint/Navbar/Layout/LabButton").GetComponent<TutorialPanel>());
+            Rect tp1 = new Rect
+            {
+                x = 20,
+                y = 1670,
+                width = 250,
+                height = 20
+            };
+            canvas.DisableAllExcept(tp1);
             canvas.middleText.Display("Tap on the upgrade button to purchase a new level of the collector!");
-            TutorialPanel tp = new GameObject().AddComponent<TutorialPanel>();
-            tp.left = 600;
-            tp.top = 1055;
-            tp.width = 400;
-            tp.height = 150;
+            Rect tp = new Rect
+            {
+                x = 600,
+                y = 1055,
+                width = 400,
+                height = 150
+            };
             canvas.DisableAllExcept(tp);
             progress++;
         }

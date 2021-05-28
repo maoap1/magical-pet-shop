@@ -91,24 +91,24 @@ public class TutorialCanvas : MonoBehaviour
         mask.GetComponent<Mask>().enabled = false;
     }
 
-    public void DisableAllExcept(TutorialPanel highlight, bool firstTime = false, bool debug=false)
+    public void DisableAllExcept(Rect highlight, bool firstTime = false, bool debug=false)
     {
         float duration = 0.5f;
         if (debug)
         {
-            Debug.Log(highlight.left);
-            Debug.Log(highlight.top);
+            Debug.Log(highlight.x);
+            Debug.Log(highlight.y);
             Debug.Log(highlight.width);
             Debug.Log(highlight.height);
         }
-        left.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.left, 1920);
-        right.GetComponent<RectTransform>().sizeDelta = new Vector2(1080 - highlight.left - highlight.width, 1920);
-        top.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.width, highlight.top);
-        bottom.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.width, 1920 - highlight.top - highlight.height);
-        top.GetComponent<RectTransform>().anchoredPosition = new Vector3(highlight.left, 0, 0);
-        bottom.GetComponent<RectTransform>().anchoredPosition = new Vector3(highlight.left, 0, 0);
+        left.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.x, 1920);
+        right.GetComponent<RectTransform>().sizeDelta = new Vector2(1080 - highlight.x - highlight.width, 1920);
+        top.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.width, highlight.y);
+        bottom.GetComponent<RectTransform>().sizeDelta = new Vector2(highlight.width, 1920 - highlight.y - highlight.height);
+        top.GetComponent<RectTransform>().anchoredPosition = new Vector3(highlight.x, 0, 0);
+        bottom.GetComponent<RectTransform>().anchoredPosition = new Vector3(highlight.x, 0, 0);
         mask.GetComponent<RectTransform>().DOSizeDelta(new Vector2(highlight.width, highlight.height), duration).SetEase(Ease.OutCubic);
-        mask.GetComponent<RectTransform>().DOAnchorPos(new Vector3(highlight.left, -highlight.top, 0), duration).SetEase(Ease.OutCubic);
+        mask.GetComponent<RectTransform>().DOAnchorPos(new Vector3(highlight.x, -highlight.y, 0), duration).SetEase(Ease.OutCubic);
         mask.GetComponent<Mask>().enabled = true;
         if (firstTime)
         {
