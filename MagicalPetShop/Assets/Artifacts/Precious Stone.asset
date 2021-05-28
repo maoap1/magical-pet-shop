@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Precious Stone
   m_EditorClassIdentifier: 
   name: Precious Stone
-  artwork: {fileID: 21300000, guid: f7b691de265ea1f498aabcd0bfd6d637, type: 3}
+  artwork: {fileID: 21300000, guid: 10e3ce408bd83214bb2c3957f8289dd9, type: 3}

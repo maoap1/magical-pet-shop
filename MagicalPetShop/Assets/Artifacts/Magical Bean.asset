@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Magical Bean
   m_EditorClassIdentifier: 
   name: Magical Bean
-  artwork: {fileID: 21300000, guid: d19442b5954a7854f8a25d61450fd278, type: 3}
+  artwork: {fileID: 21300000, guid: b2ae40e8e4931d34db3356f9e0fc170e, type: 3}

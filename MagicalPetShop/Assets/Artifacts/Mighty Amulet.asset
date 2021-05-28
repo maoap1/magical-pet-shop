@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mighty Amulet
   m_EditorClassIdentifier: 
   name: Mighty Amulet
-  artwork: {fileID: 21300000, guid: e9218807423b7fd4c9da0cec755f0a87, type: 3}
+  artwork: {fileID: 21300000, guid: 5a8e2be3abcd8cf4d8ab9c4d7eb5b122, type: 3}
