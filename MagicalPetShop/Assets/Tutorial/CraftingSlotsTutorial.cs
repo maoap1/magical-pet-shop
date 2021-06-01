@@ -12,6 +12,7 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 6 && !completed)
         {
+            PlayerState.THIS.Save();
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
@@ -37,6 +38,10 @@ public class CraftingSlotsTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             this.progress = 4;
+        }
+        if (progress == 6)
+        {
+            this.progress = 6;
         }
     }
 

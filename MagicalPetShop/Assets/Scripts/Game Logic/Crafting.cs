@@ -63,7 +63,7 @@ public static class Crafting
 
     public static bool CanStartMerging(InventoryAnimal animal)
     {
-        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level].rarityMergingSettings[(int)animal.rarity - 1];
+        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level-1].rarityMergingSettings[(int)animal.rarity - 1];
         InventoryAnimal animalCost = new InventoryAnimal();
         animalCost.animal = animal.animal;
         animalCost.count = 2;
@@ -89,7 +89,7 @@ public static class Crafting
 
     public static void StartMerging(InventoryAnimal animal)
     {
-        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level].rarityMergingSettings[(int)animal.rarity - 1];
+        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level-1].rarityMergingSettings[(int)animal.rarity - 1];
         CraftedAnimal ca = new CraftedAnimal();
         ca.fillRate = 0;
         ca.animal = animal.animal;

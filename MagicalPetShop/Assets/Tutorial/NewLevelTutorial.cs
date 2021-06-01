@@ -13,11 +13,14 @@ public class NewLevelTutorial : Tutorial
         if (progress == 11 && !completed)
         {
             Tutorials.THIS.settingsDisabled = false;
-            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            var tc = Resources.FindObjectsOfTypeAll<TutorialCanvas>();
+            if (tc.Length == 0) return true;
+            TutorialCanvas canvas = tc[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
             completed = true;
+            PlayerState.THIS.Save();
         }
         return progress == 11;
     }
@@ -31,6 +34,10 @@ public class NewLevelTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             this.progress = 0;
+        }
+        else if (progress==11)
+        {
+            this.progress = 11;
         }
     }
 

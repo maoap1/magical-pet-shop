@@ -25,7 +25,7 @@ public class MergingPanel : MonoBehaviour, IPointerDownHandler {
         name.text = animal.animal.name;
         quality.text = animal.rarity.ToString("G");
         quality.color = GameGraphics.THIS.getRarityColor(animal.rarity);
-        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level].rarityMergingSettings[(int)animal.rarity - 1];
+        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level-1].rarityMergingSettings[(int)animal.rarity - 1];
         foreach (Transform child in costPanel.transform)
         {
             GameObject.Destroy(child.gameObject);

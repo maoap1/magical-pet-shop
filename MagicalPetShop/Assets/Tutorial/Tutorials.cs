@@ -25,7 +25,7 @@ public class Tutorials : ScriptableObject
     public int currentIndex = -1;
     private long lastUpdateTime;
 
-    private bool finished = false;
+    public bool finished = false;
     public bool settingsDisabled = false;
 
     public void Update()
