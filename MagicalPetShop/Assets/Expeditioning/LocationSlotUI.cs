@@ -17,17 +17,23 @@ public class LocationSlotUI : MonoBehaviour
     Material normalMaterial;
     [SerializeField]
     Material graygcaleMaterial;
+    [SerializeField]
+    Image background;
 
     AnimalsUI animalsUI;
     Pack pack;
     PackSlot slot;
     int expeditionLevel;
+    Color defaultBackgroundColor;
+    Color defaultPlusSignColor;
 
     public void Initialize(Pack pack, PackSlot slot, AnimalsUI animalsUI, int expeditionLevel) {
         this.pack = pack;
         this.slot = slot;
         this.normalMaterial = new Material(this.normalMaterial);
         this.graygcaleMaterial = new Material(this.graygcaleMaterial);
+        this.defaultBackgroundColor = UIPalette.THIS.GetColor(background.GetComponent<ImageColor>().color);
+        this.defaultPlusSignColor = UIPalette.THIS.GetColor(plusSign.GetComponent<TMPColor>().color);
         if (slot.animal != null) {
             this.animalIcon.gameObject.SetActive(true);
             this.plusSign.SetActive(false);
@@ -44,7 +50,15 @@ public class LocationSlotUI : MonoBehaviour
             this.animalIcon.gameObject.SetActive(false);
             this.plusSign.SetActive(true);
         }
-        
+
+        if (pack.busy) {
+            this.plusSign.GetComponent<TMPro.TextMeshProUGUI>().color = Color.white;
+            this.background.color = UIPalette.THIS.GetColor(PaletteColor.Inactive);
+        } else {
+            this.plusSign.GetComponent<TMPro.TextMeshProUGUI>().color = this.defaultPlusSignColor;
+            this.background.color = this.defaultBackgroundColor;
+        }
+
         this.locationIcon.sprite = slot.location.artwork;
         this.gameObject.GetComponent<Button>().interactable = !pack.busy; // if the pack is exploring, it cannot be changed
         this.animalsUI = animalsUI;
