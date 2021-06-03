@@ -29,5 +29,6 @@ public enum SoundType {
     NewLevel,
     Customer,
     CustomerRefused,
-    InactiveButton
+    InactiveButton,
+    EssenceJar
 }
