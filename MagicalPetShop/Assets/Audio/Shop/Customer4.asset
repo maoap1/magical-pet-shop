@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Customer4
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 67553d0ff9e4fc147847272cc9e95592, type: 3}
-  volume: 0.7
+  volume: 0.8
   type: 15
   source: {fileID: 0}
