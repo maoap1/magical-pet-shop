@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9b663de41c16f4484091a4711a17b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundType: 0
+  soundType: 15
 --- !u!114 &5926159553733211323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!1 &4591581874467735224
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +427,7 @@ MonoBehaviour:
   - {x: 79.073425, y: -168.1225, z: 0}
   m_ShapePathHash: 843976423
   m_Mesh: {fileID: 0}
-  m_InstanceId: 293190
+  m_InstanceId: 59760
 --- !u!1 &7361154363049724515
 GameObject:
   m_ObjectHideFlags: 0

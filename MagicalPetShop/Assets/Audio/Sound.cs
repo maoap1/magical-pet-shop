@@ -26,5 +26,7 @@ public enum SoundType {
     RecipeUpgrade,
     Portal,
     HigherRarity,
-    NewLevel
+    NewLevel,
+    Customer,
+    CustomerRefused
 }
