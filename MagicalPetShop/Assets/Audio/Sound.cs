@@ -28,5 +28,6 @@ public enum SoundType {
     HigherRarity,
     NewLevel,
     Customer,
-    CustomerRefused
+    CustomerRefused,
+    InactiveButton
 }

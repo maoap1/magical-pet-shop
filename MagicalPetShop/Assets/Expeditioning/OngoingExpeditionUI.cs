@@ -82,6 +82,7 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler, IPointerE
         } else {
             SafeKillTween();
             tween = gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
+            FindObjectOfType<AudioManager>().Play(SoundType.InactiveButton);
         }
     }
 

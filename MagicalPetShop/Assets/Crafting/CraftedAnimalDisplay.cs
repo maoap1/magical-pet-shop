@@ -90,6 +90,7 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
         } else {
             SafeKillTween();
             tween = gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
+            FindObjectOfType<AudioManager>().Play(SoundType.InactiveButton);
         }
     }
 

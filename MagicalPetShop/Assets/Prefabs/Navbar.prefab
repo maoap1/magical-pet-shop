@@ -627,7 +627,8 @@ PrefabInstance:
       propertyPath: text
       value: Yard
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2647660250028788213, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
 --- !u!1 &2586020563976950855 stripped
 GameObject:
@@ -781,7 +782,8 @@ PrefabInstance:
       propertyPath: text
       value: Shop
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2647660250028788213, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
 --- !u!114 &5791650094173354352 stripped
 MonoBehaviour:
@@ -935,7 +937,8 @@ PrefabInstance:
       propertyPath: text
       value: Lab
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2647660250028788213, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60724e191d4b7a049b7d10d81142befe, type: 3}
 --- !u!1 &4629049412836024749 stripped
 GameObject:
