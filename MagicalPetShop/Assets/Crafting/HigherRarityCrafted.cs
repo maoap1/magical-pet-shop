@@ -20,7 +20,7 @@ public class HigherRarityCrafted : MonoBehaviour
         animalName.text = rp.animal.name;
         description.text = rarity.ToString("G") + " animal crafted!";
         GetComponent<AppearHideComponent>().Do();
-        FindObjectOfType<AudioManager>().Play(SoundType.Success);
+        FindObjectOfType<AudioManager>().Play(SoundType.HigherRarity);
     }
 
     public void Close()
