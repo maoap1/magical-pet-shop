@@ -50,7 +50,7 @@ public class MergingLocationFilter : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         List<InventoryAnimal> animalsDisplay = PlayerState.THIS.animals.FindAll(a => (a.animal.category == locationType && a.count>1 && a.rarity<Rarity.Legendary));
-        animalsDisplay.OrderByDescending(a=>a.animal.level).ThenByDescending(a=>a.rarity);
+        animalsDisplay.Sort((a1, a2) => { if (a1.animal.level == a2.animal.level) return a2.rarity.CompareTo(a1.rarity); else return a2.animal.level.CompareTo(a1.animal.level); });
         mergingDisplayPanel.Display(animalsDisplay);
         foreach (MergingLocationFilter mlf in locationFilterPanel.GetComponentsInChildren<MergingLocationFilter>())
         {
