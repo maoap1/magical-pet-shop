@@ -1,49 +1,108 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CraftingInfo : MonoBehaviour
 {
     public GameObject craftedAnimalPrefab;
+    public GhostLayoutGroup ghostLayout;
     public CraftingUpgrade buyCraftingSlotObject;
-    public float updateTime;
 
-    void Update()
+    public List<CraftedAnimalDisplay> displays;
+
+    private bool showBuySlotButton;
+
+    public void AddAnimal(CraftedAnimal craftedAnimal)
     {
-        if (Time.time - updateTime > 1 && PlayerState.THIS != null && PlayerState.THIS.crafting != null)
-        {
-            updateTime = Time.time;
-            UpdateCrafting();
-        }
+        AddAnimalImpl(craftedAnimal);
+        SortAndTeleport();
     }
 
-    public void UpdateCrafting()
+    private void SortAndTeleport()
     {
-        foreach (Transform child in gameObject.transform)
+        displays.Sort((a, b) => a.craftedAnimal.RemainingSeconds
+                                .CompareTo(b.craftedAnimal.RemainingSeconds));
+
+        for (int i = 0; i < displays.Count; i++)
         {
-            if (child.GetComponent<CraftedAnimalDisplay>() != null)
+            var displ = displays[i];
+            displ.ghostIndex = i;
+            var follower = displ.GetComponent<GhostPositionFollower>();
+            follower.Target = ghostLayout.Positions[i];
+            follower.TeleportToTarget();
+        }
+
+        int last = PlayerState.THIS.crafting.Count;
+        if (last == 5) last = 4;
+        var follow = buyCraftingSlotObject.GetComponent<GhostPositionFollower>();
+        follow.Target = ghostLayout.Positions[last];
+        follow.TeleportToTarget();
+    }
+
+    private bool CanShowBuySlotButton()
+    {
+        return PlayerState.THIS.craftingSlots < 5
+            && PlayerState.THIS.crafting.Count == PlayerState.THIS.craftingSlots
+            && GameLogic.THIS.craftingSlotUpgrades[PlayerState.THIS.craftingSlots - 1].level <= PlayerState.THIS.level;
+    }
+
+    private void AddAnimalImpl(CraftedAnimal craftedAnimal)
+    {
+        CraftedAnimalDisplay display = Instantiate(craftedAnimalPrefab, this.transform).GetComponent<CraftedAnimalDisplay>();
+        display.craftedAnimal = craftedAnimal;
+        displays.Add(display);
+    }
+
+    public void RemoveAnimal(CraftedAnimalDisplay display)
+    {
+        displays.Remove(display);
+        int removedIndex = display.ghostIndex;
+        foreach (var d in displays)
+        {
+            if (d.ghostIndex > removedIndex)
             {
-                GameObject.Destroy(child.gameObject);
+                d.ghostIndex -= 1;
+                d.GetComponent<GhostPositionFollower>().Target = ghostLayout.Positions[d.ghostIndex];
             }
         }
-        //Debug.Log("Crafting: " + PlayerState.THIS.crafting);
-        PlayerState.THIS.crafting.Sort((a1, a2) => (a1.duration * (1 - a1.fillRate)).CompareTo((a2.duration * (1 - a2.fillRate))));
-        foreach (CraftedAnimal ca in PlayerState.THIS.crafting)
-        {
 
-            CraftedAnimalDisplay display = Instantiate(craftedAnimalPrefab, this.transform).GetComponent<CraftedAnimalDisplay>();
-            display.craftedAnimal = ca;
-            display.Update();
+        
+    }
+
+    public void Start()
+    {
+        displays = new List<CraftedAnimalDisplay>();
+        foreach (CraftedAnimal craftedAnimal in PlayerState.THIS.crafting)
+        {
+            AddAnimalImpl(craftedAnimal);
         }
 
-        if (PlayerState.THIS.craftingSlots < 5 && PlayerState.THIS.crafting.Count == PlayerState.THIS.craftingSlots && GameLogic.THIS.craftingSlotUpgrades[PlayerState.THIS.craftingSlots - 1].level <= PlayerState.THIS.level)
+        Invoke(nameof(SortAndTeleport), 0.05f);
+    }
+
+
+    public void Update()
+    {
+        if (CanShowBuySlotButton())
         {
-            buyCraftingSlotObject.gameObject.SetActive(true);
+            if (!showBuySlotButton)
+            {
+                buyCraftingSlotObject.gameObject.TweenAwareEnable();
+                showBuySlotButton = true;
+            }
         }
         else
         {
-            buyCraftingSlotObject.gameObject.SetActive(false);
+            if (showBuySlotButton)
+            {
+                buyCraftingSlotObject.gameObject.TweenAwareDisable();
+                showBuySlotButton = false;
+            }
+            
         }
-        buyCraftingSlotObject.transform.SetAsLastSibling();
+        
+        int last = PlayerState.THIS.crafting.Count;
+        if (last == 5) last = 4;
+        buyCraftingSlotObject.GetComponent<GhostPositionFollower>().Target = ghostLayout.Positions[last];
     }
+
 }

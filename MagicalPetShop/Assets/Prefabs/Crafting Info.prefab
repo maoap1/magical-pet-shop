@@ -105,6 +105,10 @@ GameObject:
   - component: {fileID: 969279578}
   - component: {fileID: 969279580}
   - component: {fileID: 969279579}
+  - component: {fileID: 138694970404867056}
+  - component: {fileID: 9131614120676967565}
+  - component: {fileID: 6164091362822116390}
+  - component: {fileID: 1113297573583880475}
   m_Layer: 5
   m_Name: CraftingUpgrade
   m_TagString: Untagged
@@ -154,6 +158,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftingInfo: {fileID: 6953681861280511108}
   craftingUpgradeDisplay: {fileID: 0}
+--- !u!114 &138694970404867056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969279577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd3fa058d38207448fe4e02cc135ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  TweenSpeed: 5
+--- !u!114 &9131614120676967565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969279577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03680f226f93c0a4fa85b0572a44cbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1113297573583880475}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDisableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1113297573583880475}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!225 &6164091362822116390
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969279577}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1113297573583880475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969279577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1047dbc83e975a49b9fbfc55805fbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.3
+  backDuration: 0.3
+  disable: 1
+  enable: 1
+  destroy: 0
 --- !u!1 &1895975213
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,12 +430,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8895131589739799795}
   - component: {fileID: 5984442520369653458}
-  - component: {fileID: 1782407032668938840}
   - component: {fileID: 6953681861280511108}
-  - component: {fileID: 1625873515}
-  - component: {fileID: 1625873516}
   - component: {fileID: 7130291032771988638}
   - component: {fileID: 4203932279370684204}
+  - component: {fileID: 8334843055434255681}
   m_Layer: 5
   m_Name: Crafting Info
   m_TagString: Untagged
@@ -382,36 +469,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6461762471227938253}
   m_CullTransparentMesh: 1
---- !u!114 &1782407032668938840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6461762471227938253}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7843138, b: 0, a: 0.39215687}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &6953681861280511108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,48 +482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craftedAnimalPrefab: {fileID: 1861352485607603817, guid: b164b744e8a9caf45abd56613ad820dc, type: 3}
+  ghostLayout: {fileID: 0}
   buyCraftingSlotObject: {fileID: 969279579}
-  updateTime: 0
---- !u!114 &1625873515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6461762471227938253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 5
-  m_Spacing: 10
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 1
---- !u!114 &1625873516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6461762471227938253}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 0
+  displays: []
 --- !u!114 &7130291032771988638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,3 +685,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8334843055434255681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6461762471227938253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c6d06c5f7cf444dacbb1744a3f23d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  smallSize: 0.8
