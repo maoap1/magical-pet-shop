@@ -3204,7 +3204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725447c9ccee65f42bacdb3e08f9ae35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetY: -70
+  targetY: -65
   startY: -1750
   duration: 0.5
   backDuration: 0.3
