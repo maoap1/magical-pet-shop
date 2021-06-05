@@ -1,21 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using DG.Tweening;
+using TMPro;
 
-
-public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
+public class CraftedAnimalDisplay : MonoBehaviour {
     public CraftedAnimal craftedAnimal;
     public ProgressBar progressRing;
     public GameObject readyMessage;
     public Image animalImage;
     public Image imageMask;
+    public int ghostIndex;
     private bool finished;
     private Color defaultBgColor;
-    private Tween tween = null;
 
     public void Start()
     {
@@ -29,7 +24,6 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
         {
             PlayerState.THIS.crafting.Add(craftedAnimal);
         }
-        Update();
     }
     public void Update()
     {
@@ -39,38 +33,24 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
             {
                 finished = true;
                 progressRing.gameObject.SetActive(false);
-                readyMessage.SetActive(true);
+                readyMessage.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
+                GetComponentInParent<FlashingTweenController>().AddNew(readyMessage.transform.GetChild(0));
                 imageMask.color = UIPalette.THIS.GetColor(PaletteColor.GridItem);
             }
             else
             {
-                readyMessage.SetActive(false);
+                readyMessage.GetComponentInChildren<TextMeshProUGUI>().text = craftedAnimal.RemainingSeconds.FormattedTime();
                 progressRing.fillRate = craftedAnimal.fillRate;
                 imageMask.color = this.defaultBgColor;
             }
         }
-        if (PlayerState.THIS.crafting.Find(x => x == craftedAnimal) == null)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        SafeKillTween();
-    }
-
-    private void SafeKillTween()
-    {
-        if (tween == null) return;
-        if (tween.active) tween.Kill();
     }
 
     public void OnPointerClicked()
     {
         if (finished) {
             GetComponent<TweenAnimalToInventory>().Tween(craftedAnimal.animal);
-
+            animalImage.gameObject.SetActive(false);
             InventoryAnimal ia = new InventoryAnimal();
             ia.animal = craftedAnimal.animal;
             ia.count = 1;
@@ -85,17 +65,10 @@ public class CraftedAnimalDisplay : MonoBehaviour, IPointerDownHandler {
                 PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal).animalProduced();
             }
             FindObjectOfType<AudioManager>().Play(SoundType.Crafting);
-            SafeKillTween();
-            Destroy(this.gameObject);
+            GetComponent<AlphaTween>().FadeOut();
+            GameObject.FindObjectOfType<CraftingInfo>().RemoveAnimal(this);
         } else {
-            SafeKillTween();
-            tween = gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
             FindObjectOfType<AudioManager>().Play(SoundType.InactiveButton);
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData) {
-        SafeKillTween();
-        tween = gameObject.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), 0.1f);
     }
 }
