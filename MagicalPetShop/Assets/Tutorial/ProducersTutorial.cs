@@ -72,7 +72,7 @@ public class ProducersTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
-            canvas.DisableAll(true, false);
+            canvas.DisableAll(true, true);
             updateTime = Utils.EpochTime();
             progress++;
         }
@@ -84,7 +84,7 @@ public class ProducersTutorial : Tutorial
             canvas.middleText.Display("You need essences to craft animals and they are produced by collectors.");
             progress++;
         }
-        else if (progress == 2 && Utils.EpochTime() - updateTime > 3000)
+        else if (progress == 2 && (Utils.EpochTime() - updateTime > 3000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.middleText.Display("Tap on the water collector to increase its capacity and production rate!");
@@ -125,7 +125,7 @@ public class ProducersTutorial : Tutorial
             PlayerState.THIS.Save();
             updateTime = Utils.EpochTime();
         }
-        else if (progress == 5 && Utils.EpochTime() - updateTime > 2000)
+        else if (progress == 5 && (Utils.EpochTime() - updateTime > 2000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("You receive 100 coins as a reward!");
@@ -133,7 +133,7 @@ public class ProducersTutorial : Tutorial
             progress++;
             updateTime = Utils.EpochTime();
         }
-        else if (progress == 6 && Utils.EpochTime() - updateTime > 2000)
+        else if (progress == 6 && (Utils.EpochTime() - updateTime > 2000 || Utils.ClickOrTouchEnd()))
         {
             Inventory.AddToInventory(100);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);

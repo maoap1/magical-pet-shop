@@ -14,6 +14,11 @@ public static class Utils
         return cur_time;
     }
 
+    public static bool ClickOrTouchEnd()
+    {
+        return Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended);
+    }
+
     public static bool IsPointerOverGameObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);

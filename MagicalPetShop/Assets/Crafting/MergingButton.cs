@@ -24,6 +24,7 @@ public class MergingButton : MonoBehaviour
             this.merging.gameObject.SetActive(true);
             this.merging.defaultMergingCategory.Display();
             this.rectComponent.sizeDelta = new Vector2(110, 110);
+            GameLogic.THIS.inMerging = true;
 
             this.imageComponent.sprite = mergingSprite;
         } else {
@@ -34,6 +35,7 @@ public class MergingButton : MonoBehaviour
             this.recipes.defaultRecipeCategory.Display();
             this.imageComponent.sprite = craftingSprite;
             this.rectComponent.sizeDelta = new Vector2(185, 185);
+            GameLogic.THIS.inMerging = false;
         }
     }
 

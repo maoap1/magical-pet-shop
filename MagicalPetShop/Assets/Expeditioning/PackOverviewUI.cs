@@ -37,6 +37,7 @@ public class PackOverviewUI : MonoBehaviour {
     }
 
     public void Open(Pack pack, bool fromExpedition, int expeditionLevel) {
+        GameLogic.THIS.inPackOverview = false;
         this.openedFromExpedition = fromExpedition;
         this.expeditionLevel = expeditionLevel;
         Open_Internal(pack);
@@ -62,6 +63,7 @@ public class PackOverviewUI : MonoBehaviour {
     }
 
     public void Close() {
+        GameLogic.THIS.inPackOverview = false;
         gameObject.TweenAwareDisable();
         if (this.openedFromExpedition) {
             foreach (GameObject g in objectsToHideFromExpedition) {

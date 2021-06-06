@@ -15,11 +15,13 @@ public class ExpeditionsListUI : MonoBehaviour {
     VerticalLayoutGroup layout;
 
     public void Open(int level) {
+        GameLogic.THIS.inExpeditionList = true;
         DisplayItems(level);
         GetComponent<AppearHideComponent>().Do();
     }
 
     public void Close() {
+        GameLogic.THIS.inExpeditionList = false;
         GetComponent<AppearHideComponent>().Revert();
     }
 

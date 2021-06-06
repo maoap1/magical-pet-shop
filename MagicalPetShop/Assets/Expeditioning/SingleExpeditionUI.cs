@@ -26,6 +26,7 @@ public class SingleExpeditionUI : MonoBehaviour {
     ExpeditionDifficulty currentDifficulty;
 
     public void Open(ExpeditionType expedition) {
+        GameLogic.THIS.inExpedition = true;
         this.expedition = expedition;
         this.expeditionIndex = GameLogic.THIS.expeditions.IndexOf(this.expedition);
         this.currentDifficulty = PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex];
@@ -37,6 +38,7 @@ public class SingleExpeditionUI : MonoBehaviour {
     }
 
     public void Close() {
+        GameLogic.THIS.inExpedition = false;
         PlayerState.THIS.lastExpeditionDifficulties[this.expeditionIndex] = this.currentDifficulty;
         GetComponent<AppearHideComponent>().Revert();
     }

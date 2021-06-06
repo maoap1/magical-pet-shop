@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "Levels Tutorial", menuName = "Tutorials/Levels Tutorial")]
-public class NewLevelTutorial : Tutorial
+[CreateAssetMenu(fileName = "Merging Tutorial", menuName = "Tutorials/Merging Tutorial")]
+public class MergingTutorial : Tutorial
 {
     private long updateTime;
     private bool completed = false;
@@ -12,15 +12,13 @@ public class NewLevelTutorial : Tutorial
     {
         if (progress == 11 && !completed)
         {
+            PlayerState.THIS.Save();
             Tutorials.THIS.settingsDisabled = false;
-            var tc = Resources.FindObjectsOfTypeAll<TutorialCanvas>();
-            if (tc.Length == 0) return true;
-            TutorialCanvas canvas = tc[0];
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
             Crafting.randomImproveQuality = true;
             Shop.customersComing = true;
             completed = true;
-            PlayerState.THIS.Save();
         }
         return progress == 11;
     }
@@ -31,11 +29,11 @@ public class NewLevelTutorial : Tutorial
         completed = false;
         if (progress < 11)
         {
-            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
-            switcher.on = false;
+            //SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            //switcher.on = false;
             this.progress = 0;
         }
-        else if (progress==11)
+        if (progress == 11)
         {
             this.progress = 11;
         }
@@ -43,7 +41,7 @@ public class NewLevelTutorial : Tutorial
 
     public override bool tryStart()
     {
-        if (PlayerState.THIS.level == 2 && GameLogic.THIS.inNewLevelDisplay)
+        if (SceneManager.GetActiveScene().name == "Lab" && PlayerState.THIS.level >= 3 && PlayerState.THIS.artifacts.Count > 0)
         {
             progress = 0;
             completed = false;
@@ -57,13 +55,14 @@ public class NewLevelTutorial : Tutorial
 
     public override void update()
     {
-        if (progress == 0)
+        Debug.Log(progress);
+        if (progress == 0 && SceneManager.GetActiveScene().name == "Lab" && PlayerState.THIS.level >= 3 && PlayerState.THIS.artifacts.Count > 0)
         {
             Tutorials.THIS.settingsDisabled = true;
             PlayerState.THIS.Save();
-            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll(true, true);
             updateTime = Utils.EpochTime();
             progress++;
@@ -72,7 +71,7 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("You just advanced to a new level!");
+            canvas.upperText.Display("The last important thing to learn about is merging!");
             canvas.DisableAll();
             progress++;
         }
@@ -80,7 +79,7 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("This is because you discovered a recipe for a tier 2 animal.");
+            canvas.upperText.Display("Using two animals of lower quality to craft animal of higher rarity");
             canvas.DisableAll();
             progress++;
         }
@@ -88,60 +87,77 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("Tier 2 animals are more valuable stronger and take longer to craft.");
-            canvas.DisableAll();
+            canvas.upperText.Display("To try this click on the cauldron!");
+            Rect tp = new Rect
+            {
+                x = 90,
+                y = 900,
+                width = 900,
+                height = 700
+            };
+            canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress == 4 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 4 && GameLogic.THIS.inCrafting)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            updateTime = Utils.EpochTime();
-            canvas.upperText.Display("Once you reach level 3 you will gain access to a yard.");
-            canvas.DisableAll();
+            canvas.upperText.Close();
+            canvas.middleText.Display("Change from crafting to merging!");
+            Rect tp = new Rect
+            {
+                x = 60,
+                y = 345,
+                width = 150,
+                height = 150
+            };
+            canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress == 5 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 5 && GameLogic.THIS.inMerging)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            updateTime = Utils.EpochTime();
-            canvas.upperText.Display("There you can send your animals to dangerous expeditions.");
+            canvas.middleText.Close();
+            canvas.upperText.Display("Merging is started the same way as crafting, just the cost is different!");
             canvas.DisableAll();
+            updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 6 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            updateTime = Utils.EpochTime();
-            canvas.upperText.Display("Animals can bring artifacts from them.");
+            canvas.upperText.Display("You pay two animals of lower quality and some artifacts!");
             canvas.DisableAll();
+            updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 7 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            updateTime = Utils.EpochTime();
-            canvas.upperText.Display("These are used to craft more powerful animals.");
+            canvas.upperText.Display("When merging finishes you receive an animal of higher rarity!");
             canvas.DisableAll();
+            updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 8 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            updateTime = Utils.EpochTime();
-            canvas.upperText.Display("There is also money reward for advancing to the next level.");
+            canvas.upperText.Display("Thanks for completing the tutorial!");
             canvas.DisableAll();
+            updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 9 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            updateTime = Utils.EpochTime();
-            canvas.upperText.Display("You will receive it after you close the new level overlay.");
+            canvas.upperText.Display("You receive 1000 coins as a reward!");
             canvas.DisableAll();
+            updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 10 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
+            Inventory.AddToInventory(1000);
+            FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
