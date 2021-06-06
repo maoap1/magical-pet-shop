@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 
 // Shows icon and progress of an ongoing expedition
@@ -35,7 +36,7 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler, IPointerE
     void Start() {
         defaultBgColor = UIPalette.THIS.GetColor(imageMask.gameObject.GetComponent<ImageColor>().color);
         imageMask.color = this.defaultBgColor;
-        readyMessage.SetActive(false);
+        readyMessage.SetActive(true);
         progressRing.gameObject.SetActive(true);
         finished = false;
     }
@@ -43,13 +44,16 @@ public class OngoingExpeditionUI : MonoBehaviour, IPointerDownHandler, IPointerE
     // Update is called once per frame
     void Update() {
         if (!finished) {
-            if (expedition.fillRate >= 1) {
+            if (expedition.fillRate >= 1) 
+            {
                 finished = true;
                 progressRing.gameObject.SetActive(false);
-                readyMessage.SetActive(true);
+                readyMessage.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
                 imageMask.color = UIPalette.THIS.GetColor(PaletteColor.GridItem);
-            } else {
-                readyMessage.SetActive(false);
+            }
+            else 
+            {
+                readyMessage.GetComponentInChildren<TextMeshProUGUI>().text = expedition.RemainingSeconds.FormattedTime();
                 progressRing.fillRate = expedition.fillRate;
                 imageMask.color = this.defaultBgColor;
             }
