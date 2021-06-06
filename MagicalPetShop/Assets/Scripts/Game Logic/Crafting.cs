@@ -128,6 +128,7 @@ public static class Crafting
         {
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
+            Utils.FindObject<CraftingInfo>()[0].AddAnimal(ca);
         }
     }
 

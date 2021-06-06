@@ -14,7 +14,6 @@ public class MergingImage : MonoBehaviour
     public void Clicked()
     {
         if (Crafting.CanStartMerging(animal)) {
-            int recipesBefore = PlayerState.THIS.recipes.Count;
             Crafting.StartMerging(animal);
             mergingPanel.mergingPanel.defaultMergingCategory.Display();
             mergingPanel.UpdateInfo();
