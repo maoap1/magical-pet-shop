@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6289642384753166867}
   - component: {fileID: 6289642384753166868}
   - component: {fileID: 1073412348399649716}
+  - component: {fileID: 2696446595081574828}
+  - component: {fileID: 1953284597966665968}
   m_Layer: 5
   m_Name: Crafting Info Positions
   m_TagString: Untagged
@@ -110,6 +112,206 @@ MonoBehaviour:
   - {fileID: 1950547499843702382}
   - {fileID: 1950547499610378098}
   - {fileID: 1950547498452127905}
+--- !u!114 &2696446595081574828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073412348399649717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725447c9ccee65f42bacdb3e08f9ae35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetY: 0
+  startY: -800
+  duration: 0.5
+  backDuration: 0.3
+  disable: 1
+  enable: 1
+  tweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.1763371
+      value: 0.22927994
+      inSlope: 0.40971085
+      outSlope: 0.40971085
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.2354316
+    - serializedVersion: 3
+      time: 0.47470877
+      value: 0.24116468
+      inSlope: 0.21386334
+      outSlope: 0.21386334
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3527826
+    - serializedVersion: 3
+      time: 0.66770685
+      value: 0.54762214
+      inSlope: 3.8554533
+      outSlope: 3.8554533
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14208011
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.75704336
+      value: 1.01051
+      inSlope: 0.27715114
+      outSlope: 0.27715114
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.421493
+    - serializedVersion: 3
+      time: 0.8989514
+      value: 0.9809319
+      inSlope: 0.0018895739
+      outSlope: 0.0018895739
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.98088163
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  backTweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.18597564
+      value: 0.56615055
+      inSlope: 0.40971085
+      outSlope: 0.40971085
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.2354316
+    - serializedVersion: 3
+      time: 0.47351858
+      value: 0.52546644
+      inSlope: 0.21386334
+      outSlope: 0.21386334
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3527826
+    - serializedVersion: 3
+      time: 0.6544539
+      value: 0.5691245
+      inSlope: 1.3636091
+      outSlope: 1.3636091
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.75704336
+      value: 1.01051
+      inSlope: 0.27715114
+      outSlope: 0.27715114
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.421493
+    - serializedVersion: 3
+      time: 0.8989514
+      value: 0.9809319
+      inSlope: 0.0018895739
+      outSlope: 0.0018895739
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.98088163
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  GetToStart: 0
+  TweenToTarget: 0
+--- !u!114 &1953284597966665968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073412348399649717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03680f226f93c0a4fa85b0572a44cbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2696446595081574828}
+        m_TargetAssemblyTypeName: SlidingTween, Assembly-CSharp
+        m_MethodName: SlideY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDisableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2696446595081574828}
+        m_TargetAssemblyTypeName: SlidingTween, Assembly-CSharp
+        m_MethodName: SlideYBackCurve
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1950547498452127906
 GameObject:
   m_ObjectHideFlags: 0

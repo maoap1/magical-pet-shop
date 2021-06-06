@@ -17,6 +17,9 @@ public class MergingImage : MonoBehaviour
             Crafting.StartMerging(animal);
             mergingPanel.mergingPanel.defaultMergingCategory.Display();
             mergingPanel.UpdateInfo();
+            // close the merging menu, if all slots are full
+            if (PlayerState.THIS.crafting.Count == PlayerState.THIS.craftingSlots)
+                GameObject.FindObjectOfType<MergingSelection>().Close();
         } else { 
             mergingPanel.gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
         }
