@@ -196,10 +196,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.EnableAll();
             updateTime = Utils.EpochTime();
             Tutorials.THIS.settingsDisabled = false;
-            PlayerState.THIS.Save();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress == 14 && PlayerState.THIS.packs[0].slots.Where(s => s.animal != null).Count() >= 4)
         {
@@ -220,12 +220,14 @@ public class ExpeditionsTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Now that you have a pack ready you can send it on an expedition!");
             updateTime = Utils.EpochTime();
+            canvas.DisableAll();
             progress++;
         }
         else if (progress == 17 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd())) {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Close the pack window and move to the yard (if you are not already there)!");
             updateTime = Utils.EpochTime();
+            canvas.DisableAll();
             progress++;
         }
         else if (progress == 18 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
@@ -238,6 +240,7 @@ public class ExpeditionsTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             progress++;
+            PlayerState.THIS.Save();
         }
         else if (progress == 19 && !GameLogic.THIS.inPackLeaderSelection && !GameLogic.THIS.inPackOverview && SceneManager.GetActiveScene().name == "Yard")
         {
