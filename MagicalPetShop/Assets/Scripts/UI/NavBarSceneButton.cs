@@ -21,7 +21,10 @@ public class NavBarSceneButton : MonoBehaviour {
 
     public void LoadScene() {
         if (!this.isActive) {
+            FindObjectOfType<AudioManager>().Play(SoundType.Click);
             GameObject.FindObjectOfType<SceneSwitcher>().LoadScene(sceneName);
+        } else {
+            FindObjectOfType<AudioManager>().Play(SoundType.InactiveButton);
         }
     }
 

@@ -36,11 +36,14 @@ public static class Crafting
         cost.animals = recipe.costAnimals;
         return cost;
     }
+
+    // Start crafting with the exact ingredients
     public static bool StartCraftingSafe(RecipeProgress recipe) 
     {
         return StartCraftingImpl(recipe, Inventory.TakeFromInventoryPrecise);
     }
 
+    // Start crafting even with higher quality ingredints (comes from confirmation panel)
     public static bool StartCrafting(RecipeProgress recipe)
     {
         return StartCraftingImpl(recipe, Inventory.TakeFromInventory);
@@ -56,6 +59,8 @@ public static class Crafting
         {
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
+            Utils.FindObject<CraftingInfo>()[0].AddAnimal(ca);
+            // TODO: Here update the Crafting Info
             //recipe.animalProduced();
         }
         return result;
@@ -175,6 +180,8 @@ public class CraftedAnimal
     [SerializeReference]
     public Recipe recipe;
     public int animalsProduced;
+
+    public int RemainingSeconds => (int)((1 - fillRate) * duration);
 
     public bool isUpgraded
     {

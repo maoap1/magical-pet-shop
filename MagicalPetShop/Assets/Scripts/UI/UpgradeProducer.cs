@@ -20,6 +20,9 @@ public class UpgradeProducer : MonoBehaviour
     private int upgradeCost;
 
     private Color defaultTextColor = Color.clear;
+    private Color defaultButtonColor;
+    private Color inactiveButtonColor;
+    private Image imageComponent;
 
     public void Update() {
         if (defaultTextColor == Color.clear) InitializeColor();
@@ -27,11 +30,13 @@ public class UpgradeProducer : MonoBehaviour
         if (PlayerState.THIS.money >= upgradeCost)
         {
             cost.color = this.defaultTextColor;
+            imageComponent.color = this.defaultButtonColor;
             upgrade.interactable = true;
         }
         else
         {
             cost.color = Color.red;
+            imageComponent.color = this.inactiveButtonColor;
             upgrade.interactable = false;
         }
     }
@@ -87,5 +92,8 @@ public class UpgradeProducer : MonoBehaviour
         else {
             this.defaultTextColor = Color.black;
         }
+        this.defaultButtonColor = UIPalette.THIS.GetColor(upgrade.gameObject.GetComponent<ImageColor>().color);
+        this.inactiveButtonColor = UIPalette.THIS.GetColor(PaletteColor.Inactive);
+        this.imageComponent = upgrade.gameObject.GetComponent<Image>();
     }
 }
