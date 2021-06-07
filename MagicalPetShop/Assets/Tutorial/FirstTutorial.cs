@@ -126,7 +126,7 @@ public class FirstTutorial : Tutorial
         else if (progress==2 && GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Oh snap! It looks like we don't have fish in stock. Tell the customer to wait!");
+            canvas.upperText.Display("Oh, snap! It looks like we don't have fish in stock. Tell the customer to wait!");
             Rect tp = new Rect
             {
                 x = 340,
@@ -148,7 +148,7 @@ public class FirstTutorial : Tutorial
                 height = 250
             };
             canvas.DisableAllExcept(tp);
-            canvas.upperText.Display("Animals are crafted in the lab. Swipe to the left or use the navbar to go there.");
+            canvas.upperText.Display("Animals are crafted in the lab. Swipe to the left or use the navigation bar to go there.");
             canvas.leftArrow.SetActive(true);
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
@@ -314,7 +314,7 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll();
-            canvas.upperText.Display("As a reward you receive 100 more coins!");
+            canvas.upperText.Display("As a reward, you receive 100 more coins!");
             updateTime = Utils.EpochTime();
             progress++;
         }

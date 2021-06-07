@@ -28,6 +28,7 @@ public class AnimalsUI : MonoBehaviour {
     }
 
     public void Close() {
+        GameLogic.THIS.inAnimalsUI = false;
         GetComponent<AppearHideComponent>().Revert();
     }
 
@@ -70,6 +71,14 @@ public class AnimalsUI : MonoBehaviour {
             // according to essences
             return a1.animal.category.name.CompareTo(a2.animal.category.name);
         });
+        if (filteredAnimals.Count > 0)
+        {
+            GameLogic.THIS.inAnimalsUI = true;
+        }
+        else
+        {
+            GameLogic.THIS.inAnimalsUI = false;
+        }
         // Display sorted animals
         foreach (InventoryAnimal animal in filteredAnimals) {
             LocationAnimalSlotUI slot = Instantiate(locationAnimalSlot, this.animalsGrid.transform).GetComponent<LocationAnimalSlotUI>();

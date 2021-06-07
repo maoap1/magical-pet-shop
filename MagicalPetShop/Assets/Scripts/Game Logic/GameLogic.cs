@@ -72,6 +72,7 @@ public class GameLogic : ScriptableObject
     public bool inExpeditionList = false;
     public bool inExpedition = false;
     public bool inPackOverview = false;
+    public bool inAnimalsUI = false;
     public LocationType currentRecipeCategory = null;
     public EssenceProducer essenceProducerOpened = null;
 
@@ -208,6 +209,7 @@ public class GameLogic : ScriptableObject
         inExpeditionList = false;
         inExpedition = false;
         inPackOverview = false;
+        inAnimalsUI = false;
         currentRecipeCategory = null;
         essenceProducerOpened = null;
     }

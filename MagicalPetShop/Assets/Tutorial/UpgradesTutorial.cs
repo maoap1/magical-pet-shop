@@ -69,7 +69,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("You just unlocked a recipe upgrade.");
+            canvas.upperText.Display("You just unlocked a recipe upgrade!");
             canvas.DisableAll();
             progress++;
         }
@@ -77,7 +77,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("In this case you found recipe for a new animal.");
+            canvas.upperText.Display("In this case, you found a recipe for a new animal.");
             canvas.DisableAll();
             progress++;
         }
@@ -85,7 +85,7 @@ public class UpgradesTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("Close the anouncement to find out where to craft the unlocked animal.");
+            canvas.upperText.Display("Close the announcement to find out where to craft the unlocked animal.");
 
             Rect tp = new Rect
             {
@@ -167,7 +167,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 9 && GameLogic.THIS.currentRecipeCategory.name == "Earth")
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Now you know where to craft new animals. Lets find out more about upgrades!");
+            canvas.upperText.Display("Now you know where to craft new animals. Let's find out more about upgrades!");
             Rect tp = new Rect
             {
                 x = 80,
@@ -262,7 +262,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 16 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("You already unlocked the first upgrade - new recipe!");
+            canvas.upperText.Display("You already unlocked the first upgrade - a new recipe!");
             Rect tp = new Rect
             {
                 x = 60,
@@ -277,7 +277,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 17 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("To do so you needed to produce 7 fish.");
+            canvas.upperText.Display("To do so you had to produce 7 fish.");
             updateTime = Utils.EpochTime();
             progress++;
         }
@@ -306,7 +306,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 20 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("The animal has one or more categories");
+            canvas.upperText.Display("The animal has one or more categories.");
             Rect tp = new Rect
             {
                 x = 60,
@@ -343,7 +343,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 23 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Fish of common quality is worth 50 coins.");
+            canvas.upperText.Display("Fish of the common quality is worth 50 coins.");
             Rect tp = new Rect
             {
                 x = 570,
@@ -381,7 +381,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 26 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("As a reward for completing this tutorial you receive 200 coins!");
+            canvas.upperText.Display("As a reward for completing this tutorial, you receive 200 coins!");
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;

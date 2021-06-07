@@ -104,7 +104,7 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("There you can send your animals to dangerous expeditions.");
+            canvas.upperText.Display("There you can send your animals on dangerous expeditions.");
             canvas.DisableAll();
             progress++;
         }
@@ -128,7 +128,7 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("There is also money reward for advancing to the next level.");
+            canvas.upperText.Display("There is also a monetary reward for advancing to the next level.");
             canvas.DisableAll();
             progress++;
         }

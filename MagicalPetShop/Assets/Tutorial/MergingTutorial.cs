@@ -55,7 +55,6 @@ public class MergingTutorial : Tutorial
 
     public override void update()
     {
-        Debug.Log(progress);
         if (progress == 0 && SceneManager.GetActiveScene().name == "Lab" && PlayerState.THIS.level >= 3 && PlayerState.THIS.artifacts.Count > 0)
         {
             Tutorials.THIS.settingsDisabled = true;
@@ -79,7 +78,7 @@ public class MergingTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("Using two animals of lower quality to craft animal of higher rarity");
+            canvas.upperText.Display("Using two animals of lower quality to craft one animal of higher rarity.");
             canvas.DisableAll();
             progress++;
         }
@@ -87,7 +86,7 @@ public class MergingTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("To try this click on the cauldron!");
+            canvas.upperText.Display("To try this tap on the cauldron!");
             Rect tp = new Rect
             {
                 x = 90,

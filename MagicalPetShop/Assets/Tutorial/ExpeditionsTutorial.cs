@@ -38,9 +38,13 @@ public class ExpeditionsTutorial : Tutorial
         {
             this.progress = 14;
         }
-        else if (progress < 40)
+        else if (progress < 26)
         {
             this.progress = 19;
+        }
+        else if (progress < 50)
+        {
+            this.progress = 26;
         }
         else if (progress == 100)
         {
@@ -92,7 +96,7 @@ public class ExpeditionsTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("In the yard you can send animals to expeditions for rare artifacts!");
+            canvas.upperText.Display("In the yard, you can send animals to expeditions for rare artifacts!");
             updateTime = Utils.EpochTime();
             canvas.DisableAll();
             progress++;
@@ -100,7 +104,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 4 && (Utils.EpochTime() - updateTime > 3000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("You can use these to craft higher level animals.");
+            canvas.upperText.Display("You can use these to craft higher-level animals.");
             updateTime = Utils.EpochTime();
             canvas.DisableAll();
             progress++;
@@ -108,7 +112,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 5 && (Utils.EpochTime() - updateTime > 3000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("To send animlas on the expedition you have to organize them in a pack.");
+            canvas.upperText.Display("To send animals on the expedition you have to organize them in a pack.");
             updateTime = Utils.EpochTime();
             canvas.DisableAll();
             progress++;
@@ -137,7 +141,7 @@ public class ExpeditionsTutorial : Tutorial
                 x = 60,
                 y = 330,
                 width = 480,
-                height = 650
+                height = 750
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -177,14 +181,14 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 11 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Each pack slot requires animal of a certain type!");
+            canvas.upperText.Display("Each pack slot requires an animal of a certain type!");
             updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 12 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Assign at least 4 animals! If you don't have required categories craft them!");
+            canvas.upperText.Display("Assign at least 4 animals! If you don't have the required categories craft them!");
             updateTime = Utils.EpochTime();
             progress++;
             PlayerState.THIS.Save();
@@ -242,11 +246,12 @@ public class ExpeditionsTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress == 19 && !GameLogic.THIS.inPackLeaderSelection && !GameLogic.THIS.inPackOverview && SceneManager.GetActiveScene().name == "Yard")
+        else if (progress == 19 && GameLogic.THIS.inAnimalsUI)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
             canvas.DisableAll(true, true);
+            canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             progress++;
             Tutorials.THIS.settingsDisabled = true;
             PlayerState.THIS.Save();
@@ -254,6 +259,98 @@ public class ExpeditionsTutorial : Tutorial
             switcher.on = false;
         }
         else if (progress == 20 && Utils.EpochTime() - updateTime > 1000)
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("Animals can be assigned to the pack by clicking on them!");
+            Rect tp = new Rect
+            {
+                x = 70,
+                y = 405,
+                width = 320,
+                height = 530
+            };
+            canvas.Highlight(tp, true);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 21 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("Each animal has strength.");
+            Rect tp = new Rect
+            {
+                x = 120,
+                y = 805,
+                width = 220,
+                height = 60
+            };
+            canvas.Highlight(tp);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 22 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("Higher strength allows it to succeed in harder expeditions.");
+            Rect tp = new Rect
+            {
+                x = 120,
+                y = 805,
+                width = 220,
+                height = 60
+            };
+            canvas.Highlight(tp);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 23 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("It also has some chance of dying on an expedition.");
+            Rect tp = new Rect
+            {
+                x = 120,
+                y = 860,
+                width = 220,
+                height = 60
+            };
+            canvas.Highlight(tp);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 24 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("Higher animal rarity means more strength and less chance dying!");
+            canvas.DisableAll();
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 25 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Close();
+            canvas.EnableAll();
+            Tutorials.THIS.settingsDisabled = false;
+            PlayerState.THIS.Save();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = true;
+            progress++;
+            PlayerState.THIS.Save();
+        }
+        else if (progress == 26 && !GameLogic.THIS.inPackLeaderSelection && !GameLogic.THIS.inPackOverview && SceneManager.GetActiveScene().name == "Yard")
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            updateTime = Utils.EpochTime();
+            canvas.DisableAll(true, true);
+            canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
+            progress++;
+            Tutorials.THIS.settingsDisabled = true;
+            PlayerState.THIS.Save();
+            SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
+            switcher.on = false;
+        }
+        else if (progress == 27 && Utils.EpochTime() - updateTime > 1000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Click on the portal to open its expeditions!");
@@ -264,12 +361,11 @@ public class ExpeditionsTutorial : Tutorial
                 width = 400,
                 height = 600
             };
-            canvas.SetMask(Vector3.zero, new Vector2(1080, 1920));
             canvas.DisableAllExcept(tp, true);
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 21 && GameLogic.THIS.inExpeditionList)
+        else if (progress == 28 && GameLogic.THIS.inExpeditionList)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Select the first expedition!");
@@ -284,7 +380,7 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 22 && GameLogic.THIS.inExpedition)
+        else if (progress == 29 && GameLogic.THIS.inExpedition)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The default expedition difficulty is medium!");
@@ -299,7 +395,7 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 23 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 30 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Higher difficulty expeditions give you more artifacts!");
@@ -314,10 +410,10 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 24 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 31 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("In this case you receive between 8 and 12 artifacts for medium difficulty!");
+            canvas.upperText.Display("In this case, you receive between 8 and 12 artifacts for medium difficulty!");
             Rect tp = new Rect
             {
                 x = 290,
@@ -329,7 +425,7 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 25 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 32 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("And the expedition takes 5 min and 0 seconds!");
@@ -344,7 +440,7 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 26 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 33 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Here you can select a pack to send on an expedition!");
@@ -359,10 +455,10 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 27 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 34 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("The face under the pack indicates chance of expedition success.");
+            canvas.upperText.Display("The face under the pack indicates the chance of expedition success.");
             Rect tp = new Rect
             {
                 x = 50,
@@ -374,10 +470,10 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 28 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 35 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Medium difficulty might be too hard for your first expedition.");
+            canvas.upperText.Display("The pack can be selected by tapping on it.");
             Rect tp = new Rect
             {
                 x = 50,
@@ -389,10 +485,40 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 29 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 36 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("If this is the case you can change difficulty to easy.");
+            canvas.upperText.Display("You can also hold your finger on the pack to inspect it.");
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 850,
+                width = 980,
+                height = 440
+            };
+            canvas.Highlight(tp);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 37 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("The medium difficulty might be too hard for your first expedition.");
+            Rect tp = new Rect
+            {
+                x = 50,
+                y = 850,
+                width = 980,
+                height = 440
+            };
+            canvas.Highlight(tp);
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 38 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("If this is the case you can change the difficulty to easy.");
             Rect tp = new Rect
             {
                 x = 85,
@@ -404,7 +530,7 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 30 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 39 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Once you are ready you can start the expedition by clicking on go!");
@@ -419,16 +545,16 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 31 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 40 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("As a reward for completing this tutorial you receive 1000 coins!");
+            canvas.upperText.Display("As a reward for completing this tutorial, you receive 1000 coins!");
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress == 32 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 41 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             Inventory.AddToInventory(1000);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);

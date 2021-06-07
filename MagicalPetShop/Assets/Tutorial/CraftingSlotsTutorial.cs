@@ -98,7 +98,7 @@ public class CraftingSlotsTutorial : Tutorial
         else if (progress == 3 && GameLogic.THIS.buyingCraftingSlot)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Tap on the OK button to buy a new crafting slot");
+            canvas.upperText.Display("Tap on the OK button to buy a new crafting slot!");
             Rect tp = new Rect
             {
                 x = 545,
