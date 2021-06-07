@@ -3037,6 +3037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381602359}
   - component: {fileID: 381602360}
+  - component: {fileID: 381602361}
   m_Layer: 7
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -3099,6 +3100,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &381602361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381602358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164fe272cf8c12428e750e8d1c5dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingIntensityPercents: 90
+  EndingIntensityPercents: 110
+  Duration: 6
+  MaxOffset: 12
 --- !u!224 &432755089 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3570974963183506854, guid: dbf552861cd794842a84686a243bdfaa, type: 3}
@@ -3691,6 +3708,7 @@ MonoBehaviour:
   lastArrivalTime: 0
   customers: []
   lastExpeditionDifficulties: 
+  tutorial: 0
   currentTutorial: 0
   tutorialProgress: 0
   references:
@@ -3719,8 +3737,9 @@ GameObject:
   m_Component:
   - component: {fileID: 784434486}
   - component: {fileID: 784434487}
+  - component: {fileID: 784434488}
   m_Layer: 7
-  m_Name: Point Light 2D Sun
+  m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3781,6 +3800,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &784434488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784434485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164fe272cf8c12428e750e8d1c5dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingIntensityPercents: 90
+  EndingIntensityPercents: 110
+  Duration: 6
+  MaxOffset: 12
 --- !u!114 &787249059 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1844375102157778105, guid: a8e78cadd82988b45b8c4c39efa7f694, type: 3}
@@ -4240,8 +4275,9 @@ GameObject:
   m_Component:
   - component: {fileID: 952991021}
   - component: {fileID: 952991022}
+  - component: {fileID: 952991023}
   m_Layer: 7
-  m_Name: Point Light 2D Pink
+  m_Name: Portal Pink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4302,6 +4338,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &952991023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952991020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164fe272cf8c12428e750e8d1c5dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingIntensityPercents: 80
+  EndingIntensityPercents: 120
+  Duration: 2
+  MaxOffset: 4
 --- !u!1 &965543280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,8 +4364,9 @@ GameObject:
   m_Component:
   - component: {fileID: 965543281}
   - component: {fileID: 965543282}
+  - component: {fileID: 965543283}
   m_Layer: 7
-  m_Name: Point Light 2D Green
+  m_Name: Portal Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4374,6 +4427,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &965543283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965543280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164fe272cf8c12428e750e8d1c5dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingIntensityPercents: 80
+  EndingIntensityPercents: 120
+  Duration: 2
+  MaxOffset: 4
 --- !u!1001 &1001947311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6956,8 +7025,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2063138765}
   - component: {fileID: 2063138766}
+  - component: {fileID: 2063138767}
   m_Layer: 7
-  m_Name: Point Light 2D Blue
+  m_Name: Portal Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7018,6 +7088,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &2063138767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063138764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164fe272cf8c12428e750e8d1c5dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingIntensityPercents: 80
+  EndingIntensityPercents: 120
+  Duration: 2
+  MaxOffset: 4
 --- !u!1 &2085063421
 GameObject:
   m_ObjectHideFlags: 0
@@ -7064,8 +7150,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2123728151}
   - component: {fileID: 2123728152}
+  - component: {fileID: 2123728153}
   m_Layer: 7
-  m_Name: Point Light 2D Yellow
+  m_Name: Portal Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7126,6 +7213,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &2123728153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123728150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164fe272cf8c12428e750e8d1c5dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingIntensityPercents: 80
+  EndingIntensityPercents: 120
+  Duration: 2
+  MaxOffset: 4
 --- !u!1 &2144008894
 GameObject:
   m_ObjectHideFlags: 0

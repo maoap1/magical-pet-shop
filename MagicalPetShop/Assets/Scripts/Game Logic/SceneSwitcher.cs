@@ -23,8 +23,11 @@ public class SceneSwitcher : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        if (!on) return;
-        if (disabledScenes.Contains(sceneName)) return;
+        if (PlayerState.THIS.tutorial)
+        {
+            if (!on) return;
+            if (disabledScenes.Contains(sceneName)) return;
+        }
         if (switching) return;
         switching = true;
 

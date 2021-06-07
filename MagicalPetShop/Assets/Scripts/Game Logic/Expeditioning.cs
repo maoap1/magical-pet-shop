@@ -183,6 +183,8 @@ public class Expedition
     public ExpeditionDifficulty difficulty;
     public Pack pack;
 
+    public int RemainingSeconds => (int)((1 - fillRate) * expeditionType.duration);
+
     public Expedition(ExpeditionType expedition, ExpeditionDifficulty difficulty, Pack pack) {
         this.fillRate = 0;
         this.expeditionType = expedition;
