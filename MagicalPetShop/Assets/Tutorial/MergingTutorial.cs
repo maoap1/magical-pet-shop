@@ -140,7 +140,7 @@ public class MergingTutorial : Tutorial
         else if (progress == 8 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Thanks for completing the tutorial!");
+            canvas.upperText.Display("Congratilations for completing the tutorial!");
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;
