@@ -10,6 +10,7 @@ public class CraftedAnimalDisplay : MonoBehaviour {
     public Image imageMask;
     public int ghostIndex;
     private bool finished;
+    private bool claimed;
     private Color defaultBgColor;
 
     public void Start()
@@ -19,6 +20,7 @@ public class CraftedAnimalDisplay : MonoBehaviour {
         readyMessage.SetActive(true);
         progressRing.gameObject.SetActive(true);
         finished = false;
+        claimed = false;
         animalImage.sprite = craftedAnimal.animal.artwork;
         if (!PlayerState.THIS.crafting.Contains(craftedAnimal))
         {
@@ -48,7 +50,8 @@ public class CraftedAnimalDisplay : MonoBehaviour {
 
     public void OnPointerClicked()
     {
-        if (finished) {
+        if (finished && !claimed) {
+            claimed = true;
             GetComponent<TweenAnimalToInventory>().Tween(craftedAnimal.animal);
             animalImage.gameObject.SetActive(false);
             InventoryAnimal ia = new InventoryAnimal();
