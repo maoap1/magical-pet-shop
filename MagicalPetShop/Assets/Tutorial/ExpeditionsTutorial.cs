@@ -377,14 +377,14 @@ public class ExpeditionsTutorial : Tutorial
                 height = 380
             };
             canvas.DisableAllExcept(tp);
-            PlayerState.THIS.lastExpeditionDifficulties[0] = ExpeditionDifficulty.Medium;
+            PlayerState.THIS.lastExpeditionDifficulties[0] = ExpeditionDifficulty.Easy;
             updateTime = Utils.EpochTime();
             progress++;
         }
         else if (progress == 29 && GameLogic.THIS.inExpedition)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("The default expedition difficulty is medium!");
+            canvas.upperText.Display("The default expedition difficulty is easy!");
             Rect tp = new Rect
             {
                 x = 390,
@@ -414,7 +414,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 31 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("In this case, you receive between 8 and 12 artifacts for medium difficulty!");
+            canvas.upperText.Display("In this case, you receive between 5 and 8 artifacts for easy difficulty!");
             Rect tp = new Rect
             {
                 x = 290,
@@ -444,7 +444,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 33 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Here you can select a pack to send on an expedition!");
+            canvas.upperText.Display("Here you can select the pack to send on an expedition!");
             Rect tp = new Rect
             {
                 x = 50,
@@ -504,7 +504,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 37 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("The medium difficulty might be too hard for your first expedition.");
+            canvas.upperText.Display("The easy difficulty might not be challenging enough for you.");
             Rect tp = new Rect
             {
                 x = 50,
@@ -519,10 +519,10 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 38 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("If this is the case you can change the difficulty to easy.");
+            canvas.upperText.Display("If this is the case you can change the difficulty to medium.");
             Rect tp = new Rect
             {
-                x = 85,
+                x = 895,
                 y = 605,
                 width = 100,
                 height = 150
