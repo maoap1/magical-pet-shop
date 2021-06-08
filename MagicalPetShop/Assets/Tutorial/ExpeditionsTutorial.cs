@@ -377,6 +377,7 @@ public class ExpeditionsTutorial : Tutorial
                 height = 380
             };
             canvas.DisableAllExcept(tp);
+            PlayerState.THIS.lastExpeditionDifficulties[0] = ExpeditionDifficulty.Medium;
             updateTime = Utils.EpochTime();
             progress++;
         }
