@@ -10,18 +10,18 @@ public class LightFlashingTween : MonoBehaviour
     public float Duration;
     public float MaxOffset;
 
-    private Light2D light;
+    private Light2D light2d;
     private float startingIntensity;
 
     private void SetIntensity(float value)
     {
-        light.intensity = value;
+        light2d.intensity = value;
     }
 
     public void Start()
     {
-        light = GetComponent<Light2D>();
-        startingIntensity = light.intensity;
+        light2d = GetComponent<Light2D>();
+        startingIntensity = light2d.intensity;
         var tween = DOTween.To(SetIntensity,
                    startingIntensity * StartingIntensityPercents / 100,
                    startingIntensity * EndingIntensityPercents / 100,
