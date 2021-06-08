@@ -737,6 +737,7 @@ MonoBehaviour:
   backDuration: 0.5
   disable: 1
   enable: 1
+  destroy: 0
 --- !u!114 &8614089407965012462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1007,7 @@ MonoBehaviour:
   backDuration: 0.5
   disable: 1
   enable: 1
+  destroy: 0
 --- !u!114 &1061077901307789966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,7 +1494,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1641,7 +1643,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1813,6 +1815,7 @@ MonoBehaviour:
   backDuration: 0.5
   disable: 1
   enable: 1
+  destroy: 0
 --- !u!114 &6394328787931221398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,7 +2047,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
