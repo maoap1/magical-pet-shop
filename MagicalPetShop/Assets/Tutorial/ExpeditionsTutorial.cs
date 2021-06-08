@@ -67,7 +67,6 @@ public class ExpeditionsTutorial : Tutorial
 
     public override void update()
     {
-        Debug.Log(progress);
         if (progress == 0 && GameLogic.THIS.inNewLevelDisplay)
         {
             Tutorials.THIS.settingsDisabled = true;
@@ -396,7 +395,7 @@ public class ExpeditionsTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 30 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 30 && (Utils.EpochTime() - updateTime > 4000 || (Utils.ClickOrTouchEnd() && Utils.EpochTime() - updateTime > 200)))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Higher difficulty expeditions give you more artifacts!");
