@@ -21,7 +21,10 @@ public class NavBarSceneButton : MonoBehaviour {
 
     public void LoadScene() {
         if (!this.isActive) {
+            FindObjectOfType<AudioManager>().Play(SoundType.Click);
             GameObject.FindObjectOfType<SceneSwitcher>().LoadScene(sceneName);
+        } else {
+            FindObjectOfType<AudioManager>().Play(SoundType.InactiveButton);
         }
     }
 
@@ -36,7 +39,7 @@ public class NavBarSceneButton : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         this.button = gameObject.GetComponent<Button>();
         this.button.interactable = false;

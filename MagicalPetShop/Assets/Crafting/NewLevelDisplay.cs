@@ -13,7 +13,7 @@ public class NewLevelDisplay : MonoBehaviour {
         int money = GameLogic.THIS.moneyForLevels[PlayerState.THIS.level - 2];
         this.moneyText.text = "+ " + money.ToString();
         GetComponent<AppearHideComponent>().Do();
-        FindObjectOfType<AudioManager>().Play(SoundType.Success);
+        FindObjectOfType<AudioManager>().Play(SoundType.NewLevel);
     }
 
     public void Close()

@@ -17,7 +17,7 @@ public class NewRecipeDisplay : MonoBehaviour
         animalImage.sprite = rp.animal.artwork;
         animalName.text = rp.animal.name;
         GetComponent<AppearHideComponent>().Do();
-        FindObjectOfType<AudioManager>().Play(SoundType.Success);
+        FindObjectOfType<AudioManager>().Play(SoundType.RecipeUpgrade);
         newLevelDisplay = Resources.FindObjectsOfTypeAll<NewLevelDisplay>()[0];
         GameLogic.THIS.inNewRecipeDisplay = true;
     }

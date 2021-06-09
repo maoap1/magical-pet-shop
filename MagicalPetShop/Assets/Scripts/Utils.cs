@@ -14,6 +14,22 @@ public static class Utils
         return cur_time;
     }
 
+    public static bool ClickOrTouchEnd()
+    {
+        return Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended);
+    }
+    public static string FormattedTime(this int seconds)
+    {
+        int hours = seconds / 3600;
+        seconds %= 3600;
+        int minutes = seconds / 60;
+        seconds %= 60;
+
+        if (hours > 0) return $"{hours}h{minutes}m";
+        else if (minutes > 0) return $"{minutes}m{seconds}s";
+        else return $"{seconds}s";
+    }
+
     public static bool IsPointerOverGameObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);

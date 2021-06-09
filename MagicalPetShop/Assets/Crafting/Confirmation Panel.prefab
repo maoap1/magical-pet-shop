@@ -607,6 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!1 &4926818050719474743
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!1 &7494226613217484913
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +948,9 @@ GameObject:
   - component: {fileID: 8868478744837490777}
   - component: {fileID: 5701085381523676218}
   - component: {fileID: 604937445344199384}
+  - component: {fileID: 5691266914931312395}
+  - component: {fileID: 6697706475491990684}
+  - component: {fileID: 5400456960529311577}
   m_Layer: 5
   m_Name: Confirmation Panel
   m_TagString: Untagged
@@ -1043,3 +1050,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 2
   initializeOnStart: 1
+--- !u!225 &5691266914931312395
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494226613217484913}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &6697706475491990684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494226613217484913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1047dbc83e975a49b9fbfc55805fbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.3
+  backDuration: 0.3
+  disable: 1
+  enable: 1
+  destroy: 0
+--- !u!114 &5400456960529311577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494226613217484913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03680f226f93c0a4fa85b0572a44cbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6697706475491990684}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDisableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6697706475491990684}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

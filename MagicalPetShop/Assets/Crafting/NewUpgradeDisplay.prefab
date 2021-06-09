@@ -251,6 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!1 &3605212914716985382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1162,9 @@ GameObject:
   - component: {fileID: 1628509912620291163}
   - component: {fileID: 7644641156681160451}
   - component: {fileID: 4599654771068907391}
+  - component: {fileID: 2077994659736125978}
+  - component: {fileID: 2550753840411619981}
+  - component: {fileID: 3486427637964567528}
   m_Layer: 5
   m_Name: NewUpgradeDisplay
   m_TagString: Untagged
@@ -1255,6 +1260,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToAppear: []
   ObjectsToHide: []
+--- !u!225 &2077994659736125978
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221241551527222708}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2550753840411619981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221241551527222708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1047dbc83e975a49b9fbfc55805fbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.3
+  backDuration: 0.3
+  disable: 1
+  enable: 1
+  destroy: 0
+--- !u!114 &3486427637964567528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221241551527222708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03680f226f93c0a4fa85b0572a44cbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2550753840411619981}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDisableTween:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2550753840411619981}
+        m_TargetAssemblyTypeName: AlphaTween, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8440635759787659133
 GameObject:
   m_ObjectHideFlags: 0

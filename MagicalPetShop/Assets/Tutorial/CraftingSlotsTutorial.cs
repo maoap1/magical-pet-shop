@@ -12,6 +12,7 @@ public class CraftingSlotsTutorial : Tutorial
     {
         if (progress == 6 && !completed)
         {
+            PlayerState.THIS.Save();
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.EnableAll();
@@ -38,6 +39,10 @@ public class CraftingSlotsTutorial : Tutorial
             switcher.on = false;
             this.progress = 4;
         }
+        if (progress == 6)
+        {
+            this.progress = 6;
+        }
     }
 
     public override bool tryStart()
@@ -63,7 +68,7 @@ public class CraftingSlotsTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.DisableAll(true, false);
+            canvas.DisableAll(true, true);
             updateTime = Utils.EpochTime();
             progress++;
         }
@@ -75,7 +80,7 @@ public class CraftingSlotsTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 2 && Utils.EpochTime()-updateTime>3000)
+        else if (progress == 2 && (Utils.EpochTime()-updateTime> 3000 || Utils.ClickOrTouchEnd()))
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -93,7 +98,7 @@ public class CraftingSlotsTutorial : Tutorial
         else if (progress == 3 && GameLogic.THIS.buyingCraftingSlot)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Tap on the OK button to buy a new crafting slot");
+            canvas.upperText.Display("Tap on the OK button to buy a new crafting slot!");
             Rect tp = new Rect
             {
                 x = 545,
@@ -113,7 +118,7 @@ public class CraftingSlotsTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress == 5 && Utils.EpochTime() - updateTime > 2000)
+        else if (progress == 5 && (Utils.EpochTime() - updateTime > 2000 || Utils.ClickOrTouchEnd()))
         {
             Inventory.AddToInventory(100);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);

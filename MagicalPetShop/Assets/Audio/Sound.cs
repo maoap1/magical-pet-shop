@@ -24,5 +24,11 @@ public enum SoundType {
     Fail,
     Crafting,
     RecipeUpgrade,
-    Portal
+    Portal,
+    HigherRarity,
+    NewLevel,
+    Customer,
+    CustomerRefused,
+    InactiveButton,
+    EssenceJar
 }

@@ -36,11 +36,14 @@ public static class Crafting
         cost.animals = recipe.costAnimals;
         return cost;
     }
+
+    // Start crafting with the exact ingredients
     public static bool StartCraftingSafe(RecipeProgress recipe) 
     {
         return StartCraftingImpl(recipe, Inventory.TakeFromInventoryPrecise);
     }
 
+    // Start crafting even with higher quality ingredints (comes from confirmation panel)
     public static bool StartCrafting(RecipeProgress recipe)
     {
         return StartCraftingImpl(recipe, Inventory.TakeFromInventory);
@@ -56,6 +59,8 @@ public static class Crafting
         {
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
+            Utils.FindObject<CraftingInfo>()[0].AddAnimal(ca);
+            // TODO: Here update the Crafting Info
             //recipe.animalProduced();
         }
         return result;
@@ -63,7 +68,7 @@ public static class Crafting
 
     public static bool CanStartMerging(InventoryAnimal animal)
     {
-        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level].rarityMergingSettings[(int)animal.rarity - 1];
+        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level-1].rarityMergingSettings[(int)animal.rarity - 1];
         InventoryAnimal animalCost = new InventoryAnimal();
         animalCost.animal = animal.animal;
         animalCost.count = 2;
@@ -89,7 +94,7 @@ public static class Crafting
 
     public static void StartMerging(InventoryAnimal animal)
     {
-        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level].rarityMergingSettings[(int)animal.rarity - 1];
+        RarityMergingSettings mergingCost = GameLogic.THIS.mergingSettings.mergingLevels[animal.animal.level-1].rarityMergingSettings[(int)animal.rarity - 1];
         CraftedAnimal ca = new CraftedAnimal();
         ca.fillRate = 0;
         ca.animal = animal.animal;
@@ -123,6 +128,7 @@ public static class Crafting
         {
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
+            Utils.FindObject<CraftingInfo>()[0].AddAnimal(ca);
         }
     }
 
@@ -175,6 +181,8 @@ public class CraftedAnimal
     [SerializeReference]
     public Recipe recipe;
     public int animalsProduced;
+
+    public int RemainingSeconds => (int)((1 - fillRate) * duration);
 
     public bool isUpgraded
     {

@@ -53,7 +53,7 @@ public class NewUpgradeDisplay : MonoBehaviour
                 break;
         }
         GetComponent<AppearHideComponent>().Do();
-        FindObjectOfType<AudioManager>().Play(SoundType.Success);
+        FindObjectOfType<AudioManager>().Play(SoundType.RecipeUpgrade);
     }
 
     public void Close()

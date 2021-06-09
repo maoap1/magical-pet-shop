@@ -14,18 +14,18 @@ public class ConfirmationPanel : MonoBehaviour
         Rarity rarity = Inventory.HighestRarityToPay(rp.costAnimals);
         highestQuality.text = rarity.ToString("G");
         highestQuality.color = GameGraphics.THIS.getRarityColor(rarity);
-        this.gameObject.SetActive(true);
+        gameObject.TweenAwareEnable();
     }
 
     public void Reject()
     {
-        this.gameObject.SetActive(false);
+        gameObject.TweenAwareDisable();
     }
 
     public void Accept()
     {
         if (Crafting.StartCrafting(recipe))
             FindObjectOfType<AudioManager>().Play(SoundType.Splash);
-        this.gameObject.SetActive(false);
+        gameObject.TweenAwareDisable();
     }
 }

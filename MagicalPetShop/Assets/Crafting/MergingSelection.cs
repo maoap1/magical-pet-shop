@@ -13,12 +13,14 @@ public class MergingSelection : MonoBehaviour
 
     public void Open()
     {
+        GameLogic.THIS.inMerging = true;
         GetComponent<AppearHideComponent>().Do();
         defaultMergingCategory.Display();
     }
 
     public void Close()
     {
+        GameLogic.THIS.inMerging = false;
         GetComponent<AppearHideComponent>().Revert();
     }
 

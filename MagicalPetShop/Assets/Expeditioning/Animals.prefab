@@ -330,6 +330,7 @@ MonoBehaviour:
   backDuration: 0.3
   disable: 1
   enable: 1
+  destroy: 0
 --- !u!114 &4543533219200072898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,8 +762,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 30, y: -30}
-  m_SizeDelta: {x: -60, y: -60}
+  m_AnchoredPosition: {x: 20, y: -20}
+  m_SizeDelta: {x: -40, y: -40}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4680055033594450971
 CanvasRenderer:

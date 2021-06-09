@@ -63,11 +63,16 @@ public class GameLogic : ScriptableObject
     public bool inSellingOverlay = false;
     public bool inInventory = false;
     public bool inCrafting = false;
+    public bool inMerging = false;
     public bool buyingCraftingSlot = false;
     public bool inRecipeInfo = false;
     public bool inNewRecipeDisplay = false;
     public bool inNewLevelDisplay = false;
     public bool inPackLeaderSelection = false;
+    public bool inExpeditionList = false;
+    public bool inExpedition = false;
+    public bool inPackOverview = false;
+    public bool inAnimalsUI = false;
     public LocationType currentRecipeCategory = null;
     public EssenceProducer essenceProducerOpened = null;
 
@@ -195,11 +200,16 @@ public class GameLogic : ScriptableObject
         inSellingOverlay = false;
         inInventory = false;
         inCrafting = false;
+        inMerging = false;
         buyingCraftingSlot = false;
         inRecipeInfo = false;
         inNewRecipeDisplay = false;
         inNewLevelDisplay = false;
         inPackLeaderSelection = false;
+        inExpeditionList = false;
+        inExpedition = false;
+        inPackOverview = false;
+        inAnimalsUI = false;
         currentRecipeCategory = null;
         essenceProducerOpened = null;
     }

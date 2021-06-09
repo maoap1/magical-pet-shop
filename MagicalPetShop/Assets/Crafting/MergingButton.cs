@@ -20,20 +20,22 @@ public class MergingButton : MonoBehaviour
         if (this.isCrafting) {
             this.isCrafting = false;
             GameLogic.THIS.inCrafting = false;
-            this.recipes.gameObject.SetActive(false);
-            this.merging.gameObject.SetActive(true);
+            recipes.gameObject.SetActive(false);
+            merging.gameObject.TweenAwareEnable();
             this.merging.defaultMergingCategory.Display();
             this.rectComponent.sizeDelta = new Vector2(110, 110);
+            GameLogic.THIS.inMerging = true;
 
             this.imageComponent.sprite = mergingSprite;
         } else {
             this.isCrafting = true;
-            this.merging.gameObject.SetActive(false);
+            recipes.gameObject.SetActive(true);
             GameLogic.THIS.inCrafting = true;
-            this.recipes.gameObject.SetActive(true);
+            merging.gameObject.SetActive(false);
             this.recipes.defaultRecipeCategory.Display();
             this.imageComponent.sprite = craftingSprite;
             this.rectComponent.sizeDelta = new Vector2(185, 185);
+            GameLogic.THIS.inMerging = false;
         }
     }
 
