@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "91993539388",
+    "project_id": "magical-pet-shop",
+    "storage_bucket": "magical-pet-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91993539388:android:d91eda73c71e9683d9d439",
+        "android_client_info": {
+          "package_name": "com.TheTeamBehind.MagicalPetShop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91993539388-qd2socofibcbjm8b74tk7vo8b7gfomve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.TheTeamBehind.MagicalPetShop",
+            "certificate_hash": "5fce6a017ccf7e078a9682820619a6de46aafd17"
+          }
+        },
+        {
+          "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQY1JV2Tsdm2jzyVyIzlVOqw9mpquSZP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
