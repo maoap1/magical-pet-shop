@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase.Analytics;
 
 public class CraftingUpgradeDisplay : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
             Inventory.TakeFromInventory(cost);
             PlayerState.THIS.craftingSlots++;
             PlayerState.THIS.Save();
+            FirebaseAnalytics.LogEvent("upgraded_crafting", new Parameter("count", PlayerState.THIS.craftingSlots));
             GameLogic.THIS.buyingCraftingSlot = false;
             this.gameObject.SetActive(false);
             Close();

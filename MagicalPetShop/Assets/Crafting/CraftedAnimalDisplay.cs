@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Firebase.Analytics;
 
 public class CraftedAnimalDisplay : MonoBehaviour {
     public CraftedAnimal craftedAnimal;
@@ -61,6 +62,7 @@ public class CraftedAnimalDisplay : MonoBehaviour {
             Inventory.AddToInventory(ia);
             PlayerState.THIS.crafting.Remove(craftedAnimal);
             PlayerState.THIS.Save();
+            FirebaseAnalytics.LogEvent("crafting_ended", new Parameter("animal", craftedAnimal.animal.name), new Parameter("rarity", craftedAnimal.rarity.ToString()));
             if (craftedAnimal.isUpgraded) {
                 HigherRarityCrafted newRecipeDisplay = Resources.FindObjectsOfTypeAll<HigherRarityCrafted>()[0];
                 newRecipeDisplay.Open(PlayerState.THIS.recipes.Find(r => r.animal == craftedAnimal.animal), craftedAnimal.rarity);

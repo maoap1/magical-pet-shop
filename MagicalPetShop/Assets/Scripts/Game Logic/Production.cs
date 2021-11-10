@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Firebase.Analytics;
 
 [Serializable]
 public class EssenceProducer
@@ -46,5 +47,6 @@ public class EssenceProducer
         Inventory.TakeFromInventory(upgradeCost);
         this.level += 1;
         PlayerState.THIS.Save();
+        FirebaseAnalytics.LogEvent("upgraded_producer", new Parameter("essence", this.model.essence.essenceName), new Parameter("level", this.level));
     }
 }

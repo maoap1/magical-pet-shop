@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Analytics;
 
 public static class Crafting
 {
@@ -60,6 +61,7 @@ public static class Crafting
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
             Utils.FindObject<CraftingInfo>()[0].AddAnimal(ca);
+            FirebaseAnalytics.LogEvent("crafting_started", new Parameter("animal", ca.animal.name), new Parameter("rarity", ca.rarity.ToString()));
             // TODO: Here update the Crafting Info
             //recipe.animalProduced();
         }
