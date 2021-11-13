@@ -18,9 +18,14 @@ public class AnimalSlot : MonoBehaviour
     private Text quality;
     [SerializeField]
     private Button info;
+    [SerializeField]
+    public Button Lock;
+    public Sprite lockedImage;
+    public Sprite unlockedImage;
 
     private InventoryUI inventory;
     private RecipeProgress recipeProgress;
+    private InventoryAnimal inventoryAnimal;
 
     public void SetAnimal(InventoryAnimal animal, InventoryUI inventory) {
         this.image.material = new Material(this.image.material);
@@ -33,6 +38,16 @@ public class AnimalSlot : MonoBehaviour
         this.count.text = animal.count.ToString();
         this.quality.text = animal.rarity.ToString("G");
         this.recipeProgress = PlayerState.THIS.recipes.Find(r => r.recipe.animal == animal.animal);
+        this.inventoryAnimal = PlayerState.THIS.animals.Find(a => a == animal); ;
+        if (animal.rarity == this.recipeProgress.rarity) { inventoryAnimal.locked = false; Lock.gameObject.SetActive(false); }
+        if (inventoryAnimal.locked)
+        {
+            Lock.image.sprite = lockedImage;
+        }
+        else
+        {
+            Lock.image.sprite = unlockedImage;
+        }
     }
 
     public void getRecipeInfo()
@@ -40,6 +55,19 @@ public class AnimalSlot : MonoBehaviour
         if (inventory.recipeInfo != null && recipeProgress != null)
         {
             inventory.recipeInfo.Open(recipeProgress);
+        }
+    }
+
+    public void toggleLock()
+    {
+        inventoryAnimal.locked = !inventoryAnimal.locked;
+        if (inventoryAnimal.locked)
+        {
+            Lock.image.sprite = lockedImage;
+        }
+        else
+        {
+            Lock.image.sprite = unlockedImage;
         }
     }
 }

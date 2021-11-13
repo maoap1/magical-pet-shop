@@ -207,7 +207,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 12 && (Utils.EpochTime()-updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 12 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The name and a picture of the crafted animal!");
@@ -222,7 +222,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 13 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 13 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Resources needed for crafting.");
@@ -237,7 +237,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 14 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 14 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The number of animals of this type produced so far.");
@@ -252,14 +252,14 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 15 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 15 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Producing enough animals can give you various upgrades!");
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 16 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 16 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("You already unlocked the first upgrade - a new recipe!");
@@ -274,14 +274,14 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 17 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 17 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("To do so you had to produce 7 fish.");
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 18 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 18 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Other upgrades include lower crafting cost, faster crafting time...");
@@ -296,14 +296,14 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 19 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 19 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("...higher selling cost or higher minimal quality");
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 20 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 20 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The animal has one or more categories.");
@@ -318,7 +318,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 21 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 21 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish is an animal of tier 1.");
@@ -333,14 +333,14 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 22 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 22 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Animals of higher tiers are stronger and more valuable.");
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 23 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 23 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish of the common quality is worth 50 coins.");
@@ -355,7 +355,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 24 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 24 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("And it takes 15 seconds to craft it.");
@@ -370,7 +370,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 25 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 25 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Information about a recipe can also be opened from Inventory.");
@@ -378,7 +378,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 26 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 26 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("As a reward for completing this tutorial, you receive 200 coins!");
@@ -386,7 +386,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 27 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 27 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();

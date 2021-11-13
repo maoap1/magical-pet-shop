@@ -352,6 +352,7 @@ public class InventoryAnimal {
     public Animal animal;
     public int count;
     public Rarity rarity;
+    public bool locked = false;
 
     public InventoryAnimal() { }
 

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorials:
   - {fileID: 11400000, guid: 3be9dd4e24ec9ea4fa5eddd86646a6f0, type: 2}
-  - {fileID: 11400000, guid: 7485b36538643c04eb9e9c8439aebd89, type: 2}
   - {fileID: 11400000, guid: 64eb5e6769e984049b6baf46e5bce380, type: 2}
+  - {fileID: 11400000, guid: 7485b36538643c04eb9e9c8439aebd89, type: 2}
   - {fileID: 11400000, guid: 5e61cd8e96e391d448ec5b06e8336a15, type: 2}
   - {fileID: 11400000, guid: 128e12a6f6be8804b89f478cbc785309, type: 2}
   - {fileID: 11400000, guid: 2ec16f434711db349a58de8da0d4175e, type: 2}
   - {fileID: 11400000, guid: a4bfdac375d6b5b4ba073bb5a7aabf55, type: 2}
-  currentIndex: 5
+  currentIndex: 3
   finished: 0
   settingsDisabled: 0
