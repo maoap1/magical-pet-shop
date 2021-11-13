@@ -314,7 +314,7 @@ public class FirstTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll();
-            canvas.upperText.Display("As a reward, you receive 100 more coins!");
+            canvas.upperText.Display("As a reward, you receive 50 more coins!");
             updateTime = Utils.EpochTime();
             progress++;
         }
@@ -323,7 +323,7 @@ public class FirstTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
             canvas.lowerText.Close();
-            Inventory.AddToInventory(100);
+            Inventory.AddToInventory(50);
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = true;
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);

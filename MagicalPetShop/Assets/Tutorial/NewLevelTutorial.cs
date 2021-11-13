@@ -88,7 +88,7 @@ public class NewLevelTutorial : Tutorial
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
-            canvas.upperText.Display("Tier 2 animals are more valuable stronger and take longer to craft.");
+            canvas.upperText.Display("Tier 2 animals are more valuable, stronger and take longer to craft.");
             canvas.DisableAll();
             progress++;
         }

@@ -112,7 +112,7 @@ public class CraftingSlotsTutorial : Tutorial
         else if (progress == 4 && !GameLogic.THIS.buyingCraftingSlot)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("You just bought a new crafting slot. You receive 100 coins as a reward!");
+            canvas.upperText.Display("You just bought a new crafting slot. You receive 50 coins as a reward!");
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;
@@ -120,7 +120,7 @@ public class CraftingSlotsTutorial : Tutorial
         }
         else if (progress == 5 && Utils.ClickOrTouchEnd())
         {
-            Inventory.AddToInventory(100);
+            Inventory.AddToInventory(50);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();

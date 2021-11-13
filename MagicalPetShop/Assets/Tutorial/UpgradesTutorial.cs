@@ -343,6 +343,13 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 23 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("Discovering higher tier animals also increases your level.");
+            updateTime = Utils.EpochTime();
+            progress++;
+        }
+        else if (progress == 24 && Utils.ClickOrTouchEnd())
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Fish of the common quality is worth 50 coins.");
             Rect tp = new Rect
             {
@@ -355,7 +362,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 24 && Utils.ClickOrTouchEnd())
+        else if (progress == 25 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("And it takes 15 seconds to craft it.");
@@ -370,7 +377,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 25 && Utils.ClickOrTouchEnd())
+        else if (progress == 26 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Information about a recipe can also be opened from Inventory.");
@@ -378,7 +385,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 26 && Utils.ClickOrTouchEnd())
+        else if (progress == 27 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("As a reward for completing this tutorial, you receive 200 coins!");
@@ -386,7 +393,7 @@ public class UpgradesTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress == 27 && Utils.ClickOrTouchEnd())
+        else if (progress == 28 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.lowerText.Close();
