@@ -80,7 +80,7 @@ public class CraftingSlotsTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 2 && (Utils.EpochTime()-updateTime> 3000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 2 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -118,7 +118,7 @@ public class CraftingSlotsTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress == 5 && (Utils.EpochTime() - updateTime > 2000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 5 && Utils.ClickOrTouchEnd())
         {
             Inventory.AddToInventory(100);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);

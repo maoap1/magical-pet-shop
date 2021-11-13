@@ -12,6 +12,16 @@ public static class Shop
     private static float updateTime = Time.time;
     private static int nextCustomerToAppear = -1;
 
+    private static int getAnimalCount()
+    {
+        int result = 0;
+        foreach (InventoryAnimal ia in PlayerState.THIS.animals)
+        {
+            result += ia.count;
+        }
+        return result;
+    }
+
     public static void UpdateCustomers()
     {
         if (!customersComing)
@@ -21,7 +31,7 @@ public static class Shop
         if (nextCustomerToAppear==-1)
         {
             Random.InitState(System.DateTime.Now.Millisecond);
-            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * Random.Range(0.7f, 1.3f));
+            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * 1.5 * (1 / Mathf.Log(10 * (getAnimalCount() + 1), 10)) * Random.Range(0.7f, 1.3f));
         }
         if (nullCount == 0)
         {
@@ -118,6 +128,16 @@ public class Customer
     public bool hasValue = false;
     public InventoryAnimal desiredAnimal;
 
+    private static InventoryAnimal RandomCraftableAnimal()
+    {
+        int position = Random.Range(0, PlayerState.THIS.recipes.Count);
+        InventoryAnimal result = new InventoryAnimal();
+        result.animal = PlayerState.THIS.recipes[position].animal;
+        result.rarity = PlayerState.THIS.recipes[position].rarity;
+        result.count = 1;
+        return result;
+    }
+
     public static Customer GenerateCustomer()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
@@ -125,19 +145,35 @@ public class Customer
         Customer result = new Customer();
         if (rand < GameLogic.THIS.orderFromRecipesProbability || PlayerState.THIS.animals.Count == 0)
         {
-            int position = Random.Range(0, PlayerState.THIS.recipes.Count);
-            result.desiredAnimal = new InventoryAnimal();
-            result.desiredAnimal.animal = PlayerState.THIS.recipes[position].animal;
-            result.desiredAnimal.rarity = PlayerState.THIS.recipes[position].rarity;
-            result.desiredAnimal.count = 1;
+            result.desiredAnimal = RandomCraftableAnimal();
         }
         else
         {
-            int position = Random.Range(0, PlayerState.THIS.animals.Count);
-            result.desiredAnimal = new InventoryAnimal();
-            result.desiredAnimal.animal = PlayerState.THIS.animals[position].animal;
-            result.desiredAnimal.rarity = PlayerState.THIS.animals[position].rarity;
-            result.desiredAnimal.count = 1;
+            for (int i = 0; i < 10; i++)
+            {
+                int position = Random.Range(0, PlayerState.THIS.animals.Count);
+                result.desiredAnimal = new InventoryAnimal();
+                result.desiredAnimal.animal = PlayerState.THIS.animals[position].animal;
+                result.desiredAnimal.rarity = PlayerState.THIS.animals[position].rarity;
+                result.desiredAnimal.count = 0;
+                int animalCount = 0;
+                foreach (Customer c in Shop.customers)
+                {
+                    if (c.hasValue && c.desiredAnimal == result.desiredAnimal)
+                    {
+                        animalCount++;
+                    }
+                }
+                if (!PlayerState.THIS.animals[position].locked && animalCount + 1 <= PlayerState.THIS.animals[position].count)
+                {
+                    result.desiredAnimal.count = 1;
+                    break;
+                }
+            }
+            if (result.desiredAnimal.count == 0)
+            {
+                result.desiredAnimal = RandomCraftableAnimal();
+            }
         }
         result.hasValue = true;
         return result;

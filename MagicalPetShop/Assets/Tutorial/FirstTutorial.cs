@@ -310,7 +310,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==14 && (Utils.EpochTime()-updateTime > 2000 || Utils.ClickOrTouchEnd()))
+        else if (progress==14 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll();
@@ -318,7 +318,7 @@ public class FirstTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress==15 && (Utils.EpochTime() - updateTime > 2000 || Utils.ClickOrTouchEnd()))
+        else if (progress==15 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();

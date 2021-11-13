@@ -76,7 +76,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 2 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 2 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -84,7 +84,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 3 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 3 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -92,7 +92,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 4 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 4 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -100,7 +100,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 5 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 5 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -108,7 +108,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 6 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 6 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -116,7 +116,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 7 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 7 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -124,7 +124,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 8 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 8 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -132,7 +132,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 9 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 9 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             updateTime = Utils.EpochTime();
@@ -140,7 +140,7 @@ public class NewLevelTutorial : Tutorial
             canvas.DisableAll();
             progress++;
         }
-        else if (progress == 10 && (Utils.EpochTime() - updateTime > 4000 || Utils.ClickOrTouchEnd()))
+        else if (progress == 10 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
