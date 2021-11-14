@@ -47,7 +47,7 @@ public class CraftingSlotsTutorial : Tutorial
 
     public override bool tryStart()
     {
-        if ((SceneManager.GetActiveScene().name == "Lab" || SceneManager.GetActiveScene().name == "Shop") && PlayerState.THIS.craftingSlots == 1 && PlayerState.THIS.crafting.Count==1)
+        if ((SceneManager.GetActiveScene().name == "Lab" || SceneManager.GetActiveScene().name == "Shop") && PlayerState.THIS.craftingSlots == 1 && PlayerState.THIS.crafting.Count==1 && PlayerState.THIS.money >= GameLogic.THIS.craftingSlotUpgrades[0].cost)
         {
             progress = 0;
             completed = false;

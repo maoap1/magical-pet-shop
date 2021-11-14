@@ -114,7 +114,7 @@ MonoBehaviour:
   automaticUpgradeTresholds: 1e0000003c00000064000000c8000000
   craftingSlotUpgrades:
   - level: 1
-    cost: 100
+    cost: 200
   - level: 2
     cost: 1000
   - level: 3
@@ -125,11 +125,16 @@ MonoBehaviour:
   inSellingOverlay: 0
   inInventory: 0
   inCrafting: 0
+  inMerging: 0
   buyingCraftingSlot: 0
   inRecipeInfo: 0
   inNewRecipeDisplay: 0
   inNewLevelDisplay: 0
   inPackLeaderSelection: 1
+  inExpeditionList: 0
+  inExpedition: 0
+  inPackOverview: 0
+  inAnimalsUI: 0
   currentRecipeCategory: {fileID: 0}
   essenceProducerOpened:
     level: 0

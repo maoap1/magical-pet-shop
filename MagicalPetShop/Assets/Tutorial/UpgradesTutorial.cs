@@ -10,7 +10,7 @@ public class UpgradesTutorial : Tutorial
     private bool completed = false;
     public override bool finished()
     {
-        if (progress == 28 && !completed)
+        if (progress == 29 && !completed)
         {
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
@@ -19,22 +19,22 @@ public class UpgradesTutorial : Tutorial
             Shop.customersComing = true;
             completed = true;
         }
-        return progress == 28;
+        return progress == 29;
     }
 
     public override void startWithProgress(int progress)
     {
         Tutorials.THIS.settingsDisabled = true;
         completed = false;
-        if (progress < 28)
+        if (progress < 29)
         {
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             this.progress = 0;
         }
-        if (progress == 28)
+        if (progress == 29)
         {
-            this.progress = 28;
+            this.progress = 29;
         }
     }
 
@@ -388,7 +388,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 27 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("As a reward for completing this tutorial, you receive 200 coins!");
+            canvas.upperText.Display("As a reward for completing this tutorial, you receive 100 coins!");
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;
@@ -399,7 +399,7 @@ public class UpgradesTutorial : Tutorial
             canvas.lowerText.Close();
             canvas.upperText.Close();
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
-            Inventory.AddToInventory(200);
+            Inventory.AddToInventory(100);
             FindObjectOfType<AudioManager>().Play(SoundType.Cash);
             switcher.on = true;
             canvas.EnableAll();
