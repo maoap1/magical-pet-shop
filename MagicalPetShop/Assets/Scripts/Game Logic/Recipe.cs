@@ -296,14 +296,14 @@ public class RecipeProgress
             rp.animalsProduced = 0;
             rp.recipe = recipe.getUnlockedRecipe(animalsProduced);
             var unlockedUpgrade = recipe.getUnlockedUpgrade(animalsProduced);
-            Analytics.LogEvent("recipe_upgrade", new Parameter("animal", recipe.animal.name), new Parameter("type", unlockedUpgrade.upgradeType.ToString()), new Parameter("threshold", unlockedUpgrade.treshold));
+            Analytics.LogEvent("recipe_upgrade", new Parameter("animal", recipe.animal.name), new Parameter("upgrade_type", unlockedUpgrade.upgradeType.ToString()), new Parameter("upgrade_threshold", unlockedUpgrade.treshold));
             GameLogic.UnlockRecipe(rp);
         }
         else if (recipe.getUnlockedUpgrade(animalsProduced)!=null)
         {
             NewUpgradeDisplay newRecipeDisplay = Resources.FindObjectsOfTypeAll<NewUpgradeDisplay>()[0];
             var unlockedUpgrade = recipe.getUnlockedUpgrade(animalsProduced);
-            Analytics.LogEvent("recipe_upgrade", new Parameter("animal", recipe.animal.name), new Parameter("type", unlockedUpgrade.upgradeType.ToString()), new Parameter("threshold", unlockedUpgrade.treshold));
+            Analytics.LogEvent("recipe_upgrade", new Parameter("animal", recipe.animal.name), new Parameter("upgrade_type", unlockedUpgrade.upgradeType.ToString()), new Parameter("upgrade_threshold", unlockedUpgrade.treshold));
             newRecipeDisplay.Open(this, unlockedUpgrade);
         }
     }
