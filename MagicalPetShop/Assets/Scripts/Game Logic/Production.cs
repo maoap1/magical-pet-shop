@@ -47,6 +47,6 @@ public class EssenceProducer
         Inventory.TakeFromInventory(upgradeCost);
         this.level += 1;
         PlayerState.THIS.Save();
-        FirebaseAnalytics.LogEvent("upgraded_producer", new Parameter("essence", this.model.essence.essenceName), new Parameter("level", this.level));
+        Analytics.LogEvent("upgraded_producer", new Parameter("essence", this.model.essence.essenceName), new Parameter("level", this.level));
     }
 }

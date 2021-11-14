@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Firebase.Analytics;
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "PetShop/Recipe")]
 public class Recipe : ScriptableObject
@@ -294,12 +295,16 @@ public class RecipeProgress
             RecipeProgress rp = new RecipeProgress();
             rp.animalsProduced = 0;
             rp.recipe = recipe.getUnlockedRecipe(animalsProduced);
+            var unlockedUpgrade = recipe.getUnlockedUpgrade(animalsProduced);
+            Analytics.LogEvent("recipe_upgrade", new Parameter("animal", recipe.animal.name), new Parameter("type", unlockedUpgrade.upgradeType.ToString()), new Parameter("threshold", unlockedUpgrade.treshold));
             GameLogic.UnlockRecipe(rp);
         }
         else if (recipe.getUnlockedUpgrade(animalsProduced)!=null)
         {
             NewUpgradeDisplay newRecipeDisplay = Resources.FindObjectsOfTypeAll<NewUpgradeDisplay>()[0];
-            newRecipeDisplay.Open(this, recipe.getUnlockedUpgrade(animalsProduced));
+            var unlockedUpgrade = recipe.getUnlockedUpgrade(animalsProduced);
+            Analytics.LogEvent("recipe_upgrade", new Parameter("animal", recipe.animal.name), new Parameter("type", unlockedUpgrade.upgradeType.ToString()), new Parameter("threshold", unlockedUpgrade.treshold));
+            newRecipeDisplay.Open(this, unlockedUpgrade);
         }
     }
 }

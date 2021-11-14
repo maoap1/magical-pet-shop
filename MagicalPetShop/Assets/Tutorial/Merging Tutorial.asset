@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Merging Tutorial
   m_EditorClassIdentifier: 
   progress: 0
+  tutorialName: merging_tutorial

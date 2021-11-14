@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d31211d60ad624baa00bc1b8706a59, type: 3}
   m_Name: Producers Tutorial
   m_EditorClassIdentifier: 
+  progress: 0
+  tutorialName: producers_tutorial

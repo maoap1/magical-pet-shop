@@ -6,6 +6,22 @@ using System;
 public static class Inventory
 {
 
+    public static int GetNumberOfAnimals() {
+        int count = 0;
+        foreach (var animal in PlayerState.THIS.animals) {
+            count += animal.count;
+        }
+        return count;
+    }
+
+    public static int GetNumberOfArtifacts() {
+        int count = 0;
+        foreach (var artifact in PlayerState.THIS.artifacts) {
+            count += artifact.count;
+        }
+        return count;
+    }
+
     public static List<InventoryAnimal> GetOrderedAnimals() {
         if (PlayerState.THIS.animals == null) return new List<InventoryAnimal>();
         // descending order according to value - sorted in place, may be redone later, if necessary

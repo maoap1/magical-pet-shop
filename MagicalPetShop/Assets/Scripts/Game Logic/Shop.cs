@@ -110,7 +110,7 @@ public static class Shop
                 nullCount++;
                 customers[i].hasValue = false;
                 PlayerState.THIS.Save();
-                FirebaseAnalytics.LogEvent("sold_animal", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
+                Analytics.LogEvent("sold_animal", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
                 return;
             }
         }

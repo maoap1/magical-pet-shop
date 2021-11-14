@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a26f7a783e8b8428b81d4b39f4865a, type: 3}
   m_Name: Upgrades Tutorial
   m_EditorClassIdentifier: 
+  progress: 0
+  tutorialName: upgrades_tutorial

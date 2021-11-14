@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c435e5c4248caf4d94b053e0772c4d1, type: 3}
   m_Name: Expeditions Tutorial
   m_EditorClassIdentifier: 
+  progress: 0
+  tutorialName: expeditions_tutorial

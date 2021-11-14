@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Firebase.Analytics;
 
 [CreateAssetMenu(fileName = "Game Logic", menuName = "PetShop/Game Logic")]
 public class GameLogic : ScriptableObject
@@ -137,6 +138,7 @@ public class GameLogic : ScriptableObject
             {
                 e.unlocked = true;
                 e.amount = PlayerState.THIS.producers.Find(producer => producer.essenceAmount.essence == e.essence).storageLimit;
+                Analytics.LogEvent("essence_unlocked", new Parameter("essence", e.essence.essenceName));
             }
         }
     }
@@ -148,6 +150,7 @@ public class GameLogic : ScriptableObject
             rp.newRecipe = true;
             PlayerState.THIS.recipes.Add(rp);
         }
+        Analytics.LogEvent("recipe_unlocked", new Parameter("animal", rp.animal.name), new Parameter("animal_level", rp.animal.level));
         if (PlayerState.THIS.level<rp.animal.level)
         {
             PlayerState.THIS.level = rp.animal.level;

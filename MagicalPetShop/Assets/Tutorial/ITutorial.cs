@@ -9,4 +9,6 @@ public abstract class Tutorial : ScriptableObject
     public abstract bool finished();
     public abstract void startWithProgress(int progress);
     public int progress;
+
+    public string tutorialName;
 }

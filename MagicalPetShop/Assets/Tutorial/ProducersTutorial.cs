@@ -8,6 +8,7 @@ public class ProducersTutorial : Tutorial
 {
     private long updateTime;
     private bool completed = false;
+
     public override bool finished()
     {
         if (progress == 7 && !completed)

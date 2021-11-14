@@ -16,3 +16,5 @@ MonoBehaviour:
   tutorialCustomerBlur: {fileID: 0}
   sellingOverlayWait: {fileID: 0}
   labButton: {fileID: 0}
+  progress: 0
+  tutorialName: first_tutorial

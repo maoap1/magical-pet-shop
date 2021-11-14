@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Analytics;
 
 [CreateAssetMenu(fileName = "Tutorials", menuName = "PetShop/Tutorials")]
 public class Tutorials : ScriptableObject
@@ -28,6 +29,8 @@ public class Tutorials : ScriptableObject
     public bool finished = false;
     public bool settingsDisabled = false;
 
+    private bool current_finished = false;
+
     public void Update()
     {
         if (!finished)
@@ -35,13 +38,21 @@ public class Tutorials : ScriptableObject
             lastUpdateTime = Utils.EpochTime();
             if (tutorials.Count == 0 || (currentIndex+1 == tutorials.Count && tutorials[currentIndex].finished()))
             {
+                if (tutorials.Count > 0 && !finished) {
+                    Analytics.LogEvent("tutorial_ended", new Parameter("tutorial_name", tutorials[currentIndex].tutorialName));
+                }
                 finished = true;
+                current_finished = true;
             }
-            else if (currentIndex==-1 || (currentIndex>=0 && tutorials[currentIndex].finished()))
-            {
-                if (tutorials[currentIndex+1].tryStart())
-                {
+            else if (currentIndex==-1 || (currentIndex>=0 && tutorials[currentIndex].finished())) {
+                if (currentIndex >= 0 && !current_finished) {
+                    Analytics.LogEvent("tutorial_ended", new Parameter("tutorial_name", tutorials[currentIndex].tutorialName));
+                    current_finished = true;
+                }
+                if (tutorials[currentIndex+1].tryStart()) {
+                    Analytics.LogEvent("tutorial_started", new Parameter("tutorial_name", tutorials[currentIndex + 1].tutorialName));
                     currentIndex++;
+                    current_finished = false;
                 }
             }
             else if (currentIndex >= 0)
