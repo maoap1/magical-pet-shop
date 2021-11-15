@@ -78,8 +78,10 @@ public static class Shop
             }
         }
         nullCount--;
-        customers[finalPosition] = Customer.GenerateCustomer();
+        Customer customer = Customer.GenerateCustomer();
+        customers[finalPosition] = customer;
         customers[finalPosition].hasValue = true;
+        Analytics.LogEvent("new_customer", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
         PlayerState.THIS.Save();
     }
 
@@ -110,7 +112,7 @@ public static class Shop
                 nullCount++;
                 customers[i].hasValue = false;
                 PlayerState.THIS.Save();
-                Analytics.LogEvent("sold_animal", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
+                Analytics.LogEvent("animal_sold", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
                 return;
             }
         }
@@ -120,6 +122,7 @@ public static class Shop
             Inventory.TakeFromInventoryPrecise(customer.desiredAnimal);
             Inventory.AddToInventory(cost);
             PlayerState.THIS.Save();
+            Analytics.LogEvent("animal_sold", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
         }
     }
 }

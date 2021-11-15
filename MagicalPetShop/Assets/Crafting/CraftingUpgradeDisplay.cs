@@ -46,7 +46,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
             Inventory.TakeFromInventory(cost);
             PlayerState.THIS.craftingSlots++;
             PlayerState.THIS.Save();
-            Analytics.LogEvent("upgraded_crafting", new Parameter("crafting_slots", PlayerState.THIS.craftingSlots));
+            Analytics.LogEvent("crafting_upgraded", new Parameter("crafting_slots", PlayerState.THIS.craftingSlots));
             GameLogic.THIS.buyingCraftingSlot = false;
             this.gameObject.SetActive(false);
             Close();
