@@ -187,7 +187,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 12 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Assign at least 4 animals! If you don't have the required categories craft them!");
+            canvas.upperText.Display("Assign at least 4 animals! If you don't have the required categories, craft them!");
             updateTime = Utils.EpochTime();
             progress++;
             PlayerState.THIS.Save();
@@ -279,7 +279,7 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 19 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Higher animal rarity means more strength and less chance dying!");
+            canvas.upperText.Display("Higher animal rarity means more strength and less chance of dying!");
             canvas.DisableAll();
             updateTime = Utils.EpochTime();
             progress++;

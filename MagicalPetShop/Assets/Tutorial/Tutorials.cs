@@ -24,6 +24,7 @@ public class Tutorials : ScriptableObject
 
     public List<Tutorial> tutorials;
     public int currentIndex = -1;
+    public int playedIndex = -1;
     private long lastUpdateTime;
 
     public bool finished = false;
@@ -36,28 +37,40 @@ public class Tutorials : ScriptableObject
         if (!finished)
         {
             lastUpdateTime = Utils.EpochTime();
-            if (tutorials.Count == 0 || (currentIndex+1 == tutorials.Count && tutorials[currentIndex].finished()))
+            if (playedIndex >= 0)
             {
-                if (tutorials.Count > 0 && !finished) {
-                    Analytics.LogEvent("tutorial_ended", new Parameter("tutorial_name", tutorials[currentIndex].tutorialName));
-                }
-                finished = true;
-                current_finished = true;
-            }
-            else if (currentIndex==-1 || (currentIndex>=0 && tutorials[currentIndex].finished())) {
-                if (currentIndex >= 0 && !current_finished) {
-                    Analytics.LogEvent("tutorial_ended", new Parameter("tutorial_name", tutorials[currentIndex].tutorialName));
+                tutorials[playedIndex].update();
+                if (tutorials[playedIndex].finished())
+                {
+                    Analytics.LogEvent("tutorial_ended", new Parameter("tutorial_name", tutorials[playedIndex].tutorialName));
                     current_finished = true;
-                }
-                if (tutorials[currentIndex+1].tryStart()) {
-                    Analytics.LogEvent("tutorial_started", new Parameter("tutorial_name", tutorials[currentIndex + 1].tutorialName));
-                    currentIndex++;
-                    current_finished = false;
+                    playedIndex = -1;
                 }
             }
-            else if (currentIndex >= 0)
+            else
             {
-                tutorials[currentIndex].update();
+                if (tutorials.Count == 0 || (currentIndex + 1 == tutorials.Count && tutorials[currentIndex].finished()))
+                {
+                    finished = true;
+                }
+                else if (currentIndex == -1 || (currentIndex >= 0 && tutorials[currentIndex].finished()))
+                {
+                    while (currentIndex + 1 < tutorials.Count && tutorials[currentIndex+1].finished())
+                    {
+                        currentIndex++;
+                    }
+                    for (int i = currentIndex + 1; i<tutorials.Count; i++)
+                    {
+                        if (!tutorials[i].finished() && tutorials[i].tryStart())
+                        {
+                            playedIndex = i;
+                            Analytics.LogEvent("tutorial_started", new Parameter("tutorial_name", tutorials[playedIndex].tutorialName));
+                            currentIndex++;
+                            current_finished = false;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
@@ -67,5 +80,6 @@ public class Tutorials : ScriptableObject
         lastUpdateTime = Utils.EpochTime() - 500;
         finished = false;
         currentIndex = -1;
-    }
+        playedIndex = -1;
+}
 }

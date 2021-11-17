@@ -51,7 +51,8 @@ public class PlayerState : MonoBehaviour
     private bool initialized = false;
     public bool tutorial = true;
     public int currentTutorial = 0;
-    public int tutorialProgress = 0;
+    public List<int> tutorialProgress = new List<int>();
+    public int playedTutorial = 0;
 
     private static PlayerState _THIS;
     public static PlayerState THIS
@@ -77,13 +78,11 @@ public class PlayerState : MonoBehaviour
         if (tutorial)
         {
             currentTutorial = Tutorials.THIS.currentIndex;
-            if (Tutorials.THIS.currentIndex >= 0)
+            playedTutorial = Tutorials.THIS.playedIndex;
+            tutorialProgress = new List<int>();
+            foreach (var t in Tutorials.THIS.tutorials)
             {
-                tutorialProgress = Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].progress;
-            }
-            else
-            {
-                tutorialProgress = 0;
+                tutorialProgress.Add(t.progress);
             }
         }
         lastArrivalTime = Shop.lastArrivalTime;
@@ -125,9 +124,14 @@ public class PlayerState : MonoBehaviour
                 Shop.lastArrivalTime = lastArrivalTime;
                 Shop.customers = customers;
                 Tutorials.THIS.currentIndex = this.currentTutorial;
+                Tutorials.THIS.playedIndex = this.playedTutorial;
                 Tutorials.THIS.finished = false;
-                if (Tutorials.THIS.currentIndex < Tutorials.THIS.tutorials.Count && Tutorials.THIS.currentIndex >= 0) {
-                    Tutorials.THIS.tutorials[Tutorials.THIS.currentIndex].startWithProgress(this.tutorialProgress);
+                for (int i = 0; i < Tutorials.THIS.tutorials.Count; i++)
+                {
+                    Tutorials.THIS.tutorials[i].progress = this.tutorialProgress[i];
+                }
+                if (Tutorials.THIS.playedIndex < Tutorials.THIS.tutorials.Count && Tutorials.THIS.playedIndex >= 0) {
+                    Tutorials.THIS.tutorials[Tutorials.THIS.playedIndex].startWithProgress(tutorialProgress[playedTutorial]);
                 }
             }
             else
@@ -224,6 +228,13 @@ public class PlayerState : MonoBehaviour
         Shop.customers = new Customer[5];
         customers = Shop.customers;
         PacksManager.UnlockPacks();
+        Tutorials.THIS.currentIndex = -1;
+        Tutorials.THIS.playedIndex = -1;
+        Tutorials.THIS.finished = false;
+        for (int i = 0; i < Tutorials.THIS.tutorials.Count; i++)
+        {
+            Tutorials.THIS.tutorials[i].progress = 0;
+        }
         Save();
     }
 
