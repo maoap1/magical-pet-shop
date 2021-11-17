@@ -95,7 +95,7 @@ public class Analytics : MonoBehaviour
 
     private void OnDestroy() {
         if (this.isFirst) {
-            Analytics.LogEvent("game_quited");
+            FirebaseAnalytics.LogEvent("game_quited", new Parameter("build_variant", buildVariant));
         }
     }
 }
