@@ -61,7 +61,7 @@ public static class Crafting
             PlayerState.THIS.crafting.Add(ca);
             PlayerState.THIS.Save();
             Utils.FindObject<CraftingInfo>()[0].AddAnimal(ca);
-            Analytics.LogEvent("crafting_started", new Parameter("animal", ca.animal.name), new Parameter("rarity", ca.rarity.ToString()));
+            Analytics.LogEvent("crafting_started", new Parameter("animal", ca.animal.name), new Parameter("rarity", ca.rarity.ToString()), new Parameter("crafting_duration", recipe.duration));
             // TODO: Here update the Crafting Info
             //recipe.animalProduced();
         }
