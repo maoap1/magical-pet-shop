@@ -46,7 +46,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
@@ -66,7 +65,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 25
     unlockedRecipe: {fileID: 0}
@@ -86,7 +84,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 11400000, guid: 6bb7d7874b3667747acb8171d8c19a44, type: 2}
@@ -106,7 +103,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
@@ -126,7 +122,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
