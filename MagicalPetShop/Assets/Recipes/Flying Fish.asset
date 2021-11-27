@@ -31,7 +31,6 @@ MonoBehaviour:
   - animal: {fileID: 11400000, guid: 59ad37f60d9fb4248beeeccdadef1683, type: 2}
     count: 1
     rarity: 0
-    locked: 0
   baseRarity: 0
   baseDuration: 3000
   recipeLevels:
@@ -50,7 +49,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 25
     unlockedRecipe: {fileID: 0}
@@ -70,7 +68,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
@@ -90,7 +87,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
@@ -110,7 +106,6 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
@@ -130,7 +125,6 @@ MonoBehaviour:
       animal: {fileID: 11400000, guid: 59ad37f60d9fb4248beeeccdadef1683, type: 2}
       count: 1
       rarity: 0
-      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}

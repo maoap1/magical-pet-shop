@@ -11,7 +11,7 @@ public class FirstTutorial : Tutorial
     private bool completed = false;
     public override bool finished()
     {
-        if (progress==17 && !completed)
+        if (progress == 17 && !completed)
         {
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
@@ -22,7 +22,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             completed = true;
         }
-        return progress==17;
+        return progress == 17;
     }
 
     public override void startWithProgress(int progress)
@@ -73,7 +73,7 @@ public class FirstTutorial : Tutorial
 
     public override void update()
     {
-        if (progress==0)
+        if (progress == 0)
         {
             PlayerState.THIS.Save();
             Tutorials.THIS.settingsDisabled = true;
@@ -81,7 +81,7 @@ public class FirstTutorial : Tutorial
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
-            
+
             canvas.DisableAll(true, true);
 
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
@@ -98,7 +98,7 @@ public class FirstTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        if (progress==1 && Utils.EpochTime() - updateTime > 1000)
+        if (progress == 1 && Utils.EpochTime() - updateTime > 1000)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Looks like there is a customer wanting to order a fish. Tap on him!");
@@ -123,7 +123,7 @@ public class FirstTutorial : Tutorial
             }
             progress++;
         }
-        else if (progress==2 && GameLogic.THIS.inSellingOverlay)
+        else if (progress == 2 && GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Oh, snap! It looks like we don't have fish in stock. Tell the customer to wait!");
@@ -137,7 +137,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==3 && !GameLogic.THIS.inSellingOverlay)
+        else if (progress == 3 && !GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             Rect tp = new Rect
@@ -154,7 +154,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             progress++;
         }
-        else if (progress==4 && SceneManager.GetActiveScene().name == "Lab")
+        else if (progress == 4 && SceneManager.GetActiveScene().name == "Lab")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.leftArrow.SetActive(false);
@@ -165,7 +165,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==5 && Utils.EpochTime() - updateTime > 1000)
+        else if (progress == 5 && Utils.EpochTime() - updateTime > 1000)
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialLab").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the cauldron to open the crafting menu!");
@@ -180,7 +180,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==6 && GameLogic.THIS.inCrafting)
+        else if (progress == 6 && GameLogic.THIS.inCrafting)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Click on the panel with the fish to start crafting it!");
@@ -194,7 +194,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==7 && PlayerState.THIS.crafting.Count > 0)
+        else if (progress == 7 && PlayerState.THIS.crafting.Count > 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Tutorial panel messages can be skipped with a tap!");
@@ -202,7 +202,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==8 && PlayerState.THIS.crafting.Count > 0 && Utils.ClickOrTouchEnd())
+        else if (progress == 8 && PlayerState.THIS.crafting.Count > 0 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The fish is being crafted! Wait until it is finished!");
@@ -217,7 +217,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==9 && PlayerState.THIS.crafting.Count > 0 && PlayerState.THIS.crafting[0].fillRate >= 1)
+        else if (progress == 9 && PlayerState.THIS.crafting.Count > 0 && PlayerState.THIS.crafting[0].fillRate >= 1)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Crafting has finished! Collect the fish by clicking on it!");
@@ -232,7 +232,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==10 && PlayerState.THIS.crafting.Count == 0)
+        else if (progress == 10 && PlayerState.THIS.crafting.Count == 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Return to the shop to sell the fish!");
@@ -250,7 +250,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==11 && SceneManager.GetActiveScene().name == "Shop")
+        else if (progress == 11 && SceneManager.GetActiveScene().name == "Shop")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
             canvas.rightArrow.SetActive(false);
@@ -270,7 +270,7 @@ public class FirstTutorial : Tutorial
             }
             progress++;
         }
-        else if (progress==12 && Utils.EpochTime() - updateTime > 1000)
+        else if (progress == 12 && Utils.EpochTime() - updateTime > 1000)
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the customer to sell the fish to him!");
@@ -285,7 +285,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==13 && GameLogic.THIS.inSellingOverlay)
+        else if (progress == 13 && GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Click on the sell button to sell the fish to the customer!");
@@ -299,7 +299,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==14 && !GameLogic.THIS.inSellingOverlay)
+        else if (progress == 14 && !GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
@@ -318,7 +318,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==15 && Utils.ClickOrTouchEnd())
+        else if (progress == 15 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll();
@@ -326,7 +326,7 @@ public class FirstTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress==16 && Utils.ClickOrTouchEnd())
+        else if (progress == 16 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
@@ -374,7 +374,7 @@ public class FirstTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             updateTime = Utils.EpochTime();
-            progress=7;
+            progress = 7;
         }
 
         else if (progress == 110)
