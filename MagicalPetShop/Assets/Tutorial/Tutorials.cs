@@ -65,6 +65,7 @@ public class Tutorials : ScriptableObject
                         {
                             playedIndex = i;
                             Analytics.LogEvent("tutorial_started", new Parameter("tutorial_name", tutorials[playedIndex].tutorialName));
+                            currentIndex++;
                             current_finished = false;
                             break;
                         }
