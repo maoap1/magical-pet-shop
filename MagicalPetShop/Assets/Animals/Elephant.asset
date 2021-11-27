@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Elephant
   level: 2
-  value: 430
+  value: 330
   basePower: 150
   animalEssence: {fileID: 11400000, guid: 2bc5d06e3596974448f89d3d719369f4, type: 2}
   secondaryCategories: []
