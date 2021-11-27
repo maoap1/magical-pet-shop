@@ -55,11 +55,11 @@ public class Tutorials : ScriptableObject
                 }
                 else if (currentIndex == -1 || (currentIndex >= 0 && tutorials[currentIndex].finished()))
                 {
-                    while (currentIndex + 1 < tutorials.Count && tutorials[currentIndex+1].finished())
+                    while (currentIndex + 1 < tutorials.Count && tutorials[currentIndex + 1].finished())
                     {
                         currentIndex++;
                     }
-                    for (int i = currentIndex + 1; i<tutorials.Count; i++)
+                    for (int i = currentIndex + 1; i < tutorials.Count; i++)
                     {
                         if (!tutorials[i].finished() && tutorials[i].tryStart())
                         {
@@ -80,5 +80,5 @@ public class Tutorials : ScriptableObject
         finished = false;
         currentIndex = -1;
         playedIndex = -1;
-}
+    }
 }
