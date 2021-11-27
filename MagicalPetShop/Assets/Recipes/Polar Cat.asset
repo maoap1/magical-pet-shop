@@ -16,15 +16,15 @@ MonoBehaviour:
   baseCostEssences:
   - essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
     limit: 10
-    amount: 6
+    amount: 5
     full: 0
     unlocked: 0
   baseCostArtifacts: []
   baseCostAnimals: []
   baseRarity: 0
-  baseDuration: 15
+  baseDuration: 8
   recipeLevels:
-  - treshold: 7
+  - treshold: 5
     upgradeType: 0
     costEssenceDecrease:
       essence: {fileID: 11400000, guid: 3b9a5c81f26a25d449abf5bd9660efc3, type: 2}
@@ -39,11 +39,12 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
+      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
     valueIncrease: 0
-  - treshold: 18
+  - treshold: 14
     upgradeType: 5
     costEssenceDecrease:
       essence: {fileID: 0}
@@ -58,11 +59,12 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
+      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 11400000, guid: 065d6a95bb69e0347b44e7bd5a19067c, type: 2}
     valueIncrease: 0
-  - treshold: 32
+  - treshold: 25
     upgradeType: 4
     costEssenceDecrease:
       essence: {fileID: 0}
@@ -77,11 +79,12 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
+      locked: 0
     newRarity: 0
     durationDecrease: 25
     unlockedRecipe: {fileID: 0}
     valueIncrease: 0
-  - treshold: 50
+  - treshold: 32
     upgradeType: 6
     costEssenceDecrease:
       essence: {fileID: 0}
@@ -96,11 +99,12 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
+      locked: 0
     newRarity: 0
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
     valueIncrease: 50
-  - treshold: 85
+  - treshold: 40
     upgradeType: 3
     costEssenceDecrease:
       essence: {fileID: 0}
@@ -115,6 +119,7 @@ MonoBehaviour:
       animal: {fileID: 0}
       count: 0
       rarity: 0
+      locked: 0
     newRarity: 1
     durationDecrease: 0
     unlockedRecipe: {fileID: 0}
