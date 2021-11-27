@@ -11,7 +11,7 @@ public class FirstTutorial : Tutorial
     private bool completed = false;
     public override bool finished()
     {
-        if (progress==16 && !completed)
+        if (progress==17 && !completed)
         {
             Tutorials.THIS.settingsDisabled = false;
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
@@ -22,7 +22,7 @@ public class FirstTutorial : Tutorial
             switcher.on = true;
             completed = true;
         }
-        return progress==16;
+        return progress==17;
     }
 
     public override void startWithProgress(int progress)
@@ -41,25 +41,25 @@ public class FirstTutorial : Tutorial
         {
             this.progress = 3;
         }
-        else if (progress == 8)
+        else if (progress == 9 || progress == 8)
         {
             this.progress = 100;
         }
-        else if (progress == 9)
+        else if (progress == 10)
         {
             this.progress = 110;
         }
-        else if (progress < 14)
+        else if (progress < 15)
         {
-            this.progress = 10;
+            this.progress = 11;
         }
-        else if (progress < 16)
+        else if (progress < 17)
         {
-            this.progress = 13;
+            this.progress = 14;
         }
-        if (progress == 16)
+        if (progress == 17)
         {
-            this.progress = 16;
+            this.progress = 17;
         }
     }
 
@@ -197,6 +197,14 @@ public class FirstTutorial : Tutorial
         else if (progress==7 && PlayerState.THIS.crafting.Count > 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
+            canvas.upperText.Display("Tutorial panel messages can be skipped with a tap!");
+            canvas.DisableAll();
+            progress++;
+            PlayerState.THIS.Save();
+        }
+        else if (progress==8 && PlayerState.THIS.crafting.Count > 0 && Utils.ClickOrTouchEnd())
+        {
+            TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("The fish is being crafted! Wait until it is finished!");
             Rect tp = new Rect
             {
@@ -209,7 +217,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==8 && PlayerState.THIS.crafting.Count > 0 && PlayerState.THIS.crafting[0].fillRate >= 1)
+        else if (progress==9 && PlayerState.THIS.crafting.Count > 0 && PlayerState.THIS.crafting[0].fillRate >= 1)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Crafting has finished! Collect the fish by clicking on it!");
@@ -224,7 +232,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==9 && PlayerState.THIS.crafting.Count == 0)
+        else if (progress==10 && PlayerState.THIS.crafting.Count == 0)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Return to the shop to sell the fish!");
@@ -242,7 +250,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==10 && SceneManager.GetActiveScene().name == "Shop")
+        else if (progress==11 && SceneManager.GetActiveScene().name == "Shop")
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
             canvas.rightArrow.SetActive(false);
@@ -262,7 +270,7 @@ public class FirstTutorial : Tutorial
             }
             progress++;
         }
-        else if (progress==11 && Utils.EpochTime() - updateTime > 1000)
+        else if (progress==12 && Utils.EpochTime() - updateTime > 1000)
         {
             TutorialCanvas canvas = GameObject.Find("CanvasTutorialShop").GetComponent<TutorialCanvas>();
             canvas.upperText.Display("Tap on the customer to sell the fish to him!");
@@ -277,7 +285,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==12 && GameLogic.THIS.inSellingOverlay)
+        else if (progress==13 && GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Display("Click on the sell button to sell the fish to the customer!");
@@ -291,7 +299,7 @@ public class FirstTutorial : Tutorial
             canvas.DisableAllExcept(tp);
             progress++;
         }
-        else if (progress==13 && !GameLogic.THIS.inSellingOverlay)
+        else if (progress==14 && !GameLogic.THIS.inSellingOverlay)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             GameObject customer = GameObject.Find("Canvas/SpawnPoint/TutorialCustomer");
@@ -310,7 +318,7 @@ public class FirstTutorial : Tutorial
             progress++;
             PlayerState.THIS.Save();
         }
-        else if (progress==14 && Utils.ClickOrTouchEnd())
+        else if (progress==15 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.DisableAll();
@@ -318,7 +326,7 @@ public class FirstTutorial : Tutorial
             updateTime = Utils.EpochTime();
             progress++;
         }
-        else if (progress==15 && Utils.ClickOrTouchEnd())
+        else if (progress==16 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
             canvas.upperText.Close();
@@ -394,7 +402,7 @@ public class FirstTutorial : Tutorial
             SceneSwitcher switcher = Resources.FindObjectsOfTypeAll<SceneSwitcher>()[0];
             switcher.on = false;
             updateTime = Utils.EpochTime();
-            progress = 8;
+            progress = 9;
         }
     }
 }
