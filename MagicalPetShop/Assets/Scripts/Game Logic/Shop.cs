@@ -32,7 +32,7 @@ public static class Shop
         if (nextCustomerToAppear==-1)
         {
             Random.InitState(System.DateTime.Now.Millisecond);
-            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * 1.5 * (1 / Mathf.Log(10 * (getAnimalCount() + 1), 10)) * Random.Range(0.7f, 1.3f));
+            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * 3 * (1 / Mathf.Sqrt(getAnimalCount() + 5)) * Random.Range(0.7f, 1.3f));
         }
         if (nullCount == 0)
         {
@@ -43,7 +43,7 @@ public static class Shop
             TryAddCustomer();
             lastArrivalTime += (long)((nextCustomerToAppear * 1000) / PlayerState.THIS.speed);
             Random.InitState(System.DateTime.Now.Millisecond);
-            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * Random.Range(0.7f, 1.3f));
+            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * 3 * (1 / Mathf.Sqrt(getAnimalCount() + 5)) * Random.Range(0.7f, 1.3f));
         }
         if (Time.time - updateTime > 0.1) {
             updateTime = Time.time;
