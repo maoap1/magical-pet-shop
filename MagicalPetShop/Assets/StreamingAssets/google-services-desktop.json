@@ -158,6 +158,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91993539388:android:af974c9a118cb5b5d9d439",
+        "android_client_info": {
+          "package_name": "com.TheTeamBehind.MagicalPetShopE"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQY1JV2Tsdm2jzyVyIzlVOqw9mpquSZP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
