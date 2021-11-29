@@ -9,11 +9,10 @@ public static class Shop
     public static bool customersComing = true;
     public static long lastArrivalTime;
     public static Customer[] customers = new Customer[5];
-    private static int nullCount = 0;
     private static float updateTime = Time.time;
     private static int nextCustomerToAppear = -1;
 
-    private static int getAnimalCount()
+    private static int GetAnimalCount()
     {
         int result = 0;
         foreach (InventoryAnimal ia in PlayerState.THIS.animals)
@@ -22,6 +21,23 @@ public static class Shop
         }
         return result;
     }
+    private static bool HasFreeCustomer()
+    {
+        foreach (Customer customer in customers)
+        {
+            if (!customer.hasValue) return true;
+        }
+        return false;
+    }
+    private static List<int> GetFreeCustomersIndices()
+    {
+        List<int> freeIndices = new List<int>();
+        for (int i = 0; i < customers.Length; i++)
+        {
+            if (!customers[i].hasValue) freeIndices.Add(i);
+        }
+        return freeIndices;
+    }
 
     public static void UpdateCustomers()
     {
@@ -29,12 +45,8 @@ public static class Shop
         {
             lastArrivalTime = Utils.EpochTime();
         }
-        if (nextCustomerToAppear==-1)
-        {
-            Random.InitState(System.DateTime.Now.Millisecond);
-            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * 1.5 * (1 / Mathf.Log(10 * (getAnimalCount() + 1), 10)) * Random.Range(0.7f, 1.3f));
-        }
-        if (nullCount == 0)
+        nextCustomerToAppear = (int)(114f * 1f/Mathf.Sqrt(7.4f*GetAnimalCount() + 0.6f)*Random.Range(0.7f, 1.3f));
+        if (!HasFreeCustomer())
         {
             lastArrivalTime = Utils.EpochTime();
         }
@@ -43,41 +55,24 @@ public static class Shop
             TryAddCustomer();
             lastArrivalTime += (long)((nextCustomerToAppear * 1000) / PlayerState.THIS.speed);
             Random.InitState(System.DateTime.Now.Millisecond);
-            nextCustomerToAppear = (int)(GameLogic.THIS.customerArrivalFrequency * Random.Range(0.7f, 1.3f));
+            nextCustomerToAppear = (int)(114f * 1f / Mathf.Sqrt(7.4f * GetAnimalCount() + 0.6f) * Random.Range(0.7f, 1.3f));
         }
-        if (Time.time - updateTime > 0.1) {
+        if (Time.time - updateTime > 0.1) 
+        {
             updateTime = Time.time;
-            nullCount = 0;
-            for (int i = 0; i < 5; i++) {
-                if (!customers[i].hasValue) {
-                    nullCount++;
-                }
-            }
         }
     }
 
     public static void TryAddCustomer()
     {
-        if (nullCount == 0)
+        if (!HasFreeCustomer())
         {
             return;
         }
         Random.InitState(System.DateTime.Now.Millisecond);
-        int position = Random.Range(0, nullCount);
-        int currentPosition = 0;
-        int finalPosition = 0;
-        for (int i = 0; i < 5; i++)
-        {
-            if (!customers[i].hasValue)
-            {
-                if (position == currentPosition)
-                {
-                    finalPosition = i;
-                }
-                currentPosition++;
-            }
-        }
-        nullCount--;
+        List<int> freeCustomers = GetFreeCustomersIndices();
+        int finalPosition = freeCustomers[Random.Range(0, freeCustomers.Count)];
+        
         Customer customer = Customer.GenerateCustomer();
         customers[finalPosition] = customer;
         customers[finalPosition].hasValue = true;
@@ -92,7 +87,6 @@ public static class Shop
         {
             if (customers[i]==customer)
             {
-                nullCount++;
                 customers[i].hasValue = false;
                 PlayerState.THIS.Save();
                 break;
@@ -109,7 +103,6 @@ public static class Shop
                 int cost = (int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier);
                 Inventory.TakeFromInventoryPrecise(customer.desiredAnimal);
                 Inventory.AddToInventory(cost);
-                nullCount++;
                 customers[i].hasValue = false;
                 PlayerState.THIS.Save();
                 Analytics.LogEvent("animal_sold", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
