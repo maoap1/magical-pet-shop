@@ -33,7 +33,7 @@ MonoBehaviour:
     rarity: 0
     locked: 0
   baseRarity: 0
-  baseDuration: 2400
+  baseDuration: 3000
   recipeLevels:
   - treshold: 9
     upgradeType: 4

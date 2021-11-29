@@ -16,31 +16,31 @@ MonoBehaviour:
   producerLevels:
   - cost: 0
     productionRatePerMinute: 15
-    storageLimit: 15
+    storageLimit: 10
   - cost: 500
     productionRatePerMinute: 19
-    storageLimit: 20
+    storageLimit: 15
   - cost: 800
     productionRatePerMinute: 22
-    storageLimit: 25
+    storageLimit: 20
   - cost: 1200
     productionRatePerMinute: 24
-    storageLimit: 35
+    storageLimit: 30
   - cost: 1700
     productionRatePerMinute: 26
-    storageLimit: 45
+    storageLimit: 40
   - cost: 2300
     productionRatePerMinute: 28
-    storageLimit: 55
+    storageLimit: 50
   - cost: 3000
     productionRatePerMinute: 30
-    storageLimit: 65
+    storageLimit: 60
   - cost: 5000
     productionRatePerMinute: 31
-    storageLimit: 75
+    storageLimit: 70
   - cost: 7500
     productionRatePerMinute: 32
-    storageLimit: 85
+    storageLimit: 80
   - cost: 10000
     productionRatePerMinute: 33
     storageLimit: 90

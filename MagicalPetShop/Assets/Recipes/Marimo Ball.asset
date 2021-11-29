@@ -29,7 +29,7 @@ MonoBehaviour:
     count: 5
   baseCostAnimals: []
   baseRarity: 0
-  baseDuration: 385
+  baseDuration: 480
   recipeLevels:
   - treshold: 8
     upgradeType: 6
