@@ -74,6 +74,35 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:91993539388:android:04b294bc12fbf8b1d9d439",
+        "android_client_info": {
+          "package_name": "com.TheTeamBehind.MagicalPetShopA2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQY1JV2Tsdm2jzyVyIzlVOqw9mpquSZP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:91993539388:android:369a11c6a0f9e17ed9d439",
         "android_client_info": {
           "package_name": "com.TheTeamBehind.MagicalPetShopB"
@@ -135,6 +164,35 @@
         "mobilesdk_app_id": "1:91993539388:android:2da89a60afde4361d9d439",
         "android_client_info": {
           "package_name": "com.TheTeamBehind.MagicalPetShopD"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQY1JV2Tsdm2jzyVyIzlVOqw9mpquSZP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91993539388-hgcmgkg6crlbpi2q5p96kts3jjjhu2oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91993539388:android:ddf50ff07a7b7900d9d439",
+        "android_client_info": {
+          "package_name": "com.TheTeamBehind.MagicalPetShopD2"
         }
       },
       "oauth_client": [
