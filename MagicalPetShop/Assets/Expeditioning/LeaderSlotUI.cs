@@ -56,7 +56,7 @@ public class LeaderSlotUI : MonoBehaviour {
         if (pack.owned) {
             this.powerText.text = this.pack.GetTotalPower().ToString();
             this.power.SetActive(true);
-            this.statusText.text = this.pack.busy ? "EXPLORING" : "FREE";
+            this.statusText.text = this.pack.busy ? "Exploring" : "Available";
             this.status.SetActive(true);
             this.cost.SetActive(false);
         } else {

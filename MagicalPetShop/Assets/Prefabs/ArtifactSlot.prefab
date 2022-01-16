@@ -352,7 +352,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9b1c3d54af64ec64cb727bd8be13d9bc, type: 3}
-    m_FontSize: 44
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -362,7 +362,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.75
   m_Text: Blessed Poop
 --- !u!114 &5435366808550905554
 MonoBehaviour:

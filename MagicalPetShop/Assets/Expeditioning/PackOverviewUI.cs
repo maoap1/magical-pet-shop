@@ -85,7 +85,7 @@ public class PackOverviewUI : MonoBehaviour {
         this.nameText.text = this.pack.name;
         this.iconImage.sprite = this.pack.artwork;
         this.powerText.text = this.pack.GetTotalPower().ToString();
-        this.statusText.text = this.pack.busy ? "EXPLORING" : "FREE";
+        this.statusText.text = this.pack.busy ? "Exploring" : "Available";
 
         // display location slots
         foreach (PackSlot slot in this.pack.slots) {
