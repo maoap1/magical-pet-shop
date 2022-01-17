@@ -11,7 +11,6 @@ public class CraftingUpgradeDisplay : MonoBehaviour
     private int cost;
     private CraftingInfo craftingInfo;
 
-    private Color defaultButtonColor;
     private Color inactiveButtonColor;
     private Image imageComponent;
     public void Open(CraftingInfo ci)
@@ -22,7 +21,6 @@ public class CraftingUpgradeDisplay : MonoBehaviour
         costDisplay.SetCost(cost);
         this.gameObject.SetActive(true);
         UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(costDisplay.GetComponent<RectTransform>());
-        this.defaultButtonColor = UIPalette.THIS.GetColor(accept.gameObject.GetComponent<ImageColor>().color);
         this.inactiveButtonColor = UIPalette.THIS.GetColor(PaletteColor.Inactive);
         this.imageComponent = accept.gameObject.GetComponent<Image>();
         GetComponent<AppearHideComponent>().Do();
@@ -65,7 +63,7 @@ public class CraftingUpgradeDisplay : MonoBehaviour
     public void Update()
     {
         if (canUpgrade()) {
-            imageComponent.color = this.defaultButtonColor;
+            imageComponent.color = Color.white;
             accept.interactable = true;
         }
         else {
