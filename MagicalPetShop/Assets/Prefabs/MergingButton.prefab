@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f0c2d4e401c74b8f07a3de14389c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetScalePercent: 0.95
 --- !u!114 &4003285211804015058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725447c9ccee65f42bacdb3e08f9ae35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetY: -420
+  targetY: -510
   startY: -1900
   duration: 0.5
   backDuration: 0.3
