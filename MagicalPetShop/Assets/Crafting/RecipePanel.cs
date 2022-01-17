@@ -64,7 +64,7 @@ public class RecipePanel : MonoBehaviour
         }
         else {
             recipeProgress.gameObject.SetActive(true);
-            upgrade.gameObject.SetActive(true);
+            //upgrade.gameObject.SetActive(true);
             upgrade.color = Color.white;
             switch (recipe.nextUpgradeType)
             {
