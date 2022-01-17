@@ -15,7 +15,7 @@ MonoBehaviour:
   name: exp1
   artwork: {fileID: 21300000, guid: 2d9a7262057de8e4b89be98b4acc5cb2, type: 3}
   level: 2
-  duration: 300
+  duration: 120
   reward: {fileID: 11400000, guid: 043b401343b46194f909e92393283c19, type: 2}
   difficultyModes:
   - difficulty: 0

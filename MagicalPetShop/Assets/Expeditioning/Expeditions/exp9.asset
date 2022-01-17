@@ -15,7 +15,7 @@ MonoBehaviour:
   name: exp9
   artwork: {fileID: 21300000, guid: 57ae1b47d5196eb4a9623ac3009cc2fa, type: 3}
   level: 6
-  duration: 2700
+  duration: 600
   reward: {fileID: 11400000, guid: 237ffcc0efc2bcf4487948e73c28c7ab, type: 2}
   difficultyModes:
   - difficulty: 0
