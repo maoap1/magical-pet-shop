@@ -30,6 +30,7 @@ public class UIPalette : ScriptableObject {
     public Color HighlightDarkColor;
     public Color TextDarkColor;
     public Color TextLightColor;
+    public Color TextCountColor;
 
     public Color GetColor(PaletteColor color) {
         switch (color) {
@@ -59,6 +60,8 @@ public class UIPalette : ScriptableObject {
                 return TextDarkColor;
             case PaletteColor.TextLight:
                 return TextLightColor;
+            case PaletteColor.TextCountColor:
+                return TextCountColor;
             default:
                 return new Color(0, 0, 0);
         }
@@ -78,5 +81,6 @@ public enum PaletteColor {
     Highlight,
     TextDark,
     TextLight,
-    HighlightLight
+    HighlightLight,
+    TextCountColor
 }

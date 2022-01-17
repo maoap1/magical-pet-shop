@@ -10,6 +10,9 @@ public class Analytics : MonoBehaviour
     [Tooltip("Variant of game for experiment, change before build (0 is reserved for debugging).")]
     public int buildVariant = 0;
 
+    [Tooltip("Enable/disable sending analytics.")]
+    public bool analyticsEnabled = true;
+
     static bool initialized;
     static List<AnalyticsEvent> pendingEvents = new List<AnalyticsEvent>();
 
@@ -20,17 +23,21 @@ public class Analytics : MonoBehaviour
 
 
     public static void LogEvent(string eventName) {
+        Analytics analytics = GameObject.FindObjectOfType<Analytics>();
+        if (!analytics.analyticsEnabled) return;
         if (Analytics.initialized) {
-            FirebaseAnalytics.LogEvent(eventName, new Parameter("build_variant", GameObject.FindObjectOfType<Analytics>().buildVariant));
+            FirebaseAnalytics.LogEvent(eventName, new Parameter("build_variant", analytics.buildVariant));
         } else {
             Analytics.pendingEvents.Add(new AnalyticsEvent(eventName));
         }
     }
 
     public static void LogEvent(string eventName, params Parameter[] parameters) {
+        Analytics analytics = GameObject.FindObjectOfType<Analytics>();
+        if (!analytics.analyticsEnabled) return;
         if (Analytics.initialized) {
             Array.Resize(ref parameters, parameters.Length + 1);
-            parameters[parameters.Length - 1] = new Parameter("build_variant", GameObject.FindObjectOfType<Analytics>().buildVariant);
+            parameters[parameters.Length - 1] = new Parameter("build_variant", analytics.buildVariant);
             FirebaseAnalytics.LogEvent(eventName, parameters);
         } else {
             Analytics.pendingEvents.Add(new AnalyticsEvent(eventName, parameters));
@@ -94,6 +101,7 @@ public class Analytics : MonoBehaviour
     }
 
     private void OnDestroy() {
+        if (!analyticsEnabled) return;
         if (this.isFirst) {
             FirebaseAnalytics.LogEvent("game_quited", new Parameter("build_variant", buildVariant));
         }

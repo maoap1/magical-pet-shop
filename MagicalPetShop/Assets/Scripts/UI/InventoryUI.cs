@@ -20,6 +20,9 @@ public class InventoryUI : MonoBehaviour {
     [SerializeField]
     private GameObject artifactSlot;
 
+    [SerializeField]
+    private ToggleButton toggleButton;
+
     public void Open() {
         Refresh();
         GetComponent<AppearHideComponent>().Do();
@@ -34,6 +37,8 @@ public class InventoryUI : MonoBehaviour {
         Clear();
         // add items from inventory to the grid layout
         DisplayItems();
+        // display currently chosen content
+        this.toggleButton.ShowContent();
     }
 
     private void DisplayItems() {
