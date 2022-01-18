@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 669766564599092724}
   - component: {fileID: 8758568117149598428}
   - component: {fileID: 2388061061578331275}
+  - component: {fileID: 4563319935946790543}
   m_Layer: 0
   m_Name: NewRecipe
   m_TagString: Untagged
@@ -90,6 +91,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 6
   initializeOnStart: 1
+--- !u!114 &4563319935946790543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920000811686111883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725447c9ccee65f42bacdb3e08f9ae35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetY: 40
+  startY: 0
+  duration: 0.2
+  backDuration: 0.2
+  disable: 0
+  enable: 0
+  tweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  backTweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  GetToStart: 0
+  TweenToTarget: 0
 --- !u!1 &3812680486479861975
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +170,7 @@ GameObject:
   - component: {fileID: 7764589924472839977}
   - component: {fileID: 3221495430204869863}
   - component: {fileID: 7758719929129252448}
+  - component: {fileID: 4462766298571452807}
   m_Layer: 5
   m_Name: LocationIcon
   m_TagString: Untagged
@@ -165,6 +235,74 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4462766298571452807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812680486479861975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725447c9ccee65f42bacdb3e08f9ae35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetY: 40
+  startY: 0
+  duration: 0.2
+  backDuration: 0.2
+  disable: 0
+  enable: 0
+  tweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  backTweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  GetToStart: 0
+  TweenToTarget: 0
 --- !u!1 &6301888114667924354
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +500,7 @@ GameObject:
   - component: {fileID: 4468184466812856279}
   - component: {fileID: 5657946395052405335}
   - component: {fileID: 4940866337088986715}
+  - component: {fileID: 4855825380927025157}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -426,3 +565,71 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4855825380927025157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169260969553995588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725447c9ccee65f42bacdb3e08f9ae35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetY: 130
+  startY: 90
+  duration: 0.2
+  backDuration: 0.2
+  disable: 0
+  enable: 0
+  tweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  backTweenType:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  GetToStart: 0
+  TweenToTarget: 0

@@ -54,9 +54,20 @@ public class MergingLocationFilter : MonoBehaviour
         mergingDisplayPanel.Display(animalsDisplay);
         foreach (MergingLocationFilter mlf in locationFilterPanel.GetComponentsInChildren<MergingLocationFilter>())
         {
+            if (mlf.selected)
+            {
+                foreach (SlidingTween tw in mlf.gameObject.GetComponentsInChildren<SlidingTween>())
+                {
+                    tw.SlideYBackCurve();
+                }
+            }
             mlf.selected = false;
         }
         selected = true;
+        foreach (SlidingTween tw in this.gameObject.GetComponentsInChildren<SlidingTween>())
+        {
+            tw.SlideY();
+        }
         mergingPanel.defaultMergingCategory = this;
     }
 

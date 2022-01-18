@@ -49,10 +49,21 @@ public class RecipeLocationFilter : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         foreach (RecipeLocationFilter rlf in locationFilterPanel.GetComponentsInChildren<RecipeLocationFilter>()) {
+            if (rlf.selected)
+            {
+                foreach (SlidingTween tw in rlf.gameObject.GetComponentsInChildren<SlidingTween>())
+                {
+                    tw.SlideYBackCurve();
+                }
+            }
             rlf.selected = false;
             rlf.UpdateNew();
         }
         selected = true;
+        foreach (SlidingTween tw in this.gameObject.GetComponentsInChildren<SlidingTween>())
+        {
+            tw.SlideY();
+        }
         recipesPanel.defaultRecipeCategory = this;
 
 
