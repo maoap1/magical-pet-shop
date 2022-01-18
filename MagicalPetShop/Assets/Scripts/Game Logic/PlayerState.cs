@@ -49,7 +49,7 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
-    public bool tutorial = true;
+    public bool tutorial = false;
     public int currentTutorial = 0;
     public List<int> tutorialProgress = new List<int>();
     public int playedTutorial = 0;
@@ -123,15 +123,19 @@ public class PlayerState : MonoBehaviour
                 JsonUtility.FromJsonOverwrite(stateJson, this);
                 Shop.lastArrivalTime = lastArrivalTime;
                 Shop.customers = customers;
-                Tutorials.THIS.currentIndex = this.currentTutorial;
-                Tutorials.THIS.playedIndex = this.playedTutorial;
-                Tutorials.THIS.finished = false;
-                for (int i = 0; i < Tutorials.THIS.tutorials.Count; i++)
+                if (tutorial)
                 {
-                    Tutorials.THIS.tutorials[i].progress = this.tutorialProgress[i];
-                }
-                if (Tutorials.THIS.playedIndex < Tutorials.THIS.tutorials.Count && Tutorials.THIS.playedIndex >= 0) {
-                    Tutorials.THIS.tutorials[Tutorials.THIS.playedIndex].startWithProgress(tutorialProgress[playedTutorial]);
+                    Tutorials.THIS.currentIndex = this.currentTutorial;
+                    Tutorials.THIS.playedIndex = this.playedTutorial;
+                    Tutorials.THIS.finished = false;
+                    for (int i = 0; i < Tutorials.THIS.tutorials.Count; i++)
+                    {
+                        Tutorials.THIS.tutorials[i].progress = this.tutorialProgress[i];
+                    }
+                    if (Tutorials.THIS.playedIndex < Tutorials.THIS.tutorials.Count && Tutorials.THIS.playedIndex >= 0)
+                    {
+                        Tutorials.THIS.tutorials[Tutorials.THIS.playedIndex].startWithProgress(tutorialProgress[playedTutorial]);
+                    }
                 }
             }
             else
@@ -143,7 +147,10 @@ public class PlayerState : MonoBehaviour
         {
             LoadFromGameLogic();
         }
-        GameLogic.THIS.InitTutorialVariables();
+        if (tutorial)
+        {
+            GameLogic.THIS.InitTutorialVariables();
+        }
     }
 
     public void Start()
