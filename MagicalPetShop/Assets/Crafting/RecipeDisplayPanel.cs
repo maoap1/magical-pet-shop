@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeDisplayPanel : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class RecipeDisplayPanel : MonoBehaviour
             RecipePanel recipePanel = Instantiate(recipePanelPrefab, transform).GetComponent<RecipePanel>();
             recipePanel.recipe = rp;
             recipePanel.recipesPanel = recipesPanel;
+            recipePanel.GetComponent<Image>().color = Color.white;
             recipePanel.UpdateInfo();
         }
     }

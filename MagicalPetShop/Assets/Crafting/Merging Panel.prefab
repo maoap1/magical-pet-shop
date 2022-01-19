@@ -227,8 +227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -35}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &674002377682116588
 CanvasRenderer:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df7103b94c5354041998e52f97874db4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7d2557affad7df48bf64fadcfd1856f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3812985893616551357}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e5c45175d938354896e824f9182faad, type: 3}
   m_Name: 
@@ -674,8 +674,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: -60, y: -60}
+  m_AnchoredPosition: {x: 0, y: 20}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6291351951685431685
 CanvasRenderer:
@@ -838,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574970192609526677, guid: 7ff75a7616505714e8d4c8fbd90ccc56, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.875
+      value: 21.455
       objectReference: {fileID: 0}
     - target: {fileID: 7574970192609526677, guid: 7ff75a7616505714e8d4c8fbd90ccc56, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1173,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574970192609526677, guid: 7ff75a7616505714e8d4c8fbd90ccc56, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.875
+      value: 21.455
       objectReference: {fileID: 0}
     - target: {fileID: 7574970192609526677, guid: 7ff75a7616505714e8d4c8fbd90ccc56, type: 3}
       propertyPath: m_AnchoredPosition.y

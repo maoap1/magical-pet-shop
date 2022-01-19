@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MergingDisplayPanel : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MergingDisplayPanel : MonoBehaviour
             MergingPanel mergingPanel = Instantiate(mergingPanelPrefab, transform).GetComponent<MergingPanel>();
             mergingPanel.animal = inventoryAnimalMerging;
             mergingPanel.mergingPanel = this.mergingPanel;
+            mergingPanel.GetComponent<Image>().color = Color.white;
             mergingPanel.UpdateInfo();
         }
     }
