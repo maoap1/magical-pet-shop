@@ -24,6 +24,7 @@ public class RecipePanel : MonoBehaviour
 
     public void UpdateInfo()
     {
+        gameObject.GetComponent<Image>().color = Color.white;
         if (recipe.newRecipe)
         {
             isNew.SetActive(true);
@@ -64,7 +65,7 @@ public class RecipePanel : MonoBehaviour
         }
         else {
             recipeProgress.gameObject.SetActive(true);
-            //upgrade.gameObject.SetActive(true);
+            upgrade.gameObject.SetActive(true);
             upgrade.color = Color.white;
             switch (recipe.nextUpgradeType)
             {
