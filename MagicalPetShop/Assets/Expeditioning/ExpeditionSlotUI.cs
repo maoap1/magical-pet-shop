@@ -11,7 +11,7 @@ public class ExpeditionSlotUI : MonoBehaviour {
     [SerializeField]
     TMPro.TextMeshProUGUI nameText;
     [SerializeField]
-    TMPro.TextMeshProUGUI durationText;
+    //TMPro.TextMeshProUGUI durationText;
 
     private ExpeditionType expedition;
     private SingleExpeditionUI expeditionUI;
@@ -22,7 +22,7 @@ public class ExpeditionSlotUI : MonoBehaviour {
 
         this.iconImage.sprite = expedition.reward.artwork;
         this.nameText.text = expedition.reward.name;
-        this.durationText.text = expedition.GetFormattedDuration();
+        //this.durationText.text = expedition.GetFormattedDuration();
     }
 
     public void Clicked() {
