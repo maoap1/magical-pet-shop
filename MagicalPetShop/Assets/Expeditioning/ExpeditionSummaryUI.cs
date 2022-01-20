@@ -6,6 +6,9 @@ using UnityEngine.UI;
 // Shows summary of expedition results - number of artifacts, casualties
 [RequireComponent(typeof(AppearHideComponent))]
 public class ExpeditionSummaryUI : MonoBehaviour {
+    public GameObject CrownHat;
+    public GameObject JokerHat;
+
     [SerializeField]
     List<GameObject> objectsToHideFromUpper;
     [SerializeField]
@@ -58,10 +61,12 @@ public class ExpeditionSummaryUI : MonoBehaviour {
     }
 
     private void DisplayData(ExpeditionResult result) {
-        this.resultText.text = result.isSuccessful ? "SUCCESS" : "FAIL";
+        this.resultText.text = result.isSuccessful ? "SUCCESS!" : "FAILURE!";
+        JokerHat.SetActive(!result.isSuccessful);
+        CrownHat.SetActive(result.isSuccessful);
         this.leaderImage.sprite = result.pack.artwork;
         this.rewardImage.sprite = result.reward.artifact.artwork;
-        this.rewardCountText.text = "+" + result.reward.count.ToString();
+        this.rewardCountText.text = result.reward.count.ToString();
         this.noCasualtiesText.gameObject.SetActive(result.casualties.Count == 0);
 
         // Display casualties (first clear)
