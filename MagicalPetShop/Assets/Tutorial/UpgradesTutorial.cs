@@ -89,10 +89,10 @@ public class UpgradesTutorial : Tutorial
 
             Rect tp = new Rect
             {
-                x = 420,
-                y = 1455,
+                x = 415,
+                y = 1415,
                 width = 250,
-                height = 150
+                height = 180
             };
             canvas.DisableAllExcept(tp);
             if (SceneManager.GetActiveScene().name == "Shop")
@@ -156,10 +156,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("A new animal was discovered in the earth category, move there!");
             Rect tp = new Rect
             {
-                x = 230,
-                y = 500,
-                width = 150,
-                height = 150
+                x = 292,
+                y = 605,
+                width = 120,
+                height = 120
             };
             canvas.DisableAllExcept(tp);
             progress++;
@@ -170,10 +170,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Now you know where to craft new animals. Let's find out more about upgrades!");
             Rect tp = new Rect
             {
-                x = 80,
-                y = 500,
-                width = 150,
-                height = 150
+                x = 165,
+                y = 605,
+                width = 120,
+                height = 120
             };
             canvas.DisableAllExcept(tp);
             progress++;
@@ -184,10 +184,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Click on the info to find out more about the recipe!");
             Rect tp = new Rect
             {
-                x = 72,
-                y = 1102,
-                width = 60,
-                height = 60
+                x = 340,
+                y = 1195,
+                width = 80,
+                height = 80
             };
             canvas.DisableAllExcept(tp);
             progress++;
@@ -198,10 +198,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("This display tells you everything important about the veiltail fish!");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 490,
-                width = 980,
-                height = 1325
+                x = 20,
+                y = 400,
+                width = 1040,
+                height = 1500
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -213,10 +213,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("The name and a picture of the crafted animal!");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 490,
-                width = 980,
-                height = 350
+                x = 140,
+                y = 790,
+                width = 300,
+                height = 500
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -228,10 +228,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Resources needed for crafting.");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 810,
-                width = 980,
-                height = 380
+                x = 480,
+                y = 1040,
+                width = 500,
+                height = 300
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -243,10 +243,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("The number of animals of this type produced so far.");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 1150,
-                width = 980,
-                height = 150
+                x = 80,
+                y = 1363,
+                width = 900,
+                height = 120
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -265,10 +265,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("You already unlocked the first upgrade - a new recipe!");
             Rect tp = new Rect
             {
-                x = 60,
-                y = 1280,
-                width = 200,
-                height = 300
+                x = 90,
+                y = 1500,
+                width = 180,
+                height = 270
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -287,10 +287,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Other upgrades include lower crafting cost, faster crafting time...");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 1280,
-                width = 980,
-                height = 300
+                x = 80,
+                y = 1500,
+                width = 900,
+                height = 270
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -309,10 +309,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("The animal has one or more categories.");
             Rect tp = new Rect
             {
-                x = 60,
-                y = 1580,
-                width = 200,
-                height = 250
+                x = 75,
+                y = 1210,
+                width = 150,
+                height = 150
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -324,10 +324,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Fish is an animal of tier 1.");
             Rect tp = new Rect
             {
-                x = 390,
-                y = 1580,
-                width = 200,
-                height = 250
+                x = 357,
+                y = 770,
+                width = 150,
+                height = 150
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -353,10 +353,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("Fish of the common quality is worth 50 coins.");
             Rect tp = new Rect
             {
-                x = 570,
-                y = 1580,
-                width = 240,
-                height = 250
+                x = 500,
+                y = 815,
+                width = 230,
+                height = 230
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -368,10 +368,10 @@ public class UpgradesTutorial : Tutorial
             canvas.upperText.Display("And it takes 15 seconds to craft it.");
             Rect tp = new Rect
             {
-                x = 785,
-                y = 1580,
-                width = 240,
-                height = 250
+                x = 750,
+                y = 815,
+                width = 250,
+                height = 230
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();

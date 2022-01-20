@@ -137,10 +137,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("You have to buy someone to lead the pack. Get the money to do so!");
             Rect tp = new Rect
             {
-                x = 60,
-                y = 330,
-                width = 480,
-                height = 750
+                x = 100,
+                y = 560,
+                width = 450,
+                height = 650
             };
             canvas.DisableAllExcept(tp);
             updateTime = Utils.EpochTime();
@@ -222,10 +222,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("Animals can be assigned to the pack by clicking on them!");
             Rect tp = new Rect
             {
-                x = 70,
-                y = 405,
-                width = 320,
-                height = 530
+                x = 90,
+                y = 560,
+                width = 300,
+                height = 515
             };
             canvas.Highlight(tp, true);
             updateTime = Utils.EpochTime();
@@ -237,10 +237,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("Each animal has strength.");
             Rect tp = new Rect
             {
-                x = 120,
-                y = 805,
-                width = 220,
-                height = 60
+                x = 130,
+                y = 915,
+                width = 225,
+                height = 55
             };
             canvas.Highlight(tp);
             updateTime = Utils.EpochTime();
@@ -252,10 +252,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("Higher strength allows it to succeed in harder expeditions.");
             Rect tp = new Rect
             {
-                x = 120,
-                y = 805,
-                width = 220,
-                height = 60
+                x = 130,
+                y = 915,
+                width = 225,
+                height = 55
             };
             canvas.Highlight(tp);
             updateTime = Utils.EpochTime();
@@ -267,10 +267,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("It also has some chance of dying on an expedition.");
             Rect tp = new Rect
             {
-                x = 120,
-                y = 860,
-                width = 220,
-                height = 60
+                x = 130,
+                y = 965,
+                width = 225,
+                height = 55
             };
             canvas.Highlight(tp);
             updateTime = Utils.EpochTime();
@@ -370,10 +370,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("Select the first expedition!");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 400,
-                width = 980,
-                height = 380
+                x = 70,
+                y = 430,
+                width = 910,
+                height = 400
             };
             canvas.DisableAllExcept(tp);
             PlayerState.THIS.lastExpeditionDifficulties[0] = ExpeditionDifficulty.Easy;
@@ -387,7 +387,7 @@ public class ExpeditionsTutorial : Tutorial
             Rect tp = new Rect
             {
                 x = 390,
-                y = 540,
+                y = 590,
                 width = 300,
                 height = 100
             };
@@ -402,7 +402,7 @@ public class ExpeditionsTutorial : Tutorial
             Rect tp = new Rect
             {
                 x = 390,
-                y = 540,
+                y = 590,
                 width = 300,
                 height = 100
             };
@@ -417,7 +417,7 @@ public class ExpeditionsTutorial : Tutorial
             Rect tp = new Rect
             {
                 x = 290,
-                y = 635,
+                y = 690,
                 width = 500,
                 height = 100
             };
@@ -432,7 +432,7 @@ public class ExpeditionsTutorial : Tutorial
             Rect tp = new Rect
             {
                 x = 290,
-                y = 725,
+                y = 800,
                 width = 500,
                 height = 100
             };
@@ -446,9 +446,9 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("Here you can select the pack to send on an expedition!");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 850,
-                width = 980,
+                x = 100,
+                y = 975,
+                width = 900,
                 height = 440
             };
             canvas.Highlight(tp);
@@ -461,9 +461,9 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("The face under the pack indicates the chance of expedition success.");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 850,
-                width = 980,
+                x = 100,
+                y = 975,
+                width = 900,
                 height = 440
             };
             canvas.Highlight(tp);
@@ -476,9 +476,9 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("The pack can be selected by tapping on it.");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 850,
-                width = 980,
+                x = 100,
+                y = 975,
+                width = 900,
                 height = 440
             };
             canvas.Highlight(tp);
@@ -491,9 +491,9 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("You can also hold your finger on the pack to inspect it.");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 850,
-                width = 980,
+                x = 100,
+                y = 975,
+                width = 900,
                 height = 440
             };
             canvas.Highlight(tp);
@@ -506,9 +506,9 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("The easy difficulty might not be challenging enough for you.");
             Rect tp = new Rect
             {
-                x = 50,
-                y = 850,
-                width = 980,
+                x = 100,
+                y = 975,
+                width = 900,
                 height = 440
             };
             canvas.Highlight(tp);
@@ -521,10 +521,10 @@ public class ExpeditionsTutorial : Tutorial
             canvas.upperText.Display("If this is the case you can change the difficulty to medium.");
             Rect tp = new Rect
             {
-                x = 895,
-                y = 605,
+                x = 840,
+                y = 640,
                 width = 100,
-                height = 150
+                height = 200
             };
             canvas.Highlight(tp);
             updateTime = Utils.EpochTime();
@@ -533,11 +533,11 @@ public class ExpeditionsTutorial : Tutorial
         else if (progress == 39 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Once you are ready you can start the expedition by clicking on go!");
+            canvas.upperText.Display("Once you are ready you can start the expedition by tapping on go!");
             Rect tp = new Rect
             {
                 x = 610,
-                y = 1355,
+                y = 1525,
                 width = 400,
                 height = 150
             };

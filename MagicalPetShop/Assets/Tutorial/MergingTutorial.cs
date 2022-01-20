@@ -104,10 +104,10 @@ public class MergingTutorial : Tutorial
             canvas.middleText.Display("Change from crafting to merging!");
             Rect tp = new Rect
             {
-                x = 60,
-                y = 345,
-                width = 150,
-                height = 150
+                x = 160,
+                y = 400,
+                width = 160,
+                height = 160
             };
             canvas.DisableAllExcept(tp);
             progress++;

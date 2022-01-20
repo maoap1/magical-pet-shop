@@ -102,7 +102,7 @@ public class CraftingSlotsTutorial : Tutorial
             Rect tp = new Rect
             {
                 x = 545,
-                y = 1100,
+                y = 1155,
                 width = 300,
                 height = 150
             };

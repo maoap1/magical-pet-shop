@@ -109,8 +109,8 @@ public class ProducersTutorial : Tutorial
             canvas.upperText.Display("Tap on the upgrade button to purchase a new level of the collector!");
             Rect tp = new Rect
             {
-                x = 600,
-                y = 1055,
+                x = 555,
+                y = 1090,
                 width = 400,
                 height = 150
             };

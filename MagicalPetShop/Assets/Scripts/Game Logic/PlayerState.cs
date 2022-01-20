@@ -49,7 +49,7 @@ public class PlayerState : MonoBehaviour
     public List<ExpeditionDifficulty> lastExpeditionDifficulties;
 
     private bool initialized = false;
-    public bool tutorial = false;
+    public bool tutorial = true;
     public int currentTutorial = 0;
     public List<int> tutorialProgress = new List<int>();
     public int playedTutorial = 0;

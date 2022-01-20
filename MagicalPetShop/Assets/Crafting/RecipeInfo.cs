@@ -85,7 +85,7 @@ public class RecipeInfo : MonoBehaviour
         }
         level.text = "T" + recipe.animal.level;
         moneyValue.SetNoRed();
-        moneyValue.SetCost(recipe.animal.value);
+        moneyValue.SetCost((int)(recipe.animal.value * recipe.costMultiplier));
         craftTime.SetCostTime(recipe.duration);
     }
 

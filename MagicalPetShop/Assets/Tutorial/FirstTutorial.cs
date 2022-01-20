@@ -129,8 +129,8 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("Oh, snap! It looks like we don't have fish in stock. Tell the customer to wait!");
             Rect tp = new Rect
             {
-                x = 340,
-                y = 1385,
+                x = 355,
+                y = 1325,
                 width = 400,
                 height = 200
             };
@@ -183,13 +183,13 @@ public class FirstTutorial : Tutorial
         else if (progress == 6 && GameLogic.THIS.inCrafting)
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("Click on the panel with the fish to start crafting it!");
+            canvas.upperText.Display("Tap on the panel with the fish to start crafting it!");
             Rect tp = new Rect
             {
-                x = 60,
-                y = 680,
-                width = 320,
-                height = 500
+                x = 150,
+                y = 800,
+                width = 240,
+                height = 400
             };
             canvas.DisableAllExcept(tp);
             progress++;
@@ -291,10 +291,10 @@ public class FirstTutorial : Tutorial
             canvas.upperText.Display("Click on the sell button to sell the fish to the customer!");
             Rect tp = new Rect
             {
-                x = 555,
-                y = 1185,
+                x = 540,
+                y = 1175,
                 width = 400,
-                height = 200
+                height = 180
             };
             canvas.DisableAllExcept(tp);
             progress++;
