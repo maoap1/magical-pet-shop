@@ -27,11 +27,9 @@ public class OrderPanel : MonoBehaviour
         cost.SetNoRed();
         if (!Inventory.HasInInventoryPrecise(customer.desiredAnimal)) {
             sellButton.interactable = false;
-            sellButton.gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(PaletteColor.Inactive);
             sellButtonText.color = Color.red;
         } else {
             sellButton.interactable = true;
-            sellButton.gameObject.GetComponent<Image>().color = UIPalette.THIS.GetColor(sellButton.gameObject.GetComponent<ImageColor>().color);
             sellButtonText.color = UIPalette.THIS.GetColor(sellButtonText.gameObject.GetComponent<TMPColor>().color);
         }
         GetComponent<AppearHideComponent>().Do();
