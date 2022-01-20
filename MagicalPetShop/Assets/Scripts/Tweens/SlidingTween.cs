@@ -32,7 +32,7 @@ public class SlidingTween : MonoBehaviour
     }
 
 
-    private void SetY(float target)
+    public void SetY(float target)
     {
         var rt = GetComponent<RectTransform>();
         rt.anchoredPosition = rt.anchoredPosition.WithY(target);

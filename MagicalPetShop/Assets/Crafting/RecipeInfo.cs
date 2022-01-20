@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class RecipeInfo : MonoBehaviour
 {
@@ -28,11 +29,20 @@ public class RecipeInfo : MonoBehaviour
         GameLogic.THIS.inRecipeInfo = true;
         recipe = rp;
         this.gameObject.SetActive(true);
+
+        this.GetComponent<SlidingTween>().SlideY();
+        this.GetComponent<SlidingTween>().SetY(this.GetComponent<SlidingTween>().startY);
+        if (this.GetComponent<SlidingTween>().enable) gameObject.SetActive(true);
+        GetComponent<RectTransform>().DOAnchorPosY(this.GetComponent<SlidingTween>().targetY, this.GetComponent<SlidingTween>().duration)
+            .SetEase(this.GetComponent<SlidingTween>().tweenType)
+            .OnComplete(() => {
+                foreach (GameObject g in tmpHidden)
+                {
+                    g.SetActive(false);
+                }
+            });
+
         secondaryCategoryImage.gameObject.SetActive(false);
-        foreach (GameObject g in tmpHidden)
-        {
-            g.SetActive(false);
-        }
 
         image.sprite = rp.animal.artwork;
         animalName.text = rp.animal.name;
@@ -83,7 +93,7 @@ public class RecipeInfo : MonoBehaviour
     {
         GameLogic.THIS.inRecipeInfo = false;
         GameLogic.THIS.currentRecipeCategory = null;
-        this.gameObject.SetActive(false);
+        this.GetComponent<SlidingTween>().SlideYBackCurve();
         foreach (GameObject g in tmpHidden)
         {
             g.SetActive(true);
