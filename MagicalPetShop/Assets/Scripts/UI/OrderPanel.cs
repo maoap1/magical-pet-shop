@@ -25,12 +25,13 @@ public class OrderPanel : MonoBehaviour
         cost.costText.text = ((int)(customer.desiredAnimal.animal.value * GameLogic.THIS.getRarityMultiplier(customer.desiredAnimal.rarity) * PlayerState.THIS.recipes.Find(r => r.animal == customer.desiredAnimal.animal).costMultiplier)).ToString();
         cost.icon.sprite = GameGraphics.THIS.money;
         cost.SetNoRed();
+        sellButtonText.color = UIPalette.THIS.GetColor(sellButtonText.gameObject.GetComponent<TMPColor>().color);
         if (!Inventory.HasInInventoryPrecise(customer.desiredAnimal)) {
             sellButton.interactable = false;
-            sellButtonText.color = Color.red;
+            sellButtonText.alpha = 0.68f;
         } else {
             sellButton.interactable = true;
-            sellButtonText.color = UIPalette.THIS.GetColor(sellButtonText.gameObject.GetComponent<TMPColor>().color);
+            sellButtonText.alpha = 1.0f;
         }
         GetComponent<AppearHideComponent>().Do();
         LayoutRebuilder.ForceRebuildLayoutImmediate(cost.GetComponent<RectTransform>());
