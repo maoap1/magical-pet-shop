@@ -365,7 +365,7 @@ public class UpgradesTutorial : Tutorial
         else if (progress == 25 && Utils.ClickOrTouchEnd())
         {
             TutorialCanvas canvas = Resources.FindObjectsOfTypeAll<TutorialCanvas>()[0];
-            canvas.upperText.Display("And it takes 15 seconds to craft it.");
+            canvas.upperText.Display("And it takes 12 seconds to craft it.");
             Rect tp = new Rect
             {
                 x = 750,
