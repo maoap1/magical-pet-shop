@@ -459,8 +459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -10}
-  m_SizeDelta: {x: 50, y: 75}
+  m_AnchoredPosition: {x: 3.2999878, y: -7.68}
+  m_SizeDelta: {x: 115, y: 76.1}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6505914764311402872
 CanvasRenderer:
@@ -490,9 +490,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4d504cdcd10a2546bb03a387f82b58b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e805da43d70b6b34896deba436da784b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1501,8 +1501,8 @@ MonoBehaviour:
   quality: {fileID: 1375335645080952224}
   info: {fileID: 1469196783321202920}
   Lock: {fileID: 4139350544543852780}
-  lockedImage: {fileID: 21300000, guid: cb58091a5ce9c284993c5733bbaa51c8, type: 3}
-  unlockedImage: {fileID: 21300000, guid: a4d504cdcd10a2546bb03a387f82b58b, type: 3}
+  lockedImage: {fileID: 21300000, guid: b32092f882db1764ca831a24ab2a0932, type: 3}
+  unlockedImage: {fileID: 21300000, guid: e805da43d70b6b34896deba436da784b, type: 3}
 --- !u!1 &7278284114592248353
 GameObject:
   m_ObjectHideFlags: 0

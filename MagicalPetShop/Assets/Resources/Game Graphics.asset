@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 21300000, guid: 09a93b0aa95ef1c40b1a642e182b7846, type: 3}
   time: {fileID: 21300000, guid: c659c8e0b99160d459673ceb368f262e, type: 3}
-  changeRarity: {fileID: 21300000, guid: 7b03d3f79e7c8e04d8aa472aec49a9cc, type: 3}
+  changeRarity: {fileID: 21300000, guid: b988fa111730a7e4691445100838a9b5, type: 3}
   unknown: {fileID: 21300000, guid: 295a5d03c3a73434f97e907932784e8e, type: 3}
   unknownHighlight: {fileID: 21300000, guid: d9481c1f32fea1a4e8ae5769edd44fcc, type: 3}
   commonColor: {r: 0, g: 0, b: 0, a: 0}
