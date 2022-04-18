@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Analytics;
 
 public static class Expeditioning
 {
@@ -17,9 +16,6 @@ public static class Expeditioning
             pack.busy = true;
             PlayerState.THIS.expeditions.Add(new Expedition(expeditionType, difficulty, pack));
             PlayerState.THIS.Save();
-            Analytics.LogEvent("expedition_started",
-                new Parameter("expedition", expeditionType.name), new Parameter("exp_difficulty", difficulty.ToString()),
-                new Parameter("pack", pack.name), new Parameter("pack_power", pack.GetTotalPower()));
             return true;
         }
         return false;
@@ -49,10 +45,6 @@ public static class Expeditioning
         }
         PlayerState.THIS.expeditions.Remove(expedition);
         PlayerState.THIS.Save();
-        Analytics.LogEvent("expedition_ended",
-            new Parameter("expedition", expedition.expeditionType.name), new Parameter("exp_difficulty", expedition.difficulty.ToString()), 
-            new Parameter("pack", expedition.pack.name), new Parameter("exp_result", isSuccessful ? "success" : "fail"),
-            new Parameter("exp_reward", rewardCount), new Parameter("exp_casualties", casualties.Count));
         return new ExpeditionResult(isSuccessful, expedition.pack, reward, casualties);
     }
 
@@ -120,7 +112,6 @@ public static class PacksManager {
             Inventory.TakeFromInventory(pack.cost);
             pack.owned = true;
             PlayerState.THIS.Save();
-            Analytics.LogEvent("pack_purchased", new Parameter("pack", pack.name));
             return true;
         }
         return false;
@@ -133,7 +124,6 @@ public static class PacksManager {
             if (!pack.unlocked && pack.level <= PlayerState.THIS.level) {
                 pack.unlocked = true;
                 newPackUnlocked = true;
-                Analytics.LogEvent("pack_unlocked", new Parameter("pack", pack.name));
             }
             else if (pack.level > PlayerState.THIS.level)
             {
