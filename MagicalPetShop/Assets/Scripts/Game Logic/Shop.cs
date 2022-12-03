@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Analytics;
 
 public static class Shop
 {
@@ -81,7 +80,6 @@ public static class Shop
         Customer customer = Customer.GenerateCustomer();
         customers[finalPosition] = customer;
         customers[finalPosition].hasValue = true;
-        Analytics.LogEvent("new_customer", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
         PlayerState.THIS.Save();
     }
 
@@ -112,7 +110,6 @@ public static class Shop
                 nullCount++;
                 customers[i].hasValue = false;
                 PlayerState.THIS.Save();
-                Analytics.LogEvent("animal_sold", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
                 return;
             }
         }
@@ -122,7 +119,6 @@ public static class Shop
             Inventory.TakeFromInventoryPrecise(customer.desiredAnimal);
             Inventory.AddToInventory(cost);
             PlayerState.THIS.Save();
-            Analytics.LogEvent("animal_sold", new Parameter("animal", customer.desiredAnimal.animal.name), new Parameter("rarity", customer.desiredAnimal.rarity.ToString()));
         }
     }
 }
